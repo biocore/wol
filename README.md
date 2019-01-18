@@ -1,4 +1,12 @@
-![logo](logo.png?raw=true)
+---
+title: ''
+layout: single
+permalink: /start/
+sidebar:
+  nav: top
+---
+
+<!-- ![logo](logo.png?raw=true) -->
 
 # A Reference Phylogeny for 10,575 Bacterial and Archaeal Genomes
 

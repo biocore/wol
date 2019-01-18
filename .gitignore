@@ -50,3 +50,9 @@ doc/source/generated
 
 # IPythnon checkpoints
 .ipynb_checkpoints
+
+# GitHub Pages
+Gemfile
+Gemfile.lock
+_site/
+assets/

@@ -1,1 +1,36 @@
-theme: jekyll-theme-minimal
+# metadata
+title: WoL
+# name: biocore
+description: A Reference Phylogeny for 10,575 Bacterial and Archaeal Genomes
+# url: https://github.com/biocore/wol
+repository: NWO
+logo: logo.png
+
+# features:
+search: true
+
+# footer:
+#   links:
+
+# defaults:
+#   -
+#     scope:
+#       path: ''
+#       # type: docs
+#     values:
+#       # author_profile: true
+#       # layout: single
+#       # sidebar:
+#       #   nav: "docs"
+
+# theme: Minimal Mistakes
+remote_theme: mmistakes/minimal-mistakes@4.15.1
+plugins:
+  - jekyll-include-cache
+
+# directories
+plugins_dir: pages/plugins
+layouts_dir: pages/layouts
+data_dir: pages/data
+includes_dir: pages/includes
+sass_dir: pages/sass

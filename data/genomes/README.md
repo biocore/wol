@@ -1,3 +1,11 @@
+---
+title: ''
+layout: single
+permalink: /data/
+sidebar:
+  nav: data
+---
+
 # Genomes
 
 The metadata of genomes, including properties retrieved from NCBI and statistics calculated in our analyses. You may obtain the original genome sequences from our [Globus endpoint](https://www.globus.org/app/transfer?origin_id=23fd07dc-b6c8-11e8-8bf8-0a1d4c5c824a&origin_path=%2F), or download them from NCBI using the FTP paths provided in the table.
