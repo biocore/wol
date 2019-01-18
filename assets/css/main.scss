@@ -1,0 +1,43 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+// https://github.com/mmistakes/minimal-mistakes/issues/1219
+html {
+    font-size: 12px; // originally 16px
+    @include breakpoint($medium) {
+        font-size: 14px; // originally 18px
+    }
+
+    @include breakpoint($large) {
+        font-size: 16px; // originally 20px
+    }
+
+    @include breakpoint($x-large) {
+        font-size: 18px; // originally 22px
+    }
+}
+
+.page__content {
+    p, li, dl {
+        font-size: 0.95em;
+    }
+}
+
+.sidebar ul > li {
+    font-size: 0.8em;
+    padding-left: 10px;
+}
+
+.sidebar ul > li > ul > li {
+    list-style-type: '-';
+}
+
+.sidebar li a:hover {
+    color: $link-color;
+}
