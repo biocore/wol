@@ -1,0 +1,52 @@
+main:
+  - title: Start
+    url: /start/
+  - title: Data
+    url: /data/
+  - title: Gallery
+    url: /gallery/
+  - title: Code
+    url: /code/
+  - title: Protocols
+    url: /protocols/
+  - title: About
+    url: /about/
+
+
+top:
+  - title: Start
+    url: /start/
+  - title: Data
+    url: /data/
+  - title: Gallery
+    url: /gallery/
+  - title: Code
+    url: /code/
+  - title: Protocols
+    url: /protocols/
+  - title: About
+    url: /about/
+
+data:
+  - title: Start
+    url: /start/
+  - title: Data
+    children:
+      - title: Genomes
+        url: /data/genomes/
+      - title: Markers
+        url: /data/markers/
+      - title: Alignments
+        url: /data/alignments/
+      - title: Trees
+        url: /data/trees/
+      - title: Taxonomy
+        url: /data/genomes/
+  - title: Gallery
+    url: /gallery/
+  - title: Code
+    url: /code/
+  - title: Protocols
+    url: /protocols/
+  - title: About
+    url: /about/
