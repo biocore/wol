@@ -1,4 +1,5 @@
-# Markers
+Markers
+=======
 
 The 400 global marker genes for inferring phylogenetic relationships of bacterial and archaeal genomes. Originally implemented in [PhyloPhlAn](https://bitbucket.org/nsegata/phylophlan/wiki/Home).
 
