@@ -1,13 +1,13 @@
 # metadata
 title: WoL
-# name: biocore
+name: WoL development team
 description: A Reference Phylogeny for 10,575 Bacterial and Archaeal Genomes
-# url: https://github.com/biocore/wol
+url: https://github.com/biocore/wol
 repository: NWO
 logo: logo.png
 
 # features:
-search: true
+# search: true
 
 permalink: none
 
@@ -18,12 +18,13 @@ defaults:
   -
     scope:
       path: ''
-      # type: docs
+      type: pages
     values:
       title: ''
       # author_profile: true
       layout: single
       # toc: true
+      # toc_sticky: true
       classes: wide
       sidebar:
          nav: top
