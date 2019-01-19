@@ -1,16 +1,17 @@
-# Taxonomy
+Taxonomy
+========
 
 The original NCBI taxonomy of the sampled genomes.
 
-- `g2tid.txt`: Genome ID to NCBI taxonomy ID map.
-- `rank_names.tsv`: NCBI taxonomy names at ranks.
-- `rank_tids.tsv`: NCBI taxonomy IDs at ranks.
-- `lineages.txt`: [Greengenes](http://greengenes.lbl.gov/Download/)-style lineage strings.
-- `taxdump`: NCBI taxonomy database, shrinked to contain only entries represented by the selected genomes. For the original, complete database, please download from our [Globus endpoint](https://www.globus.org/app/transfer?origin_id=23fd07dc-b6c8-11e8-8bf8-0a1d4c5c824a&origin_path=%2F).
+- [g2tid.txt](g2tid.txt): Genome ID to NCBI taxonomy ID map.
+- [rank_names.tsv](rank_names.tsv.bz2): NCBI taxonomy names at ranks.
+- [rank_tids.tsv](rank_tids.tsv.bz2): NCBI taxonomy IDs at ranks.
+- [lineages.txt](lineages.txt.bz2): [Greengenes](http://greengenes.lbl.gov/Download/)-style lineage strings.
+- [taxdump](taxdump): NCBI taxonomy database, shrinked to contain only entries represented by the selected genomes. For the original, complete database, please download from our [Globus endpoint](https://www.globus.org/app/transfer?origin_id=23fd07dc-b6c8-11e8-8bf8-0a1d4c5c824a&origin_path=%2F).
 
 Properties and metrics per taxonomic group.
 
-- `metadata.tsv`: Columns:
+- [metadata.tsv](metadata.tsv.bz2): Columns:
   - `rank`, `name`, `id`: NCBI taxonomic rank, name and ID.
   - `count`: Number of genomes assigned to this taxon.
   - `meta_count`: Number of genomes with `scope` as `Environment`, i.e., metagenome-derived.
@@ -23,7 +24,7 @@ Properties and metrics per taxonomic group.
 
 Curated taxonomy.
 
-- `tax2tree`: tax2tree-curated taxonomy.
+- [tax2tree](tax2tree): tax2tree-curated taxonomy.
 
 ***
 

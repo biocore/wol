@@ -1,5 +1,5 @@
 main:
-  - title: Start
+  - title: Quickstart
     url: /start/
   - title: Data
     url: /data/
@@ -11,25 +11,8 @@ main:
     url: /protocols/
   - title: About
     url: /about/
-
 
 top:
-  - title: Start
-    url: /start/
-  - title: Data
-    url: /data/
-  - title: Gallery
-    url: /gallery/
-  - title: Code
-    url: /code/
-  - title: Protocols
-    url: /protocols/
-  - title: About
-    url: /about/
-
-data:
-  - title: Start
-    url: /start/
   - title: Data
     children:
       - title: Genomes
@@ -41,7 +24,7 @@ data:
       - title: Trees
         url: /data/trees/
       - title: Taxonomy
-        url: /data/genomes/
+        url: /data/taxonomy/
   - title: Gallery
     url: /gallery/
   - title: Code
