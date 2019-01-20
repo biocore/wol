@@ -46,7 +46,7 @@ In addition, our group is actively developing [**Empress**](https://github.com/b
 
 ## How to use it in research
 
-In addition to direct eyeballing, the reference tree can be used to extend the understanding of the composition and diversity of microbial communities. See [protocols](/protocols).
+In addition to direct eyeballing, the reference tree can be used to extend the understanding of the composition and diversity of microbial communities. See [protocols](protocols).
 
 
 ## Information for users of
@@ -69,7 +69,7 @@ Mappings to IMG genome/taxon IDs. are provided in the genome metadata. In the cu
 
 ### QIIME
 
-The reference tree can be used for the diversity analysis of shotgun metagenomes, using phylogeny-aware algorithms such as [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [**Faith's PD**](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity. See [protocols](/protocols).
+The reference tree can be used for the diversity analysis of shotgun metagenomes, using phylogeny-aware algorithms such as [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [**Faith's PD**](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity. See [protocols](protocols).
 
 A derivative for 16S rRNA-based analysis is under development. Please stay tuned.
 
@@ -85,7 +85,7 @@ The tree can replace the NCBI taxonomy hierarchy used in a Kraken analysis to gu
 
 ### PhyloPhlAn
 
-The 381 marker genes used to build the tree are a curated subsample of the 400 marker genes originally implemented in [PhyloPhlAn](https://bitbucket.org/nsegata/phylophlan/wiki/Home) ([Segata et al., 2013](https://www.nature.com/articles/ncomms3304)). For each marker gene, we provide functional annotation, gene tree and its degree of congruence with the species evolution. Please see [data/markers](/data/markers) and [data/trees/genes](/data/trees/genes).
+The 381 marker genes used to build the tree are a curated subsample of the 400 marker genes originally implemented in [PhyloPhlAn](https://bitbucket.org/nsegata/phylophlan/wiki/Home) ([Segata et al., 2013](https://www.nature.com/articles/ncomms3304)). For each marker gene, we provide functional annotation, gene tree and its degree of congruence with the species evolution. Please see [data/markers](data/markers) and [data/trees/genes](data/trees/genes).
 
 ## How to cite it
 
