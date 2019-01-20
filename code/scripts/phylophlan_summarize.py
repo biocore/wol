@@ -1,5 +1,9 @@
-# Summarize marker gene to genome matches identified by PhyloPhlAn.
-# Usage: python me.py
+#!/usr/bin/env python3
+"""Summarize marker gene to genome matches identified by PhyloPhlAn.
+
+Usage:
+    Just run me.
+"""
 
 import lzma
 
@@ -12,9 +16,9 @@ for i in range(20):
     print(str(i))
     with lzma.open('%s/up2prots.txt.xz' % str(i).zfill(2), 'rt') as f:
         for line in f:
-            l = line.rstrip('\r\n').split('\t')
+            x = line.rstrip('\r\n').split('\t')
             # format: marker ID <tab> protein1 ID <tab> protein2 ID <tab> ...
-            p, prots = l[0], l[1:]
+            p, prots = x[0], x[1:]
             if p not in p2prots:
                 p2prots[p] = set()
             for prot in prots:

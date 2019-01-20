@@ -1,5 +1,9 @@
-# Summarize r8s divergence time estimation results.
-# Usage: python me.py r8s.output output_filename_prefix
+#!/usr/bin/env python3
+"""Summarize r8s divergence time estimation results.
+
+Usage:
+    r8s_summarize_result.py r8s.output output_filename_prefix
+"""
 
 from sys import argv
 import re

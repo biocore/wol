@@ -1,5 +1,9 @@
-# Remove nodes with low support value and append child nodes to parent.
-# Usage: python me.py input.nwk cutoff output.nwk
+#!/usr/bin/env python3
+"""Remove nodes with low support value and append child nodes to parent.
+
+Usage:
+    unpack_low_support_w_fmt.py input.nwk cutoff output.nwk
+"""
 
 from sys import argv
 from skbio import TreeNode

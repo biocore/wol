@@ -1,12 +1,21 @@
-# Generate a matrix of pairwise phylogenetic distance (sum of branch lengths)
-# from a tree.
-# Usage: python me.py input.nwk output.dm
+"""Generate a matrix of pairwise phylogenetic distances (sum of branch
+lengths) from a tree.
 
-from sys import argv
+Usage:
+    phylo_distmat.py input.nwk > output.dm
+"""
+
+import sys
+import fileinput
 from skbio import TreeNode
 
-tree = TreeNode.read(argv[1])
 
-mat = tree.tip_tip_distances()
+def main():
+    with fileinput.input() as f:
+        tree = TreeNode.read(f)
+    mat = tree.tip_tip_distances()
+    mat.write(sys.stdout)
 
-mat.write(argv[2])
+
+if __name__ == '__main__':
+    main()

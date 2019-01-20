@@ -1,5 +1,14 @@
-# Generate pseudo taxonomic hierarchies based on a tree
-# Usage: python me.py tree.nwk [node_support_cutoff] [branch_length_cutoff]
+#!/usr/bin/env python3
+"""Generate pseudo taxonomic hierarchies based on a tree.
+
+Usage:
+    tree_to_taxonomy.py tree.nwk support_cutoff brlen_cutoff
+
+Output:
+    g2lineage.txt, g2tid.txt
+    nodes.dmp, names.dmp
+    tree.nids.nwk (optional)
+"""
 
 from sys import argv
 from skbio import TreeNode
@@ -7,7 +16,6 @@ from skbio import TreeNode
 tree = TreeNode.read(argv[1])
 
 print('Number of nodes: %d.' % tree.count())
-# print(tree.ascii_art())
 
 
 def collapse(nodes):
@@ -32,7 +40,6 @@ if len(argv) > 2:
                 nodes_to_collapse.append(node)
     collapse(nodes_to_collapse)
     print('Number of nodes: %d.' % tree.count())
-    # print(tree.ascii_art())
 
 # collapse short branches
 if len(argv) > 3:
@@ -46,7 +53,6 @@ if len(argv) > 3:
             break
         collapse(nodes_to_collapse)
     print('Number of nodes: %d.' % tree.count())
-    # print(tree.ascii_art())
 
 # assign node IDs if not already done
 if tree.name != 'N1':
@@ -56,7 +62,6 @@ if tree.name != 'N1':
             node.name = 'N%d' % idx
             idx += 1
     print('Internal node labels N1..N%d assigned.' % idx)
-    # print(tree.ascii_art())
 
     tree.write('tree.nids.nwk')
 

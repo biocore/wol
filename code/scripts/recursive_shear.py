@@ -1,7 +1,14 @@
-# Shear a tree recursively so that eventually all tips match a given taxon set.
-# Internal node labels are considered as taxa, too. Optionally, they cat be
-# converted to tips branching from their original positions.
-# Usage: python me.py input.nwk taxa.list [0/1] output.nwk
+#!/usr/bin/env python3
+"""Shear a tree recursively so that eventually all tips match a given taxon
+set.
+
+Internal node labels are considered as taxa, too. Optionally, they cat be
+converted to tips branching from their original positions.
+
+Usage:
+    recursive_shear.py input.nwk taxa.list [0/1] output.nwk
+    1 - convert internal nodes into tips
+"""
 
 from sys import argv
 from skbio import TreeNode

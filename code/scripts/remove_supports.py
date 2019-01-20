@@ -1,10 +1,27 @@
-# Remove node support values from a tree.
-# Usage: python me.py input.nwk output.nwk
+#!/usr/bin/env python3
+"""Remove branch support values from a tree.
 
-from sys import argv
+Usage:
+    remove_supports.py input.nwk > output.nwk
+"""
+
+import sys
+import fileinput
 from skbio import TreeNode
 
-tree = TreeNode.read(argv[1])
+
+def main():
+    with fileinput.input() as f:
+        tree = TreeNode.read(f)
+
+    for node in tree.non_tips():
+        if support(node) is not None:
+            if ':' in node.name:
+                node.name = ':'.join(node.name.split(':')[1:])
+            else:
+                node.name = None
+
+    tree.write(sys.stdout)
 
 
 def support(node):
@@ -14,11 +31,5 @@ def support(node):
         return None
 
 
-for node in tree.non_tips():
-    if support(node) is not None:
-        if ':' in node.name:
-            node.name = ':'.join(node.name.split(':')[1:])
-        else:
-            node.name = None
-
-tree.write(argv[2])
+if __name__ == '__main__':
+    main()

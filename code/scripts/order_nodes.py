@@ -1,6 +1,10 @@
-# Re-arrange tree in increasing or decreasing node order.
-# Usage: python me.py input.nwk 0/1 output.nwk
-# 0 - increasing, 1 - decreasing
+#!/usr/bin/env python3
+"""Re-arrange tree in increasing or decreasing node order.
+
+Usage:
+    order_nodes.py input.nwk 0/1 output.nwk
+    0 - increasing, 1 - decreasing
+"""
 
 from sys import argv
 from skbio import TreeNode

@@ -1,6 +1,10 @@
-# Sample pairwise phylogenetic and sequential distances inter- and intra-
-# domains (Archaea and Bacteria)
-# Usage: python me.py k phy.dm seq.dm archaea.txt result.tsv
+#!/usr/bin/env python3
+"""Sample pairwise phylogenetic and sequential distances inter- and intra-
+domains (Archaea and Bacteria).
+
+Usage:
+    sample_ab_dists.py k phy.dm seq.dm archaea.txt result.tsv
+"""
 
 from sys import argv
 from random import seed, sample

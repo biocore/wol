@@ -1,5 +1,10 @@
-# Build tree based on NCBI taxonomy hierarchy
-# Usage: python me.py taxdump_dir output.nwk
+#!/usr/bin/env python3
+"""Build tree based on NCBI taxonomy hierarchy.
+
+Usage:
+    Adjust parameters in place, then:
+    taxdump_to_tree.py taxdump_dir output.nwk
+"""
 
 from sys import argv
 from os.path import join

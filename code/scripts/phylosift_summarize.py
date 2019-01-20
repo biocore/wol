@@ -1,5 +1,9 @@
-# Summarize the number of hits per marker per genome.
-# Usage: python me.py genome.list output.tsv
+#!/usr/bin/env python3
+"""Summarize the number of hits per marker per genome.
+
+Usage:
+    phylosift_summarize.py genome.list output.tsv
+"""
 
 from sys import argv
 from subprocess import run, PIPE, STDOUT

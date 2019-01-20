@@ -10,7 +10,7 @@ header:
   overlay_image: /pages/splash.jpg
   actions:
     - label: Quick-Start
-      url: /start
+      url: start
     - label: GitHub Repo
       url: https://github.com/biocore/wol
   caption: Artist's impression of the 10,575-genome reference tree

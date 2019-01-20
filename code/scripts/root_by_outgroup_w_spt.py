@@ -1,6 +1,12 @@
-# Re-root a tree with a given set of taxa as the outgroup.
-# Note: This version can parse branch support values correctly when re-rooting.
-# Usage: python me.py input.nwk taxa.txt output.nwk
+#!/usr/bin/env python3
+"""Re-root a tree with a given set of taxa as the outgroup.
+
+Usage:
+    root_by_outgroup_w_support.py input.nwk taxa.txt output.nwk
+
+Note:
+    This version can parse branch support values correctly when re-rooting.
+"""
 
 from sys import argv
 from skbio import TreeNode

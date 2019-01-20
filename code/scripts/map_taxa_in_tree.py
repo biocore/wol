@@ -1,7 +1,12 @@
-# Convert a taxonomy tree into a genome tree based on genome-to-TaxID map.
-# In the taxonomy tree, internal node labels are also TaxIDs. If a genome
-# is mapped to a such TaxID, it will be appended as a tip from this node.
-# usage: python: me.py input.nwk g2tid.txt output.nwk
+#!/usr/bin/env python3
+"""Convert a taxonomy tree into a genome tree based on genome-to-TaxID map.
+
+In the taxonomy tree, internal node labels are also TaxIDs. If a genome is
+mapped to a such TaxID, it will be appended as a tip from this node.
+
+Usage:
+    map_taxa_in_tree.py input.nwk g2tid.txt output.nwk
+"""
 
 from sys import argv
 from skbio import TreeNode

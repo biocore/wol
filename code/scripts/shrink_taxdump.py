@@ -1,7 +1,13 @@
-# Shrink the standard NCBI taxdump files nodes.dmp and names.dmp so that
-# they only contain given TaxIDs and their ancestors
-# usage: python me.py taxid_list taxdump_dir
-# output: nodes.dmp and names.dmp
+#!/usr/bin/env python3
+"""Shrink the standard NCBI taxdump files nodes.dmp and names.dmp so that they
+only contain given TaxIDs and their ancestors.
+
+Usage:
+    shrink_taxdump.py taxid_list taxdump_dir
+
+Output:
+    nodes.dmp, names.dmp
+"""
 
 from sys import argv
 from os.path import join
