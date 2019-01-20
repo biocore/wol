@@ -1,5 +1,9 @@
-# Extract marker gene sequences from search result.
-# Usage: python me.py marker_gene.list genome.list output_dir
+#!/usr/bin/env python3
+"""Extract marker gene sequences from search result.
+
+Usage:
+    phylosift_extract.py marker_gene.list genome.list output_dir
+"""
 
 from sys import argv
 from subprocess import run, PIPE, STDOUT

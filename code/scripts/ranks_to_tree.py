@@ -1,11 +1,18 @@
-# Convert a genome-to-ranks map into a tree
-# Usage: python me.py rank_tids.tsv output.nwk
-# Output: rank_tree.nwk, genome_tree.nwk
+#!/usr/bin/env python3
+"""Convert a genome-to-ranks map into a tree.
 
-# Note: This script does not use scikit-bio's `from_taxonomy` because it cannot
-# handle missing values.
+Usage:
+    ranks_to_tree.py rank_tids.tsv
 
-from sys import argv
+Output:
+    rank_tree.nwk, genome_tree.nwk
+
+Note:
+    This script does not use scikit-bio's `from_taxonomy` because it cannot
+    handle missing values.
+"""
+
+import fileinput
 from skbio import TreeNode
 
 # Specify a name for the root.
@@ -14,37 +21,37 @@ root_name = '1'
 
 ranks = []
 g2taxon, taxon2parent, taxon2rank = {}, {}, {}
-with open(argv[1], 'r') as f:
-    for line in f:
-        x = line.rstrip('\r\n').split('\t')
 
-        # read ranks from header
-        if ranks == []:
-            ranks = x[1:]
+for line in fileinput.input():
+    x = line.rstrip('\r\n').split('\t')
+
+    # read ranks from header
+    if ranks == []:
+        ranks = x[1:]
+        continue
+
+    g, lineage = x[0], x[1:]
+
+    # "" and "0" are considered null assignments
+    lineage = [None if x == '' or x == '0' else x for x in lineage]
+
+    # map genome to lowest taxon
+    try:
+        g2taxon[g] = next(x for x in lineage[::-1] if x is not None)
+    except StopIteration:
+        pass
+
+    # map lower taxon to higher taxon
+    for i, taxon in enumerate(lineage):
+        if taxon is None or taxon in taxon2parent:
             continue
-
-        g, lineage = x[0], x[1:]
-
-        # "" and "0" are considered null assignments
-        lineage = [None if x == '' or x == '0' else x for x in lineage]
-
-        # map genome to lowest taxon
+        taxon2rank[taxon] = ranks[i]
+        parent = None
         try:
-            g2taxon[g] = next(x for x in lineage[::-1] if x is not None)
+            parent = next(x for x in lineage[:i][::-1] if x is not None)
         except StopIteration:
             pass
-
-        # map lower taxon to higher taxon
-        for i, taxon in enumerate(lineage):
-            if taxon is None or taxon in taxon2parent:
-                continue
-            taxon2rank[taxon] = ranks[i]
-            parent = None
-            try:
-                parent = next(x for x in lineage[:i][::-1] if x is not None)
-            except StopIteration:
-                pass
-            taxon2parent[taxon] = parent
+        taxon2parent[taxon] = parent
 
 taxon2gs = {}
 for g, taxon in g2taxon.items():

@@ -1,5 +1,9 @@
-# Re-root a tree with a given set of taxa as the outgroup.
-# Usage: python me.py input.nwk taxa.txt output.nwk
+#!/usr/bin/env python3
+"""Re-root a tree with a given set of taxa as the outgroup.
+
+Usage:
+    root_by_outgroup.py input.nwk taxa.txt output.nwk
+"""
 
 from sys import argv
 from skbio import TreeNode

@@ -15,7 +15,7 @@ Basic tree operations
 
 [**order_nodes.py**](order_nodes.py): Re-order nodes of a tree in increasing or decreasing order.
 
-[**unpack_low_support_w_format.py**](unpack_low_support_w_format.py): Unpack (collapse) internal nodes with branch support value lower than given cutoff.
+[**unpack_low_support_w_fmt.py**](unpack_low_support_w_fmt.py): Unpack (collapse) internal nodes with branch support value lower than given cutoff.
 
 [**append_taxa.py**](append_taxa.py): Append extra taxa to a tree as polytomies based on a tip-to-taxa map.
 
@@ -23,13 +23,15 @@ Basic tree operations
 Specialized tree operations
 ---------------------------
 
-[**order_nodes_centered.py**](order_nodes_centered.py): Re-order nodes of tree in a way such that the two basal clades are in increasing and decreasing order, respectively. If the input tree is already midpoint-rooted, the output tree will shape like a triangle.
+[**trianglize_tree.py**](trianglize_tree.py): Re-order nodes of tree in a way such that the two basal clades are in increasing and decreasing order, respectively. If the input tree is already midpoint-rooted, the output tree will shape like a triangle.
 
-[**root_by_outgroup_w_support.py**](root_by_outgroup_w_support.py): Re-root a tree with a given set of taxa as the outgroup. This version can handle branch support values correctly.
+[**root_by_outgroup_w_spt.py**](root_by_outgroup_w_spt.py): Re-root a tree with a given set of taxa as the outgroup. This version can handle branch support values correctly.
 
 [**subsample_tree.py**](subsample_tree.py): Shrink a tree to a given number of taxa which maximize the sum of phylogenetic distances.
 
 [**make_rfd_matrix.py**](make_rfd_matrix.py): Generate a matrix of Robinson-Foulds distances among all trees.
+
+[**calc_brlen_metrics.py**](calc_brlen_metrics.py): Calculate branch length-related metrics, including height, depths and relative evolutionary divergence (RED) for all nodes.
 
 
 Basic alignment operations

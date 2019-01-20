@@ -1,5 +1,9 @@
-# Generate a core-to-duplicate map for an MSA filtered by RAxML
-# Usage: python me.py input.fa input.reduced.fa > output.txt
+#!/usr/bin/env python3
+"""Generate a core-to-duplicates map for an MSA filtered by RAxML.
+
+Usage:
+    make_duplicate_map.py input.fa input.reduced.fa > output.txt
+"""
 
 from sys import argv
 

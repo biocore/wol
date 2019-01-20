@@ -1,6 +1,12 @@
-# Extract taxon names and IDs at given ranks for each genome.
-# Usage: python me.py g2tid.txt taxdump_dir
-# Output: rank_tids.tsv and rank_names.tsv
+#!/usr/bin/env python3
+"""Extract taxon names and IDs at given ranks for each genome.
+
+Usage:
+    taxdump_to_ranks.py g2tid.txt taxdump_dir
+
+Output:
+    rank_tids.tsv, rank_names.tsv
+"""
 
 from sys import argv
 

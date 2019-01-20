@@ -1,8 +1,13 @@
-# Read protein sequences from a master file, match them with marker gene
-# families (p0000-p0400), and write to individual faa files.
-# Sequence IDs are converted into the genome IDs, assuming that they are all
-# single-copy marker genes.
-# Usage: python me.py
+#!/usr/bin/env python3
+"""Read protein sequences from a master file, match them with marker gene
+families (p0000-p0400), and write to individual faa files.
+
+Sequence IDs are converted into the genome IDs, assuming that they are all
+single-copy marker genes.
+
+Usage:
+    Just run me.
+"""
 
 import bz2
 import lzma

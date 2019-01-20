@@ -1,10 +1,14 @@
-# Shrink a tree to a given number of taxa (k) which maximize the sum of
-# phylogenetic distances.
-# Usage: python me.py input.nwk k output.nwk
+#!/usr/bin/env python3
+"""Shrink a tree to a given number of taxa (k) which maximize the sum of
+phylogenetic distances.
 
-# Important note: for optimal result, the input tree should be ultrametric.
-# Otherwise, the algorithm may favor closely related taxa with a shared long
-# branch.
+Usage:
+  subsample_tree.py input.nwk k output.nwk
+
+Important note:
+    For optimal result, the input tree should be ultrametric. Otherwise, the
+    algorithm may favor closely related taxa with a shared long branch.
+"""
 
 from sys import argv
 import numpy as np

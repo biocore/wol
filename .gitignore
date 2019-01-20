@@ -55,3 +55,6 @@ doc/source/generated
 Gemfile
 Gemfile.lock
 _site/
+
+# Visual Studio Code
+.vscode

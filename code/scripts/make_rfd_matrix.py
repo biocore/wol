@@ -1,5 +1,13 @@
-# Generate a matrix of Robinson-Foulds distances among all trees.
-# Usage: python me.py trees_dir output.tsv
+#!/usr/bin/env python3
+"""Generate a matrix of pairwise Robinson-Foulds distances among all trees.
+
+Usage:
+    make_rfd_matrix.py trees_dir output
+
+Output:
+    output.o.dm: matrix of number of overlapping taxa
+    output.rf.dm: Robinson-Foulds distance matrix
+"""
 
 from sys import argv
 from os import listdir
@@ -26,10 +34,14 @@ def main():
             print('%s - %s: %d, %.3f' % (names[i], names[j], o, rf))
             dmo[i, j], dmrf[i, j] = o, rf
             dmo[j, i], dmrf[j, i] = o, rf
+
+    # number of overlapping taxa matrix
     dmo = DistanceMatrix(dmo, names)
-    dmo.write('dmo.txt')
+    dmo.write('%s.o.dm' % argv[2])
+
+    # Robinson-Foulds distance matrix
     dmrf = DistanceMatrix(dmrf, names)
-    dmrf.write('dmrf.txt')
+    dmrf.write('%s.rf.dm' % argv[2])
 
 
 def intersect_trees(tree1, tree2):

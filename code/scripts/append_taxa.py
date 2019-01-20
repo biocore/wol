@@ -1,10 +1,17 @@
-# Append extra taxa to a tree based on a tip-to-taxa map.
-# Useful in adding taxa of identical sequences after building a tree.
-# Usage: python me.py input.nwk taxa.txt output.nwk
-# Format of taxa.txt:
-#   taxon1 <tab> taxon2,taxon3,taxon4...
-#   In which taxon1 is present in the tree while taxon 2-n are to be appended
-#   as polytomic tips to taxon1.
+#!/usr/bin/env python3
+"""Append extra taxa to a tree based on a tip-to-taxa map.
+
+Useful in adding taxa of identical sequences after building a tree.
+
+Usage:
+    append_taxa.py input.nwk taxa.txt output.nwk
+
+Notes:
+    Format of taxa.txt:
+        taxon1 <tab> taxon2,taxon3,taxon4...
+    In which taxon1 is present in the tree while taxon 2-n are to be
+    appended as polytomic tips to taxon1.
+"""
 
 from sys import argv
 from skbio import TreeNode

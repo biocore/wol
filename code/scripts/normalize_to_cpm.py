@@ -1,7 +1,13 @@
-# Normalize a BIOM table of counts to copies per million sequences (cpm).
-# Note: This is a pure BIOM solution, in contrast to the more complicated and
-# slower Pandas solution.
-# Usage: python me.py input.biom output.biom
+#!/usr/bin/env python3
+"""Normalize a BIOM table of counts to copies per million sequences (cpm).
+
+Usage:
+    normalize_to_cpm.py input.biom output.biom
+
+Notes:
+    This is a pure BIOM solution, in contrast to the more complicated and
+    slower Pandas solution.
+"""
 
 from sys import argv
 from biom import load_table
