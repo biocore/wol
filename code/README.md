@@ -3,10 +3,10 @@ Code
 
 The programs developed during the project are hosted in this project. Each program file contains instruction for users and/or developers. Use cases of individual programs are introduced in **Protocols**.
 
-No installation is required. The scripts and notebooks should work out-of-the-box, with or without a few common dependencies. To simplify usage, we recommend using **conda** to create a virtual Python environment to host dependencies:
+No installation is required. Each script or notebook should work out-of-the-box, with or without a few common dependencies. To simplify usage, we recommend using **conda** to create a virtual Python environment to host dependencies:
 
 ```
-conda create -n wol -c conda-forge python=3 scikit-bio scikit-learn seaborn
+conda create -n wol -c conda-forge python=3 scikit-bio scikit-learn seaborn biom-format
 source activate wol
 ```
 

@@ -4,28 +4,37 @@
 Useful in adding taxa of identical sequences after building a tree.
 
 Usage:
-    append_taxa.py input.nwk taxa.txt output.nwk
+    append_taxa.py input.nwk taxa.map > output.nwk
 
 Notes:
-    Format of taxa.txt:
+    Format of taxa.map:
         taxon1 <tab> taxon2,taxon3,taxon4...
-    In which taxon1 is present in the tree while taxon 2-n are to be
+    In which taxon1 is present in the tree while taxon2..n are to be
     appended as polytomic tips to taxon1.
 """
 
-from sys import argv
+import sys
 from skbio import TreeNode
+
+import unittest
+from os import remove
+from io import StringIO
+from tempfile import mkstemp
+from unittest.mock import patch
 
 
 def main():
-    tree = TreeNode.read(argv[1])
+    if len(sys.argv) < 3:
+        print(__doc__)
+        sys.exit()
+    tree = TreeNode.read(sys.argv[1])
     clusters = {}
-    with open(argv[2], 'r') as f:
+    with open(sys.argv[2], 'r') as f:
         for line in f:
             x = line.rstrip('\r\n').split('\t')
-            clusters[x[0]] = set(x[1].split(','))
-    out = append_taxa(tree, clusters)
-    out.write(argv[3])
+            clusters[x[0]] = x[1].split(',')
+    res = append_taxa(tree, clusters)
+    res.write(sys.stdout)
 
 
 def append_taxa(tree, clusters, at_tip=True):
@@ -35,7 +44,7 @@ def append_taxa(tree, clusters, at_tip=True):
     ----------
     tree : skbio.TreeNode
         tree to add taxa
-    clusters : dict of set of str
+    clusters : dict of iterable of str
         map of existing tip name to extra taxon name(s)
     at_tip : bool
         if True, create new node and set existing and extra taxa as
@@ -48,22 +57,57 @@ def append_taxa(tree, clusters, at_tip=True):
         resulting tree
     """
     if not set(clusters).issubset([x.name for x in tree.tips()]):
-        raise ValueError('Some cores are absent in the tree.')
+        raise ValueError('Error: Some core taxa are absent from the tree.')
 
     res = tree.copy()
 
     for core, extra in clusters.items():
         tip = res.find(core)
-        if not tip.is_tip():
-            raise ValueError('Cannot append taxa to an internal node.')
         if at_tip:
-            tip.append(TreeNode(tip.name, 0.0))
-            tip.extend([TreeNode(x, 0.0) for x in extra])
+            tip.append(TreeNode(tip.name))
+            tip.extend([TreeNode(x) for x in extra])
             tip.name = None
         else:
             tip.parent.extend([TreeNode(x, tip.length) for x in extra])
 
     return res
+
+
+class Tests(unittest.TestCase):
+    def setUp(self):
+        self.tree = '(((a,b),(c,d),e),((f,g),h));'
+        self.tmap = 'a\ta1,a2\nd\tx\n'
+
+    def test_main(self):
+        tfd, tpath = mkstemp()
+        with open(tfd, 'w') as f:
+            f.write(self.tree)
+        mfd, mpath = mkstemp()
+        with open(mfd, 'w') as f:
+            f.write(self.tmap)
+        exp = '((((a,a1,a2),b),(c,(d,x)),e),((f,g),h));\n'
+        with patch('sys.argv', [None, tpath, mpath]):
+            with patch('sys.stdout', new=StringIO()) as m:
+                main()
+                self.assertEqual(m.getvalue(), exp)
+        remove(tpath)
+        remove(mpath)
+
+    def test_append_taxa(self):
+        tree = TreeNode.read([self.tree])
+        tmap = {'a': ['a1', 'a2'], 'd': ['x']}
+        obs = str(append_taxa(tree, tmap))
+        exp = '((((a,a1,a2),b),(c,(d,x)),e),((f,g),h));\n'
+        self.assertEqual(obs, exp)
+
+        obs = str(append_taxa(tree, tmap, at_tip=False))
+        exp = '(((a,b,a1,a2),(c,d,x),e),((f,g),h));\n'
+        self.assertEqual(obs, exp)
+
+        tmap = {'x': ['x1', 'x2'], 'a': ['a1']}
+        msg = 'Error: Some core taxa are absent from the tree.'
+        with self.assertRaisesRegex(ValueError, msg):
+            append_taxa(tree, tmap)
 
 
 if __name__ == "__main__":

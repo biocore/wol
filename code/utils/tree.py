@@ -64,6 +64,11 @@ def _node_label(node):
 def assign_supports(tree):
     """Extract support values from internal node labels of a tree.
 
+    Parameters
+    ----------
+    skbio.TreeNode
+        tree to assign supports
+
     Notes
     -----
     A "support value" measures the confidence or frequency of the incoming
@@ -71,15 +76,20 @@ def assign_supports(tree):
     Roots and tips do not have support values. To extract a support value
     from a node label, this method reads from left and stops at the first
     ":" (if any), and attempts to convert it to a number.
+
     For examples: "(a,b)1.0", "(a,b)1.0:2.5", and "(a,b)'1.0:species_A'".
     In these cases the support values are all 1.0.
+
     For examples: "(a,b):1.0" and "(a,b)species_A". In these cases there
     are no support values.
+
     If a support value is successfully extracted, it will be stripped from
     the node label and assigned to the `support` property.
+
     IMPORTANT: mathematically, "support value" is a property of a branch,
     not a node. Because of historical reasons, support values are usually
     attached to nodes in a typical tree file [1].
+
     [1] Czech, Lucas, Jaime Huerta-Cepas, and Alexandros Stamatakis. "A
         Critical Review on the Use of Support Values in Tree Viewers and
         Bioinformatics Toolkits." Molecular biology and evolution 34.6
@@ -88,7 +98,7 @@ def assign_supports(tree):
     Examples
     --------
     >>> from skbio import TreeNode
-    >>> newick = "((a,b)95,(c,d):1.1,(e,f)'80:speciesA':1.0);"
+    >>> newick = "((a,b)95,(c,d):1.1,(e,f)'80:Dmel':1.0);"
     >>> tree = TreeNode.read([newick])
     >>> assign_supports(tree)
     >>> tree.lca(['a', 'b']).support
@@ -98,13 +108,42 @@ def assign_supports(tree):
     >>> tree.lca(['e', 'f']).support
     80
     >>> tree.lca(['e', 'f']).name
-    'speciesA'
+    'Dmel'
     """
     for node in tree.traverse():
         if node.is_root() or node.is_tip():
             node.support = None
         else:
             node.support, node.name = _extract_support(node)
+
+
+def support_to_label(tree, replace=False):
+    """Append support values to node labels.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        tree to append support values
+    replace : bool (optional)
+        whether to replace the original label
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> tree = TreeNode.read(['((a,b)x,((c,d),(e,f))y);'])
+    >>> tree.find('x').support = 100
+    >>> tree.find('y').support = 95
+    >>> tree.lca([tree.find('c'), tree.find('d')]).support = 80
+    >>> support_to_label(tree)
+    >>> print(str(tree))
+    ((a,b)'100:x',((c,d)80,(e,f))'95:y');
+    <BLANKLINE>
+    """
+    for node in tree.non_tips():
+        if getattr(node, 'support', None) not in (None, ''):
+            node.name = (
+                '%s' % node.support if not node.name or replace
+                else '%s:%s' % (node.support, node.name))
 
 
 def walk_copy(node, src):
@@ -210,12 +249,17 @@ def walk_copy(node, src):
 
     # determine length of the new node
     res.length = (node.length if move == 'down'
-                  else src.length + node.length if move == 'bottom'
+                  else (src.length or node.length
+                        if None in (src.length, node.length)
+                        else src.length + node.length) if move == 'bottom'
                   else src.length)  # up or top
 
     # determine support of the new node
-    res.support = (node.support if move in ('down', 'bottom')
-                   else src.support)
+    if move in ('down', 'bottom'):
+        if hasattr(node, 'support'):
+            res.support = node.support
+    elif hasattr(src, 'support'):
+        res.support = src.support
 
     # append children except for src (if applies)
     res.extend([walk_copy(c, node) for c in children if c is not src])
@@ -251,6 +295,45 @@ def root_above(node, name=None):
     Unlike scikit-bio's `root_at` function which actually generates an
     unrooted tree, this function generates a rooted tree (the root of
     which has exactly two children).
+
+    See Also
+    --------
+    unroot_at
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> newick = ('(((a:1.0,b:0.8)c:2.4,(d:0.8,e:0.6)f:1.2)g:0.4,'
+    ...           '(h:0.5,i:0.7)j:1.8)k;')
+    >>> tree = TreeNode.read([newick])
+    >>> print(tree.ascii_art())
+                                  /-a
+                        /c-------|
+                       |          \-b
+              /g-------|
+             |         |          /-d
+             |          \\f-------|
+    -k-------|                    \-e
+             |
+             |          /-h
+              \j-------|
+                        \-i
+    >>> rooted = root_above(tree.find('c'))
+    >>> print(str(rooted))
+    ((a:1.0,b:0.8)c:1.2,((d:0.8,e:0.6)f:1.2,(h:0.5,i:0.7)j:2.2)g:1.2);
+    <BLANKLINE>
+    >>> print(rooted.ascii_art())
+                        /-a
+              /c-------|
+             |          \-b
+             |
+    ---------|                    /-d
+             |          /f-------|
+             |         |          \-e
+              \g-------|
+                       |          /-h
+                        \j-------|
+                                  \-i
     """
     # walk down from self node
     left = walk_copy(node, node.parent)
@@ -259,11 +342,84 @@ def root_above(node, name=None):
     right = walk_copy(node.parent, node)
 
     # set basal branch lengths to be half of the original, i.e., midpoint
-    left.length = right.length = node.length / 2
+    if node.length is not None:
+        left.length = right.length = node.length / 2
 
     # create new root
     res = TreeNode(name, children=[left, right])
-    res.support = None
+    return res
+
+
+def unroot_at(node):
+    """Re-arrange a tree so that it is unrooted, with a given node
+    placed at the "root" position.
+
+    Parameters
+    ----------
+    node : skbio.TreeNode
+        node that will be placed at "root"
+
+    Returns
+    -------
+    skbio.TreeNode
+        resulting rooted tree
+
+    Notes
+    -----
+    Works in a behavior comparable (but not exactly identical) to scikit-bio's
+    `root_at` function, plus that it handles branch support values correctly.
+
+    See Also
+    --------
+    root_above
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> newick = ('(((a:1.0,b:0.8)c:2.4,(d:0.8,e:0.6)f:1.2)g:0.4,'
+    ...           '(h:0.5,i:0.7)j:1.8)k;')
+    >>> tree = TreeNode.read([newick])
+    >>> print(tree.ascii_art())
+                                  /-a
+                        /c-------|
+                       |          \-b
+              /g-------|
+             |         |          /-d
+             |          \\f-------|
+    -k-------|                    \-e
+             |
+             |          /-h
+              \j-------|
+                        \-i
+    >>> unrooted = unroot_at(tree.find('c'))
+    >>> print(str(unrooted))
+    (((d:0.8,e:0.6)f:1.2,(h:0.5,i:0.7)j:2.2)g:2.4,a:1.0,b:0.8)c;
+    <BLANKLINE>
+    >>> print(unrooted.ascii_art())
+                                  /-d
+                        /f-------|
+                       |          \-e
+              /g-------|
+             |         |          /-h
+             |          \j-------|
+    -c-------|                    \-i
+             |
+             |--a
+             |
+              \-b
+    """
+    clades = []
+
+    # walk up to parent node
+    if not node.is_root():
+        clades.append(walk_copy(node.parent, node))
+
+    # walk down to child nodes
+    for child in node.children:
+        clades.append(walk_copy(child, node))
+
+    # create new root
+    res = TreeNode(node.name, children=clades)
     return res
 
 
@@ -856,3 +1012,441 @@ def build_taxdump_tree(taxdump):
 
     iter_node(tree)
     return tree
+
+
+#
+# the following functions are to be further unit-tested
+#
+
+def assign_taxa(tree):
+    """Append names of descendants to each node as attribute `taxa`.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        tree to assign taxa
+
+    Notes
+    -----
+    The notion `taxa` is identical to scikit-bio's `subset`, which is already
+    used as a function. The current function generates an attribute which can
+    be reused.
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> tree = TreeNode.read(['((a,b),(c,d));'])
+    >>> assign_taxa(tree)
+    >>> print(sorted(tree.taxa))
+    ['a', 'b', 'c', 'd']
+    >>> node = tree.lca([tree.find('a'), tree.find('b')])
+    >>> print(sorted(node.taxa))
+    ['a', 'b']
+    """
+    for node in tree.postorder(include_self=True):
+        if node.is_tip():
+            node.taxa = set([node.name])
+        else:
+            node.taxa = set().union(*[x.taxa for x in node.children])
+
+
+def match_taxa(tree1, tree2):
+    """Generate a list of pairs of nodes in two trees with matching taxa.
+
+    Parameters
+    ----------
+    tree1 : skbio.TreeNode
+        tree 1 for comparison
+    tree2 : skbio.TreeNode
+        tree 2 for comparison
+
+    Returns
+    -------
+    list of tuple of (skbio.TreeNode, skbio.TreeNode)
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> tree1 = TreeNode.read(['((a,b),(c,d));'])
+    >>> tree2 = TreeNode.read(['(((a,b),c),d);'])
+    >>> matches = match_taxa(tree1, tree2)
+    >>> len(matches)
+    6
+    >>> print([sorted(x[0].taxa) for x in matches])
+    [['a'], ['a', 'b'], ['a', 'b', 'c', 'd'], ['b'], ['c'], ['d']]
+    """
+    t2ns = []
+    for tree in (tree1, tree2):
+        if not hasattr(tree, 'taxa'):
+            assign_taxa(tree)
+        t2ns.append({','.join(sorted(x.taxa)): x
+                     for x in tree.traverse(include_self=True)})
+    res = []
+    for taxa in sorted(t2ns[0]):
+        if taxa in t2ns[1]:
+            res.append((t2ns[0][taxa], t2ns[1][taxa]))
+    return res
+
+
+def calc_brlen_metrics(tree):
+    """Calculate branch length-related metrics.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        tree to calculate metrics
+
+    Notes
+    -----
+    The following metrics will calculated for each node and appended as extra
+    attributes in place:
+    - height : float
+        sum of branch lengths from the root to the node
+    - depths : list of float
+        sums of branch lengths from all descendants to current node
+    - red : float
+        relative evolutionary divergence (RED) [1]:
+
+            RED = p + (d / u) * (1 - p)
+
+        where p = RED of parent, d = length, u = depth_mean of parent
+
+    [1] Parks, D. H. et al. A standardized bacterial taxonomy based on genome
+        phylogeny substantially revises the tree of life. Nat. Biotechnol. 36,
+        996–1004 (2018).
+    """
+    # calculate depths
+    for node in tree.postorder(include_self=True):
+        if node.length is None:
+            node.length = 0.0
+        if node.is_tip():
+            node.depths = [0.0]
+        else:
+            node.depths = [y + x.length for x in node.children for y in
+                           x.depths]
+
+    # calculate height and RED
+    for node in tree.preorder(include_self=True):
+        if node.is_root():
+            node.height = 0.0
+            node.red = 0.0
+        else:
+            node.height = node.parent.height + node.length
+            if node.is_tip():
+                node.red = 1.0
+            else:
+                node.red = node.parent.red + node.length \
+                    / (node.length + sum(node.depths) / len(node.depths)) \
+                    * (1 - node.parent.red)
+
+
+#
+# the following functions are to be unit-tested
+#
+
+def digits(num):
+    """Get number of digits after decimal point.
+
+    Parameters
+    ----------
+    num : str
+        string that represents a number
+
+    Returns
+    -------
+    int
+        number of digits after decimal point
+    """
+    if not num.replace('.', '').isdigit() or num.count('.') != 1:
+        raise ValueError('Not a valid float number: %s' % num)
+    return len(num.split('.')[1])
+
+
+def branch_length_digits(tree):
+    """Get maximum number of digits of all branch lengths.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        input tree
+
+    Returns
+    -------
+    tuple of (int, int)
+        maximum numbers of digits for float point and scientific notation
+    """
+    max_f, max_e = 0, 0
+    for node in tree.traverse():
+        if node.length is not None:
+            x = str(float(node.length))
+            if 'e' in x:
+                max_e = max(max_e, digits(str(float(x.split('e')[0]))))
+            else:
+                max_f = max(max_f, digits(x))
+    return (max_f, max_e)
+
+
+def format_newick(tree, keep_space=False, max_f=None, max_e=None):
+    """Generate a Newick string from a tree.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        input tree
+    keep_space : bool
+        keep spaces (true) or convert spaces to underscores (false)
+    max_f : int or None
+        maximum number of digits for float point
+    max_e : int or None
+        maximum number of digits for scientific notation
+
+    Returns
+    -------
+    str
+        Newick string
+
+    Notes
+    -----
+    Modified from scikit-bio's `_tree_node_to_newick` function, added some
+    flavors.
+    """
+    res = ''
+    operators = set(',:_;()[]')
+    if keep_space:
+        operators.add(' ')
+    current_depth = 0
+    nodes_left = [(tree, 0)]
+    while len(nodes_left) > 0:
+        entry = nodes_left.pop()
+        node, node_depth = entry
+        if node.children and node_depth >= current_depth:
+            res += '('
+            nodes_left.append(entry)
+            nodes_left += ((child, node_depth + 1) for child in
+                           reversed(node.children))
+            current_depth = node_depth + 1
+        else:
+            if node_depth < current_depth:
+                res += ')'
+                current_depth -= 1
+            if node.name:
+                escaped = node.name.replace('\'', '\'\'')
+                if any(t in operators for t in node.name):
+                    res += '\'%s\'' % escaped
+                else:
+                    res += (escaped if keep_space
+                            else escaped.replace(' ', '_'))
+            if node.length is not None:
+                length = node.length
+                if 'e' in str(length):
+                    if max_e is not None:
+                        length = '%.*g' % (max_e, length)
+                elif max_f is not None:
+                    length = '%.*g' % (max_f, length)
+                res += ':%s' % length
+            if nodes_left and nodes_left[-1][1] == current_depth:
+                res += ','
+    res += ';'
+    return res
+
+
+def root_by_outgroup(tree, outgroup, strict=False, unroot=False):
+    """Root a tree with a given set of taxa as outgroup.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        tree to root
+    outgroup : list of str
+        list of taxa to be set as outgroup
+    strict : bool (optional)
+        outgroup must be a subset of tree taxa (default: false)
+    unroot : bool (optional)
+        result is an unrooted tree (thus "root" has three child clades)
+        (default: false)
+
+    Returns
+    -------
+    skbio.TreeNode
+        resulting rooted tree
+
+    See Also
+    --------
+    root_above
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> tree = TreeNode.read(['((((a,b),(c,d)),(e,f)),g);'])
+    >>> print(tree.ascii_art())
+                                            /-a
+                                  /--------|
+                                 |          \-b
+                        /--------|
+                       |         |          /-c
+                       |          \--------|
+              /--------|                    \-d
+             |         |
+             |         |          /-e
+    ---------|          \--------|
+             |                    \-f
+             |
+              \-g
+    >>> rooted = root_by_outgroup(tree, outgroup=['a', 'b'])
+    >>> print(rooted.ascii_art())
+                        /-a
+              /--------|
+             |          \-b
+             |
+    ---------|                    /-c
+             |          /--------|
+             |         |          \-d
+              \--------|
+                       |                    /-e
+                       |          /--------|
+                        \--------|          \-f
+                                 |
+                                  \-g
+    >>> rooted = root_by_outgroup(tree, outgroup=['e', 'f', 'g'])
+    >>> print(rooted.ascii_art())
+                                  /-e
+                        /--------|
+              /--------|          \-f
+             |         |
+             |          \-g
+    ---------|
+             |                    /-c
+             |          /--------|
+             |         |          \-d
+              \--------|
+                       |          /-b
+                        \--------|
+                                  \-a
+    >>> unrooted = root_by_outgroup(tree, outgroup=['a', 'b'], unroot=True)
+    >>> print(unrooted.ascii_art())
+                                  /-e
+                        /--------|
+              /--------|          \-f
+             |         |
+             |          \-g
+             |
+    ---------|          /-a
+             |---------|
+             |          \-b
+             |
+             |          /-c
+              \--------|
+                        \-d
+    """
+    # select taxa that are present in tree
+    og = set(outgroup).intersection(tree.subset())
+
+    n = len(og)
+    if strict and n < len(outgroup):
+        raise ValueError('Error: Outgroup is not a subset of tree taxa.')
+    if n == 0:
+        raise ValueError('Error: None of outgroup taxa are present in tree.')
+    if n == tree.count(tips=True):
+        raise ValueError('Error: Outgroup constitutes the entire tree.')
+
+    # create new tree
+    res = tree.copy()
+
+    # locate lowest common ancestor (LCA) of outgroup in the target tree
+    lca = res.lca(og) if n > 1 else res.find(max(og))
+
+    # if LCA is root rather than derived (i.e., outgroup is split across basal
+    # clades), swap the tree and locate LCA again
+    if lca is res:
+        for tip in tree.tips():
+            if tip.name not in og:
+                res = root_above(tip)
+                break
+        lca = res.lca(og)
+
+    # test monophyly
+    if lca.count(tips=True) > n:
+        raise ValueError('Error: Outgroup is not monophyletic in tree.')
+
+    # re-root target tree between LCA of outgroup and LCA of ingroup
+    return unroot_at(lca.parent) if unroot else root_above(lca)
+
+def restore_rooting(source, target):
+    """Restore rooting scenario in an unrooted tree based on a rooted tree.
+
+    Parameters
+    ----------
+    source : skbio.TreeNode
+        source tree from which rooting to be read
+    target : skbio.TreeNode
+        target tree to which rooting to be set
+
+    Returns
+    -------
+    skbio.TreeNode
+        tree with rooting scenario restored
+
+    Notes
+    -----
+    Source tree can be rooted ("root" has two children) or unrooted ("root")
+    has three children. In either case the rooting scenario will be restored.
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> source = TreeNode.read(['(((e,f),g),((c,d),(b,a)));'])
+    >>> print(source.ascii_art())
+                                  /-e
+                        /--------|
+              /--------|          \-f
+             |         |
+             |          \-g
+    ---------|
+             |                    /-c
+             |          /--------|
+             |         |          \-d
+              \--------|
+                       |          /-b
+                        \--------|
+                                  \-a
+    >>> target = TreeNode.read(['(((a,b)95,(c,d)90)80,(e,f)100,g);'])
+    >>> print(target.ascii_art())
+                                  /-a
+                        /95------|
+                       |          \-b
+              /80------|
+             |         |          /-c
+             |          \90------|
+             |                    \-d
+    ---------|
+             |          /-e
+             |-100-----|
+             |          \-f
+             |
+              \-g
+    >>> assign_supports(target)
+    >>> rooted = restore_rooting(source, target)
+    >>> support_to_label(rooted)
+    >>> print(rooted.ascii_art())
+                                  /-e
+                        /100-----|
+              /80------|          \-f
+             |         |
+             |          \-g
+    ---------|
+             |                    /-c
+             |          /90------|
+             |         |          \-d
+              \80------|
+                       |          /-b
+                        \95------|
+                                  \-a
+    """
+    if source.subset() != target.subset():
+        raise ValueError('Error: Source and target trees have different taxa.')
+    counts = {x: x.count(tips=True) for x in source.children}
+    fewer = min(counts, key=counts.get)
+    outgroup = (set([fewer.name]) if fewer.is_tip()
+                else set(x.name for x in fewer.tips()))
+    return root_by_outgroup(target, outgroup, strict=True,
+                            unroot=(len(counts) > 2))

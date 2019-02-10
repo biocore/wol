@@ -5,7 +5,9 @@ Usage:
     assign_node_ids.py input.nwk > output.nwk
 
 Notes:
-    It starts from the root (N1) and walks down the levels (N2, N3,...).
+    It starts from the root (N1) and walks down the levels (N2, N3,...) (i.e.,
+    levelorder traversal, which is different from the postorder traversal by
+    scikit-bio's `assign_ids` function
 """
 
 import sys
@@ -14,6 +16,8 @@ from skbio import TreeNode
 
 
 def main():
+    if len(sys.argv) < 2:
+        sys.exit(__doc__)
     with fileinput.input() as f:
         tree = TreeNode.read(f)
 

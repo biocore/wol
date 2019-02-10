@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Remove branch support values from a tree.
+"""Count tips and internal nodes in a tree.
 
 Usage:
-    remove_supports.py input.nwk > output.nwk
+    count_nodes.py tree.nwk
 """
 
 import sys
@@ -19,21 +19,20 @@ def main():
         sys.exit(__doc__)
     with fileinput.input() as f:
         tree = TreeNode.read(f)
-    for node in tree.non_tips():
-        if ':' in node.name:
-            node.name = node.name.rsplit(':')[1]
-    tree.write(sys.stdout)
+    n = tree.count(tips=True)
+    m = tree.count() - n
+    print('Tree has %s tips and %s internal nodes.' % (n, m))
 
 
 class Tests(unittest.TestCase):
     def test_main(self):
-        nwk = "((a,b)'100:n2',(c,d)'95:n3',(e,f)n4)n1;"
-        exp = '((a,b)n2,(c,d)n3,(e,f)n4)n1;\n'
+        nwk = '(((a,b),(c,d),e),((f,g),h));'
+        exp = 'Tree has 8 tips and 6 internal nodes.\n'
         with patch('builtins.open', mock_open(read_data=nwk)):
             with patch('sys.stdout', new=StringIO()) as m:
                 main()
                 self.assertEqual(m.getvalue(), exp)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
