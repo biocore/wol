@@ -20,7 +20,7 @@ from unittest.mock import patch
 
 
 def main():
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 3:
         sys.exit(__doc__)
 
     tree1 = TreeNode.read(sys.argv[1])

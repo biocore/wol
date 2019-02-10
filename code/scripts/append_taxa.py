@@ -25,8 +25,7 @@ from unittest.mock import patch
 
 def main():
     if len(sys.argv) < 3:
-        print(__doc__)
-        sys.exit()
+        sys.exit(__doc__)
     tree = TreeNode.read(sys.argv[1])
     clusters = {}
     with open(sys.argv[2], 'r') as f:

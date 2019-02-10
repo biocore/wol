@@ -20,7 +20,7 @@ def main():
     with fileinput.input() as f:
         tree = TreeNode.read(f)
     for node in tree.non_tips():
-        if ':' in node.name:
+        if node.name is not None and ':' in node.name:
             node.name = node.name.rsplit(':')[1]
     tree.write(sys.stdout)
 

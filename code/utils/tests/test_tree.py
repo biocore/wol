@@ -11,8 +11,9 @@ from utils.tree import (
     unpack_by_func, read_taxdump, build_taxdump_tree, order_nodes,
     is_ordered, cladistic, _compare_length, compare_branch_lengths,
     assign_supports, support_to_label, walk_copy, root_above, unroot_at,
-    _exact_compare, calc_brlen_metrics, format_newick, root_by_outgroup,
-    restore_rooting)
+    _exact_compare, calc_split_metrics, calc_length_metrics, format_newick,
+    root_by_outgroup, restore_rooting, restore_node_labels,
+    restore_node_order)
 
 
 class TreeTests(TestCase):
@@ -636,20 +637,75 @@ class TreeTests(TestCase):
         assign_supports(tree5)
         self.assertFalse(_exact_compare(tree4, tree5))
 
-    def test_calc_brlen_metrics(self):
+    def test_calc_split_metrics(self):
+        """Example from Fig. 9a of Puigbo, et al., 2009, J Biol.
+                                                /-A
+                                      /n9------|
+                            /n8------|          \\-B
+                           |         |
+                  /n4------|          \\-C
+                 |         |
+                 |         |          /-D
+                 |          \n7------|
+                 |                    \\-E
+                 |
+                 |                    /-F
+        -n1------|          /n6------|
+                 |         |          \\-G
+                 |-n3------|
+                 |         |          /-H
+                 |          \n5------|
+                 |                    \\-I
+                 |
+                 |          /-J
+                  \n2------|
+                            \\-K
+        """
+        tree = TreeNode.read([
+            '((((A,B)n9,C)n8,(D,E)n7)n4,((F,G)n6,(H,I)n5)n3,(J,K)n2)n1;'
+        ])
+        calc_split_metrics(tree)
+        obs = {x.name: [getattr(x, y) for y in
+                        ('n', 'splits', 'postlevels', 'prelevels')]
+               for x in tree.traverse()}
+        exp = {
+            'n1': [11, 9, 5, 1],
+            'n4': [5, 4, 4, 2],
+            'n3': [4, 3, 3, 2],
+            'n2': [2, 1, 2, 2],
+            'n8': [3, 2, 3, 3],
+            'n7': [2, 1, 2, 3],
+            'n6': [2, 1, 2, 3],
+            'n5': [2, 1, 2, 3],
+            'J': [1, 0, 1, 3],
+            'K': [1, 0, 1, 3],
+            'n9': [2, 1, 2, 4],
+            'C': [1, 0, 1, 4],
+            'D': [1, 0, 1, 4],
+            'E': [1, 0, 1, 4],
+            'F': [1, 0, 1, 4],
+            'G': [1, 0, 1, 4],
+            'H': [1, 0, 1, 4],
+            'I': [1, 0, 1, 4],
+            'A': [1, 0, 1, 5],
+            'B': [1, 0, 1, 5]
+        }
+        self.assertDictEqual(obs, exp)
+
+    def test_calc_length_metrics(self):
         """Example from Fig. 1a of Parks et al. (2018):
                                    /--1--A
                           /n3--1--|
-                         |         \--1--B
+                         |         \\--1--B
              /n2----2----|
             |            |             /--1--C
         -n1-|             \n4----2----|
-            |                          \----2----D
+            |                          \\----2----D
             |
-             \------3------E
+             \\------3------E
         """
         tree = TreeNode.read(['(((A:1,B:1)n3:1,(C:1,D:2)n4:2)n2:2,E:3)n1;'])
-        calc_brlen_metrics(tree)
+        calc_length_metrics(tree)
         obs = {x.name: {'height': x.height, 'depths': x.depths,
                         'red': round(x.red, 7)} for x in tree.traverse()}
         exp = {'n1': {'height': 0.0, 'depths': [4.0, 4.0, 5.0, 6.0, 3.0],
@@ -702,7 +758,7 @@ class TreeTests(TestCase):
         self.assertTrue(_exact_compare(obs, exp))
 
         # outgroup is not monophyletic
-        msg = 'Error: Outgroup is not monophyletic in tree.'
+        msg = 'Outgroup is not monophyletic in tree.'
         with self.assertRaisesRegex(ValueError, msg):
             root_by_outgroup(tree, outgroup=['a', 'c'])
 
@@ -717,17 +773,17 @@ class TreeTests(TestCase):
         self.assertTrue(_exact_compare(obs, exp))
 
         # outgroup has extra taxa but strict mode
-        msg = 'Error: Outgroup is not a subset of tree taxa.'
+        msg = 'Outgroup is not a subset of tree taxa.'
         with self.assertRaisesRegex(ValueError, msg):
             root_by_outgroup(tree, outgroup=['a', 'b', 'x'], strict=True)
 
         # outgroup is not in tree
-        msg = 'Error: None of outgroup taxa are present in tree.'
+        msg = 'None of outgroup taxa are present in tree.'
         with self.assertRaisesRegex(ValueError, msg):
             root_by_outgroup(tree, outgroup=['x', 'y'])
 
         # outgroup is the whole tree
-        msg = 'Error: Outgroup constitutes the entire tree.'
+        msg = 'Outgroup constitutes the entire tree.'
         with self.assertRaisesRegex(ValueError, msg):
             root_by_outgroup(tree, outgroup='abcdefg')
 
@@ -736,7 +792,7 @@ class TreeTests(TestCase):
         exp = TreeNode.read(['(((e,f),g),(a,b),(c,d));'])
         self.assertTrue(_exact_compare(obs, exp))
 
-    def test_root_by_outgroup(self):
+    def test_restore_rooting(self):
         # rooted source
         source = TreeNode.read(['(((e,f),g),((c,d),(b,a)));'])
         target = TreeNode.read(['(((a,b),(c,d)),(e,f),g);'])
@@ -758,9 +814,45 @@ class TreeTests(TestCase):
         self.assertTrue(_exact_compare(obs, exp))
 
         # taxa don't match
-        msg = 'Error: Source and target trees have different taxa.'
+        msg = 'Source and target trees have different taxa.'
         with self.assertRaisesRegex(ValueError, msg):
             restore_rooting(source, TreeNode.read(['((a,b),(c,d));']))
+
+    def test_restore_node_labels(self):
+        # simple case
+        source = TreeNode.read(['((a,b)x,(c,d)y);'])
+        target = TreeNode.read(['((a:0.5,b:0.6):1.2,(c:1.0,d:1.4):0.4);'])
+        obs = restore_node_labels(source, target)
+        exp = TreeNode.read(['((a:0.5,b:0.6)x:1.2,(c:1.0,d:1.4)y:0.4);'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # complex case with missing label, extra taxa, label overwrittern
+        source = TreeNode.read(['(((a,b)85,c)90,((d,e)98,(f,g)93));'])
+        target = TreeNode.read(['((((g,f),(e,d))x,(c,(a,b))y),h);'])
+        obs = restore_node_labels(source, target)
+        exp = TreeNode.read(['((((g,f)93,(e,d)98)x,(c,(a,b)85)90),h);'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # a duplicated node label
+        msg = 'Duplicated node label "x" found.'
+        with self.assertRaisesRegex(ValueError, msg):
+            restore_node_labels(TreeNode.read(['((a,b)x,(c,d)x);']), target)
+
+    def test_restore_node_order(self):
+        source = TreeNode.read(['(((a,b),(c,d)),((e,f),g));'])
+        target = TreeNode.read(['((g,(e,f)100),((d,c)80,(a,b)90));'])
+        obs = restore_node_order(source, target)
+        exp = TreeNode.read(['(((a,b)90,(c,d)80),((e,f)100,g));'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        msg = 'Two trees have different sizes.'
+        with self.assertRaisesRegex(ValueError, msg):
+            restore_node_order(TreeNode.read(['((a,b),(c,d));']), target)
+
+        msg = 'Two trees have different topologies.'
+        with self.assertRaisesRegex(ValueError, msg):
+            restore_node_order(
+                TreeNode.read(['((((a,b),c),d),(e,(f,g)));']), target)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Calculate splits-related metrics for all nodes in a tree.
+"""Calculate split-related metrics for nodes in a tree.
 
 Usage:
     calc_split_metrics.py input.nwk > output.tsv
@@ -11,42 +11,28 @@ Notes:
     - postlevels: maximum number of splits from tips
     - prelevels: number of splits from root
 
-    These metrics are not affected by branch lengths.
+    These metrics are related to topology but not branch lengths.
 """
 
+import sys
 import fileinput
+from skbio import TreeNode
+from utils.tree import calc_split_metrics
+
 from io import StringIO
 import unittest
 from unittest.mock import patch, mock_open
-from skbio import TreeNode
 
 
 def main():
+    if len(sys.argv) < 2:
+        sys.exit(__doc__)
     with fileinput.input() as f:
         tree = TreeNode.read(f)
-
-    # calculate bottom-up metrics
-    for node in tree.postorder(include_self=True):
-        if node.name is None:
-            raise ValueError('Error: Found an unnamed node.')
-        if node.is_tip():
-            node.n = 1
-            node.splits = 0
-            node.postlevels = 1
-        else:
-            node.n = sum(x.n for x in node.children)
-            node.splits = sum(x.splits for x in node.children) + 1
-            node.postlevels = max(x.postlevels for x in node.children) + 1
-
-    # calculate top-down metrics
-    for node in tree.preorder(include_self=True):
-        if node.is_root():
-            node.prelevels = 1
-        else:
-            node.prelevels = node.parent.prelevels + 1
+    calc_split_metrics(tree)
 
     # print result
-    print('name\ttaxa\tsplits\tpostlevels\tprelevels')
+    print('name\tn\tsplits\tpostlevels\tprelevels')
     for node in tree.levelorder():
         print('%s\t%d\t%d\t%d\t%d' % (node.name, node.n, node.splits,
                                       node.postlevels, node.prelevels))
@@ -78,7 +64,7 @@ class Tests(unittest.TestCase):
                             \-K
         """
         nwk = '((((A,B)n9,C)n8,(D,E)n7)n4,((F,G)n6,(H,I)n5)n3,(J,K)n2)n1;'
-        exp = """name	taxa	splits	postlevels	prelevels
+        exp = """name	n	splits	postlevels	prelevels
 n1	11	9	5	1
 n4	5	4	4	2
 n3	4	3	3	2

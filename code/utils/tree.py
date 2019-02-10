@@ -2,6 +2,7 @@
 
 from skbio import TreeNode
 from math import isclose
+from types import MethodType
 from skbio.tree import MissingNodeError
 
 
@@ -37,6 +38,30 @@ def _extract_support(node):
     return support, label
 
 
+def get_support(node):
+    """Return branch support of a node.
+
+    Parameters
+    ----------
+    skbio.TreeNode
+        node to retrive branch support
+
+    Returns
+    -------
+    str or None
+        branch support if any or None
+
+    Notes
+    -----
+    scikit-bio 0.5.3+'s TreeNode has a `support` method, which conflicts the
+    `support` attribute used in this module. This function is a workaround.
+    The `support` method should be renamed in the future.
+    """
+    return node.support if (
+        hasattr(node, 'support') and not isinstance(node.support, MethodType)
+        and node.support not in (None, '')) else None
+
+
 def _node_label(node):
     """Generate a node label in the format of "support:name" if both exist,
     or "support" or "name" if either exists.
@@ -51,14 +76,12 @@ def _node_label(node):
     str
         Generated node label
     """
-    lblst = []
-
-    if node.support is not None:  # prevents support of NoneType
-        lblst.append(str(node.support))
-    if node.name:  # prevents name of NoneType
-        lblst.append(node.name)
-
-    return ':'.join(lblst)
+    parts = []
+    if get_support(node) is not None:
+        parts.append(str(node.support))
+    if node.name not in (None, ''):
+        parts.append(node.name)
+    return ':'.join(parts) or None
 
 
 def assign_supports(tree):
@@ -140,10 +163,7 @@ def support_to_label(tree, replace=False):
     <BLANKLINE>
     """
     for node in tree.non_tips():
-        if getattr(node, 'support', None) not in (None, ''):
-            node.name = (
-                '%s' % node.support if not node.name or replace
-                else '%s:%s' % (node.support, node.name))
+        node.name = str(get_support(node)) if replace else _node_label(node)
 
 
 def walk_copy(node, src):
@@ -256,9 +276,9 @@ def walk_copy(node, src):
 
     # determine support of the new node
     if move in ('down', 'bottom'):
-        if hasattr(node, 'support'):
+        if get_support(node) is not None:
             res.support = node.support
-    elif hasattr(src, 'support'):
+    elif get_support(src) is not None:
         res.support = src.support
 
     # append children except for src (if applies)
@@ -309,15 +329,15 @@ def root_above(node, name=None):
     >>> print(tree.ascii_art())
                                   /-a
                         /c-------|
-                       |          \-b
+                       |          \\-b
               /g-------|
              |         |          /-d
              |          \\f-------|
-    -k-------|                    \-e
+    -k-------|                    \\-e
              |
              |          /-h
-              \j-------|
-                        \-i
+              \\j-------|
+                        \\-i
     >>> rooted = root_above(tree.find('c'))
     >>> print(str(rooted))
     ((a:1.0,b:0.8)c:1.2,((d:0.8,e:0.6)f:1.2,(h:0.5,i:0.7)j:2.2)g:1.2);
@@ -325,15 +345,15 @@ def root_above(node, name=None):
     >>> print(rooted.ascii_art())
                         /-a
               /c-------|
-             |          \-b
+             |          \\-b
              |
     ---------|                    /-d
              |          /f-------|
-             |         |          \-e
-              \g-------|
+             |         |          \\-e
+              \\g-------|
                        |          /-h
-                        \j-------|
-                                  \-i
+                        \\j-------|
+                                  \\-i
     """
     # walk down from self node
     left = walk_copy(node, node.parent)
@@ -382,15 +402,15 @@ def unroot_at(node):
     >>> print(tree.ascii_art())
                                   /-a
                         /c-------|
-                       |          \-b
+                       |          \\-b
               /g-------|
              |         |          /-d
              |          \\f-------|
-    -k-------|                    \-e
+    -k-------|                    \\-e
              |
              |          /-h
-              \j-------|
-                        \-i
+              \\j-------|
+                        \\-i
     >>> unrooted = unroot_at(tree.find('c'))
     >>> print(str(unrooted))
     (((d:0.8,e:0.6)f:1.2,(h:0.5,i:0.7)j:2.2)g:2.4,a:1.0,b:0.8)c;
@@ -398,15 +418,15 @@ def unroot_at(node):
     >>> print(unrooted.ascii_art())
                                   /-d
                         /f-------|
-                       |          \-e
+                       |          \\-e
               /g-------|
              |         |          /-h
-             |          \j-------|
-    -c-------|                    \-i
+             |          \\j-------|
+    -c-------|                    \\-i
              |
              |--a
              |
-              \-b
+              \\-b
     """
     clades = []
 
@@ -440,11 +460,11 @@ def _exact_compare(tree1, tree2):
         `True` if name, length, and support of each corresponding node are same
         `False` otherwise
     """
-    attrs = ['name', 'length', 'support']
     for n1, n2 in zip(tree1.postorder(), tree2.postorder()):
-        for attr in attrs:
-            if getattr(n1, attr, None) != getattr(n2, attr, None):
-                return False
+        if n1.name != n2.name or n1.length != n2.length:
+            return False
+        if get_support(n1) != get_support(n2):
+            return False
     return True
 
 
@@ -579,8 +599,8 @@ def order_nodes(tree, increase=True):
     >>> print(tree)
     (((a,b),(c,d,e)),((f,g),h));
     <BLANKLINE>
-    >>> tree_ordered = order_nodes(tree, False)
-    >>> print(tree_ordered)
+    >>> ordered = order_nodes(tree, False)
+    >>> print(ordered)
     ((h,(f,g)),((a,b),(c,d,e)));
     <BLANKLINE>
     """
@@ -671,19 +691,19 @@ def cladistic(tree, taxa):
     In the following tree example:
                                   /-a
                         /--------|
-                       |          \-b
+                       |          \\-b
               /--------|
              |         |          /-c
              |         |         |
-             |          \--------|--d
+             |          \\--------|--d
     ---------|                   |
-             |                    \-e
+             |                    \\-e
              |
              |                    /-f
              |          /--------|
-              \--------|          \-g
+              \\--------|          \\-g
                        |
-                        \-h
+                        \\-h
     ['a'] returns 'uni'
     ['c', 'd', 'e'] returns 'mono'
     ['a', 'c', 'f'] returns 'poly'
@@ -776,11 +796,11 @@ def unpack(node):
     Here is an illustration of the "unpack" operation:
                 /----a
           /c---|
-         |      \--b
+         |      \\--b
     -----|
          |        /---d
           \f-----|
-                  \-e
+                  \\-e
 
     Unpack node "c" and the tree becomes:
           /---------a
@@ -789,7 +809,7 @@ def unpack(node):
          |
          |        /---d
           \f-----|
-                  \-e
+                  \\-e
 
     Raises
     ------
@@ -1088,7 +1108,129 @@ def match_taxa(tree1, tree2):
     return res
 
 
-def calc_brlen_metrics(tree):
+def match_label(tree1, tree2):
+    """Generate a list of pairs of nodes in two trees with matching labels.
+
+    Parameters
+    ----------
+    tree1 : skbio.TreeNode
+        tree 1 for comparison
+    tree2 : skbio.TreeNode
+        tree 2 for comparison
+
+    Returns
+    -------
+    list of tuple of (skbio.TreeNode, skbio.TreeNode)
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> tree1 = TreeNode.read(['((a,b)x,(c,d)y);'])
+    >>> tree2 = TreeNode.read(['(((a,b)x,c)y,d);'])
+    >>> matches = match_label(tree1, tree2)
+    >>> len(matches)
+    6
+    >>> print([' - '.join([','.join(sorted(node.subset())) for node in pair])
+    ...        for pair in matches if not any(node.is_tip() for node in pair)])
+    ['a,b - a,b', 'c,d - a,b,c']
+    """
+    l2ns = []
+    for tree in (tree1, tree2):
+        l2ns.append({})
+        for node in tree.traverse(include_self=True):
+            label = node.name
+            if label not in (None, ''):
+                if label in l2ns[-1]:
+                    raise ValueError('Duplicated node label "%s" found.'
+                                     % label)
+                l2ns[-1][label] = node
+    res = []
+    for label in sorted(l2ns[0]):
+        if label in l2ns[1]:
+            res.append((l2ns[0][label], l2ns[1][label]))
+    return res
+
+
+def calc_split_metrics(tree):
+    """Calculate split-related metrics.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        tree to calculate metrics
+
+    Notes
+    -----
+    The following metrics will be calculated for each node:
+    - n : int
+        number of descendants (tips)
+    - splits : int
+        total number of splits from tips
+    - postlevels : int
+        maximum number of levels from tips
+    - prelevels : int
+        number of levels from root
+
+    These metrics are related to topology but not branch lengths.
+
+    Examples
+    --------
+    >>> # Example from Fig. 9a of Puigbo, et al., 2009, J Biol:
+    >>> newick = '((((A,B)n9,C)n8,(D,E)n7)n4,((F,G)n6,(H,I)n5)n3,(J,K)n2)n1;'
+    >>> tree = TreeNode.read([newick])
+    >>> print(tree.ascii_art())
+                                            /-A
+                                  /n9------|
+                        /n8------|          \\-B
+                       |         |
+              /n4------|          \\-C
+             |         |
+             |         |          /-D
+             |          \\n7------|
+             |                    \\-E
+             |
+             |                    /-F
+    -n1------|          /n6------|
+             |         |          \\-G
+             |-n3------|
+             |         |          /-H
+             |          \\n5------|
+             |                    \\-I
+             |
+             |          /-J
+              \\n2------|
+                        \\-K
+    >>> calc_split_metrics(tree)
+    >>> tree.find('n3').n
+    4
+    >>> tree.find('n4').splits
+    4
+    >>> tree.find('n8').postlevels
+    3
+    >>> tree.find('A').prelevels
+    5
+    """
+    # calculate bottom-up metrics
+    for node in tree.postorder(include_self=True):
+        if node.is_tip():
+            node.n = 1
+            node.splits = 0
+            node.postlevels = 1
+        else:
+            children = node.children
+            node.n = sum(x.n for x in children)
+            node.splits = sum(x.splits for x in children) + 1
+            node.postlevels = max(x.postlevels for x in children) + 1
+
+    # calculate top-down metrics
+    for node in tree.preorder(include_self=True):
+        if node.is_root():
+            node.prelevels = 1
+        else:
+            node.prelevels = node.parent.prelevels + 1
+
+
+def calc_length_metrics(tree):
     """Calculate branch length-related metrics.
 
     Parameters
@@ -1114,6 +1256,28 @@ def calc_brlen_metrics(tree):
     [1] Parks, D. H. et al. A standardized bacterial taxonomy based on genome
         phylogeny substantially revises the tree of life. Nat. Biotechnol. 36,
         996–1004 (2018).
+
+    Examples
+    --------
+    >>> # Example from Fig. 1a of Parks et al., 2018, Nat Biotechnol:
+    >>> tree = TreeNode.read(['(((A:1,B:1)n3:1,(C:1,D:2)n4:2)n2:2,E:3)n1;'])
+    >>> print(tree.ascii_art())
+                                  /-A
+                        /n3------|
+                       |          \\-B
+              /n2------|
+             |         |          /-C
+    -n1------|          \\n4------|
+             |                    \\-D
+             |
+              \\-E
+    >>> calc_length_metrics(tree)
+    >>> tree.find('n3').height
+    3.0
+    >>> tree.find('n2').depths
+    [2.0, 2.0, 3.0, 4.0]
+    >>> round(tree.find('n4').red, 3)
+    0.752
     """
     # calculate depths
     for node in tree.postorder(include_self=True):
@@ -1281,73 +1445,73 @@ def root_by_outgroup(tree, outgroup, strict=False, unroot=False):
     >>> print(tree.ascii_art())
                                             /-a
                                   /--------|
-                                 |          \-b
+                                 |          \\-b
                         /--------|
                        |         |          /-c
-                       |          \--------|
-              /--------|                    \-d
+                       |          \\--------|
+              /--------|                    \\-d
              |         |
              |         |          /-e
-    ---------|          \--------|
-             |                    \-f
+    ---------|          \\--------|
+             |                    \\-f
              |
-              \-g
+              \\-g
     >>> rooted = root_by_outgroup(tree, outgroup=['a', 'b'])
     >>> print(rooted.ascii_art())
                         /-a
               /--------|
-             |          \-b
+             |          \\-b
              |
     ---------|                    /-c
              |          /--------|
-             |         |          \-d
-              \--------|
+             |         |          \\-d
+              \\--------|
                        |                    /-e
                        |          /--------|
-                        \--------|          \-f
+                        \\--------|          \\-f
                                  |
-                                  \-g
+                                  \\-g
     >>> rooted = root_by_outgroup(tree, outgroup=['e', 'f', 'g'])
     >>> print(rooted.ascii_art())
                                   /-e
                         /--------|
-              /--------|          \-f
+              /--------|          \\-f
              |         |
-             |          \-g
+             |          \\-g
     ---------|
              |                    /-c
              |          /--------|
-             |         |          \-d
-              \--------|
+             |         |          \\-d
+              \\--------|
                        |          /-b
-                        \--------|
-                                  \-a
+                        \\--------|
+                                  \\-a
     >>> unrooted = root_by_outgroup(tree, outgroup=['a', 'b'], unroot=True)
     >>> print(unrooted.ascii_art())
                                   /-e
                         /--------|
-              /--------|          \-f
+              /--------|          \\-f
              |         |
-             |          \-g
+             |          \\-g
              |
     ---------|          /-a
              |---------|
-             |          \-b
+             |          \\-b
              |
              |          /-c
-              \--------|
-                        \-d
+              \\--------|
+                        \\-d
     """
     # select taxa that are present in tree
     og = set(outgroup).intersection(tree.subset())
 
     n = len(og)
     if strict and n < len(outgroup):
-        raise ValueError('Error: Outgroup is not a subset of tree taxa.')
+        raise ValueError('Outgroup is not a subset of tree taxa.')
     if n == 0:
-        raise ValueError('Error: None of outgroup taxa are present in tree.')
+        raise ValueError('None of outgroup taxa are present in tree.')
     if n == tree.count(tips=True):
-        raise ValueError('Error: Outgroup constitutes the entire tree.')
+        raise ValueError('Outgroup constitutes the entire tree.')
 
     # create new tree
     res = tree.copy()
@@ -1366,10 +1530,11 @@ def root_by_outgroup(tree, outgroup, strict=False, unroot=False):
 
     # test monophyly
     if lca.count(tips=True) > n:
-        raise ValueError('Error: Outgroup is not monophyletic in tree.')
+        raise ValueError('Outgroup is not monophyletic in tree.')
 
     # re-root target tree between LCA of outgroup and LCA of ingroup
     return unroot_at(lca.parent) if unroot else root_above(lca)
+
 
 def restore_rooting(source, target):
     """Restore rooting scenario in an unrooted tree based on a rooted tree.
@@ -1398,55 +1563,165 @@ def restore_rooting(source, target):
     >>> print(source.ascii_art())
                                   /-e
                         /--------|
-              /--------|          \-f
+              /--------|          \\-f
              |         |
-             |          \-g
+             |          \\-g
     ---------|
              |                    /-c
              |          /--------|
-             |         |          \-d
-              \--------|
+             |         |          \\-d
+              \\--------|
                        |          /-b
-                        \--------|
-                                  \-a
+                        \\--------|
+                                  \\-a
     >>> target = TreeNode.read(['(((a,b)95,(c,d)90)80,(e,f)100,g);'])
     >>> print(target.ascii_art())
                                   /-a
                         /95------|
-                       |          \-b
+                       |          \\-b
               /80------|
              |         |          /-c
-             |          \90------|
-             |                    \-d
+             |          \\90------|
+             |                    \\-d
     ---------|
              |          /-e
              |-100-----|
-             |          \-f
+             |          \\-f
              |
-              \-g
+              \\-g
     >>> assign_supports(target)
     >>> rooted = restore_rooting(source, target)
     >>> support_to_label(rooted)
     >>> print(rooted.ascii_art())
                                   /-e
                         /100-----|
-              /80------|          \-f
+              /80------|          \\-f
              |         |
-             |          \-g
+             |          \\-g
     ---------|
              |                    /-c
              |          /90------|
-             |         |          \-d
-              \80------|
+             |         |          \\-d
+              \\80------|
                        |          /-b
-                        \95------|
-                                  \-a
+                        \\95------|
+                                  \\-a
     """
     if source.subset() != target.subset():
-        raise ValueError('Error: Source and target trees have different taxa.')
+        raise ValueError('Source and target trees have different taxa.')
     counts = {x: x.count(tips=True) for x in source.children}
     fewer = min(counts, key=counts.get)
     outgroup = (set([fewer.name]) if fewer.is_tip()
                 else set(x.name for x in fewer.tips()))
     return root_by_outgroup(target, outgroup, strict=True,
                             unroot=(len(counts) > 2))
+
+
+def restore_node_labels(source, target):
+    """Restore internal node labels in one tree based on another tree.
+
+    Parameters
+    ----------
+    source : skbio.TreeNode
+        source tree from which internal node labels to be read
+    target : skbio.TreeNode
+        target tree to which internal node labels to be written
+
+    Returns
+    -------
+    skbio.TreeNode
+        resulting tree with internal node labels added
+
+    Notes
+    -----
+    Labels are assigned based on exact match of all descending taxa. Taxa in
+    the source and target trees do not have to be identical. Original labels
+    in the target tree, if any, will be overwritten.
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> source = TreeNode.read(['(((a,b)85,c)90,((d,e)98,(f,g)93));'])
+    >>> target = TreeNode.read(['((((g,f),(e,d))x,(c,(a,b))y),h);'])
+    >>> labeled = restore_node_labels(source, target)
+    >>> print(str(labeled))
+    ((((g,f)93,(e,d)98)x,(c,(a,b)85)90),h);
+    <BLANKLINE>
+    """
+    # assign taxa to internal nodes
+    for tree in (source, target):
+        if not hasattr(tree, 'taxa'):
+            assign_taxa(tree)
+
+    # read descendants under each node label in source tree
+    label2taxa = {}
+    for node in source.non_tips(include_self=True):
+        label = node.name
+        if label is not None and label != '':
+            if label in label2taxa:
+                raise ValueError('Duplicated node label "%s" found.' % label)
+            label2taxa[label] = ','.join(sorted(node.taxa))
+    taxa2label = {v: k for k, v in label2taxa.items()}
+
+    # identify and mark matching nodes per node label in target tree
+    res = target.copy()
+    for node in res.non_tips(include_self=True):
+        taxa = ','.join(sorted(node.taxa))
+        if taxa in taxa2label:
+            node.name = taxa2label[taxa]
+
+    return res
+
+
+def restore_node_order(source, target):
+    """Restore ordering of nodes in one tree based on another tree.
+
+    Parameters
+    ----------
+    source : skbio.TreeNode
+        source tree from which node ordering to be read
+    target : skbio.TreeNode
+        target tree to which nodes to be re-ordered accordingly
+
+    Returns
+    -------
+    skbio.TreeNode
+        resulting tree with nodes re-ordered
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> source = TreeNode.read(['(((a,b),(c,d)),((e,f),g));'])
+    >>> target = TreeNode.read(['((g,(e,f)100),((d,c)80,(a,b)90));'])
+    >>> ordered = restore_node_order(source, target)
+    >>> print(str(ordered))
+    (((a,b)90,(c,d)80),((e,f)100,g));
+    <BLANKLINE>
+    """
+    n = source.count()
+    if n != target.count():
+        raise ValueError('Two trees have different sizes.')
+
+    # find matching nodes
+    matches = match_taxa(source, target)
+    if n != len(matches):
+        raise ValueError('Two trees have different topologies.')
+
+    def taxastr(node):
+        return ','.join(sorted(node.taxa))
+
+    taxa2src = {taxastr(x[0]): x[0] for x in matches
+                if not x[0].is_tip()}
+
+    # re-order child nodes under each internal node
+    res = target.copy()
+    for node in res.non_tips(include_self=True):
+        src_node = taxa2src[taxastr(node)]
+        taxa2child = {}
+        for child in node.children:
+            taxa2child[taxastr(child)] = child
+        node.children = []
+        for child in src_node.children:
+            node.append(taxa2child[taxastr(child)])
+
+    return res
