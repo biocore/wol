@@ -1166,12 +1166,16 @@ def calc_split_metrics(tree):
         number of descendants (tips)
     - splits : int
         total number of splits from tips
-    - postlevels : int
-        maximum number of levels from tips
-    - prelevels : int
-        number of levels from root
+    - prelevel : int
+        number of nodes from root
+    - postlevels : list of int
+        numbers of nodes from tips
 
     These metrics are related to topology but not branch lengths.
+
+    See Also
+    --------
+    calc_length_metrics
 
     Examples
     --------
@@ -1206,8 +1210,8 @@ def calc_split_metrics(tree):
     >>> tree.find('n4').splits
     4
     >>> tree.find('n8').postlevels
-    3
-    >>> tree.find('A').prelevels
+    [3, 3, 2]
+    >>> tree.find('A').prelevel
     5
     """
     # calculate bottom-up metrics
@@ -1215,19 +1219,20 @@ def calc_split_metrics(tree):
         if node.is_tip():
             node.n = 1
             node.splits = 0
-            node.postlevels = 1
+            node.postlevels = [1]
         else:
             children = node.children
             node.n = sum(x.n for x in children)
             node.splits = sum(x.splits for x in children) + 1
-            node.postlevels = max(x.postlevels for x in children) + 1
+            node.postlevels = [y + 1 for x in node.children for y in
+                               x.postlevels]
 
     # calculate top-down metrics
     for node in tree.preorder(include_self=True):
         if node.is_root():
-            node.prelevels = 1
+            node.prelevel = 1
         else:
-            node.prelevels = node.parent.prelevels + 1
+            node.prelevel = node.parent.prelevel + 1
 
 
 def calc_length_metrics(tree):
@@ -1256,6 +1261,10 @@ def calc_length_metrics(tree):
     [1] Parks, D. H. et al. A standardized bacterial taxonomy based on genome
         phylogeny substantially revises the tree of life. Nat. Biotechnol. 36,
         996–1004 (2018).
+
+    See Also
+    --------
+    calc_split_metrics
 
     Examples
     --------
@@ -1725,3 +1734,216 @@ def restore_node_order(source, target):
             node.append(taxa2child[taxastr(child)])
 
     return res
+
+
+def get_base(node):
+    """Return current node's basal node in tree
+
+    Parameters
+    ----------
+    node : skbio.TreeNode
+        query node
+
+    Returns
+    -------
+    skbio.TreeNode
+        basal node of query node
+
+    Notes
+    -----
+    A "basal" node is defined as a child node of root.
+
+    See Also
+    --------
+    scikit-bio's `root` function
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> tree = TreeNode.read(['(((a,b)n6,(c,d)n5)n3,((e,f)n4,g)n2)n1;'])
+    >>> node = tree.find('a')
+    >>> print(get_base(node).name)
+    n3
+    """
+    if node.is_root():
+        raise ValueError('Root has no base.')
+    cnode = node
+    while True:
+        pnode = cnode.parent
+        if pnode.is_root():
+            break
+        cnode = pnode
+    return cnode
+
+
+def calc_bidi_minlevels(tree):
+    """Calculate minimum levels of nodes to tree's surface from both
+    post- and pre-directions.
+
+    Parameters
+    ----------
+    node : skbio.TreeNode
+        query node
+
+    Notes
+    -----
+    A new attribute will be appended to each internal node:
+    - minlevel : int
+        minimum level of current node to tree's surface
+
+    Will execute calc_split_metrics if not already.
+
+    See Also
+    --------
+    calc_split_metrics
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> tree = TreeNode.read(['(((a,b)n4,(c,d)n5)n2,(((e,f)n8,(g,h)n9)n6,'
+    ...                       '((i,j)n10,(k,l)n11)n7)n3,m)n1;'])
+    >>> print(tree.ascii_art())
+                                  /-a
+                        /n4------|
+                       |          \-b
+              /n2------|
+             |         |          /-c
+             |          \\n5------|
+             |                    \-d
+             |
+             |                              /-e
+             |                    /n8------|
+             |                   |          \-f
+             |          /n6------|
+             |         |         |          /-g
+    -n1------|         |          \\n9------|
+             |         |                    \-h
+             |-n3------|
+             |         |                    /-i
+             |         |          /n10-----|
+             |         |         |          \-j
+             |          \\n7------|
+             |                   |          /-k
+             |                    \\n11-----|
+             |                              \-l
+             |
+              \-m
+    >>> calc_bidi_minlevels(tree)
+    >>> # minlevel of n4 is 2 (a-n4)
+    >>> tree.find('n4').minlevel
+    2
+    >>> # minlevel of n6 is 3 (e-n8-n6)
+    >>> tree.find('n6').minlevel
+    3
+    >>> # minlevel of n3 is 3 (m-n1-n3) rather than 4 (e-n8-n6-n3)
+    >>> tree.find('n3').minlevel
+    3
+    """
+    # check if tree is unrooted (if yes, "root" accounts for one node)
+    unrooted = int(len(tree.children) != 2)
+
+    # execute calc_split_metrics if not yet
+    if not hasattr(tree, 'postlevels'):
+        calc_split_metrics(tree)
+
+    # root's minlevel is the min of all descendants (single direction)
+    tree.minlevel = min(tree.postlevels)
+
+    # internal node's minlevel is the min of post- and pre-direction
+    for node in tree.preorder(include_self=False):
+
+        # tips are already at surface, so minlevel = 1
+        if node.is_tip():
+            node.minlevel = 1
+            continue
+
+        # basal nodes: compare siblings, consider (un)rooting
+        if node.parent.is_root():
+            node.minlevel_above = 1 + unrooted + \
+                min(min(x.postlevels) for x in tree.children if x is not node)
+
+        # derived nodes: increment from parent
+        else:
+            node.minlevel_above = node.parent.minlevel_above + 1
+
+        # minimum level of post- and pre-direction levels
+        node.minlevel = min(node.minlevel_above, min(node.postlevels))
+
+    # clean up
+    for node in tree.non_tips(include_self=False):
+        delattr(node, 'minlevel_above')
+
+
+def calc_bidi_mindepths(tree):
+    """Calculate minimum depths of nodes to tree's surface from both
+    post- and pre-directions.
+
+    Parameters
+    ----------
+    node : skbio.TreeNode
+        query node
+
+    Notes
+    -----
+    A new attribute will be appended to each internal node:
+    - mindepth : float
+        minimum depth of current node to tree's surface
+
+    Will execute calc_length_metrics if not already.
+
+    See Also
+    --------
+    calc_length_metrics
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> tree = TreeNode.read(['(((a:0.5,b:0.7)n5:1.1,c:1.7)n2:0.3,((d:0.8,'
+    ...                       'e:0.6)n6:0.9,(f:1.2,g:0.5)n7:0.8)n3:1.3,'
+    ...                       '(h:0.4,i:0.3)n4:0.9)n1;'])
+    >>> print(tree.ascii_art())
+                                  /-a
+                        /n5------|
+              /n2------|          \-b
+             |         |
+             |          \-c
+             |
+             |                    /-d
+             |          /n6------|
+    -n1------|         |          \-e
+             |-n3------|
+             |         |          /-f
+             |          \\n7------|
+             |                    \-g
+             |
+             |          /-h
+              \\n4------|
+                        \-i
+    >>> calc_bidi_mindepths(tree)
+    >>> # mindepth of n5 is 0.5 (a-0.5-n5)
+    >>> tree.find('n5').mindepth
+    0.5
+    >>> # mindepth of n3 is 1.3 (g-0.5-n7-0.8-n3)
+    >>> tree.find('n3').mindepth
+    1.3
+    >>> # mindepth of n2 is 1.5 (i-0.3-n4-0.9-n1-0.3-n2) instead of
+    >>> # 1.7 (c-1.7-n2)
+    >>> tree.find('n2').mindepth
+    1.5
+    """
+    if not hasattr(tree, 'depths'):
+        calc_length_metrics(tree)
+    tree.mindepth = min(tree.depths)
+    for node in tree.preorder(include_self=False):
+        if node.is_tip():
+            node.mindepth = 0.0
+            continue
+        if node.parent.is_root():
+            node.mindepth_above = node.length + \
+                min(min(x.depths) + x.length for x in tree.children
+                    if x is not node)
+        else:
+            node.mindepth_above = node.parent.mindepth_above + node.length
+        node.mindepth = min(node.mindepth_above, min(node.depths))
+    for base in tree.non_tips(include_self=False):
+        delattr(base, 'mindepth_above')

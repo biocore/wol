@@ -7,8 +7,8 @@ Usage:
 
 import sys
 from skbio import TreeNode
-from utils.tree import (
-    branch_length_digits, format_newick, unpack_by_func, assign_supports)
+from utils.tree import (branch_length_digits, format_newick, unpack_by_func,
+                        get_support, assign_supports)
 
 
 def main():
@@ -24,8 +24,13 @@ def main():
     # minimum support cutoff
     th = float(sys.argv[2])
 
+    # None is considered full support
+    def unpack_func(node):
+        support = get_support(node)
+        return support is not None and support < th
+
     # unpack nodes with low-support branches
-    tree = unpack_by_func(tree, lambda x: x.support < th)
+    tree = unpack_by_func(tree, unpack_func)
     print('Nodes after unpacking: %d.' % len(list(tree.non_tips())),
           file=sys.stderr)
 

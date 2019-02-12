@@ -13,7 +13,7 @@ from utils.tree import (
     assign_supports, support_to_label, walk_copy, root_above, unroot_at,
     _exact_compare, calc_split_metrics, calc_length_metrics, format_newick,
     root_by_outgroup, restore_rooting, restore_node_labels,
-    restore_node_order)
+    restore_node_order, get_base, calc_bidi_minlevels, calc_bidi_mindepths)
 
 
 class TreeTests(TestCase):
@@ -666,29 +666,29 @@ class TreeTests(TestCase):
         ])
         calc_split_metrics(tree)
         obs = {x.name: [getattr(x, y) for y in
-                        ('n', 'splits', 'postlevels', 'prelevels')]
+                        ('n', 'splits', 'prelevel', 'postlevels')]
                for x in tree.traverse()}
         exp = {
-            'n1': [11, 9, 5, 1],
-            'n4': [5, 4, 4, 2],
-            'n3': [4, 3, 3, 2],
-            'n2': [2, 1, 2, 2],
-            'n8': [3, 2, 3, 3],
-            'n7': [2, 1, 2, 3],
-            'n6': [2, 1, 2, 3],
-            'n5': [2, 1, 2, 3],
-            'J': [1, 0, 1, 3],
-            'K': [1, 0, 1, 3],
-            'n9': [2, 1, 2, 4],
-            'C': [1, 0, 1, 4],
-            'D': [1, 0, 1, 4],
-            'E': [1, 0, 1, 4],
-            'F': [1, 0, 1, 4],
-            'G': [1, 0, 1, 4],
-            'H': [1, 0, 1, 4],
-            'I': [1, 0, 1, 4],
-            'A': [1, 0, 1, 5],
-            'B': [1, 0, 1, 5]
+            'n1': [11, 9, 1, [5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3]],
+            'n4': [5, 4, 2, [4, 4, 3, 3, 3]],
+            'n3': [4, 3, 2, [3, 3, 3, 3]],
+            'n2': [2, 1, 2, [2, 2]],
+            'n8': [3, 2, 3, [3, 3, 2]],
+            'n7': [2, 1, 3, [2, 2]],
+            'n6': [2, 1, 3, [2, 2]],
+            'n5': [2, 1, 3, [2, 2]],
+            'J': [1, 0, 3, [1]],
+            'K': [1, 0, 3, [1]],
+            'n9': [2, 1, 4, [2, 2]],
+            'C': [1, 0, 4, [1]],
+            'D': [1, 0, 4, [1]],
+            'E': [1, 0, 4, [1]],
+            'F': [1, 0, 4, [1]],
+            'G': [1, 0, 4, [1]],
+            'H': [1, 0, 4, [1]],
+            'I': [1, 0, 4, [1]],
+            'A': [1, 0, 5, [1]],
+            'B': [1, 0, 5, [1]]
         }
         self.assertDictEqual(obs, exp)
 
@@ -853,6 +853,51 @@ class TreeTests(TestCase):
         with self.assertRaisesRegex(ValueError, msg):
             restore_node_order(
                 TreeNode.read(['((((a,b),c),d),(e,(f,g)));']), target)
+
+    def test_get_base(self):
+        tree = TreeNode.read(['(((a,b)n6,(c,d)n5)n3,((e,f)n4,g)n2)n1;'])
+        self.assertEqual(get_base(tree.find('a')).name, 'n3')
+        self.assertEqual(get_base(tree.find('e')).name, 'n2')
+
+        obs = get_base(tree.lca([tree.find('a'), tree.find('b')])).name
+        self.assertEqual(obs, 'n3')
+
+        msg = 'Root has no base.'
+        with self.assertRaisesRegex(ValueError, msg):
+            get_base(tree)
+
+    def test_calc_bidi_minlevels(self):
+        # an unrooted tree (typical use case)
+        tree = TreeNode.read(['(((a,b)n4,(c,d)n5)n2,(((e,f)n8,(g,h)n9)n6,'
+                              '((i,j)n10,(k,l)n11)n7)n3,m)n1;'])
+        calc_bidi_minlevels(tree)
+        # tips should always be 1
+        self.assertSetEqual(set(x.minlevel for x in tree.tips()), {1})
+        # internal nodes
+        obs = {x.name: x.minlevel for x in tree.non_tips(include_self=True)}
+        exp = {'n1': 2, 'n2': 3, 'n3': 3, 'n4': 2, 'n5': 2, 'n6': 3, 'n7': 3,
+               'n8': 2, 'n9': 2, 'n10': 2, 'n11': 2}
+        self.assertDictEqual(obs, exp)
+
+        # a rooted tree (unusual but could happen)
+        tree = TreeNode.read(['(((a,b)n3,(c,d)n4)n2,e)n1;'])
+        calc_bidi_minlevels(tree)
+        obs = {x.name: x.minlevel for x in tree.non_tips(include_self=True)}
+        exp = {'n1': 2, 'n2': 2, 'n3': 2, 'n4': 2}
+        self.assertDictEqual(obs, exp)
+
+    def test_calc_bidi_mindepths(self):
+        tree = TreeNode.read(['(((a:0.5,b:0.7)n5:1.1,c:1.7)n2:0.3,((d:0.8,'
+                              'e:0.6)n6:0.9,(f:1.2,g:0.5)n7:0.8)n3:1.3,'
+                              '(h:0.4,i:0.3)n4:0.9)n1;'])
+        calc_bidi_mindepths(tree)
+        # tips should always be 1
+        self.assertSetEqual(set(x.mindepth for x in tree.tips()), {0.0})
+        # internal nodes
+        obs = {x.name: x.mindepth for x in tree.non_tips(include_self=True)}
+        exp = {'n1': 1.2, 'n2': 1.5, 'n3': 1.3, 'n4': 0.3, 'n5': 0.5,
+               'n6': 0.6, 'n7': 0.5}
+        self.assertDictEqual(obs, exp)
 
 
 if __name__ == '__main__':
