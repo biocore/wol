@@ -5,15 +5,17 @@ from shutil import rmtree
 from tempfile import mkdtemp
 from os.path import join, dirname, realpath
 from skbio import TreeNode
+from skbio.tree import MissingNodeError
 
 from utils.tree import (
     support, unpack, has_duplicates, compare_topology, intersect_trees,
     unpack_by_func, read_taxdump, build_taxdump_tree, order_nodes,
-    is_ordered, cladistic, _compare_length, compare_branch_lengths,
-    assign_supports, support_to_label, walk_copy, root_above, unroot_at,
-    _exact_compare, calc_split_metrics, calc_length_metrics, format_newick,
-    root_by_outgroup, restore_rooting, restore_node_labels,
-    restore_node_order, get_base, calc_bidi_minlevels, calc_bidi_mindepths)
+    is_ordered, lca2, cladistic, check_monophyly, _compare_length,
+    compare_branch_lengths, assign_taxa, assign_supports, support_to_label,
+    walk_copy, root_above, unroot_at, _exact_compare, calc_split_metrics,
+    calc_length_metrics, format_newick, root_by_outgroup, restore_rooting,
+    restore_node_labels, restore_node_order, get_base, calc_bidi_minlevels,
+    calc_bidi_mindepths)
 
 
 class TreeTests(TestCase):
@@ -357,21 +359,57 @@ class TreeTests(TestCase):
         tree5 = TreeNode.read(['((h,(e,g)),((a,b),(c,d,i)j));'])
         self.assertTrue(is_ordered(tree5, False))
 
+    def test_lca2(self):
+        newick = '((((a,b)n6,c)n4,(d,e)n5)n2,(f,(g,h)n7)n3,i)n1;'
+        tree = TreeNode.read([newick])
+        msg = "'TreeNode' object has no attribute 'taxa'"
+        with self.assertRaisesRegex(AttributeError, msg):
+            lca2(tree, set('ab'))
+        assign_taxa(tree)
+        self.assertEqual(lca2(tree, set('a')).name, 'a')
+        self.assertEqual(lca2(tree, set('ab')).name, 'n6')
+        self.assertEqual(lca2(tree, set('ac')).name, 'n4')
+        self.assertEqual(lca2(tree, set('ace')).name, 'n2')
+        self.assertEqual(lca2(tree, set('bgi')).name, 'n1')
+
     def test_cladistic(self):
         tree1 = TreeNode.read(['((i,j)a,b)c;'])
         self.assertEqual('uni', cladistic(tree1, ['i']))
         self.assertEqual('mono', cladistic(tree1, ['i', 'j']))
         self.assertEqual('poly', cladistic(tree1, ['i', 'b']))
-        msg = 'Taxa not found in the tree.'
-        with self.assertRaisesRegex(ValueError, msg):
+        msg = 'Node x is not in self'
+        with self.assertRaisesRegex(MissingNodeError, msg):
             cladistic(tree1, ['x', 'b'])
 
         tree2 = TreeNode.read(['(((a,b),(c,d,x)),((e,g),h));'])
         self.assertEqual('uni', cladistic(tree2, ['a']))
         self.assertEqual('mono', cladistic(tree2, ['a', 'b', 'c', 'd', 'x']))
         self.assertEqual('poly', cladistic(tree2, ['g', 'h']))
-        with self.assertRaisesRegex(ValueError, msg):
+        msg = 'Node y is not in self'
+        with self.assertRaisesRegex(MissingNodeError, msg):
             cladistic(tree2, ['y', 'b'])
+
+        assign_taxa(tree2)
+        self.assertEqual('uni', cladistic(tree2, ['a']))
+        self.assertEqual('mono', cladistic(tree2, ['a', 'b']))
+        self.assertEqual('poly', cladistic(tree2, ['g', 'h']))
+
+    def test_check_monophyly(self):
+        newick = '(((a,b)n4,(c,d)n5,(e,f)n6)n2,(g,(h,i)n7)n3)n1;'
+        tree = TreeNode.read([newick])
+        assign_taxa(tree)
+        res = check_monophyly(tree, 'a')
+        self.assertListEqual([res[0], res[1].name], ['strict', 'a'])
+        res = check_monophyly(tree, 'ab')
+        self.assertListEqual([res[0], res[1].name], ['strict', 'n4'])
+        res = check_monophyly(tree, 'abc')
+        self.assertListEqual([res[0], res[1].name], ['rejected', 'n2'])
+        res = check_monophyly(tree, 'abcd')
+        self.assertListEqual([res[0], res[1].name], ['relaxed', 'n2'])
+        res = check_monophyly(tree, 'abcde')
+        self.assertListEqual([res[0], res[1].name], ['rejected', 'n2'])
+        res = check_monophyly(tree, 'abcdef')
+        self.assertListEqual([res[0], res[1].name], ['strict', 'n2'])
 
     def test_compare_length(self):
         tree = TreeNode.read(['((a:1.000000001,(b:1.000000002,c:1):1):3,f)g;'])

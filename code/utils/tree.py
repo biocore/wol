@@ -6,13 +6,15 @@ from types import MethodType
 from skbio.tree import MissingNodeError
 
 
-def _extract_support(node):
+def _extract_support(node, strict=False):
     """Extract the support value from a node label, if available.
 
     Parameters
     ----------
-    skbio.TreeNode
+    node : skbio.TreeNode
         node from which the support value is extracted
+    strict : bool (optional)
+        whether support value must be a number (default: false)
 
     Returns
     -------
@@ -32,7 +34,10 @@ def _extract_support(node):
             try:
                 support = float(left)
             except ValueError:
-                pass
+                if strict:
+                    pass
+                else:
+                    support = left
         # strip support value from node name
         label = right or None if support is not None else node.name
     return support, label
@@ -669,6 +674,72 @@ def is_ordered(tree, increase=True):
     return True
 
 
+def lca2(tree, taxa):
+    """Get lowest common ancestor of a taxon set in a tree.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        query tree
+    taxa : set of str
+        query taxon set
+
+    Returns
+    -------
+    skbio.TreeNode
+        LCA of query taxon set
+
+    Notes
+    -----
+    This algorithm achieves the same goal via a different design comparing to
+    scikit-bio's `lca` function, which uses a red-black tree strategy. Instead,
+    this algorithm relies on pre-assigned taxon sets at each node, and performs
+    a preorder recursion from root until it cannot go further. This algorithm
+    is significantly more efficient if it is be executed for multiple times.
+
+    For performance consideration, this function does not check whether the
+    query taxon set has any invalid taxon. This check, and `assign_taxa`,
+    should be done prior to triggering this function.
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> newick = '((((a,b)n6,c)n4,(d,e)n5)n2,(f,(g,h)n7)n3,i)n1;'
+    >>> tree = TreeNode.read([newick])
+    >>> print(tree.ascii_art())
+                                            /-a
+                                  /n6------|
+                        /n4------|          \\-b
+                       |         |
+              /n2------|          \\-c
+             |         |
+             |         |          /-d
+             |          \\n5------|
+             |                    \\-e
+             |
+    -n1------|          /-f
+             |-n3------|
+             |         |          /-g
+             |          \\n7------|
+             |                    \\-h
+             |
+              \\-i
+    >>> assign_taxa(tree)
+    >>> lca2(tree, set('ab')).name
+    'n6'
+    >>> lca2(tree, set('ac')).name
+    'n4'
+    >>> lca2(tree, set('ae')).name
+    'n2'
+    >>> lca2(tree, set('ag')).name
+    'n1'
+    """
+    for child in tree.children:
+        if taxa.issubset(child.taxa):
+            return lca2(child, taxa)
+    return tree
+
+
 def cladistic(tree, taxa):
     """Determines the cladistic property of the given taxon set.
 
@@ -727,17 +798,103 @@ def cladistic(tree, taxa):
     >>> print(cladistic(tree, ['a', 'd']))
     poly
     """
-    tips = []
     taxa = set(taxa)
-    for tip in tree.tips():
-        if tip.name in taxa:
-            tips.append(tip)
     n = len(taxa)
-    if len(tips) < n:
-        raise ValueError('Taxa not found in the tree.')
-    return ('uni' if n == 1 else
-            ('mono' if len(tree.lca(tips).subset()) == n else
-             'poly'))
+    if n == 1:
+        return 'uni'
+    else:
+        lca = lca2(tree, taxa) if hasattr(tree, 'taxa') else tree.lca(taxa)
+        return 'mono' if lca.count(tips=True) == n else 'poly'
+
+
+def check_monophyly(tree, taxa):
+    """Check whether a taxon set is monophyletic in a tree, considering
+    that the LCA node may be polytomic.
+
+    Parameters
+    ----------
+    tree : skbio.TreeNode
+        query tree
+    taxa : iterable of str
+        query taxon set to test monophyly
+
+    Returns
+    -------
+    str
+        'strict' if taxon set is the entire clade
+        'relaxed' if taxon set consists of one or more but not all basal clades
+            descending from lca
+        'rejected' if neither is satisfied, i.e., in at least one basal clade,
+            a portion but not all taxa belong to the taxon set
+    skbio.TreeNode
+        LCA of query taxon set
+
+    Notes
+    -----
+    This function is useful in testing the significance a taxon set's monopyly
+    is supported or rejected by a tree. One frequent instance is that a taxon
+    set is not monophyletic in a tree, but after low-support branches are
+    unpacked from the tree, the LCA of this taxon set becomes polytomic, at
+    which the monophyly of the taxon set can no longer be rejected. In this
+    scenario, this taxon set can be considered as "weakly rejected" [1].
+
+    [1] Sayyari E., Whitfield  J. B. and Mirarab S.. DiscoVista: Interpretable
+        visualizations of gene tree discordance." Molecular Phylogenetics and
+        Evolution. 2018. 122:110-115.
+
+    Examples
+    --------
+    >>> from skbio import TreeNode
+    >>> newick = '(((a,b),(c,d),(e,f)),(g,(h,i)));'
+    >>> tree = TreeNode.read([newick])
+    >>> print(tree.ascii_art())
+                                  /-a
+                        /--------|
+                       |          \\-b
+                       |
+                       |          /-c
+              /--------|---------|
+             |         |          \\-d
+             |         |
+             |         |          /-e
+    ---------|          \\--------|
+             |                    \\-f
+             |
+             |          /-g
+              \\--------|
+                       |          /-h
+                        \\--------|
+                                  \\-i
+    >>> check_monophyly(tree, 'a')[0]
+    'strict'
+    >>> check_monophyly(tree, 'ab')[0]
+    'strict'
+    >>> check_monophyly(tree, 'abc')[0]
+    'rejected'
+    >>> check_monophyly(tree, 'abcd')[0]
+    'relaxed'
+    >>> check_monophyly(tree, 'abcde')[0]
+    'rejected'
+    >>> check_monophyly(tree, 'abcdef')[0]
+    'strict'
+    """
+    if not hasattr(tree, 'taxa'):
+        assign_taxa(tree)
+    taxa = set(taxa)
+    lca = lca2(tree, taxa)
+    if lca.taxa == taxa:
+        return 'strict', lca
+
+    # iteratively test each child clade: monophyly is violated if part of clade
+    # (not all, not none) is covered by the query taxon set
+    left = taxa
+    n = len(left)
+    for child in lca.children:
+        left -= child.taxa
+        if 0 < n - len(left) < len(child.taxa):
+            return 'rejected', lca
+        n = len(left)
+    return 'relaxed', lca
 
 
 def support(node):
@@ -1533,7 +1690,7 @@ def root_by_outgroup(tree, outgroup, strict=False, unroot=False):
     if lca is res:
         for tip in tree.tips():
             if tip.name not in og:
-                res = root_above(tip)
+                res = unroot_at(tip.parent) if unroot else root_above(tip)
                 break
         lca = res.lca(og)
 
@@ -1805,29 +1962,29 @@ def calc_bidi_minlevels(tree):
     >>> print(tree.ascii_art())
                                   /-a
                         /n4------|
-                       |          \-b
+                       |          \\-b
               /n2------|
              |         |          /-c
              |          \\n5------|
-             |                    \-d
+             |                    \\-d
              |
              |                              /-e
              |                    /n8------|
-             |                   |          \-f
+             |                   |          \\-f
              |          /n6------|
              |         |         |          /-g
     -n1------|         |          \\n9------|
-             |         |                    \-h
+             |         |                    \\-h
              |-n3------|
              |         |                    /-i
              |         |          /n10-----|
-             |         |         |          \-j
+             |         |         |          \\-j
              |          \\n7------|
              |                   |          /-k
              |                    \\n11-----|
-             |                              \-l
+             |                              \\-l
              |
-              \-m
+              \\-m
     >>> calc_bidi_minlevels(tree)
     >>> # minlevel of n4 is 2 (a-n4)
     >>> tree.find('n4').minlevel
@@ -1904,21 +2061,21 @@ def calc_bidi_mindepths(tree):
     >>> print(tree.ascii_art())
                                   /-a
                         /n5------|
-              /n2------|          \-b
+              /n2------|          \\-b
              |         |
-             |          \-c
+             |          \\-c
              |
              |                    /-d
              |          /n6------|
-    -n1------|         |          \-e
+    -n1------|         |          \\-e
              |-n3------|
              |         |          /-f
              |          \\n7------|
-             |                    \-g
+             |                    \\-g
              |
              |          /-h
               \\n4------|
-                        \-i
+                        \\-i
     >>> calc_bidi_mindepths(tree)
     >>> # mindepth of n5 is 0.5 (a-0.5-n5)
     >>> tree.find('n5').mindepth

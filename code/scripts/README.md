@@ -9,7 +9,9 @@ Basic tree operations
 
 [**count_nodes.py**](count_nodes.py): Count tips and internal nodes in a tree.
 
-[**trifucate_tree.py**](trifucate_tree.py): Remove arbitrary rooting from a tree.
+[**bifurcate_tree.py**](bifurcate_tree.py): Bifurcate a tree.
+
+[**trifurcate_tree.py**](trifurcate_tree.py): Remove arbitrary rooting from a tree.
 
 [**assign_node_ids.py**](assign_node_ids.py): Assign incremental node IDs to a tree in level order.
 
@@ -22,6 +24,10 @@ Basic tree operations
 [**unpack_low_support.py**](unpack_low_support.py): Unpack (collapse) internal nodes with branch support value lower than given cutoff.
 
 [**append_taxa.py**](append_taxa.py): Append extra taxa to a tree as polytomies based on a tip-to-taxa map.
+
+[**match_label_support.py**](match_label_support.py): Generate a nodel label to branch support value table.
+
+[**round_lengths.py**](round_lengths.py): Reduced the number of digits in branch lengths.
 
 
 Specialized tree operations
@@ -37,7 +43,11 @@ Specialized tree operations
 
 [**make_rfd_matrix.py**](make_rfd_matrix.py): Generate a matrix of Robinson-Foulds distances among all trees.
 
-[**calc_brlen_metrics.py**](calc_brlen_metrics.py): Calculate branch length-related metrics, including height, depths and relative evolutionary divergence (RED) for all nodes.
+[**calc_length_metrics.py**](calc_length_metrics.py): Calculate branch length-related metrics, including height, depths and relative evolutionary divergence (RED) for all nodes.
+
+[**calc_split_metrics.py**](calc_split_metrics.py): Calculate split-related metrics, including number of descendants, number of splits from tip or from root.
+
+[**calc_bidi_metrics.py**](calc_bidi_metrics.py): Calculate bidirectional levels and depths for nodes in a tree.
 
 
 Advanced analyses

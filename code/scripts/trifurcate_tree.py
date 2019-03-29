@@ -2,7 +2,7 @@
 """Remove the arbitrary rooting from a tree.
 
 Usage:
-    trifucate_tree.py input.nwk > output.nwk
+    trifurcate_tree.py input.nwk > output.nwk
 
 Notes:
     Some programs (e.g., ASTRAL) root a tree at an arbitrary taxon. This script
@@ -21,8 +21,7 @@ from unittest.mock import patch, mock_open
 
 def main():
     if len(sys.argv) < 2:
-        print(__doc__)
-        sys.exit()
+        sys.exit(__doc__)
     with fileinput.input() as f:
         tree = TreeNode.read(f)
     if len(tree.children) != 2:

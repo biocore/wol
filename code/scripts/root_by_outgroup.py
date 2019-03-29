@@ -7,7 +7,7 @@ Usage:
 
 import sys
 from skbio import TreeNode
-from utils.tree import assign_supports, root_by_outgroup
+from utils.tree import get_support, assign_supports, root_by_outgroup
 
 import unittest
 from os import remove
@@ -30,11 +30,13 @@ def main():
 
 def support_to_label(tree):
     for node in tree.non_tips():
-        if node.support is not None:
-            if node.name is not None and node.name != '':
-                node.name = '%s:%s' % (node.support, node.name)
+        name = node.name
+        support = get_support(node)
+        if support is not None:
+            if name not in (None, ''):
+                node.name = '%s:%s' % (support, name)
             else:
-                node.name = '%s' % node.support
+                node.name = '%s' % support
 
 
 class Tests(unittest.TestCase):

@@ -5,7 +5,7 @@ Usage:
     calc_split_metrics.py input.nwk > output.tsv
 
 Notes:
-    The following metrics are calculated for each node:
+    The following metrics will be calculated for each node:
     - n: number of descendants (tips)
     - splits: total number of splits from tips
     - prelevel: number of splits from root
