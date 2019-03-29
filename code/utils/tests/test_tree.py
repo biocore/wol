@@ -5,12 +5,17 @@ from shutil import rmtree
 from tempfile import mkdtemp
 from os.path import join, dirname, realpath
 from skbio import TreeNode
+from skbio.tree import MissingNodeError
 
 from utils.tree import (
     support, unpack, has_duplicates, compare_topology, intersect_trees,
     unpack_by_func, read_taxdump, build_taxdump_tree, order_nodes,
-    is_ordered, cladistic, _compare_length, compare_branch_lengths,
-    assign_supports, walk_copy, root_above, _exact_compare)
+    is_ordered, lca2, cladistic, check_monophyly, _compare_length,
+    compare_branch_lengths, assign_taxa, assign_supports, support_to_label,
+    walk_copy, root_above, unroot_at, _exact_compare, calc_split_metrics,
+    calc_length_metrics, format_newick, root_by_outgroup, restore_rooting,
+    restore_node_labels, restore_node_order, get_base, calc_bidi_minlevels,
+    calc_bidi_mindepths)
 
 
 class TreeTests(TestCase):
@@ -354,21 +359,57 @@ class TreeTests(TestCase):
         tree5 = TreeNode.read(['((h,(e,g)),((a,b),(c,d,i)j));'])
         self.assertTrue(is_ordered(tree5, False))
 
+    def test_lca2(self):
+        newick = '((((a,b)n6,c)n4,(d,e)n5)n2,(f,(g,h)n7)n3,i)n1;'
+        tree = TreeNode.read([newick])
+        msg = "'TreeNode' object has no attribute 'taxa'"
+        with self.assertRaisesRegex(AttributeError, msg):
+            lca2(tree, set('ab'))
+        assign_taxa(tree)
+        self.assertEqual(lca2(tree, set('a')).name, 'a')
+        self.assertEqual(lca2(tree, set('ab')).name, 'n6')
+        self.assertEqual(lca2(tree, set('ac')).name, 'n4')
+        self.assertEqual(lca2(tree, set('ace')).name, 'n2')
+        self.assertEqual(lca2(tree, set('bgi')).name, 'n1')
+
     def test_cladistic(self):
         tree1 = TreeNode.read(['((i,j)a,b)c;'])
         self.assertEqual('uni', cladistic(tree1, ['i']))
         self.assertEqual('mono', cladistic(tree1, ['i', 'j']))
         self.assertEqual('poly', cladistic(tree1, ['i', 'b']))
-        msg = 'Taxa not found in the tree.'
-        with self.assertRaisesRegex(ValueError, msg):
+        msg = 'Node x is not in self'
+        with self.assertRaisesRegex(MissingNodeError, msg):
             cladistic(tree1, ['x', 'b'])
 
         tree2 = TreeNode.read(['(((a,b),(c,d,x)),((e,g),h));'])
         self.assertEqual('uni', cladistic(tree2, ['a']))
         self.assertEqual('mono', cladistic(tree2, ['a', 'b', 'c', 'd', 'x']))
         self.assertEqual('poly', cladistic(tree2, ['g', 'h']))
-        with self.assertRaisesRegex(ValueError, msg):
+        msg = 'Node y is not in self'
+        with self.assertRaisesRegex(MissingNodeError, msg):
             cladistic(tree2, ['y', 'b'])
+
+        assign_taxa(tree2)
+        self.assertEqual('uni', cladistic(tree2, ['a']))
+        self.assertEqual('mono', cladistic(tree2, ['a', 'b']))
+        self.assertEqual('poly', cladistic(tree2, ['g', 'h']))
+
+    def test_check_monophyly(self):
+        newick = '(((a,b)n4,(c,d)n5,(e,f)n6)n2,(g,(h,i)n7)n3)n1;'
+        tree = TreeNode.read([newick])
+        assign_taxa(tree)
+        res = check_monophyly(tree, 'a')
+        self.assertListEqual([res[0], res[1].name], ['strict', 'a'])
+        res = check_monophyly(tree, 'ab')
+        self.assertListEqual([res[0], res[1].name], ['strict', 'n4'])
+        res = check_monophyly(tree, 'abc')
+        self.assertListEqual([res[0], res[1].name], ['rejected', 'n2'])
+        res = check_monophyly(tree, 'abcd')
+        self.assertListEqual([res[0], res[1].name], ['relaxed', 'n2'])
+        res = check_monophyly(tree, 'abcde')
+        self.assertListEqual([res[0], res[1].name], ['rejected', 'n2'])
+        res = check_monophyly(tree, 'abcdef')
+        self.assertListEqual([res[0], res[1].name], ['strict', 'n2'])
 
     def test_compare_length(self):
         tree = TreeNode.read(['((a:1.000000001,(b:1.000000002,c:1):1):3,f)g;'])
@@ -450,10 +491,48 @@ class TreeTests(TestCase):
         tree11 = TreeNode.read(['((a:1,(x:1,c:1)d:1)e:1,f:1)g:1;'])
         self.assertFalse(compare_branch_lengths(tree11, tree1))
 
+    def test_assign_supports(self):
+        tree = TreeNode.read(["((a,b)95,(c,d):1.1,(e,f)'80:Dmel':1.0);"])
+        assign_supports(tree)
+        # standalone support value
+        self.assertEqual(tree.lca(['a', 'b']).support, 95)
+        # no support value
+        self.assertIsNone(tree.lca(['c', 'd']).support)
+        # support value before node name
+        self.assertEqual(tree.lca(['e', 'f']).support, 80)
+        # stripped support value from node name
+        self.assertEqual(tree.lca(['e', 'f']).name, 'Dmel')
+
+    def test_support_to_label(self):
+        # unnamed nodes
+        tree = TreeNode.read(['((a,b)100,((c,d)95,(e,f)99)80);'])
+        assign_supports(tree)
+        self.assertEqual(str(tree), '((a,b),((c,d),(e,f)));\n')
+        support_to_label(tree)
+        self.assertEqual(str(tree), '((a,b)100,((c,d)95,(e,f)99)80);\n')
+
+        # named nodes
+        tree = TreeNode.read(["((a,b)'100:n2',(c,d)'95:n3')n1;"])
+        assign_supports(tree)
+        self.assertEqual(str(tree), '((a,b)n2,(c,d)n3)n1;\n')
+        support_to_label(tree)
+        self.assertEqual(str(tree), "((a,b)'100:n2',(c,d)'95:n3')n1;\n")
+
+        # unusual cases
+        tree = TreeNode.read(['(((a,b)n2,(c,d)n3)n6,(e,f)n4,(g,h)n5)n1;'])
+        tree.find('n2').support = 100
+        tree.find('n3').support = 0
+        tree.find('n4').support = ''
+        tree.find('n5').support = None
+        # n6 has no `support` attribute
+        tree.find('a').support = 95  # tips shouldn't have support
+        support_to_label(tree)
+        exp = "(((a,b)'100:n2',(c,d)'0:n3')n6,(e,f)n4,(g,h)n5)n1;\n"
+        self.assertEqual(str(tree), exp)
+
     def test_walk_copy(self):
         tree1 = TreeNode.read(['(((a:1.0,b:0.8)c:2.4,(d:0.8,e:0.6)f:1.2)g:0.4,'
                                '(h:0.5,i:0.7)j:1.8)k;'])
-        assign_supports(tree1)
 
         # test pos = root
         msg = 'Cannot walk from root of a rooted tree.'
@@ -481,87 +560,96 @@ class TreeTests(TestCase):
         exp = TreeNode.read(['(b:0.8,((d:0.8,e:0.6)f:1.2,(h:0.5,i:0.7)j:2.2)'
                              'g:2.4)c:1.0;'])
         obs = walk_copy(tree1.find('c'), tree1.find('a'))
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, obs))
 
         # pos = derived, move = down
         exp = TreeNode.read(['(d:0.8,e:0.6)f:1.2;'])
         obs = walk_copy(tree1.find('f'), tree1.find('g'))
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, obs))
 
         # pos = basal, move = top
         exp = TreeNode.read(['((d:0.8,e:0.6)f:1.2,(h:0.5,i:0.7)j:2.2)g:2.4;'])
         obs = walk_copy(tree1.find('g'), tree1.find('c'))
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, obs))
 
         # pos = basal, move = bottom
         exp = TreeNode.read(['(h:0.5,i:0.7)j:2.2;'])
         obs = walk_copy(tree1.find('j'), tree1.find('g'))
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, obs))
 
         tree2 = TreeNode.read(['(((a:1.0,b:0.8)c:2.4,d:0.8)e:0.6,f:1.2,'
                                'g:0.4)h:0.5;'])
-        assign_supports(tree2)
 
         # pos = basal, move = down
         exp = TreeNode.read(['((a:1.0,b:0.8)c:2.4,d:0.8)e:0.6;'])
         obs = walk_copy(tree2.find('e'), tree2.find('h'))
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, obs))
 
         # pos = basal, move = up
         exp = TreeNode.read(['(d:0.8,(f:1.2,g:0.4)h:0.6)e:2.4;'])
         obs = walk_copy(tree2.find('e'), tree2.find('c'))
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, obs))
 
     def test_root_above(self):
+        # test rooted tree
         tree1 = TreeNode.read(['(((a:1.0,b:0.8)c:2.4,(d:0.8,e:0.6)f:1.2)g:0.4,'
                                '(h:0.5,i:0.7)j:1.8)k;'])
-        assign_supports(tree1)
 
         tree1_cg = root_above(tree1.find('c'))
         exp = TreeNode.read(['((a:1.0,b:0.8)c:1.2,((d:0.8,e:0.6)f:1.2,(h:0.5,'
                              'i:0.7)j:2.2)g:1.2);'])
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, tree1_cg))
 
         tree1_ij = root_above(tree1.find('i'))
         exp = TreeNode.read(['(i:0.35,(h:0.5,((a:1.0,b:0.8)c:2.4,(d:0.8,'
                             'e:0.6)f:1.2)g:2.2)j:0.35);'])
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, tree1_ij))
 
         # test unrooted tree
         tree2 = TreeNode.read(['(((a:0.6,b:0.5)g:0.3,c:0.8)h:0.4,(d:0.4,'
                                'e:0.5)i:0.5,f:0.9)j;'])
-        assign_supports(tree2)
 
         tree2_ag = root_above(tree2.find('a'))
         exp = TreeNode.read(['(a:0.3,(b:0.5,(c:0.8,((d:0.4,e:0.5)i:0.5,'
                              'f:0.9)j:0.4)h:0.3)g:0.3);'])
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, tree2_ag))
 
         tree2_gh = root_above(tree2.find('g'))
         exp = TreeNode.read(['((a:0.6,b:0.5)g:0.15,(c:0.8,((d:0.4,e:0.5)i:0.5,'
                              'f:0.9)j:0.4)h:0.15);'])
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, tree2_gh))
 
         # test unrooted tree with 1 basal node
         tree3 = TreeNode.read(['(((a:0.4,b:0.3)e:0.1,(c:0.4,'
                                'd:0.1)f:0.2)g:0.6)h:0.2;'])
-        assign_supports(tree3)
 
         tree3_ae = root_above(tree3.find('a'))
         exp = TreeNode.read(['(a:0.2,(b:0.3,((c:0.4,d:0.1)f:0.2,'
                              'h:0.6)g:0.1)e:0.2);'])
-        assign_supports(exp)
         self.assertTrue(_exact_compare(exp, tree3_ae))
+
+    def test_unroot_at(self):
+        # sample example from doctest of scikit-bio's `root_at`
+        tree = TreeNode.read(['(((a,b)c,(d,e)f)g,h)i;'])
+        obs = unroot_at(tree.find('c'))
+        exp = TreeNode.read(['(((d,e)f,h)g,a,b)c;'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # test branch support handling
+        tree.find('c').support = 95
+        tree.find('f').support = 99
+        obs = unroot_at(tree.find('c'))
+        exp = TreeNode.read(["(((d,e)'99:f',h)'95:g',a,b)c;"])
+        assign_supports(exp)
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # test branch length handling
+        tree = TreeNode.read([
+            '(((a:1.1,b:2.2)c:1.3,(d:1.4,e:0.8)f:0.6)g:0.4,h:3.1)i;'])
+        obs = unroot_at(tree.find('c'))
+        exp = TreeNode.read([
+            '(((d:1.4,e:0.8)f:0.6,h:3.5)g:1.3,a:1.1,b:2.2)c;'])
+        self.assertTrue(_exact_compare(obs, exp))
 
     def test_exact_compare(self):
         # test name
@@ -586,6 +674,268 @@ class TreeTests(TestCase):
         self.assertFalse(_exact_compare(tree4, tree5))
         assign_supports(tree5)
         self.assertFalse(_exact_compare(tree4, tree5))
+
+    def test_calc_split_metrics(self):
+        """Example from Fig. 9a of Puigbo, et al., 2009, J Biol.
+                                                /-A
+                                      /n9------|
+                            /n8------|          \\-B
+                           |         |
+                  /n4------|          \\-C
+                 |         |
+                 |         |          /-D
+                 |          \n7------|
+                 |                    \\-E
+                 |
+                 |                    /-F
+        -n1------|          /n6------|
+                 |         |          \\-G
+                 |-n3------|
+                 |         |          /-H
+                 |          \n5------|
+                 |                    \\-I
+                 |
+                 |          /-J
+                  \n2------|
+                            \\-K
+        """
+        tree = TreeNode.read([
+            '((((A,B)n9,C)n8,(D,E)n7)n4,((F,G)n6,(H,I)n5)n3,(J,K)n2)n1;'
+        ])
+        calc_split_metrics(tree)
+        obs = {x.name: [getattr(x, y) for y in
+                        ('n', 'splits', 'prelevel', 'postlevels')]
+               for x in tree.traverse()}
+        exp = {
+            'n1': [11, 9, 1, [5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3]],
+            'n4': [5, 4, 2, [4, 4, 3, 3, 3]],
+            'n3': [4, 3, 2, [3, 3, 3, 3]],
+            'n2': [2, 1, 2, [2, 2]],
+            'n8': [3, 2, 3, [3, 3, 2]],
+            'n7': [2, 1, 3, [2, 2]],
+            'n6': [2, 1, 3, [2, 2]],
+            'n5': [2, 1, 3, [2, 2]],
+            'J': [1, 0, 3, [1]],
+            'K': [1, 0, 3, [1]],
+            'n9': [2, 1, 4, [2, 2]],
+            'C': [1, 0, 4, [1]],
+            'D': [1, 0, 4, [1]],
+            'E': [1, 0, 4, [1]],
+            'F': [1, 0, 4, [1]],
+            'G': [1, 0, 4, [1]],
+            'H': [1, 0, 4, [1]],
+            'I': [1, 0, 4, [1]],
+            'A': [1, 0, 5, [1]],
+            'B': [1, 0, 5, [1]]
+        }
+        self.assertDictEqual(obs, exp)
+
+    def test_calc_length_metrics(self):
+        """Example from Fig. 1a of Parks et al. (2018):
+                                   /--1--A
+                          /n3--1--|
+                         |         \\--1--B
+             /n2----2----|
+            |            |             /--1--C
+        -n1-|             \n4----2----|
+            |                          \\----2----D
+            |
+             \\------3------E
+        """
+        tree = TreeNode.read(['(((A:1,B:1)n3:1,(C:1,D:2)n4:2)n2:2,E:3)n1;'])
+        calc_length_metrics(tree)
+        obs = {x.name: {'height': x.height, 'depths': x.depths,
+                        'red': round(x.red, 7)} for x in tree.traverse()}
+        exp = {'n1': {'height': 0.0, 'depths': [4.0, 4.0, 5.0, 6.0, 3.0],
+                      'red': 0.0},
+               'n2': {'height': 2.0, 'depths': [2.0, 2.0, 3.0, 4.0],
+                      'red': 0.4210526},
+               'n3': {'height': 3.0, 'depths': [1.0, 1.0], 'red': 0.7105263},
+               'n4': {'height': 4.0, 'depths': [1.0, 2.0], 'red': 0.7518797},
+               'A': {'height': 4.0, 'depths': [0.0], 'red': 1.0},
+               'B': {'height': 4.0, 'depths': [0.0], 'red': 1.0},
+               'C': {'height': 5.0, 'depths': [0.0], 'red': 1.0},
+               'D': {'height': 6.0, 'depths': [0.0], 'red': 1.0},
+               'E': {'height': 3.0, 'depths': [0.0], 'red': 1.0}}
+        self.assertDictEqual(obs, exp)
+
+    def test_format_newick(self):
+        newick = '((A_1:1.05,B_2:1.68):2.24,(C:0.28,D:1.14):1.73e-10);'
+        tree = TreeNode.read([newick])
+
+        # default behavior (same as TreeNode.write)
+        self.assertEqual(format_newick(tree), newick)
+
+        # keep space
+        exp = "(('A 1':1.05,'B 2':1.68):2.24,(C:0.28,D:1.14):1.73e-10);"
+        self.assertEqual(format_newick(tree, keep_space=True), exp)
+
+        # specify digits for float point
+        exp = '((A_1:1.1,B_2:1.7):2.2,(C:0.28,D:1.1):1.73e-10);'
+        self.assertEqual(format_newick(tree, max_f=2), exp)
+
+        # specify digits for scientific notation
+        exp = '((A_1:1.05,B_2:1.68):2.24,(C:0.28,D:1.14):1.7e-10);'
+        self.assertEqual(format_newick(tree, max_e=2), exp)
+
+        # all options enabled
+        exp = "(('A 1':1.1,'B 2':1.7):2.2,(C:0.28,D:1.1):1.7e-10);"
+        self.assertEqual(format_newick(tree, True, 2, 2), exp)
+
+    def test_root_by_outgroup(self):
+        tree = TreeNode.read(['((((a,b),(c,d)),(e,f)),g);'])
+
+        # outgroup is monophyletic
+        obs = root_by_outgroup(tree, outgroup=['a', 'b'])
+        exp = TreeNode.read(['((a,b),((c,d),((e,f),g)));'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # outgroup is monophyletic after rotating
+        obs = root_by_outgroup(tree, outgroup=['e', 'f', 'g'])
+        exp = TreeNode.read(['(((e,f),g),((c,d),(b,a)));'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # outgroup is not monophyletic
+        msg = 'Outgroup is not monophyletic in tree.'
+        with self.assertRaisesRegex(ValueError, msg):
+            root_by_outgroup(tree, outgroup=['a', 'c'])
+
+        # outgroup is single taxon
+        obs = root_by_outgroup(tree, outgroup=['a'])
+        exp = TreeNode.read(['(a,(b,((c,d),((e,f),g))));'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # outgroup has extra taxa
+        obs = root_by_outgroup(tree, outgroup=['a', 'b', 'x'])
+        exp = TreeNode.read(['((a,b),((c,d),((e,f),g)));'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # outgroup has extra taxa but strict mode
+        msg = 'Outgroup is not a subset of tree taxa.'
+        with self.assertRaisesRegex(ValueError, msg):
+            root_by_outgroup(tree, outgroup=['a', 'b', 'x'], strict=True)
+
+        # outgroup is not in tree
+        msg = 'None of outgroup taxa are present in tree.'
+        with self.assertRaisesRegex(ValueError, msg):
+            root_by_outgroup(tree, outgroup=['x', 'y'])
+
+        # outgroup is the whole tree
+        msg = 'Outgroup constitutes the entire tree.'
+        with self.assertRaisesRegex(ValueError, msg):
+            root_by_outgroup(tree, outgroup='abcdefg')
+
+        # generate unrooted tree
+        obs = root_by_outgroup(tree, outgroup=['a', 'b'], unroot=True)
+        exp = TreeNode.read(['(((e,f),g),(a,b),(c,d));'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+    def test_restore_rooting(self):
+        # rooted source
+        source = TreeNode.read(['(((e,f),g),((c,d),(b,a)));'])
+        target = TreeNode.read(['(((a,b),(c,d)),(e,f),g);'])
+        rooted = restore_rooting(source, target)
+        self.assertTrue(_exact_compare(rooted, source))
+
+        # unrooted source
+        source = TreeNode.read(['(((e,f),g),(a,b),(c,d));'])
+        unrooted = restore_rooting(source, target)
+        self.assertTrue(_exact_compare(unrooted, source))
+
+        # test support handling
+        source = TreeNode.read(['(((e,f),g),((c,d),(b,a)));'])
+        target = TreeNode.read(['(((a,b)95,(c,d)90)80,(e,f)100,g);'])
+        assign_supports(target)
+        obs = restore_rooting(source, target)
+        exp = TreeNode.read(['(((e,f)100,g)80,((c,d)90,(b,a)95)80);'])
+        assign_supports(exp)
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # taxa don't match
+        msg = 'Source and target trees have different taxa.'
+        with self.assertRaisesRegex(ValueError, msg):
+            restore_rooting(source, TreeNode.read(['((a,b),(c,d));']))
+
+    def test_restore_node_labels(self):
+        # simple case
+        source = TreeNode.read(['((a,b)x,(c,d)y);'])
+        target = TreeNode.read(['((a:0.5,b:0.6):1.2,(c:1.0,d:1.4):0.4);'])
+        obs = restore_node_labels(source, target)
+        exp = TreeNode.read(['((a:0.5,b:0.6)x:1.2,(c:1.0,d:1.4)y:0.4);'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # complex case with missing label, extra taxa, label overwrittern
+        source = TreeNode.read(['(((a,b)85,c)90,((d,e)98,(f,g)93));'])
+        target = TreeNode.read(['((((g,f),(e,d))x,(c,(a,b))y),h);'])
+        obs = restore_node_labels(source, target)
+        exp = TreeNode.read(['((((g,f)93,(e,d)98)x,(c,(a,b)85)90),h);'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        # a duplicated node label
+        msg = 'Duplicated node label "x" found.'
+        with self.assertRaisesRegex(ValueError, msg):
+            restore_node_labels(TreeNode.read(['((a,b)x,(c,d)x);']), target)
+
+    def test_restore_node_order(self):
+        source = TreeNode.read(['(((a,b),(c,d)),((e,f),g));'])
+        target = TreeNode.read(['((g,(e,f)100),((d,c)80,(a,b)90));'])
+        obs = restore_node_order(source, target)
+        exp = TreeNode.read(['(((a,b)90,(c,d)80),((e,f)100,g));'])
+        self.assertTrue(_exact_compare(obs, exp))
+
+        msg = 'Two trees have different sizes.'
+        with self.assertRaisesRegex(ValueError, msg):
+            restore_node_order(TreeNode.read(['((a,b),(c,d));']), target)
+
+        msg = 'Two trees have different topologies.'
+        with self.assertRaisesRegex(ValueError, msg):
+            restore_node_order(
+                TreeNode.read(['((((a,b),c),d),(e,(f,g)));']), target)
+
+    def test_get_base(self):
+        tree = TreeNode.read(['(((a,b)n6,(c,d)n5)n3,((e,f)n4,g)n2)n1;'])
+        self.assertEqual(get_base(tree.find('a')).name, 'n3')
+        self.assertEqual(get_base(tree.find('e')).name, 'n2')
+
+        obs = get_base(tree.lca([tree.find('a'), tree.find('b')])).name
+        self.assertEqual(obs, 'n3')
+
+        msg = 'Root has no base.'
+        with self.assertRaisesRegex(ValueError, msg):
+            get_base(tree)
+
+    def test_calc_bidi_minlevels(self):
+        # an unrooted tree (typical use case)
+        tree = TreeNode.read(['(((a,b)n4,(c,d)n5)n2,(((e,f)n8,(g,h)n9)n6,'
+                              '((i,j)n10,(k,l)n11)n7)n3,m)n1;'])
+        calc_bidi_minlevels(tree)
+        # tips should always be 1
+        self.assertSetEqual(set(x.minlevel for x in tree.tips()), {1})
+        # internal nodes
+        obs = {x.name: x.minlevel for x in tree.non_tips(include_self=True)}
+        exp = {'n1': 2, 'n2': 3, 'n3': 3, 'n4': 2, 'n5': 2, 'n6': 3, 'n7': 3,
+               'n8': 2, 'n9': 2, 'n10': 2, 'n11': 2}
+        self.assertDictEqual(obs, exp)
+
+        # a rooted tree (unusual but could happen)
+        tree = TreeNode.read(['(((a,b)n3,(c,d)n4)n2,e)n1;'])
+        calc_bidi_minlevels(tree)
+        obs = {x.name: x.minlevel for x in tree.non_tips(include_self=True)}
+        exp = {'n1': 2, 'n2': 2, 'n3': 2, 'n4': 2}
+        self.assertDictEqual(obs, exp)
+
+    def test_calc_bidi_mindepths(self):
+        tree = TreeNode.read(['(((a:0.5,b:0.7)n5:1.1,c:1.7)n2:0.3,((d:0.8,'
+                              'e:0.6)n6:0.9,(f:1.2,g:0.5)n7:0.8)n3:1.3,'
+                              '(h:0.4,i:0.3)n4:0.9)n1;'])
+        calc_bidi_mindepths(tree)
+        # tips should always be 1
+        self.assertSetEqual(set(x.mindepth for x in tree.tips()), {0.0})
+        # internal nodes
+        obs = {x.name: x.mindepth for x in tree.non_tips(include_self=True)}
+        exp = {'n1': 1.2, 'n2': 1.5, 'n3': 1.3, 'n4': 0.3, 'n5': 0.5,
+               'n6': 0.6, 'n7': 0.5}
+        self.assertDictEqual(obs, exp)
 
 
 if __name__ == '__main__':
