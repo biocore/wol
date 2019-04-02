@@ -7,14 +7,17 @@ window.vertexShaderText =
 '',
 'attribute vec2 vertPosition;',
 'uniform mat4 mvpMat;',
+// 'uniform int singleNode;',
 'attribute vec3 color;',
 'varying vec3 c;',
+// 'varying int isSingle;',
 '',
 'void main()',
 '{',
 '  c = color;',
 '  gl_Position = mvpMat * vec4(vertPosition, 0.0, 1.0);',
-'  gl_PointSize = 100.0;',
+'  gl_PointSize = 1.0;',
+// '  isSingle = singleNode;',
 '}'
 ].join('\n');
 
@@ -23,15 +26,16 @@ window.fragmentShaderText =
 [
 'precision mediump float;',
 'varying vec3 c;',
+// 'varying int isSingle;',
 '',
 'void main()',
 '{',
 'float r = 0.0;',
 'vec2 cxy = 2.0 * gl_PointCoord - 1.0;',
 'r = dot(cxy, cxy);',
-'if (r > 1.0) {',
-'   discard;',
-'}',
+// 'if (r > 1.0) {',
+// '   discard;',
+// '}',
 '  gl_FragColor = vec4(c,1);',
 '}'
 ].join('\n');
@@ -100,6 +104,7 @@ function initWebGl(edgeData) {
 
   // shader matrix uniform
   shaderProgram.mvpUniform = gl.getUniformLocation(shaderProgram,"mvpMat");
+  // shaderProgram.singleNode = gl.getUniformLocation(shaderProgram, "singleNode");
 
   // buffer object for tree
   shaderProgram.treeVertBuffer = gl.createBuffer();

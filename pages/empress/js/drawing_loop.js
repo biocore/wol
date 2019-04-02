@@ -34,10 +34,12 @@ function loop() {
   gl.drawArrays(gl.TRIANGLES, 0, drawingData.coloredClades.length / 5);
 
   // draw the tree
+  // gl.uniformMatrix1i(shaderProgram.singleNode, false);
   bindBuffer(shaderProgram.treeVertBuffer);
   gl.drawArrays(gl.LINES, 0, drawingData.numBranches / 5 );
 
   // draw any nodes
+  // gl.uniformMatrix1i(shaderProgram.singleNode, true);
   bindBuffer(shaderProgram.nodeVertBuffer);
   gl.drawArrays(gl.POINTS, 0, drawingData.nodeCoords.length / 5 );
 
