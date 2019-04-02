@@ -14,7 +14,7 @@ window.vertexShaderText =
 '{',
 '  c = color;',
 '  gl_Position = mvpMat * vec4(vertPosition, 0.0, 1.0);',
-'  gl_PointSize = 1.0;',
+'  gl_PointSize = 100.0;',
 '}'
 ].join('\n');
 
@@ -26,6 +26,12 @@ window.fragmentShaderText =
 '',
 'void main()',
 '{',
+'float r = 0.0;',
+'vec2 cxy = 2.0 * gl_PointCoord - 1.0;',
+'r = dot(cxy, cxy);',
+'if (r > 1.0) {',
+'   discard;',
+'}',
 '  gl_FragColor = vec4(c,1);',
 '}'
 ].join('\n');
