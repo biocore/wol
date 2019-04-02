@@ -5,6 +5,9 @@
  */
 function initCallbacks(){
   const SHFT_KEY = 16;
+  const DELAY = 500;
+  console.log($(".tree-surface"))
+  $(".tree-surface").mouseover(function() {console.log('hover');});
   $(".tree-surface")[0].onmousedown = mouseHandler;
   document.onmouseup = mouseHandler;
   document.onmousemove = mouseHandler;
@@ -117,7 +120,7 @@ function resizeCanvas(event) {
 function userHighlightSelect() {
   const attr = $("#highlight-options").val();
   const cm = $("#color-options").val();
-  
+
   let edgeData = extractInfo(JSON.parse(highlight.edges), field.edgeFields);
   drawingData.numBranches = edgeData.length
   fillBufferData(shaderProgram.treeVertBuffer, edgeData);
