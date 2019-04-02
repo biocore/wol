@@ -27,6 +27,7 @@ function mouseHandler(event) {
     if(drawingData.isMouseDown) {
       shftPress ? resizeSelectBox(event) : moveTree(event);
     }
+    // nodeHover();
   }
   else if(event.type === "wheel" && !shftPress) {
     mouseWheel(event);

@@ -82,6 +82,9 @@ function initWebGl(edgeData) {
   shaderProgram.nodeVertBuffer = gl.createBuffer();
   fillBufferData(shaderProgram.nodeVertBuffer, drawingData.nodeCoords);
 
+  // buufer object for hovered node
+  shaderProgram.hoverNodeBuffer = gl.createBuffer();
+
   // buffer object for colored clades
   shaderProgram.cladeVertBuffer = gl.createBuffer();
 
