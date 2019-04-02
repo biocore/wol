@@ -65,7 +65,7 @@ canvas {
     top: 0vh;
     left: 70vw;
     width: 30vw;
-    /*opacity: 0.5;*/
+    opacity: 0.5;
 }
 
 .collapsible {

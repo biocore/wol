@@ -32,6 +32,7 @@ let field = {
 
 // stores matrices, and buffers that webgl will uses
 let shaderProgram = {};
+let c_shaderProgram = {};
 
 // the complied vertex/fragment shaders
 let gl = {}; // webgl context - used to call webgl functions

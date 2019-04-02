@@ -30,6 +30,37 @@ window.fragmentShaderText =
 '}'
 ].join('\n');
 
+//webgl vertex shader program - calculates tree coordinates for nodes in screen space
+window.c_vertexShaderText =
+[
+'precision mediump float;',
+'',
+'attribute vec2 vertPosition;',
+'uniform mat4 mvpMat;',
+'attribute vec3 color;',
+// 'uniform float diameter',
+'varying vec3 c;',
+'',
+'void main()',
+'{',
+'  c = color;',
+'  gl_Position = mvpMat * vec4(vertPosition, 0.0, 1.0);',
+'  gl_PointSize = 1.0;',
+'}'
+].join('\n');
+
+//webgl fragment shader program - colors the nodes
+window.c_fragmentShaderText =
+[
+'precision mediump float;',
+'varying vec3 c;',
+'',
+'void main()',
+'{',
+'  gl_FragColor = vec4(c,1);',
+'}'
+].join('\n');
+
 
 /*
  * compliles shader programs and initializes webgl
@@ -51,40 +82,8 @@ function initWebGl(edgeData) {
   gl.clearColor(CLEAR_COLOR, CLEAR_COLOR, CLEAR_COLOR, 1);
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-  //
-  // Create shaders
-  //
-  let vertexShader = gl.createShader(gl.VERTEX_SHADER);
-  let fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-
-  gl.shaderSource(vertexShader, window.vertexShaderText);
-  gl.shaderSource(fragmentShader, window.fragmentShaderText);
-
-  gl.compileShader(vertexShader);
-  if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
-    console.error("ERROR compiling vertex shader!", gl.getShaderInfoLog(vertexShader));
-    return;
-  }
-
-  gl.compileShader(fragmentShader);
-  if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-    console.error("ERROR compiling fragment shader!", gl.getShaderInfoLog(fragmentShader));
-    return;
-  }
-
-  shaderProgram = gl.createProgram();
-  gl.attachShader(shaderProgram, vertexShader);
-  gl.attachShader(shaderProgram, fragmentShader);
-  gl.linkProgram(shaderProgram);
-  if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-    console.error("ERROR linking program!", gl.getProgramInfoLog(shaderProgram));
-    return;
-  }
-  gl.validateProgram(shaderProgram);
-  if (!gl.getProgramParameter(shaderProgram, gl.VALIDATE_STATUS)) {
-    console.error("ERROR validating program!", gl.getProgramInfoLog(shaderProgram));
-    return;
-  }
+  shaderProgram = createShaderProgram(window.vertexShaderText, window.fragmentShaderText);
+  c_shaderProgram = createShaderProgram(window.c_vertexShaderText, window.c_fragmentShaderText);
 
   gl.useProgram(shaderProgram);
 
@@ -138,3 +137,42 @@ function setCanvasSize(canvas) {
   camera["yInt"] = $(window).height() - HALF_WIDTH;
   camera["bottomSlope"] = camera["yInt"] / HALF_WIDTH;
 }
+
+function createShaderProgram(vShader, fShader) {
+  // create shaders
+  let vertexShader = gl.createShader(gl.VERTEX_SHADER);
+  let fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+  gl.shaderSource(vertexShader, vShader);
+  gl.shaderSource(fragmentShader, fShader);
+
+  // compile shaders
+  gl.compileShader(vertexShader);
+  if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
+    console.error("ERROR compiling vertex shader!", gl.getShaderInfoLog(vertexShader));
+    return;
+  }
+  gl.compileShader(fragmentShader);
+  if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
+    console.error("ERROR compiling fragment shader!", gl.getShaderInfoLog(fragmentShader));
+    return;
+  }
+
+  // create program
+  let sProgram = gl.createProgram();
+  gl.attachShader(sProgram, vertexShader);
+  gl.attachShader(sProgram, fragmentShader);
+  gl.linkProgram(sProgram);
+  if (!gl.getProgramParameter(sProgram, gl.LINK_STATUS)) {
+    console.error("ERROR linking program!", gl.getProgramInfoLog(srogram));
+    return;
+  }
+  gl.validateProgram(sProgram);
+  if (!gl.getProgramParameter(sProgram, gl.VALIDATE_STATUS)) {
+    console.error("ERROR validating program!", gl.getProgramInfoLog(sProgram));
+    return;
+  }
+
+  return sProgram
+}
+
+// function loadUnAndAt(program, )

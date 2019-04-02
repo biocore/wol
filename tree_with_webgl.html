@@ -160,17 +160,18 @@
           </select>
         </div>
         <div>
-        <div>
           <button onclick="autoCollapseTree()">Collapse Tree</button>
         </div>
       </div>
-    </div>
+
+      <button class="collapsible">Quick Find</button>
+      <div class="content">
+      </div>
   </div>
 
   <script type="text/javascript">
     var coll = document.getElementsByClassName("collapsible");
     var i;
-
     for (i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
         this.classList.toggle("active");
@@ -179,6 +180,21 @@
           content.style.display = "none";
         } else {
           content.style.display = "block";
+        }
+
+        var allCollapsed = true;
+        var menuItems = document.getElementsByClassName("content");
+        var i;
+        for(i = 0; i < menuItems.length; i++) {
+          if(menuItems[i].style.display === "block") {
+            allCollapsed = false;
+          }
+        }
+        if(allCollapsed) {
+          document.querySelector('.metadata-tabs').style.opacity = "0.5";
+        }
+        else {
+          document.querySelector('.metadata-tabs').style.opacity = "1.0";
         }
       });
     }
