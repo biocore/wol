@@ -6,8 +6,9 @@
 function initCallbacks(){
   const SHFT_KEY = 16;
   const DELAY = 500;
-  console.log($(".tree-surface"))
-  $(".tree-surface").mouseover(function() {console.log('hover');});
+  console.log($(".tree-surface"));
+  var event  = new Event('node_hover');
+  $(".tree-surface")[0].addEvent
   $(".tree-surface")[0].onmousedown = mouseHandler;
   document.onmouseup = mouseHandler;
   document.onmousemove = mouseHandler;
@@ -46,6 +47,8 @@ function initCallbacks(){
       });
     }
   });
+  console.log('done');
+  document.getElementById("tree-surface").dispatchEvent("mouseover");
 }
 
 function autoCollapseTree() {
