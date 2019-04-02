@@ -58,3 +58,6 @@ _site/
 
 # Visual Studio Code
 .vscode
+
+#empress metadata generator
+metadata_gen

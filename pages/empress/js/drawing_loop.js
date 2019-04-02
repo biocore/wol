@@ -103,7 +103,7 @@ function drawLabels() {
   let topLeft = vec4.fromValues(NEGATE * boundingBoxDim, boundingBoxDim, 0, 1);
   vec4.transformMat4(topLeft, topLeft, shaderProgram.xyTransMat);
 
-  // find the bottom right corner of the voewing window in tree space
+  // find the bottom right corner of the viewing window in tree space
   let bottom = NEGATE * camera["bottomSlope"] * boundingBoxDim;
   let bottomRight = vec4.fromValues(boundingBoxDim, bottom, 0, 1);
   vec4.transformMat4(bottomRight, bottomRight, shaderProgram.xyTransMat);

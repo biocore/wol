@@ -129,7 +129,7 @@
       <button class="collapsible">Auto-Collapse</button>
       <div class="content">
         <div>
-          <label for="collapse-level">Collapse BY...</label>
+          <label for="zcollapse-level">Collapse BY...</label>
           <select id="collapse-level">
             <option value=0 disabled> -- select an option -- </option>
             <option>Kindom</option>
@@ -167,34 +167,50 @@
           </select>
         </div>
         <div>
-          <div>
-            <button onclick="autoCollapseTree()">Collapse Tree</button>
-          </div>
+          <button onclick="autoCollapseTree()">Collapse Tree</button>
         </div>
       </div>
-    </div>
 
-    <script type="text/javascript">
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
-
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "block";
-          }
-        });
-      }
-    </script>
-
-    <div class="metadata-container">
-      <div id="scrolltable">
+      <button class="collapsible">Quick Find</button>
+      <div class="content">
       </div>
+  </div>
+
+  <script type="text/javascript">
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+
+        var allCollapsed = true;
+        var menuItems = document.getElementsByClassName("content");
+        var i;
+        for(i = 0; i < menuItems.length; i++) {
+          if(menuItems[i].style.display === "block") {
+            allCollapsed = false;
+          }
+        }
+        if(allCollapsed) {
+          document.querySelector('.metadata-tabs').style.opacity = "0.5";
+        }
+        else {
+          document.querySelector('.metadata-tabs').style.opacity = "1.0";
+        }
+      });
+    }
+  </script>
+
+  <div class="metadata-container">
+    <div id="scrolltable">
     </div>
+  </div>
 
     <script type="text/javascript">
       // fields to extract from metadata, used in extractInfo()
@@ -208,6 +224,7 @@
 
       // stores matrices, and buffers that webgl will uses
       let shaderProgram = {};
+      let c_shaderProgram = {};
 
       // the complied vertex/fragment shaders
       let gl = {}; // webgl context - used to call webgl functions
