@@ -57,8 +57,7 @@
  *   ]
  * }
  */
-(function(exports) {
-  exports.parse = function(s) {
+function parse(s){
     var ancestors = [];
     var tree = {};
     var tokens = s.split(/\s*(;|\(|\)|,|:)\s*/);
@@ -91,12 +90,5 @@
       }
     }
     return tree;
-  };
-})(
-    // exports will be set in any commonjs platform; use it if it's available
-    typeof exports !== "undefined" ?
-    exports :
-    // otherwise construct a name space.  outside the anonymous function,
-    // "this" will always be "window" in a browser, even in strict mode.
-    this.Newick = {}
-);
+}
+

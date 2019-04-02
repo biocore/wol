@@ -71,3 +71,5 @@ const CLEAR_COLOR_HEX = "FFFFFF";
 const CLEAR_COLOR = 1;
 let camera = {};
 let shftPress = false;
+
+let tree = {};
