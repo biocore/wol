@@ -16,7 +16,7 @@ window.vertexShaderText =
 '{',
 '  c = color;',
 '  gl_Position = mvpMat * vec4(vertPosition, 0.0, 1.0);',
-'  gl_PointSize = 1.0;',
+'  gl_PointSize = 6.0;',
 // '  isSingle = singleNode;',
 '}'
 ].join('\n');
@@ -26,51 +26,19 @@ window.fragmentShaderText =
 [
 'precision mediump float;',
 'varying vec3 c;',
-// 'varying int isSingle;',
+'uniform int isSingle;',
 '',
 'void main()',
 '{',
 'float r = 0.0;',
 'vec2 cxy = 2.0 * gl_PointCoord - 1.0;',
 'r = dot(cxy, cxy);',
-// 'if (r > 1.0) {',
-// '   discard;',
-// '}',
+'if (r > 1.0 && isSingle == 1) {',
+'   discard;',
+'}',
 '  gl_FragColor = vec4(c,1);',
 '}'
 ].join('\n');
-
-//webgl vertex shader program - calculates tree coordinates for nodes in screen space
-window.c_vertexShaderText =
-[
-'precision mediump float;',
-'',
-'attribute vec2 vertPosition;',
-'uniform mat4 mvpMat;',
-'attribute vec3 color;',
-// 'uniform float diameter',
-'varying vec3 c;',
-'',
-'void main()',
-'{',
-'  c = color;',
-'  gl_Position = mvpMat * vec4(vertPosition, 0.0, 1.0);',
-'  gl_PointSize = 1.0;',
-'}'
-].join('\n');
-
-//webgl fragment shader program - colors the nodes
-window.c_fragmentShaderText =
-[
-'precision mediump float;',
-'varying vec3 c;',
-'',
-'void main()',
-'{',
-'  gl_FragColor = vec4(c,1);',
-'}'
-].join('\n');
-
 
 /*
  * compliles shader programs and initializes webgl
@@ -93,7 +61,7 @@ function initWebGl(edgeData) {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
   shaderProgram = createShaderProgram(window.vertexShaderText, window.fragmentShaderText);
-  c_shaderProgram = createShaderProgram(window.c_vertexShaderText, window.c_fragmentShaderText);
+  // c_shaderProgram = createShaderProgram(window.c_vertexShaderText, window.c_fragmentShaderText);
 
   gl.useProgram(shaderProgram);
 
@@ -104,7 +72,7 @@ function initWebGl(edgeData) {
 
   // shader matrix uniform
   shaderProgram.mvpUniform = gl.getUniformLocation(shaderProgram,"mvpMat");
-  // shaderProgram.singleNode = gl.getUniformLocation(shaderProgram, "singleNode");
+  shaderProgram.isSingle = gl.getUniformLocation(shaderProgram, "isSingle");
 
   // buffer object for tree
   shaderProgram.treeVertBuffer = gl.createBuffer();

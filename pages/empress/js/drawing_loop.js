@@ -33,15 +33,17 @@ function loop() {
   bindBuffer(shaderProgram.cladeVertBuffer);
   gl.drawArrays(gl.TRIANGLES, 0, drawingData.coloredClades.length / 5);
 
+  // draw any nodes
+  gl.uniform1i(shaderProgram.isSingle, 1);
+  // bindBuffer(shaderProgram.nodeVertBuffer);
+  // gl.drawArrays(gl.POINTS, 0, drawingData.nodeCoords.length / 5 );
+  bindBuffer(shaderProgram.treeVertBuffer);
+  gl.drawArrays(gl.POINTS, 0, drawingData.numBranches / 5 );
+
   // draw the tree
-  // gl.uniformMatrix1i(shaderProgram.singleNode, false);
+  gl.uniform1i(shaderProgram.isSingle, 0);
   bindBuffer(shaderProgram.treeVertBuffer);
   gl.drawArrays(gl.LINES, 0, drawingData.numBranches / 5 );
-
-  // draw any nodes
-  // gl.uniformMatrix1i(shaderProgram.singleNode, true);
-  bindBuffer(shaderProgram.nodeVertBuffer);
-  gl.drawArrays(gl.POINTS, 0, drawingData.nodeCoords.length / 5 );
 
   bindBuffer(shaderProgram.selectBuffer);
   gl.drawArrays(gl.LINES, 0, drawingData.selectTree.length / 5);
