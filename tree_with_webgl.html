@@ -22,6 +22,8 @@
   <script type="text/javascript" src="pages/empress/vendor/js/slick.formatters.min.js"></script>
   <script type="text/javascript" src="pages/empress/vendor/js/slick.grid.min.js"></script>
   <script type="text/javascript" src="pages/empress/js/wol_tree.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/newick.js"></script>
+  <script type="text/javascript" src="pages/empress/js/tree.js"></script>
 </head>
 
 <body>
@@ -39,7 +41,11 @@
     </div>
 
     <div class="metadata-tabs">
-
+      <!-- File Upload tab -->
+      <button class="collapsible">Upload Newick File</button>
+      <div class="content">
+        <input type="file" id="tree_file"><br>
+      </div>
       <!-- Branch tab -->
       <button class="collapsible">Branches</button>
       <div class="content">
@@ -246,6 +252,7 @@
 
     <script type="text/javascript">
       {
+        constructTree();
         initialize();
       }
     </script>
