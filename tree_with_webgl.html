@@ -81,7 +81,7 @@
           <label for="tax-level">Taxonomic Level...</label>
           <select id="tax-level">
             <option value=0 disabled> -- select an option -- </option>
-            <option>Kindom</option>
+            <option>Kingdom</option>
             <option>Phylum</option>
             <option>Class</option>
             <option>Order</option>
@@ -124,10 +124,10 @@
       <button class="collapsible">Auto-Collapse</button>
       <div class="content">
         <div>
-          <label for="zcollapse-level">Collapse BY...</label>
+          <label for="zcollapse-level">Collapse By...</label>
           <select id="collapse-level">
             <option value=0 disabled> -- select an option -- </option>
-            <option>Kindom</option>
+            <option>Kingdom</option>
             <option>Phylum</option>
             <option>Class</option>
             <option>Order</option>
@@ -168,6 +168,28 @@
 
       <button class="collapsible">Quick Find</button>
       <div class="content">
+          <div>
+            <p>
+              Displays the 10 largest clades within the viewing window. Ties are broken by randomly choosing a clade.
+            </p>
+          <label for="zcollapse-level">Prioritize by...</label>
+          <select id="quick-find-level">
+              <option value=0 disabled> -- select an option -- </option>
+              <option>kingdom</option>
+              <option>phylum</option>
+              <option>class</option>
+              <option>order</option>
+              <option>family</option>
+              <option>genus</option>
+              <option>species</option>
+          </select>
+        </div>
+        <div>
+            <button onclick="retriveTaxonNodes()">Display Labels</button>
+        </div>
+        <div>
+            <button onclick="clearLables()">Clear</button>
+        </div>
       </div>
   </div>
 
@@ -229,9 +251,10 @@
         isMouseDown: false,
         lastMouseX: null,
         lastMouseY: null,
-        zoomAmount: 10,
+        zoomAmount: 50,
         currentZoom: 0,
         maxZoom: 30,
+        hoveredNode: [],
         coloredClades: [],
         selectTree: [],
         triangles: [],
@@ -260,6 +283,10 @@
       const CLEAR_COLOR = 1;
       let camera = {};
       let shftPress = false;
+
+      let showLabels = false;
+      let taxonNodes = [];
+
       let tree = null;
     </script>
 
