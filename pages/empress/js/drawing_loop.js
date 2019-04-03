@@ -38,10 +38,9 @@ function loop() {
   gl.uniform1i(shaderProgram.isSingle, 1);
   bindBuffer(shaderProgram.treeVertBuffer);
   gl.drawArrays(gl.POINTS, 0, drawingData.numBranches / 5 );
-
   // draw hovered node
   bindBuffer(shaderProgram.hoverNodeBuffer);
-  gl.drawArrays(gl.POINTS, 0, drawingData.hoveredNode / 5 );
+  gl.drawArrays(gl.POINTS, 0, drawingData.hoveredNode.length / 5 );
 
   // draw the tree
   gl.uniform1i(shaderProgram.isSingle, 0);

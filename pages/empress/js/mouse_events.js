@@ -24,10 +24,17 @@ function mouseHandler(event) {
     mouseUp(event);
   }
   else if(event.type === "mousemove") {
+    if(window.onTreeSurface){
+      drawingData.hoveredNode = [];
+      labels = {}
+      fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
+      clearTimeout(window.timer);
+      window.timer = setTimeout(nodeHover, 350, event.clientX, event.clientY);
+    }
+
     if(drawingData.isMouseDown) {
       shftPress ? resizeSelectBox(event) : moveTree(event);
     }
-    // nodeHover();
   }
   else if(event.type === "wheel" && !shftPress) {
     mouseWheel(event);

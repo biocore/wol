@@ -4,16 +4,18 @@
  * tells javasript what function to call for mouse/keyboard events
  */
 function initCallbacks(){
-  window.test = 0;
   const SHFT_KEY = 16;
   const DELAY = 500;
+  window.onTreeSurface = false;
+  window.timer = setTimeout(nodeHover, 100, 0,0);
   var event  = new Event('node_hover');
   $(".tree-surface").on('node_hover', nodeHover);
-  $(".tree-surface")[0].onmousedown = mouseHandler;
+  $(".tree-surface").on("mousedown", mouseHandler);
   $(document).on("mouseup", mouseHandler);
   $(document).on("mousemove", mouseHandler);
   $(".tree-surface")[0].onwheel = mouseHandler;
-
+  $(".tree-surface").hover(function() {window.onTreeSurface = true;}, 
+      function(){window.onTreeSurface=false;})
   $(window).on("resize", resizeCanvas);
 
   $(".tree-surface")[0].ondblclick = mouseHandler;
@@ -24,54 +26,68 @@ function initCallbacks(){
   $(document).keyup(function() {
     if(shftPress) {
       shftPress = false;
-      let square = $(".square");
-      let offset = square.offset();
-      drawingData.lastMouseX = offset.left, drawingData.lastMouseY = offset.top;
-      let width = square.width(), height = square.height();
-      let topCorner = toTreeCoords(drawingData.lastMouseX, drawingData.lastMouseY);
-      let bottomCorner = toTreeCoords(drawingData.lastMouseX + width, drawingData.lastMouseY + height);
-      let edgeMetadata;
-      $.getJSON(urls.selectTreeURL, {x1: topCorner[0], y1: topCorner[1],
-                x2: bottomCorner[0], y2: bottomCorner[1]}, function(data) {
-        edgeMetadata = data;
-      }).done(function() {
-        if(edgeMetadata.length === 0) {
-          $(".selected-tree-menu").css({top: drawingData.lastMouseY, left: drawingData.lastMouseX, visibility: "hidden"});
-          return;
-        }
-        drawingData.selectTree = extractInfo(edgeMetadata, field.edgeFields);
-        updateGridData(edgeMetadata);
-        fillBufferData(shaderProgram.selectBuffer, drawingData.selectTree);
-        $(".selected-tree-menu").css({top: drawingData.lastMouseY, left: drawingData.lastMouseX, visibility: "visible"});
-        requestAnimationFrame(loop);
-      });
+    //   let square = $(".square");
+    //   let offset = square.offset();
+    //   drawingData.lastMouseX = offset.left, drawingData.lastMouseY = offset.top;
+    //   let width = square.width(), height = square.height();
+    //   let topCorner = toTreeCoords(drawingData.lastMouseX, drawingData.lastMouseY);
+    //   let bottomCorner = toTreeCoords(drawingData.lastMouseX + width, drawingData.lastMouseY + height);
+    //   let edgeMetadata;
+    //   $.getJSON(urls.selectTreeURL, {x1: topCorner[0], y1: topCorner[1],
+    //             x2: bottomCorner[0], y2: bottomCorner[1]}, function(data) {
+    //     edgeMetadata = data;
+    //   }).done(function() {
+    //     if(edgeMetadata.length === 0) {
+    //       $(".selected-tree-menu").css({top: drawingData.lastMouseY, left: drawingData.lastMouseX, visibility: "hidden"});
+    //       return;
+    //     }
+    //     drawingData.selectTree = extractInfo(edgeMetadata, field.edgeFields);
+    //     updateGridData(edgeMetadata);
+    //     fillBufferData(shaderProgram.selectBuffer, drawingData.selectTree);
+    //     $(".selected-tree-menu").css({top: drawingData.lastMouseY, left: drawingData.lastMouseX, visibility: "visible"});
+    //     requestAnimationFrame(loop);
+    //   });
     }
   });
-  console.log('done');
-  // $(".tree-surface").trigger("node_hover");
 }
 
-function nodeHover() {
-  const X = 0;
-  const Y = 1;
-  let i;
-  let nodeX, nodeY;
-  let mousePos = toTreeCoords(drawingData.lastMouseX, drawingData.lastMouseY);
-  if(window.test < 1) {
-    for(i = 0; i < window.edgeData.length; ++i) {
-      // grad x,y coordinate of node in tree space and check to see if its in the viewing window
-      nodeX = window.edgeData[i + X];
-      nodeY = window.edgeData[i +Y];
-      if(mousePos[X] - 10 <= nodeX && nodeX <= mousePos[X] + 10 &&
-            mousePos[Y] <= nodeY && mousePos[Y] <= nodeY) {
-          console.log("hover found");
-          drawingData.hoveredNode = [nodeX, nodeY, 1, 0, 0];
-          fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
-      }
-      i += 3;
+function nodeHover(x,y) {
+  let id;
+  let clsXTC, clsYTC, clsID;
+  let close = 1000;
+  let tmp;
+  let xDist, yDist, treeX, treeY, nScreenX, nScreenY, treeSpace, screenSpace;
+  let canvas = $(".tree-surface")[0];
+  for(id in window.treeData) {
+      treeX = window.treeData[id].x;
+      treeY = window.treeData[id].y;
+      // calculate the screen coordinate of the label
+      treeSpace = vec4.fromValues(treeX, treeY, 0, 1);
+      screenSpace = vec4.create();
+      vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
+      screenSpace[0] /= screenSpace[3];
+      screenSpace[1] /= screenSpace[3];
+      nScreenX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
+      nScreenY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
+      xDist = x - nScreenX;
+      yDist = y - nScreenY;
+
+      tmp = xDist*xDist + yDist*yDist;
+    if(Math.abs(tmp) < close) {
+        close = Math.abs(tmp);
+        clsXTC = treeX;
+        clsYTC = treeY;
+        clsID = id;
     }
-    window.test += 1;
   }
+  if(close <= 50) {
+    drawingData.hoveredNode = [clsXTC, clsYTC, 0, 1, 0];
+    labels = new Array(1);
+    labels[0] = [clsXTC, clsYTC, clsID];
+  }
+
+  fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
+  requestAnimationFrame(loop);
 }
 
 function autoCollapseTree() {
