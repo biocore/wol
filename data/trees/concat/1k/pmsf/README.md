@@ -4,4 +4,6 @@ These trees were built using the posterior mean site frequency (**PMSF**) method
 
 Branch supports were generated using ultrafast bootstrap (**ufboot**) ([Hoang et al., 2018](https://academic.oup.com/mbe/article/35/2/518/4565479)), with 1000 replicates (downscaled to integers between 0-100).
 
-Also comes in [**cons**](cons) (using up to 100 conserved sites per gene), [**rand**](rand) (using 100 randomly selected sites per gene) and [**rpls**](rpls) (using 30 ribosomal proteins) variants.
+Also comes in **cons** (using up to 100 conserved sites per gene), **rand** (using 100 randomly selected sites per gene) and **rpls** (using 30 ribosomal proteins) variants.
+
+Go to [GitHub directory](https://github.com/biocore/wol/tree/master/data/trees/concat/1k/pmsf).

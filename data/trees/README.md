@@ -3,8 +3,6 @@ Trees
 
 Phylogenetic trees of the 10,575 genomes.
 
-Go to [GitHub directory](https://github.com/biocore/wol/tree/master/data/trees).
-
 ## Tree-building strategies
 
 The species trees were reconstructed using two alternate strategies:

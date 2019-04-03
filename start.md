@@ -87,6 +87,9 @@ The tree can replace the NCBI taxonomy hierarchy used in a Kraken analysis to gu
 
 The 381 marker genes used to build the tree are a curated subsample of the 400 marker genes originally implemented in [PhyloPhlAn](https://bitbucket.org/nsegata/phylophlan/wiki/Home) ([Segata et al., 2013](https://www.nature.com/articles/ncomms3304)). For each marker gene, we provide functional annotation, gene tree and its degree of congruence with the species evolution. Please see [data/markers](data/markers) and [data/trees/genes](data/trees/genes).
 
+Please stay tuned for [PhyloPhlAn2](https://bitbucket.org/nsegata/phylophlan/wiki/phylophlan2).
+
+
 ## How to cite it
 
 If you use the data, code or protocols developed in this work, please directly cite our website: [https://github.com/biocore/wol](https://github.com/biocore/wol). A manuscript detailing this work is current under peer review. Please stay tuned.
