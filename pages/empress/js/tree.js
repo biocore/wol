@@ -1,10 +1,10 @@
 class Tree{
-  constructor(){
-    this.tree = treeData;
+  constructor(tree_nwk=treeData){
+    this.tree = tree_nwk;
     this.root = 'N1';
   }
 
-  order(pre=true, include_self=true){
+  order(pre, include_self){
     let result = [];
     let tmp = [this.root];
     while(tmp.length !== 0){
@@ -23,15 +23,15 @@ class Tree{
   }
 
   coords(height, width){
-    scale = rescale(height,width);
-    centerX = this.tree[this.root].x;
-    centerY = this.tree[this.root].y;
+    let scale = this.rescale(height,width);
+    let centerX = this.tree[this.root].x;
+    let centerY = this.tree[this.root].y;
 
-    let postorder = order(pre=false, include_self=true);
+    let postorder = this.order(false, true);
     for (var i = 0; i < postorder.length; ++i){
         let node = this.tree[postorder[i]];
-        node.x = node.x - centerX
-        node.y = node.y - centerY
+        node.x = node.x - centerX;
+        node.y = node.y - centerY;
     }
   }
 
@@ -49,11 +49,12 @@ class Tree{
     this.tree[this.root].x = x2;
     this.tree[this.root].y = y2;
     this.tree[this.root].angle = a;
-    preorder = order(pre=true, include_self=false);
+    let preorder = this.order(true, false);
+
     for(var i = 0; i < preorder.length; ++i){
         let nodeName = preorder[i];
         let node = this.tree[nodeName];
-        let parentName = this.tree[nodeName].parent;
+        let parentName = node.parent;
         let parent = this.tree[parentName];
         x1 = parent.x;
         y1 = parent.y;
@@ -65,8 +66,8 @@ class Tree{
         a = a - parent.leafcount * da / 2;
 
         // check for conditional higher order
-        for (var i = 0; i < parent.children.length; ++i){
-            let sibName = parent.children[i];
+        for (var j = 0; j < parent.children.length; ++j){
+            let sibName = parent.children[j];
             let sib = this.tree[sibName];
             if(sibName != nodeName){
                 a += sib.leafcount * da
@@ -101,27 +102,26 @@ class Tree{
     let best_args = {};
     for(var i = 0; i < 60; ++i){
         let direction = i / 60.0 * Math.PI;
-
-        result = update_coordinates(
+        let result = this.updateCoordinates(
             1.0, 0, 0, direction, angle);
 
         let x_diff = result.max_x - result.min_x;
         let width_min = 0
         if(x_diff !== 0){
-            width_min = float(width) / x_diff;
+            width_min = width / x_diff;
         }
         let y_diff = result.max_y - result.min_y;
         let height_min = 0
         if(y_diff != 0){
-            height_min = float(height) / y_diff;
+            height_min = height / y_diff;
         }
         let scale = Math.min(width_min, height_min);
 
         scale *= 0.95
         if(scale > best_scale){
             best_scale = scale;
-            mid_x = width / 2 - ((max_x + min_x) / 2) * scale;
-            mid_y = height / 2 - ((max_y + min_y) / 2) * scale;
+            let mid_x = width / 2 - ((result.max_x + result.min_x) / 2) * scale;
+            let mid_y = height / 2 - ((result.max_y + result.min_y) / 2) * scale;
             best_args = { "scale": scale,
                           "mid_x": mid_x,
                           "mid_y": mid_y,
@@ -129,7 +129,7 @@ class Tree{
                           "angle": angle};
         }
     }
-    updateCoordinates(best_args.scale,
+    this.updateCoordinates(best_args.scale,
                        best_args.mid_x,
                        best_args.mid_y,
                        best_args.direction,
@@ -139,4 +139,3 @@ class Tree{
 
 
 }
-

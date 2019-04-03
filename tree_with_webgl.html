@@ -270,9 +270,33 @@
 
     <script type="text/javascript">
       {
-        initialize();
-        /*tree = new Tree();
-        window.edgeData=[];
+        //initialize();
+        let data = {
+          "i":{"name":"i", "leafcount":5, "length":1, "children":["g","h"], "parent":""},
+          "h":{"name":"h", "leafcount":2, "length":1, "children":["c","d"], "parent":"i"},
+          "g":{"name":"g", "leafcount":3, "length":1, "children":["b","f"], "parent":"i"},
+          "b":{"name":"b", "leafcount":1, "length":1, "children":[], "parent":"g"},
+          "f":{"name":"f", "leafcount":2, "length":1, "children":["a","e"], "parent":"g"},
+          "a":{"name":"a", "leafcount":1, "length":1, "children":[], "parent":"f"},
+          "e":{"name":"e", "leafcount":1, "length":1, "children":[], "parent":"f"},
+          "c":{"name":"c", "leafcount":1, "length":1, "children":[], "parent":"h"},
+          "d":{"name":"d", "leafcount":1, "length":1, "children":[], "parent":"h"},
+        };
+        /*let data = {
+          "i":{"name":"i", "leafcount":5, "length":1, "children":["g","h"]},
+          "h":{"name":"h", "leafcount":2, "length":1, "children":["c","d"]},
+          "g":{"name":"g", "leafcount":3, "length":1, "children":["b","f"]},
+          "b":{"name":"b", "leafcount":1, "length":1, "children":[]},
+          "f":{"name":"f", "leafcount":2, "length":1, "children":["a","e"]},
+          "a":{"name":"a", "leafcount":1, "length":1, "children":[]},
+          "e":{"name":"e", "leafcount":1, "length":1, "children":[]},
+          "c":{"name":"c", "leafcount":1, "length":1, "children":[]},
+          "d":{"name":"d", "leafcount":1, "length":1, "children":[]},
+        };*/
+        tree = new Tree(data);
+        tree.coords(500,500);
+        console.log(tree.tree);
+        /*window.edgeData=[];
         let postorder = tree.order(pre=false, include_self=false);
         for(var i =0; i < postorder.length; ++i){
            let node = tree.tree[postorder[i]];
