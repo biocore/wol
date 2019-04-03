@@ -4,16 +4,17 @@
  * tells javasript what function to call for mouse/keyboard events
  */
 function initCallbacks(){
+  window.test = 0;
   const SHFT_KEY = 16;
   const DELAY = 500;
-  console.log($(".tree-surface"))
-  $(".tree-surface").mouseover(function() {console.log('hover');});
+  var event  = new Event('node_hover');
+  $(".tree-surface").on('node_hover', nodeHover);
   $(".tree-surface")[0].onmousedown = mouseHandler;
-  document.onmouseup = mouseHandler;
-  document.onmousemove = mouseHandler;
+  $(document).on("mouseup", mouseHandler);
+  $(document).on("mousemove", mouseHandler);
   $(".tree-surface")[0].onwheel = mouseHandler;
 
-  window.onresize = resizeCanvas;
+  $(window).on("resize", resizeCanvas);
 
   $(".tree-surface")[0].ondblclick = mouseHandler;
 
@@ -46,6 +47,31 @@ function initCallbacks(){
       });
     }
   });
+  console.log('done');
+  // $(".tree-surface").trigger("node_hover");
+}
+
+function nodeHover() {
+  const X = 0;
+  const Y = 1;
+  let i;
+  let nodeX, nodeY;
+  let mousePos = toTreeCoords(drawingData.lastMouseX, drawingData.lastMouseY);
+  if(window.test < 1) {
+    for(i = 0; i < window.edgeData.length; ++i) {
+      // grad x,y coordinate of node in tree space and check to see if its in the viewing window
+      nodeX = window.edgeData[i + X];
+      nodeY = window.edgeData[i +Y];
+      if(mousePos[X] - 10 <= nodeX && nodeX <= mousePos[X] + 10 &&
+            mousePos[Y] <= nodeY && mousePos[Y] <= nodeY) {
+          console.log("hover found");
+          drawingData.hoveredNode = [nodeX, nodeY, 1, 0, 0];
+          fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
+      }
+      i += 3;
+    }
+    window.test += 1;
+  }
 }
 
 function autoCollapseTree() {
