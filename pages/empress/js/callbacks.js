@@ -82,8 +82,8 @@ function nodeHover(x,y) {
   }
   if(close <= 50) {
     drawingData.hoveredNode = [clsXTC, clsYTC, 0, 1, 0];
-    labels = new Array(1);
-    labels[0] = [clsXTC, clsYTC, clsID];
+    // labels = new Array(1);
+    // labels[0] = [clsXTC, clsYTC, clsID];
   }
 
   fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
@@ -182,26 +182,27 @@ function userCladeColor(){
   })
 }
 
-function showLables() {
-  const attr = $("#highlight-options").val();
-  let labelsToShow = $("#show-options").val();
-  let prioritizeLabel = $("#prioritize-options").val();
-  let lbls = gridInfo.grid.getData();
-  let sign = $("#descending-toggle").prop("checked") ? -1 : 1;
-  let val1, val2, result;
-  lbls = lbls.sort(function(dataRow1, dataRow2) {
-      val1 = dataRow1[prioritizeLabel];
-      val2 = dataRow2[prioritizeLabel];
-      if(val1 === null){
-        return 1;
-      }
-      if(val2 === null){
-        return -1;
-      }
-      result = (val1 > val2 ? 1 : -1) * sign;
-      return result;
+function retriveTaxonNodes() {
+  const TAXLEVEL = $("#quick-find-level").val();
+  const TAX = "d_" + TAXLEVEL;
+  let node;
+  labels = [];
+  showLabels=true;
+  for(node in metadata) {
+    if(metadata[node][TAX] != null){
+      labels.push([metadata[node]["x"],
+                       metadata[node]["y"],
+                       metadata[node]["Node_id"],
+                       treeData[node]["leafcount"]]);
+    }
+  }
+  labels.sort(function (dataRow1, dataRow2) {
+    if(dataRow1[3] < dataRow2[3] ) {
+      return 1;
+    }
+    return -1;
   });
-  extractLabels(lbls, labelsToShow);
+  requestAnimationFrame(drawLabels);
 }
 
 function clearLabels() {

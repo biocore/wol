@@ -26,10 +26,9 @@ function mouseHandler(event) {
   else if(event.type === "mousemove") {
     if(window.onTreeSurface){
       drawingData.hoveredNode = [];
-      labels = {}
       fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
       clearTimeout(window.timer);
-      window.timer = setTimeout(nodeHover, 350, event.clientX, event.clientY);
+      window.timer = setTimeout(nodeHover, 500, event.clientX, event.clientY);
     }
 
     if(drawingData.isMouseDown) {
