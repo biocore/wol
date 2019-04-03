@@ -270,14 +270,16 @@
 
     <script type="text/javascript">
       {
-        tree = new Tree();
+        initialize();
+        /*tree = new Tree();
         window.edgeData=[];
-        let postorder = tree.order(pre=false, include_self=true);
+        let postorder = tree.order(pre=false, include_self=false);
         for(var i =0; i < postorder.length; ++i){
            let node = tree.tree[postorder[i]];
-           let parent = tree.tree[node.parent];
-           window.edgeData.push(parent.x);
-           window.edgeData.push(parent.y);
+           console.log(node)
+           let p = tree.tree[node.parent];
+           window.edgeData.push(p.x);
+           window.edgeData.push(p.y);
            window.edgeData.push(0.5);
            window.edgeData.push(0.5);
            window.edgeData.push(0.5);
@@ -287,9 +289,9 @@
            window.edgeData.push(0.5);
            window.edgeData.push(0.5);
         }
-        fillBufferData(shaderProgram.treeVer+Buffer, window.edgeData);
+        fillBufferData(shaderProgram.treeVertBuffer, window.edgeData);
         requestAnimationFrame(loop);
-        //initialize();
+       */
       }
     </script>
 

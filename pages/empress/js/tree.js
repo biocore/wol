@@ -9,7 +9,7 @@ class Tree{
     let tmp = [this.root];
     while(tmp.length !== 0){
       let curr = tmp.pop();
-      if(include_self || this.root!==tmp) result.push(curr);
+      if(include_self || this.root!==curr) result.push(curr);
       for (var i = 0; i < this.tree[curr].children.length; ++i){
         tmp.push(this.tree[curr].children[i]);
       }
