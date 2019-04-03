@@ -256,4 +256,6 @@ function autoCollapse() {
       requestAnimationFrame(loop);
     });
   });
+
+
 }

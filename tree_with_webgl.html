@@ -265,13 +265,31 @@
       const CLEAR_COLOR = 1;
       let camera = {};
       let shftPress = false;
-      let tree = {};
+      let tree = null;
     </script>
 
     <script type="text/javascript">
       {
-        buildTree();
-        initialize();
+        tree = new Tree();
+        window.edgeData=[];
+        let postorder = tree.order(pre=false, include_self=true);
+        for(var i =0; i < postorder.length; ++i){
+           let node = tree.tree[postorder[i]];
+           let parent = tree.tree[node.parent];
+           window.edgeData.push(parent.x);
+           window.edgeData.push(parent.y);
+           window.edgeData.push(0.5);
+           window.edgeData.push(0.5);
+           window.edgeData.push(0.5);
+           window.edgeData.push(node.x);
+           window.edgeData.push(node.y);
+           window.edgeData.push(0.5);
+           window.edgeData.push(0.5);
+           window.edgeData.push(0.5);
+        }
+        fillBufferData(shaderProgram.treeVer+Buffer, window.edgeData);
+        requestAnimationFrame(loop);
+        //initialize();
       }
     </script>
 
