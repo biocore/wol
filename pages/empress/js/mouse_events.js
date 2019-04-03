@@ -149,10 +149,10 @@ function moveTree(event) {
   // calculate which direction the mouse moved
   const dx = (drawingData.lastMouseX - newX);
   const dy = (newY - drawingData.lastMouseY);
-  const dirVec = vec3.fromValues(dx, dy,0);
+  const dirVec = vec3.fromValues(dx, dy, 0);
   let transVec = vec3.create();
   vec3.normalize(transVec, dirVec);
-  vec3.scale(transVec, transVec, drawingData.currentZoom / 50.0);
+  vec3.scale(transVec, transVec, drawingData.currentZoom / 20.0);
   let addTransMat = mat4.create();
 
   // modify matrix to move camera in xy-plane in the direction the mouse moved
