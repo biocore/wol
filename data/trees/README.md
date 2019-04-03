@@ -3,6 +3,7 @@ Trees
 
 Phylogenetic trees of the 10,575 genomes.
 
+Go to [GitHub directory](https://github.com/biocore/wol/tree/master/data/trees).
 
 ## Tree-building strategies
 
@@ -24,7 +25,7 @@ In addition, there is:
 
 - **Node IDs** (`nid`): Internal nodes were assigned incremental numbers in a pre-order traversal: root = `N1`, crown Archaea = `N2`, crown Bacteria = `N3`, so on so forth. These node IDs can be used as unique identifiers in downstream analyses and applications. Each topology (regardless post-manipulations such as collapsing and branch length re-estimation) receives the same set of node IDs. Node IDs of different topologies cannot be cross compared.
 
-- **Branch supports**: Internal nodes were labeled by branch support statistics. Specifically, `lpp` (local posterior probability) for ASTRAL and `bs` (rapid bootstrap) for CONCAT.
+- **Branch supports**: Internal nodes were labeled by branch support statistics (see below).
 
 - **Branch collapsing**: In the trees under the **collapsed** subdirectories, branches with low supports were collapsed, i.e., they were deleted and their child clades were merged into their parental nodes, making them polytomies.
 
@@ -35,23 +36,23 @@ In addition, there is:
 
 Node metrics are provided in separate files, in the format of node ID to metric(s) mappings.
 
-- **supports** (ASTRAL), **bootstraps** (CONCAT): Branch support statistics. See individual directories.
+- **supports** ([example](astral/astral.supports.tsv.bz2)): Branch support values. Different types of branch support statistics are used by different methods.
 
-- **splits** ([example](astral/splits.tsv)): Metrics of branch splits (unrelated to branch lengths), including:
+- **splits** ([example](astral/astral.splits.tsv.bz2)): Metrics of branch splits (unrelated to branch lengths), including:
   - `taxa`: Number of descendants (tips) under current node.
-  - `splits`: Total number of splits from current node to all tips, see [Puigbò, et al. (2009)](https://jbiol.biomedcentral.com/articles/10.1186/jbiol159).
-  - `postlevels`: Maximum number of splits from current node to any tip.
   - `prelevels`: Number of splits from root to current node.
+  - `lmin`, `lmax`, `lmean`, `lmedian`, and `lstdev`: Statistics of number of splits from all descendants (tips) to current node (i.e., postlevels).
+  - `splits`: Total number of splits from all tips to current node.
 
 - **lengths** ([example](astral/branch_length/cons/astral.cons.lengths.tsv.bz2)): Metrics of branch lengths, including:
 
   - `length`: Length of branch connecting current node and its parent.
   - `height`: Sum of branch lengths from root to current node.
-  - `depth_mean`, `depth_median`, and `depth_stdev`: Statistics of sums of branch lengths from all descendants (tips) to current node.
+  - `dmin`, `dmax`, `dmean`, `dmedian`, and `dstdev`: Statistics of sums of branch lengths from all descendants (tips) to current node (i.e., depth).
   - `red`: Relative evolutionary divergence (**RED**), introduced by [Parks, et al. (2018)](https://www.nature.com/articles/nbt.4229):
 
         RED = p + (d / u) * (1 - p)
     
-    where _p_ = RED of parent node, _d_ = branch length, _u_ = `depth_mean` of parent node.
+    where _p_ = RED of parent node, _d_ = branch length, _u_ = `dmean` of parent node.
 
 Please also find taxonomic annotation of nodes (internal nodes and tips) under the [taxonomy](../taxonomy) directory.
