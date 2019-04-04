@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>WebGL - Experiment</title>
+  <title>Interactive Tree - Empress</title>
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/slick.grid.css">
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/jquery-ui-1.11.3.custom.css">
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/slick.grid.format.css">
@@ -21,9 +21,9 @@
   <script type="text/javascript" src="pages/empress/vendor/js/slick.editors.min.js"></script>
   <script type="text/javascript" src="pages/empress/vendor/js/slick.formatters.min.js"></script>
   <script type="text/javascript" src="pages/empress/vendor/js/slick.grid.min.js"></script>
-  <script type="text/javascript" src="pages/empress/js/wol_tree.js"></script>
   <script type="text/javascript" src="pages/empress/vendor/js/parse.js"></script>
   <script type="text/javascript" src="pages/empress/js/tree.js"></script>
+  <script type="text/javascript" src="pages/empress/js/wol_tree.js"></script>
 </head>
 
 <body>
@@ -125,45 +125,17 @@
       <button class="collapsible">Auto-Collapse</button>
       <div class="content">
         <div>
-          <label for="zcollapse-level">Collapse By...</label>
-          <select id="collapse-level">
+          <input type="checkbox" id="collapse-cb" onclick="autoCollapseTree()">
+          <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
             <option value=0 disabled> -- select an option -- </option>
-            <option>Kingdom</option>
-            <option>Phylum</option>
-            <option>Class</option>
-            <option>Order</option>
-            <option>Family</option>
-            <option>Genus</option>
-            <option>Species</option>
+            <option>kingdom</option>
+            <option selected="selected">phylum</option>
+            <option>class</option>
+            <option>order</option>
+            <option>family</option>
+            <option>genus</option>
+            <option>species</option>
           </select>
-        </div>
-        <div>
-          <label for="color-options-tax">Choose Color Map</label>
-          <select id="color-options-collapse">
-            <option disabled> -- Sequential -- </option>
-            <option value="viridis" color="red">viridis</option>
-            <option value="Blues">Blue</option>
-            <option value="Greens">Green</option>
-            <option value="Reds">Red</option>
-            <option value="BuGn">Blue to Green</option>
-            <option value="cool">Blue to Purple</option>
-            <option value="YlOrRd">Yellow to Red</option>
-            <option value="hot">Hot</option>
-            <option value="winter">Winter</option>
-            <option disabled>-- Diverging --</option>
-            <option value="seismic">Blue to Red</option>
-            <option value=coolwarm>Cool to Warm</option>
-            <option value="PRGn">Purple to Green</option>
-          </select>
-        </div>
-        <div>
-          <label for="collapse-options">Color by...</label>
-          <select id="collapse-options">
-            <option value=0 disabled> -- select an option -- </option>
-          </select>
-        </div>
-        <div>
-          <button onclick="autoCollapseTree()">Collapse Tree</button>
         </div>
       </div>
 
@@ -175,9 +147,9 @@
           </p>
         </div>
         <div>
-          <input type="checkbox" id="tips" onclick="retriveTaxonNodes()">
+          <input type="checkbox" id="tips" onclick="retriveTaxonNodes('t')">
           <label for="tips">Tips</label>
-          <select id="tips-find-level" onchange="retriveTaxonNodes()">
+          <select id="tips-find-level" onchange="retriveTaxonNodes('t')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
               <option>kingdom</option>
               <option>phylum</option>
@@ -189,9 +161,9 @@
           </select>
         </div>
         <div>
-          <input type="checkbox" id="internal-nodes" onclick="retriveTaxonNodes()">
+          <input type="checkbox" id="internal-nodes" onclick="retriveTaxonNodes('n')">
           <label for="internal-nodes">Nodes</label>
-          <select id="nodes-find-level" onchange="retriveTaxonNodes()">
+          <select id="nodes-find-level" onchange="retriveTaxonNodes('n')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
               <option>kingdom</option>
               <option>phylum</option>
@@ -244,8 +216,7 @@
       // fields to extract from metadata, used in extractInfo()
       let field = {
         edgeFields: ["px", "py", "branch_color", "x", "y",
-          "branch_color"
-        ],
+          "branch_color"],
         nodeFields: ["x", "y", "color"],
         triangleFields: ["cx", "cy", "color", "lx", "ly", "color", "rx", "ry", "color"]
       };
@@ -299,7 +270,7 @@
       let showLabels = false;
       let taxonNodes = [];
 
-      let tree = null;
+      // let tree = null;
     </script>
 
     <script type="text/javascript">

@@ -1,15 +1,21 @@
 class Tree{
-  constructor(tree_nwk=treeData){
+  constructor(tree_nwk, edgeData, metadata, m_headers, max){
     this.tree = tree_nwk;
+    this.edgeData = edgeData;
+    this.metadata = metadata;
+    this.m_headers = m_headers;
+    this.max = max;
     this.root = 'N1';
+    this.numBranches = Object.keys(metadata).length;
+    this.triData = [];
   }
 
-  order(pre, include_self){
+  order(pre, start, include_self){
     let result = [];
-    let tmp = [this.root];
+    let tmp = [start];
     while(tmp.length !== 0){
       let curr = tmp.pop();
-      if(include_self || this.root!==curr) result.push(curr);
+      if(include_self || start!==curr) result.push(curr);
       for (var i = 0; i < this.tree[curr].children.length; ++i){
         tmp.push(this.tree[curr].children[i]);
       }
@@ -27,7 +33,7 @@ class Tree{
     let centerX = this.tree[this.root].x;
     let centerY = this.tree[this.root].y;
 
-    let postorder = this.order(false, true);
+    let postorder = this.order(false, 'N1', true);
     for (var i = 0; i < postorder.length; ++i){
         let node = this.tree[postorder[i]];
         node.x = node.x - centerX;
@@ -49,7 +55,7 @@ class Tree{
     this.tree[this.root].x = x2;
     this.tree[this.root].y = y2;
     this.tree[this.root].angle = a;
-    let preorder = this.order(true, false);
+    let preorder = this.order(true, 'N1', false);
 
     for(var i = 0; i < preorder.length; ++i){
         let nodeName = preorder[i];
@@ -137,5 +143,121 @@ class Tree{
     return best_scale;
   }
 
+  collapse(taxLevel) {
+    let preorder = this.order(true, this.root, false);
+    let i;
+    let collapsedNodes = 0;
+    let node;
+    let rootNode;
+    let rx, ry, tlX, tlY, trX, trY, theta;
+    this.triData = [];
+    for(i = 0; i < preorder.length; i++) {
+        this.metadata[preorder[i]]['branch_is_visible'] = true;
+    }
+    for(node in this.metadata) {
+        if(this.metadata[node]["d_" + taxLevel] != null) {
+            preorder = this.order(true, node, false);
+            for(i = 0; i < preorder.length; i++) {
+                this.metadata[preorder[i]]['branch_is_visible'] = false;
+                collapsedNodes += 1;
+            }
+            rootNode = this.tree[node];
+            theta = rootNode['starting_angle'];
+            rx = rootNode["x"];
+            ry = rootNode["y"];
+            tlX = rootNode["largest_branch"] * Math.cos(theta) + rx;
+            tlY = rootNode["largest_branch"] * Math.sin(theta) + ry;
+            theta += rootNode["theta"];
+            trX = rootNode["smallest_branch"] * Math.cos(theta) + rx;
+            trY = rootNode["smallest_branch"] * Math.sin(theta) + ry;
+            this.triData.push(rx);
+            this.triData.push(ry);
+            this.triData.push(0);
+            this.triData.push(0);
+            this.triData.push(1);
+            this.triData.push(tlX);
+            this.triData.push(tlY);
+            this.triData.push(0);
+            this.triData.push(0);
+            this.triData.push(1);
+            this.triData.push(trX);
+            this.triData.push(trY);
+            this.triData.push(0);
+            this.triData.push(0);
+            this.triData.push(1);
+        }
+    }
+    this.updateEdgeData(collapsedNodes);
+    return this.edgeData;
+  }
 
+  uncollapse() {
+    let preorder = this.order(true, this.root, false);
+    let i;
+    let collapsedNodes = 0;
+    const NON_HIDDEN = 0
+    this.triData = [];
+    for(i = 0; i < preorder.length; i++) {
+        this.metadata[preorder[i]]['branch_is_visible'] = true;
+    }
+    this.updateEdgeData(NON_HIDDEN);
+    return this.edgeData;
+  }
+
+  updateEdgeData(numNotVis) {
+    let i = 0;
+    let node;
+    const VERT_SIZE = 10;
+    const PX = 0;
+    const PY = 1;
+    const PR = 2;
+    const PG = 3;
+    const PB = 4;
+    const X = 5;
+    const Y = 6;
+    const R = 7;
+    const G = 8;
+    const B = 9;
+    const RED = 0;
+    const GREEN = 1;
+    const BLUE = 2;
+    let nodeMetadata;
+    this.edgeData = new Array((this.numBranches - numNotVis) * VERT_SIZE);
+    for(node in this.metadata) {
+        nodeMetadata = this.metadata[node];
+        if(nodeMetadata['branch_is_visible']) {
+            this.edgeData[i + PX] = nodeMetadata["px"];
+            this.edgeData[i + PY] = nodeMetadata["py"];
+            this.edgeData[i + PR] = nodeMetadata["branch_color"][RED];
+            this.edgeData[i + PG] = nodeMetadata["branch_color"][GREEN];
+            this.edgeData[i + PB] = nodeMetadata["branch_color"][BLUE];
+            this.edgeData[i + X] = nodeMetadata["x"];
+            this.edgeData[i + Y] = nodeMetadata["y"];
+            this.edgeData[i + R] = nodeMetadata["branch_color"][RED];
+            this.edgeData[i + G] = nodeMetadata["branch_color"][GREEN]
+            this.edgeData[i + B] = nodeMetadata["branch_color"][BLUE]
+            i += VERT_SIZE;
+        }
+    }
+  }
+  getTaxonLabels(taxLevel, tips) {
+    let labels = [];
+    let node;
+    for(node in this.metadata) {
+      if(this.metadata[node][taxLevel] != null && this.tree[node]["is_tip"] === tips) {
+        labels.push([this.metadata[node]["x"],
+                         this.metadata[node]["y"],
+                         this.metadata[node][taxLevel],
+                         this.tree[node]["leafcount"],
+                         node]);
+      }
+    }
+    labels.sort(function (dataRow1, dataRow2) {
+      if(dataRow1[3] < dataRow2[3] ) {
+        return 1;
+      }
+      return -1;
+    });
+    return labels;
+  }
 }
