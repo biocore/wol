@@ -12,7 +12,7 @@ header:
     - label: Quick-Start
       url: start
     - label: Interactive Tree
-      url: tree_with_webgl
+      url: empress
     - label: GitHub Repo
       url: https://github.com/biocore/wol
   caption: Artist's impression of the 10,575-genome reference tree

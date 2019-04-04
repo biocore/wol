@@ -175,38 +175,62 @@ function userCladeColor(){
   const taxLevel = $("#tax-level").val();
   const cm = $("#color-options-tax").val();
   $.getJSON(urls.newCladeColor, {attribute: attribute, tax_level: taxLevel, cm: cm}, function(data){
-    // if(!data.hasOwnProperty('empty')) {
       console.log('loadColorClades');
       loadColorClades(data);
-    // }
   })
 }
 
 function retriveTaxonNodes() {
-  const TAXLEVEL = $("#quick-find-level").val();
-  const TAX = "d_" + TAXLEVEL;
+  let TAXLEVEL;
   let node;
-  labels = [];
-  showLabels=true;
-  for(node in metadata) {
-    if(metadata[node][TAX] != null){
-      labels.push([metadata[node]["x"],
-                       metadata[node]["y"],
-                       metadata[node]["Node_id"],
-                       treeData[node]["leafcount"]]);
+  if($("#tips").is(":checked")) {
+    TAXLEVEL = $("#tips-find-level").val();
+    tipLabels = [];
+    for(node in metadata) {
+      if(metadata[node][TAXLEVEL] != null && treeData[node]["is_tip"] === "true") {
+        tipLabels.push([metadata[node]["x"],
+                         metadata[node]["y"],
+                         metadata[node][TAXLEVEL],
+                         node]);
+      }
     }
   }
-  labels.sort(function (dataRow1, dataRow2) {
-    if(dataRow1[3] < dataRow2[3] ) {
-      return 1;
+  else {
+    clearLabels("tip");
+  }
+
+  if($("#internal-nodes").is(":checked")) {
+    TAXLEVEL = $("#nodes-find-level").val();
+    nodeLabels = [];
+    for(node in metadata) {
+      if(metadata[node][TAXLEVEL] != null && treeData[node]["is_tip"] === "false") {
+        nodeLabels.push([metadata[node]["x"],
+                         metadata[node]["y"],
+                         metadata[node][TAXLEVEL],
+                         treeData[node]["leafcount"],
+                         node]);
+      }
     }
-    return -1;
-  });
+    nodeLabels.sort(function (dataRow1, dataRow2) {
+      if(dataRow1[3] < dataRow2[3] ) {
+        return 1;
+      }
+      return -1;
+    });
+  }
+  else {
+    clearLabels("node");
+  }
   requestAnimationFrame(drawLabels);
 }
 
-function clearLabels() {
-  labels = {};
+function clearLabels(label) {
+  if(label === "tip") {
+    tipLabels = {};
+  }
+  else{
+    nodeLabels = {};
+  }
   requestAnimationFrame(drawLabels);
 }
 

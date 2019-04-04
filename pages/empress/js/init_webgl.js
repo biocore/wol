@@ -156,5 +156,3 @@ function createShaderProgram(vShader, fShader) {
 
   return sProgram
 }
-
-// function loadUnAndAt(program, )

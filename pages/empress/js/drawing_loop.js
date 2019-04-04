@@ -93,16 +93,14 @@ function bindBuffer(buffer) {
 
 function drawLabels() {
   const NEGATE = -1;
-  // remove old labels
-  let divContainerElement = document.getElementById("divcontainer");
-  while(divContainerElement.firstChild) {
-    divContainerElement.removeChild(divContainerElement.firstChild);
-  }
+
   let canvas = $(".tree-surface")[0];
 
   const X = 0;
   const Y = 1;
   const VALUE = 2;
+  const ID = 3;
+  const NODE = 4;
 
   // // find the top left corner of the viewing window in tree space
   let boundingBoxDim = camera.pos[2] + shaderProgram.zTransMat[14];
@@ -118,25 +116,63 @@ function drawLabels() {
   let minX = topLeft[X], maxX = bottomRight[X];
   let minY = bottomRight[Y], maxY = topLeft[Y];
 
-  // predefine variables need in for loop to speed up loop
-  let i;
+  // remove old labels
+  let divContainerElement = document.getElementById("tip-label-container");
+
+   // predefine variables need in for loop to speed up loop
+  let childLabels = divContainerElement.getElementsByTagName("div");
+  let i, k;
+  let left, top;
   let pixelX = 0, pixelY = 0;
   let div, textNode;
   let treeSpace = vec4.create();
   let screenSpace = vec4.create();
   let treeX, treeY, numLabels;
-  let count = 0;
+  if(childLabels.length > 0) {
+    for(i = 0; i < childLabels.length; i++) {
+      // left = childLabels[i].style.left;
+      // top = childLabels[i].style.top;
+      left = childLabels[i].x;
+      top = childLabels[i].y;
+      if(minX <= left && left <= maxX &&
+        minY <= top && top <= maxY) {
+        console.log("change")
+        k = childLabels[i].id;
+        console.log(k)
+        // calculate the screen coordinate of the label
+        treeSpace = vec4.fromValues(tipLabels[k][X], tipLabels[k][Y], 0, 1);
+        screenSpace = vec4.create();
+        vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
+        screenSpace[0] /= screenSpace[3];
+        screenSpace[1] /= screenSpace[3];
+        pixelX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
+        pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
 
-  // draw top 10 labels within the viewing window
-  numLabels = labels.length;
+        // update position
+        childLabels[i].style.left = Math.floor(pixelX) + "px";
+        childLabels[i].style.top = Math.floor(pixelY) + "px";
+      } else {
+        console.log("delete")
+        divContainerElement.removeChild(childLabels[i]);
+      }
+    }
+  }
+
+   // draw top 10 tip labels within the viewing window
+  numLabels = tipLabels.length;
+  let count = divContainerElement.getElementsByTagName("div").length;
   for(i = 0; i < numLabels; ++i) {
+    if(count === 10) {
+        break;
+    }
+    k = Math.floor(Math.random() * numLabels);
     // grad x,y coordinate of node in tree space and check to see if its in the viewing window
-    treeX = labels[i][X];
-    treeY = labels[i][Y];
+    treeX = tipLabels[k][X];
+    treeY = tipLabels[k][Y];
     if(minX <= treeX && treeX <= maxX &&
         minY <= treeY && treeY <= maxY) {
       // calculate the screen coordinate of the label
-      treeSpace = vec4.fromValues(labels[i][X], labels[i][Y], 0, 1);
+      treeSpace = vec4.fromValues(tipLabels[k][X], tipLabels[k][Y], 0, 1);
       screenSpace = vec4.create();
       vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
       screenSpace[0] /= screenSpace[3];
@@ -151,17 +187,78 @@ function drawLabels() {
       div.className = "floating-div";
 
       // make a text node for its content
-      textNode = document.createTextNode(labels[i][VALUE]);
+      textNode = document.createTextNode(tipLabels[k][VALUE]);
       div.appendChild(textNode);
 
       // add it to the divcontainer
       divContainerElement.appendChild(div);
       div.style.left = Math.floor(pixelX) + "px";
       div.style.top = Math.floor(pixelY) + "px";
-      div.id = labels[i][VALUE];
+      div.id = k;
+      div.x = treeX;
+      div.y = treeY;
 
       // stop once 10 labels have been drawn to screen
       count++;
+    }
+  }
+
+  // remove old labels
+  divContainerElement = document.getElementById("node-label-container");
+  while(divContainerElement.firstChild) {
+    divContainerElement.removeChild(divContainerElement.firstChild);
+  }
+
+  // draw top 10 node labels within the viewing window
+  count = 0;
+  numLabels = nodeLabels.length;
+  let currentLabels = {}
+  let parent, node, skip;
+  for(i = 0; i < numLabels; ++i) {
+    skip = false;
+    // grad x,y coordinate of node in tree space and check to see if its in the viewing window
+    treeX = nodeLabels[i][X];
+    treeY = nodeLabels[i][Y];
+    if(minX <= treeX && treeX <= maxX &&
+        minY <= treeY && treeY <= maxY) {
+      node = nodeLabels[i][NODE];
+      parent = treeData[node]["parent"];
+      while(parent !== "N1") {
+        if(parent in currentLabels) {
+          skip = true;
+        }
+        parent = treeData[parent]["parent"];
+      }
+      if(!skip) {
+        // calculate the screen coordinate of the label
+        treeSpace = vec4.fromValues(nodeLabels[i][X], nodeLabels[i][Y], 0, 1);
+        screenSpace = vec4.create();
+        vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
+        screenSpace[0] /= screenSpace[3];
+        screenSpace[1] /= screenSpace[3];
+        pixelX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
+        pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
+
+        // make the div
+        div = document.createElement("div");
+
+        // assign it a CSS class
+        div.className = "floating-div";
+
+        // make a text node for its content
+        textNode = document.createTextNode(nodeLabels[i][VALUE]);
+        div.appendChild(textNode);
+
+        // add it to the divcontainer
+        divContainerElement.appendChild(div);
+        div.style.left = Math.floor(pixelX) + "px";
+        div.style.top = Math.floor(pixelY) + "px";
+        div.id = nodeLabels[i][VALUE];
+
+        // stop once 10 labels have been drawn to screen
+        count++;
+        currentLabels[node] = null;
+      }
       if(count === 10) {
         break;
       }
