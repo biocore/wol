@@ -41,3 +41,4 @@ layouts_dir: pages/layouts
 data_dir: pages/data
 includes_dir: pages/includes
 sass_dir: pages/sass
+empress_dir: pages/empress
