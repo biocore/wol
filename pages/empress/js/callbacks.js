@@ -230,6 +230,12 @@ function retriveTaxonNodes() {
     }
   }
   else {
+    // remove old labels
+    let divContainerElement = document.getElementById("tip-label-container");
+    divContainerElement = document.getElementById("tip-label-container");
+    while(divContainerElement.firstChild) {
+      divContainerElement.removeChild(divContainerElement.firstChild);
+    }
     clearLabels("tip");
   }
 
