@@ -8,7 +8,7 @@
     background: linear-gradient(to right, #ff0000, #00ff00);
 }
 
-#hover-div{
+.hover-div{
     position: fixed;
     left: 0vw;
     top: 0vh;

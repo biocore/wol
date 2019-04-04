@@ -8,6 +8,7 @@ class Tree{
     this.root = 'N1';
     this.numBranches = Object.keys(metadata).length;
     this.triData = [];
+    this.triRoots = [];
   }
 
   order(pre, start, include_self){
@@ -144,6 +145,9 @@ class Tree{
   }
 
   collapse(taxLevel) {
+    const RED = 0.73828125;
+    const GREEN = 0.73828125;
+    const BLUE = 0.73828125;
     let preorder = this.order(true, this.root, false);
     let i;
     let collapsedNodes = 0;
@@ -151,6 +155,7 @@ class Tree{
     let rootNode;
     let rx, ry, tlX, tlY, trX, trY, theta;
     this.triData = [];
+    this.triRoots = [];
     for(i = 0; i < preorder.length; i++) {
         this.metadata[preorder[i]]['branch_is_visible'] = true;
     }
@@ -172,19 +177,20 @@ class Tree{
             trY = rootNode["smallest_branch"] * Math.sin(theta) + ry;
             this.triData.push(rx);
             this.triData.push(ry);
-            this.triData.push(0);
-            this.triData.push(0);
-            this.triData.push(1);
+            this.triData.push(RED);
+            this.triData.push(GREEN);
+            this.triData.push(BLUE);
             this.triData.push(tlX);
             this.triData.push(tlY);
-            this.triData.push(0);
-            this.triData.push(0);
-            this.triData.push(1);
+            this.triData.push(RED);
+            this.triData.push(GREEN);
+            this.triData.push(BLUE);
             this.triData.push(trX);
             this.triData.push(trY);
-            this.triData.push(0);
-            this.triData.push(0);
-            this.triData.push(1);
+            this.triData.push(RED);
+            this.triData.push(GREEN);
+            this.triData.push(BLUE);
+            this.triRoots.push(node);
         }
     }
     this.updateEdgeData(collapsedNodes);
@@ -197,6 +203,7 @@ class Tree{
     let collapsedNodes = 0;
     const NON_HIDDEN = 0
     this.triData = [];
+    this.triRoots = [];
     for(i = 0; i < preorder.length; i++) {
         this.metadata[preorder[i]]['branch_is_visible'] = true;
     }
@@ -240,6 +247,7 @@ class Tree{
         }
     }
   }
+
   getTaxonLabels(taxLevel, tips) {
     let labels = [];
     let node;
@@ -259,5 +267,38 @@ class Tree{
       return -1;
     });
     return labels;
+  }
+
+  triangleAt(x,y) {
+    let triangle = {}, a = {}, b = {}, c = {}, result = {};
+    let i = 0;
+    const CX = 0;
+    const CY = 1;
+    const LX = 5;
+    const LY = 6;
+    const RX = 10;
+    const RY = 11;
+    const TRI_SIZE = 15;
+    while(i < this.triData.length) {
+        a.x = this.triData[i + CX];
+        a.y = this.triData[i + CY];
+        b.x = this.triData[i + LX];
+        b.y = this.triData[i + LY];
+        c.x = this.triData[i + RX];
+        c.y = this.triData[i + RY];
+        triangle.area = this.triangleArea(a, b, c);
+        triangle.s1 = this.triangleArea({'x': x, 'y': y}, b, c);
+        triangle.s2 = this.triangleArea(a, {'x': x, 'y': y}, c);
+        triangle.s3 = this.triangleArea(a, b, {'x': x, 'y': y});
+        if(Math.abs(triangle.area - triangle.s1 - triangle.s2 - triangle.s3) < 0.0001) {
+            return this.triRoots[i / TRI_SIZE];
+        }
+        i += TRI_SIZE;
+    }
+    return null;
+  }
+
+  triangleArea(a, b, c) {
+    return Math.abs((a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y)) / 2)
   }
 }

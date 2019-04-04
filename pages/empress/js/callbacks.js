@@ -7,9 +7,7 @@ function initCallbacks(){
   const SHFT_KEY = 16;
   const DELAY = 500;
   window.onTreeSurface = false;
-  window.timer = setTimeout(nodeHover, 100, 0,0);
-  var event  = new Event('node_hover');
-  $(".tree-surface").on('node_hover', nodeHover);
+  window.timer = setTimeout(hover, 100, 0,0);
   $(".tree-surface").on("mousedown", mouseHandler);
   $(document).on("mouseup", mouseHandler);
   $(document).on("mousemove", mouseHandler);
@@ -51,6 +49,11 @@ function initCallbacks(){
   });
 }
 
+function hover(x,y) {
+  nodeHover(x,y);
+  triangleHover(x,y);
+}
+
 function nodeHover(x,y) {
   let id;
   let clsXTC, clsYTC, clsID;
@@ -83,7 +86,7 @@ function nodeHover(x,y) {
   if(close <= 50 && (clsID === "N1" || tree.metadata[clsID]["branch_is_visible"])) {
     drawingData.hoveredNode = [clsXTC, clsYTC, 0, 1, 0];
     if(clsID !== "N1") {
-      $("#hover-div").html(
+      $("#node-hover-div").html(
         "<b>Genome ID:</b> " + clsID + "<br>"  +
         "<b>Kingdom: </b>" + tree.metadata[clsID]["kingdom"] + "<br>" +
         "<b>Phylum: </b>" + tree.metadata[clsID]["phylum"] + "<br>" +
@@ -91,10 +94,11 @@ function nodeHover(x,y) {
         "<b>Order: </b>" + tree.metadata[clsID]["order"] + "<br>" +
         "<b>Family: </b>" + tree.metadata[clsID]["family"] + "<br>" +
         "<b>Genus: </b>" + tree.metadata[clsID]["genus"] + "<br>" +
-        "<b>Species: </b>" + tree.metadata[clsID]["species"] + "<br>"
+        "<b>Species: </b>" + tree.metadata[clsID]["species"] + "<br>" +
+        "<b>Descendants: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
       );
     } else {
-      $("#hover-div").html(
+      $("#node-hover-div").html(
         "<b>Genome ID:</b> " + clsID + "<br>"  +
         "<b>Kingdom: </b>" + "null" + "<br>" +
         "<b>Phylum: </b>" + "null" +"<br>" +
@@ -102,10 +106,11 @@ function nodeHover(x,y) {
         "<b>Order: </b>" + "null" + "<br>" +
         "<b>Family: </b>" + "null" + "<br>" +
         "<b>Genus: </b>" +"null" + "<br>" +
-        "<b>Species: </b>" + "null" + "<br>"
+        "<b>Species: </b>" + "null" + "<br>" +
+        "<b>Descendants: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
       );
     }
-    // calculate the screen coordinate of the label
+      // calculate the screen coordinate of the label
       let treeSpace = vec4.fromValues(clsXTC, clsYTC, 0, 1);
       let screenSpace = vec4.create();
       vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
@@ -115,20 +120,37 @@ function nodeHover(x,y) {
       let pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
 
       // make the div
-      let div = $("#hover-div");
+      let div = $("#node-hover-div");
 
       div.css({left: Math.floor(pixelX) + "px",
                top: Math.floor(pixelY) + "px",
                display: "block"});
   } else {
     // make the div
-      let div = $("#hover-div");
+      let div = $("#node-hover-div");
 
       div.css({display: "none"});
   }
 
   fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
   requestAnimationFrame(loop);
+}
+
+function triangleHover(x, y) {
+  let treeCoords = toTreeCoords(x, y);
+  let triRoot = tree.triangleAt(treeCoords[0], treeCoords[1]);
+  let taxLevel = $("#collapse-level").val();
+  let div = $("#tri-hover-div");
+  if(triRoot != null) {
+    div.html("<b>" + tree.metadata[triRoot][taxLevel] + "</b><br>" +
+             "<b>Descendants: </b>" + tree.tree[triRoot]["leafcount"] + "<br>" );
+    div.css({left: x + "px",
+             top: y + "px",
+             display: "block"});
+  }
+  else {
+    div.css({display: "none"})
+  }
 }
 
 function autoCollapseTree() {
