@@ -212,6 +212,12 @@ function retriveTaxonNodes() {
   let TAXLEVEL;
   let node;
   if($("#tips").is(":checked")) {
+    // remove old labels
+    let divContainerElement = document.getElementById("tip-label-container");
+    divContainerElement = document.getElementById("tip-label-container");
+    while(divContainerElement.firstChild) {
+      divContainerElement.removeChild(divContainerElement.firstChild);
+    }
     TAXLEVEL = $("#tips-find-level").val();
     tipLabels = [];
     for(node in metadata) {
