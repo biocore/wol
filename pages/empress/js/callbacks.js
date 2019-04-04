@@ -82,8 +82,36 @@ function nodeHover(x,y) {
   }
   if(close <= 50) {
     drawingData.hoveredNode = [clsXTC, clsYTC, 0, 1, 0];
-    // labels = new Array(1);
-    // labels[0] = [clsXTC, clsYTC, clsID];
+    $("#hover-div").html(
+      "<b>Genome ID:</b> " + clsID + "<br>"  +
+      "<b>Kingdom: </b>" + metadata[clsID]["kingdom"] + "<br>" +
+      "<b>Phylum: </b>" + metadata[clsID]["phylum"] + "<br>" +
+      "<b>Class: </b>" + metadata[clsID]["class"] + "<br>" +
+      "<b>Order: </b>" + metadata[clsID]["order"] + "<br>" +
+      "<b>Family: </b>" + metadata[clsID]["family"] + "<br>" +
+      "<b>Genus: </b>" +metadata[clsID]["genus"] + "<br>" +
+      "<b>Species: </b>" + metadata[clsID]["species"] + "<br>"
+    );
+    // calculate the screen coordinate of the label
+      let treeSpace = vec4.fromValues(clsXTC, clsYTC, 0, 1);
+      let screenSpace = vec4.create();
+      vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
+      screenSpace[0] /= screenSpace[3];
+      screenSpace[1] /= screenSpace[3];
+      let pixelX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
+      let pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
+
+      // make the div
+      let div = $("#hover-div");
+
+      div.css({left: Math.floor(pixelX) + "px",
+               top: Math.floor(pixelY) + "px",
+               display: "block"});
+  } else {
+    // make the div
+      let div = $("#hover-div");
+
+      div.css({display: "none"});
   }
 
   fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
