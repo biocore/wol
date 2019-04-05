@@ -53,6 +53,9 @@ function loop() {
   bindBuffer(shaderProgram.triangleBuffer);
   gl.drawArrays(gl.TRIANGLES, 0, drawingData.triangles.length / 5);
 
+  bindBuffer(shaderProgram.highTriBuffer);
+  gl.drawArrays(gl.TRIANGLES, 0, drawingData.highTri.length / 5);
+
   drawLabels();
 }
 
@@ -99,7 +102,6 @@ function drawLabels() {
   const X = 0;
   const Y = 1;
   const VALUE = 2;
-  const ID = 3;
   const NODE = 4;
 
   // // find the top left corner of the viewing window in tree space
@@ -130,15 +132,11 @@ function drawLabels() {
   let treeX, treeY, numLabels;
   if(childLabels.length > 0) {
     for(i = 0; i < childLabels.length; i++) {
-      // left = childLabels[i].style.left;
-      // top = childLabels[i].style.top;
       left = childLabels[i].x;
       top = childLabels[i].y;
       if(minX <= left && left <= maxX &&
         minY <= top && top <= maxY) {
-        console.log("change")
         k = childLabels[i].id;
-        console.log(k)
         // calculate the screen coordinate of the label
         treeSpace = vec4.fromValues(tipLabels[k][X], tipLabels[k][Y], 0, 1);
         screenSpace = vec4.create();
@@ -152,7 +150,6 @@ function drawLabels() {
         childLabels[i].style.left = Math.floor(pixelX) + "px";
         childLabels[i].style.top = Math.floor(pixelY) + "px";
       } else {
-        console.log("delete")
         divContainerElement.removeChild(childLabels[i]);
       }
     }
@@ -205,9 +202,9 @@ function drawLabels() {
 
   // remove old labels
   divContainerElement = document.getElementById("node-label-container");
-  while(divContainerElement.firstChild) {
-    divContainerElement.removeChild(divContainerElement.firstChild);
-  }
+    while(divContainerElement.firstChild) {
+      divContainerElement.removeChild(divContainerElement.firstChild);
+    }
 
   // draw top 10 node labels within the viewing window
   count = 0;
@@ -222,12 +219,12 @@ function drawLabels() {
     if(minX <= treeX && treeX <= maxX &&
         minY <= treeY && treeY <= maxY) {
       node = nodeLabels[i][NODE];
-      parent = treeData[node]["parent"];
+      parent = tree.tree[node]["parent"];
       while(parent !== "N1") {
         if(parent in currentLabels) {
           skip = true;
         }
-        parent = treeData[parent]["parent"];
+        parent = tree.tree[parent]["parent"];
       }
       if(!skip) {
         // calculate the screen coordinate of the label

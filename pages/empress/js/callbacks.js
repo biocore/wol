@@ -7,14 +7,12 @@ function initCallbacks(){
   const SHFT_KEY = 16;
   const DELAY = 500;
   window.onTreeSurface = false;
-  window.timer = setTimeout(nodeHover, 100, 0,0);
-  var event  = new Event('node_hover');
-  $(".tree-surface").on('node_hover', nodeHover);
+  window.timer = setTimeout(hover, 100, 0,0);
   $(".tree-surface").on("mousedown", mouseHandler);
   $(document).on("mouseup", mouseHandler);
   $(document).on("mousemove", mouseHandler);
   $(".tree-surface")[0].onwheel = mouseHandler;
-  $(".tree-surface").hover(function() {window.onTreeSurface = true;}, 
+  $(".tree-surface").hover(function() {window.onTreeSurface = true;},
       function(){window.onTreeSurface=false;})
   $(window).on("resize", resizeCanvas);
 
@@ -51,6 +49,13 @@ function initCallbacks(){
   });
 }
 
+function hover(x,y) {
+  if($("body").css("cursor") !== 'none') {
+    nodeHover(x,y);
+    triangleHover(x,y);
+  }
+}
+
 function nodeHover(x,y) {
   let id;
   let clsXTC, clsYTC, clsID;
@@ -58,9 +63,9 @@ function nodeHover(x,y) {
   let tmp;
   let xDist, yDist, treeX, treeY, nScreenX, nScreenY, treeSpace, screenSpace;
   let canvas = $(".tree-surface")[0];
-  for(id in window.treeData) {
-      treeX = window.treeData[id].x;
-      treeY = window.treeData[id].y;
+  for(id in tree.tree) {
+      treeX = tree.tree[id].x;
+      treeY = tree.tree[id].y;
       // calculate the screen coordinate of the label
       treeSpace = vec4.fromValues(treeX, treeY, 0, 1);
       screenSpace = vec4.create();
@@ -80,19 +85,38 @@ function nodeHover(x,y) {
         clsID = id;
     }
   }
-  if(close <= 50) {
+  if(close <= 50 && (clsID === "N1" || tree.metadata[clsID]["branch_is_visible"])) {
     drawingData.hoveredNode = [clsXTC, clsYTC, 0, 1, 0];
-    $("#hover-div").html(
-      "<b>Genome ID:</b> " + clsID + "<br>"  +
-      "<b>Kingdom: </b>" + metadata[clsID]["kingdom"] + "<br>" +
-      "<b>Phylum: </b>" + metadata[clsID]["phylum"] + "<br>" +
-      "<b>Class: </b>" + metadata[clsID]["class"] + "<br>" +
-      "<b>Order: </b>" + metadata[clsID]["order"] + "<br>" +
-      "<b>Family: </b>" + metadata[clsID]["family"] + "<br>" +
-      "<b>Genus: </b>" +metadata[clsID]["genus"] + "<br>" +
-      "<b>Species: </b>" + metadata[clsID]["species"] + "<br>"
-    );
-    // calculate the screen coordinate of the label
+    if(clsID !== "N1") {
+      $("#node-hover-div").html(
+        "<b>Genome ID:</b> " + clsID + "<br>"  +
+        "<b>Kingdom: </b>" + tree.metadata[clsID]["kingdom"] + "<br>" +
+        "<b>Phylum: </b>" + tree.metadata[clsID]["phylum"] + "<br>" +
+        "<b>Class: </b>" + tree.metadata[clsID]["class"] + "<br>" +
+        "<b>Order: </b>" + tree.metadata[clsID]["order"] + "<br>" +
+        "<b>Family: </b>" + tree.metadata[clsID]["family"] + "<br>" +
+        "<b>Genus: </b>" + tree.metadata[clsID]["genus"] + "<br>" +
+        "<b>Species: </b>" + tree.metadata[clsID]["species"] + "<br>" +
+        "<b>taxa: </b>" + tree.tree[clsID]["leafcount"] + "<br>" +
+        "<b>download: "
+      );
+      if(tree.tree[clsID]["link"] !== "") {
+        $("#node-hover-div").append("<a href=" + tree.tree[clsID]["link"] + ">link</a><br>");
+      }
+    } else {
+      $("#node-hover-div").html(
+        "<b>Genome ID:</b> " + clsID + "<br>"  +
+        "<b>Kingdom: </b>" + "null" + "<br>" +
+        "<b>Phylum: </b>" + "null" +"<br>" +
+        "<b>Class: </b>" + "null" + "<br>" +
+        "<b>Order: </b>" + "null" + "<br>" +
+        "<b>Family: </b>" + "null" + "<br>" +
+        "<b>Genus: </b>" +"null" + "<br>" +
+        "<b>Species: </b>" + "null" + "<br>" +
+        "<b>taxa: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
+      );
+    }
+      // calculate the screen coordinate of the label
       let treeSpace = vec4.fromValues(clsXTC, clsYTC, 0, 1);
       let screenSpace = vec4.create();
       vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
@@ -102,14 +126,14 @@ function nodeHover(x,y) {
       let pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
 
       // make the div
-      let div = $("#hover-div");
+      let div = $("#node-hover-div");
 
       div.css({left: Math.floor(pixelX) + "px",
                top: Math.floor(pixelY) + "px",
                display: "block"});
   } else {
     // make the div
-      let div = $("#hover-div");
+      let div = $("#node-hover-div");
 
       div.css({display: "none"});
   }
@@ -118,23 +142,51 @@ function nodeHover(x,y) {
   requestAnimationFrame(loop);
 }
 
+function triangleHover(x, y) {
+  let treeCoords = toTreeCoords(x, y);
+  let triRoot = tree.triangleAt(treeCoords[0], treeCoords[1]);
+  let taxLevel = $("#collapse-level").val();
+  let div = $("#tri-hover-div");
+  if(triRoot != null) {
+    div.html("<b>" + tree.metadata[triRoot.id][taxLevel] + "</b><br>" +
+             "<b>Descendants: </b>" + tree.tree[triRoot.id]["leafcount"] + "<br>" );
+    div.css({left: x + "px",
+             top: y + "px",
+             display: "block"});
+    drawingData.highTri = triRoot.tri;
+    fillBufferData(shaderProgram.highTriBuffer, drawingData.highTri);
+  }
+  else {
+    drawingData.highTri = [];
+    div.css({display: "none"});
+  }
+  requestAnimationFrame(loop);
+}
+
 function autoCollapseTree() {
-  console.log('Auto Collapse Tree')
-  let collapsLevel = $("#collapse-level").val();
-  const cm = $("#color-options-collapse").val();
-  const attribute = $("#collapse-options").val();
-  $.getJSON(urls.autoCollapseURL, {attribute: attribute, collapse_level: collapsLevel, cm : cm}, function(data){
-    console.log("Auto Collapse Tree data return")
-    let edgeData = extractInfo(data, field.edgeFields);
-    drawingData.numBranches = edgeData.length
+  let selectElm = $("#collapse-level");
+  if($("#collapse-cb").is(":checked")) {
+    selectElm.attr("disabled", false);
+    let taxLevel = selectElm.val();
+    let edgeData = tree.collapse(taxLevel);
+    drawingData.numBranches = edgeData.length;
+    drawingData.triangles = tree.triData;
     fillBufferData(shaderProgram.treeVertBuffer, edgeData);
-    $.getJSON(urls.trianglesURL, {}, function(data) {
-      drawingData.triangles = extractInfo(data, field.triangleFields);
-      fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
-    }).done(function() {
-      requestAnimationFrame(loop);
-    });
-  });
+    fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
+  } else {
+    selectElm.attr("disabled", true);
+    let edgeData = tree.uncollapse();
+    drawingData.numBranches = edgeData.length;
+    drawingData.triangles = tree.triData;
+    fillBufferData(shaderProgram.treeVertBuffer, edgeData);
+    fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
+  }
+
+  clearLabels("tip-label-container");
+  clearLabels("node-label-container");
+  retriveTaxonNodes('t');
+  retriveTaxonNodes('n');
+  requestAnimationFrame(loop);
 }
 
 function selectedTreeCollapse() {
@@ -208,70 +260,41 @@ function userCladeColor(){
   })
 }
 
-function retriveTaxonNodes() {
-  let TAXLEVEL;
+function retriveTaxonNodes(triggerBy) {
+  let taxLevel;
   let node;
-  if($("#tips").is(":checked")) {
-    // remove old labels
-    let divContainerElement = document.getElementById("tip-label-container");
-    divContainerElement = document.getElementById("tip-label-container");
-    while(divContainerElement.firstChild) {
-      divContainerElement.removeChild(divContainerElement.firstChild);
-    }
-    TAXLEVEL = $("#tips-find-level").val();
-    tipLabels = [];
-    for(node in metadata) {
-      if(metadata[node][TAXLEVEL] != null && treeData[node]["is_tip"] === "true") {
-        tipLabels.push([metadata[node]["x"],
-                         metadata[node]["y"],
-                         metadata[node][TAXLEVEL],
-                         node]);
-      }
-    }
+  let selectElm;
+  if(triggerBy === 't' && $("#tips").is(":checked")) {
+    clearLabels("tip-label-container");
+    selectElm = $("#tips-find-level");
+    selectElm.attr("disabled", false)
+    taxLevel = selectElm.val();
+    tipLabels = tree.getTaxonLabels(taxLevel, "true");
   }
-  else {
-    // remove old labels
-    let divContainerElement = document.getElementById("tip-label-container");
-    divContainerElement = document.getElementById("tip-label-container");
-    while(divContainerElement.firstChild) {
-      divContainerElement.removeChild(divContainerElement.firstChild);
-    }
-    clearLabels("tip");
+  else if(!$("#tips").is(":checked")) {
+    $("#tips-find-level").attr('disabled',true);
+    tipLabels = [];
+    clearLabels("tip-label-container");
   }
 
-  if($("#internal-nodes").is(":checked")) {
-    TAXLEVEL = $("#nodes-find-level").val();
-    nodeLabels = [];
-    for(node in metadata) {
-      if(metadata[node][TAXLEVEL] != null && treeData[node]["is_tip"] === "false") {
-        nodeLabels.push([metadata[node]["x"],
-                         metadata[node]["y"],
-                         metadata[node][TAXLEVEL],
-                         treeData[node]["leafcount"],
-                         node]);
-      }
-    }
-    nodeLabels.sort(function (dataRow1, dataRow2) {
-      if(dataRow1[3] < dataRow2[3] ) {
-        return 1;
-      }
-      return -1;
-    });
+  if(triggerBy === 'n' && $("#internal-nodes").is(":checked")) {
+    selectElm = $("#nodes-find-level");
+    selectElm.attr("disabled", false);
+    taxLevel = selectElm.val();
+    nodeLabels = tree.getTaxonLabels(taxLevel, "false");
   }
-  else {
-    clearLabels("node");
+  else if(!$("#internal-nodes").is(":checked")) {
+    $("#nodes-find-level").attr("disabled", true);
+    nodeLabels = [];
   }
   requestAnimationFrame(drawLabels);
 }
 
-function clearLabels(label) {
-  if(label === "tip") {
-    tipLabels = {};
-  }
-  else{
-    nodeLabels = {};
-  }
-  requestAnimationFrame(drawLabels);
+function clearLabels(container) {
+   let divContainerElement = document.getElementById(container);
+    while(divContainerElement.firstChild) {
+      divContainerElement.removeChild(divContainerElement.firstChild);
+    }
 }
 
 /**
@@ -351,16 +374,3 @@ function getOldTree(event) {
   });
 }
 
-function autoCollapse() {
-  let tps = $('#tip-slider').val();
-  let thrshld = $('#threshold-slider').val();
-  $.getJSON(urls.autoCollapse, {tips: tps, threshold: thrshld}, function(data) {
-    loadTree(data);
-    $.getJSON(urls.trianglesURL, {}, function(data) {
-      drawingData.triangles = extractInfo(data, field.triangleFields);
-      fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
-    }).done(function() {
-      requestAnimationFrame(loop);
-    });
-  });
-}

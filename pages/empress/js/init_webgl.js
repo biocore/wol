@@ -92,6 +92,7 @@ function initWebGl(edgeData) {
   shaderProgram.selectBuffer = gl.createBuffer();
 
   shaderProgram.triangleBuffer = gl.createBuffer();
+  shaderProgram.highTriBuffer = gl.createBuffer();
 
   shaderProgram.worldMat = mat4.create();
   shaderProgram.xyTransMat = mat4.create();

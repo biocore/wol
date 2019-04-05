@@ -28,7 +28,7 @@ function mouseHandler(event) {
       drawingData.hoveredNode = [];
       fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
       clearTimeout(window.timer);
-      window.timer = setTimeout(nodeHover, 250, event.clientX, event.clientY);
+      window.timer = setTimeout(hover, 250, event.clientX, event.clientY);
     }
 
     if(drawingData.isMouseDown) {
