@@ -2,6 +2,7 @@ function initialize(){
   $(".metadata-container").hide();
   console.log('Start')
   drawingData.nodeCoords = [0, 0, 0, 0, 0];
+  drawingData.highTri = [];
   drawingData.numBranches = tree.edgeData.length
   drawingData.initZoom = tree.max;
   drawingData.currentZoom = drawingData.initZoom;

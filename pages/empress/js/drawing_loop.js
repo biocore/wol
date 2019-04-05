@@ -53,6 +53,9 @@ function loop() {
   bindBuffer(shaderProgram.triangleBuffer);
   gl.drawArrays(gl.TRIANGLES, 0, drawingData.triangles.length / 5);
 
+  bindBuffer(shaderProgram.highTriBuffer);
+  gl.drawArrays(gl.TRIANGLES, 0, drawingData.highTri.length / 5);
+
   drawLabels();
 }
 
@@ -129,8 +132,6 @@ function drawLabels() {
   let treeX, treeY, numLabels;
   if(childLabels.length > 0) {
     for(i = 0; i < childLabels.length; i++) {
-      // left = childLabels[i].style.left;
-      // top = childLabels[i].style.top;
       left = childLabels[i].x;
       top = childLabels[i].y;
       if(minX <= left && left <= maxX &&
@@ -200,7 +201,10 @@ function drawLabels() {
   }
 
   // remove old labels
-  clearLabels("node-label-container");
+  divContainerElement = document.getElementById("node-label-container");
+    while(divContainerElement.firstChild) {
+      divContainerElement.removeChild(divContainerElement.firstChild);
+    }
 
   // draw top 10 node labels within the viewing window
   count = 0;

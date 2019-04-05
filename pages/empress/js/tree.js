@@ -9,6 +9,7 @@ class Tree{
     this.numBranches = Object.keys(metadata).length;
     this.triData = [];
     this.triRoots = [];
+    this.lastHighTri = 0;;
   }
 
   order(pre, start, include_self){
@@ -252,7 +253,9 @@ class Tree{
     let labels = [];
     let node;
     for(node in this.metadata) {
-      if(this.metadata[node][taxLevel] != null && this.tree[node]["is_tip"] === tips) {
+      if(this.metadata[node][taxLevel] != null
+            && this.tree[node]["is_tip"] === tips
+            && this.metadata[node]["branch_is_visible"]) {
         labels.push([this.metadata[node]["x"],
                          this.metadata[node]["y"],
                          this.metadata[node][taxLevel],
@@ -270,15 +273,10 @@ class Tree{
   }
 
   triangleAt(x,y) {
-    let triangle = {}, a = {}, b = {}, c = {}, result = {};
-    let i = 0;
-    const CX = 0;
-    const CY = 1;
-    const LX = 5;
-    const LY = 6;
-    const RX = 10;
-    const RY = 11;
     const TRI_SIZE = 15;
+    const CX = 0, CY = 1, LX = 5, LY = 6, RX = 10, RY = 11;
+    let i = 0;
+    let triangle = {}, a = {}, b = {}, c = {}, result = {};
     while(i < this.triData.length) {
         a.x = this.triData[i + CX];
         a.y = this.triData[i + CY];
@@ -291,13 +289,38 @@ class Tree{
         triangle.s2 = this.triangleArea(a, {'x': x, 'y': y}, c);
         triangle.s3 = this.triangleArea(a, b, {'x': x, 'y': y});
         if(Math.abs(triangle.area - triangle.s1 - triangle.s2 - triangle.s3) < 0.0001) {
-            return this.triRoots[i / TRI_SIZE];
+            result.id = this.triRoots[i / TRI_SIZE];
+            result.tri = this.setTriHighlight(i);
+            return result;
         }
         i += TRI_SIZE;
     }
     return null;
   }
 
+  setTriHighlight(idx) {
+    const TRI_SIZE = 15;
+    const CX = 0, CY = 1, LX = 5, LY = 6, RX = 10, RY = 11;
+    const CR = 2, CG = 3, CB = 4, LR = 7, LG = 8, LB = 9, RR = 12, RG = 13, RB = 14;
+    const RED = 0.62890625, GREEN = 0.84765625, BLUE = 0.60546875;
+    let tri = new Array(TRI_SIZE);
+    tri[CX] = this.triData[idx + CX];
+    tri[CY] = this.triData[idx + CY];
+    tri[CR] = RED;
+    tri[CG] = GREEN;
+    tri[CB] = BLUE;
+    tri[LX] = this.triData[idx + LX];
+    tri[LY] = this.triData[idx + LY];
+    tri[LR] = RED;
+    tri[LG] = GREEN;
+    tri[LB] = BLUE;
+    tri[RX] = this.triData[idx + RX];
+    tri[RY] = this.triData[idx + RY];
+    tri[RR] = RED;
+    tri[RG] = GREEN;
+    tri[RB] = BLUE;
+    return tri;
+  }
   triangleArea(a, b, c) {
     return Math.abs((a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y)) / 2)
   }

@@ -50,8 +50,10 @@ function initCallbacks(){
 }
 
 function hover(x,y) {
-  nodeHover(x,y);
-  triangleHover(x,y);
+  if($("body").css("cursor") !== 'none') {
+    nodeHover(x,y);
+    triangleHover(x,y);
+  }
 }
 
 function nodeHover(x,y) {
@@ -95,8 +97,12 @@ function nodeHover(x,y) {
         "<b>Family: </b>" + tree.metadata[clsID]["family"] + "<br>" +
         "<b>Genus: </b>" + tree.metadata[clsID]["genus"] + "<br>" +
         "<b>Species: </b>" + tree.metadata[clsID]["species"] + "<br>" +
-        "<b>Descendants: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
+        "<b>taxa: </b>" + tree.tree[clsID]["leafcount"] + "<br>" +
+        "<b>download: "
       );
+      if(tree.tree[clsID]["link"] !== "") {
+        $("#node-hover-div").append("<a href=" + tree.tree[clsID]["link"] + ">link</a><br>");
+      }
     } else {
       $("#node-hover-div").html(
         "<b>Genome ID:</b> " + clsID + "<br>"  +
@@ -107,7 +113,7 @@ function nodeHover(x,y) {
         "<b>Family: </b>" + "null" + "<br>" +
         "<b>Genus: </b>" +"null" + "<br>" +
         "<b>Species: </b>" + "null" + "<br>" +
-        "<b>Descendants: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
+        "<b>taxa: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
       );
     }
       // calculate the screen coordinate of the label
@@ -142,34 +148,22 @@ function triangleHover(x, y) {
   let taxLevel = $("#collapse-level").val();
   let div = $("#tri-hover-div");
   if(triRoot != null) {
-    div.html("<b>" + tree.metadata[triRoot][taxLevel] + "</b><br>" +
-             "<b>Descendants: </b>" + tree.tree[triRoot]["leafcount"] + "<br>" );
+    div.html("<b>" + tree.metadata[triRoot.id][taxLevel] + "</b><br>" +
+             "<b>Descendants: </b>" + tree.tree[triRoot.id]["leafcount"] + "<br>" );
     div.css({left: x + "px",
              top: y + "px",
              display: "block"});
+    drawingData.highTri = triRoot.tri;
+    fillBufferData(shaderProgram.highTriBuffer, drawingData.highTri);
   }
   else {
-    div.css({display: "none"})
+    drawingData.highTri = [];
+    div.css({display: "none"});
   }
+  requestAnimationFrame(loop);
 }
 
 function autoCollapseTree() {
-  // console.log('Auto Collapse Tree')
-  // let collapsLevel = $("#collapse-level").val();
-  // const cm = $("#color-options-collapse").val();
-  // const attribute = $("#collapse-options").val();
-  // $.getJSON(urls.autoCollapseURL, {attribute: attribute, collapse_level: collapsLevel, cm : cm}, function(data){
-  //   console.log("Auto Collapse Tree data return")
-  //   let edgeData = extractInfo(data, field.edgeFields);
-  //   drawingData.numBranches = edgeData.length
-  //   fillBufferData(shaderProgram.treeVertBuffer, edgeData);
-  //   $.getJSON(urls.trianglesURL, {}, function(data) {
-  //     drawingData.triangles = extractInfo(data, field.triangleFields);
-  //     fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
-  //   }).done(function() {
-  //     requestAnimationFrame(loop);
-  //   });
-  // });
   let selectElm = $("#collapse-level");
   if($("#collapse-cb").is(":checked")) {
     selectElm.attr("disabled", false);
@@ -187,6 +181,11 @@ function autoCollapseTree() {
     fillBufferData(shaderProgram.treeVertBuffer, edgeData);
     fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
   }
+
+  clearLabels("tip-label-container");
+  clearLabels("node-label-container");
+  retriveTaxonNodes('t');
+  retriveTaxonNodes('n');
   requestAnimationFrame(loop);
 }
 
@@ -287,7 +286,6 @@ function retriveTaxonNodes(triggerBy) {
   else if(!$("#internal-nodes").is(":checked")) {
     $("#nodes-find-level").attr("disabled", true);
     nodeLabels = [];
-    clearLabels("node-label-container");
   }
   requestAnimationFrame(drawLabels);
 }
@@ -297,7 +295,6 @@ function clearLabels(container) {
     while(divContainerElement.firstChild) {
       divContainerElement.removeChild(divContainerElement.firstChild);
     }
-  // requestAnimationFrame(drawLabels);
 }
 
 /**
@@ -377,18 +374,3 @@ function getOldTree(event) {
   });
 }
 
-function autoCollapse() {
-  let tps = $('#tip-slider').val();
-  let thrshld = $('#threshold-slider').val();
-  $.getJSON(urls.autoCollapse, {tips: tps, threshold: thrshld}, function(data) {
-    loadTree(data);
-    $.getJSON(urls.trianglesURL, {}, function(data) {
-      drawingData.triangles = extractInfo(data, field.triangleFields);
-      fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
-    }).done(function() {
-      requestAnimationFrame(loop);
-    });
-  });
-
-
-}
