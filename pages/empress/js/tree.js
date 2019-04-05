@@ -145,7 +145,7 @@ class Tree{
     return best_scale;
   }
 
-  collapse(taxLevel) {
+  collapse(taxLevel, taxPrefix) {
     const RED = 0.73828125;
     const GREEN = 0.73828125;
     const BLUE = 0.73828125;
@@ -161,7 +161,7 @@ class Tree{
         this.metadata[preorder[i]]['branch_is_visible'] = true;
     }
     for(node in this.metadata) {
-        if(this.metadata[node]["d_" + taxLevel] != null) {
+        if(this.metadata[node][taxPrefix + taxLevel] != null) {
             preorder = this.order(true, node, false);
             for(i = 0; i < preorder.length; i++) {
                 this.metadata[preorder[i]]['branch_is_visible'] = false;
@@ -194,6 +194,7 @@ class Tree{
             this.triRoots.push(node);
         }
     }
+    console.log(collapsedNodes);
     this.updateEdgeData(collapsedNodes);
     return this.edgeData;
   }
@@ -249,11 +250,11 @@ class Tree{
     }
   }
 
-  getTaxonLabels(taxLevel, tips) {
+  getTaxonLabels(taxLevel, tips, taxPrefix, sort) {
     let labels = [];
     let node;
     for(node in this.metadata) {
-      if(this.metadata[node][taxLevel] != null
+      if(this.metadata[node][taxPrefix + taxLevel] != null
             && this.tree[node]["is_tip"] === tips
             && this.metadata[node]["branch_is_visible"]) {
         labels.push([this.metadata[node]["x"],
@@ -263,12 +264,7 @@ class Tree{
                          node]);
       }
     }
-    labels.sort(function (dataRow1, dataRow2) {
-      if(dataRow1[3] < dataRow2[3] ) {
-        return 1;
-      }
-      return -1;
-    });
+    labels.sort(sort);
     return labels;
   }
 

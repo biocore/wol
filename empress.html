@@ -125,7 +125,7 @@
       <button class="collapsible">Auto-Collapse</button>
       <div class="content">
         <div>
-          <input type="checkbox" id="collapse-cb" onclick="autoCollapseTree()">
+          <input type="checkbox" id="collapse-cb" onmouseover="checkForOrig()" onclick="autoCollapseTree()" >
           <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
             <option value=0 disabled> -- select an option -- </option>
             <option>kingdom</option>
@@ -139,8 +139,20 @@
         </div>
       </div>
 
-      <button class="collapsible">Taxon Labels</button>
+      <button class="collapsible">Taxonomy</button>
       <div class="content">
+        <div>
+          <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked>
+          <label for="ncbi">ncbi</label>
+          <input type="radio" id="gtdb" name="sys" value="g_" onclick="changeTaxSys()">
+          <label for="gtdb">gtdb</label>
+        </div>
+        <div>
+          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
+          <label for="cura">curated</label>
+          <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
+          <label for="orig">original</label>
+        </div>
         <div>
           <p>
             Displays the 10 largest clades within the viewing window. Ties are broken randomly.
@@ -149,7 +161,7 @@
         <div>
           <input type="checkbox" id="tips" onclick="retriveTaxonNodes('t')">
           <label for="tips">Tips</label>
-          <select id="tips-find-level" onchange="retriveTaxonNodes('t')" disabled="true">
+          <select id="tips-find-level" onchange="retriveTaxonNodes('c')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
               <option>kingdom</option>
               <option>phylum</option>
@@ -161,7 +173,7 @@
           </select>
         </div>
         <div>
-          <input type="checkbox" id="internal-nodes" onclick="retriveTaxonNodes('n')">
+          <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retriveTaxonNodes('n')">
           <label for="internal-nodes">Nodes</label>
           <select id="nodes-find-level" onchange="retriveTaxonNodes('n')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
@@ -271,7 +283,18 @@
       let showLabels = false;
       let taxonNodes = [];
 
-      // let tree = null;
+      let highToLow = function (dataRow1, dataRow2) {
+        if(dataRow1[3] < dataRow2[3] ) {
+          return 1;
+        }
+        return -1;
+      };
+      let random = function(dataRow1, dataRow2) {
+        if(Math.round(Math.random()) > 0) {
+          return 1;
+        }
+        return -1;
+      }
     </script>
 
     <script type="text/javascript">
