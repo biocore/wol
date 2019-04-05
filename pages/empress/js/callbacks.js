@@ -49,6 +49,37 @@ function initCallbacks(){
   });
 }
 
+function checkForOrig() {
+  console.log("check tax sys");
+}
+
+function changeTaxSys() {
+  let origChecked = $("#orig").is(":checked");
+  retriveTaxonNodes('t');
+  retriveTaxonNodes('n');
+  if($("#collapse-cb").is(":checked") && !origChecked) {
+    autoCollapseTree();
+  }
+  if(origChecked) {
+    $("#collapse-cb").attr("checked", false);
+    $("#collapse-cb").attr("disabled", true);
+    $("#internal-nodes").attr("checked", false);
+    $("#internal-nodes").attr('disabled',true);
+    autoCollapseTree();
+    retriveTaxonNodes("n");
+ } else {
+    $("#collapse-cb").attr("disabled", false);
+    $("#internal-nodes").attr('disabled',false);
+ }
+}
+
+function getTaxPrefix() {
+  let taxSys = $("input[name='sys']:checked").val();
+  let taxType = $("input[name='type']:checked").val();
+  let taxPrefix = taxSys + taxType;
+  return taxPrefix;
+}
+
 function hover(x,y) {
   if($("body").css("cursor") !== 'none') {
     nodeHover(x,y);
@@ -87,25 +118,31 @@ function nodeHover(x,y) {
   }
   if(close <= 50 && (clsID === "N1" || tree.metadata[clsID]["branch_is_visible"])) {
     drawingData.hoveredNode = [clsXTC, clsYTC, 0, 1, 0];
+    let taxPrefix = getTaxPrefix();
     if(clsID !== "N1") {
+      let idText = clsID[0];
+      if(idText === "G") {
+        idText = "Genome ID";
+      } else {
+        idText = "Node ID";
+      }
       $("#node-hover-div").html(
-        "<b>Genome ID:</b> " + clsID + "<br>"  +
-        "<b>Kingdom: </b>" + tree.metadata[clsID]["kingdom"] + "<br>" +
-        "<b>Phylum: </b>" + tree.metadata[clsID]["phylum"] + "<br>" +
-        "<b>Class: </b>" + tree.metadata[clsID]["class"] + "<br>" +
-        "<b>Order: </b>" + tree.metadata[clsID]["order"] + "<br>" +
-        "<b>Family: </b>" + tree.metadata[clsID]["family"] + "<br>" +
-        "<b>Genus: </b>" + tree.metadata[clsID]["genus"] + "<br>" +
-        "<b>Species: </b>" + tree.metadata[clsID]["species"] + "<br>" +
-        "<b>taxa: </b>" + tree.tree[clsID]["leafcount"] + "<br>" +
-        "<b>download: "
+        "<b>" + idText + ":</b> " + clsID + "<br>"  +
+        "<b>Kingdom: </b>" + tree.metadata[clsID][taxPrefix + "kingdom"] + "<br>" +
+        "<b>Phylum: </b>" + tree.metadata[clsID][taxPrefix + "phylum"] + "<br>" +
+        "<b>Class: </b>" + tree.metadata[clsID][taxPrefix + "class"] + "<br>" +
+        "<b>Order: </b>" + tree.metadata[clsID][taxPrefix + "order"] + "<br>" +
+        "<b>Family: </b>" + tree.metadata[clsID][taxPrefix + "family"] + "<br>" +
+        "<b>Genus: </b>" + tree.metadata[clsID][taxPrefix + "genus"] + "<br>" +
+        "<b>Species: </b>" + tree.metadata[clsID][taxPrefix + "species"] + "<br>" +
+        "<b>taxa: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
       );
       if(tree.tree[clsID]["link"] !== "") {
-        $("#node-hover-div").append("<a href=" + tree.tree[clsID]["link"] + ">link</a><br>");
+        $("#node-hover-div").append("<a href=" + tree.tree[clsID]["link"] + " target='_blank'>download</a><br>");
       }
     } else {
       $("#node-hover-div").html(
-        "<b>Genome ID:</b> " + clsID + "<br>"  +
+        "<b>Node ID:</b> " + clsID + "<br>"  +
         "<b>Kingdom: </b>" + "null" + "<br>" +
         "<b>Phylum: </b>" + "null" +"<br>" +
         "<b>Class: </b>" + "null" + "<br>" +
@@ -147,8 +184,9 @@ function triangleHover(x, y) {
   let triRoot = tree.triangleAt(treeCoords[0], treeCoords[1]);
   let taxLevel = $("#collapse-level").val();
   let div = $("#tri-hover-div");
+  let taxPrefix = getTaxPrefix();
   if(triRoot != null) {
-    div.html("<b>" + tree.metadata[triRoot.id][taxLevel] + "</b><br>" +
+    div.html("<b>" + tree.metadata[triRoot.id][taxPrefix + taxLevel] + "</b><br>" +
              "<b>Descendants: </b>" + tree.tree[triRoot.id]["leafcount"] + "<br>" );
     div.css({left: x + "px",
              top: y + "px",
@@ -165,10 +203,12 @@ function triangleHover(x, y) {
 
 function autoCollapseTree() {
   let selectElm = $("#collapse-level");
+  let taxSys = $("input[name='sys']:checked").val();
+  let taxPrefix = taxSys + "d_";
   if($("#collapse-cb").is(":checked")) {
     selectElm.attr("disabled", false);
     let taxLevel = selectElm.val();
-    let edgeData = tree.collapse(taxLevel);
+    let edgeData = tree.collapse(taxLevel, taxPrefix);
     drawingData.numBranches = edgeData.length;
     drawingData.triangles = tree.triData;
     fillBufferData(shaderProgram.treeVertBuffer, edgeData);
@@ -264,30 +304,29 @@ function retriveTaxonNodes(triggerBy) {
   let taxLevel;
   let node;
   let selectElm;
+  let taxPrefix = getTaxPrefix();
   if(triggerBy === 't' && $("#tips").is(":checked")) {
-    clearLabels("tip-label-container");
     selectElm = $("#tips-find-level");
-    selectElm.attr("disabled", false)
+    selectElm.attr("disabled", false);
     taxLevel = selectElm.val();
-    tipLabels = tree.getTaxonLabels(taxLevel, "true");
+    tipLabels = tree.getTaxonLabels(taxLevel, "true", taxPrefix, random);
   }
   else if(!$("#tips").is(":checked")) {
     $("#tips-find-level").attr('disabled',true);
     tipLabels = [];
-    clearLabels("tip-label-container");
   }
 
   if(triggerBy === 'n' && $("#internal-nodes").is(":checked")) {
     selectElm = $("#nodes-find-level");
     selectElm.attr("disabled", false);
     taxLevel = selectElm.val();
-    nodeLabels = tree.getTaxonLabels(taxLevel, "false");
+    nodeLabels = tree.getTaxonLabels(taxLevel, "false", taxPrefix, highToLow);
   }
   else if(!$("#internal-nodes").is(":checked")) {
     $("#nodes-find-level").attr("disabled", true);
     nodeLabels = [];
   }
-  requestAnimationFrame(drawLabels);
+  requestAnimationFrame(loop);
 }
 
 function clearLabels(container) {
