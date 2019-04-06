@@ -18,22 +18,40 @@ body {
     background: linear-gradient(to right, #ff0000, #00ff00);
 }
 
-.hover-div {
+
+/* hover box */
+
+#hover-box {
     position: fixed;
     left: 0vw;
     top: 0vh;
-    /* border: solid rgb(0, 0, 0, 1); */
     background-color: whitesmoke;
-    opacity: 0.85;
+    opacity: 0.75;
     margin: 2px;
     padding: 10px;
     box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
-    display: none;
 }
 
-.hover-div:hover {
+#hover-box:hover {
     opacity: 1.0;
 }
+
+#hover-table tr td:nth-last-child(2) {
+    width: 50px;
+    font-weight: bold;
+}
+
+#hover-table tr td:nth-last-child(2):first-letter {
+    text-transform: capitalize;
+}
+
+#hover-table tr td:nth-last-child(1) {
+    max-width: 200px;
+    text-overflow: ellipsis;
+}
+
+
+
 
 .switch-button-container {
     position: absolute;
