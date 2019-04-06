@@ -181,8 +181,6 @@ function nodeHover(x,y) {
     box.style.left = Math.floor(pixelX) + "px";
     box.style.top = Math.floor(pixelY) + "px";
     box.classList.remove("hidden");
-
-    console.log(tree.tree["G001899385"]);
   }
 
   fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
@@ -307,13 +305,20 @@ function resizeCanvas(event) {
  * for coordinating the highlight tip feature.
  */
 function userHighlightSelect() {
-  const attr = $("#highlight-options").val();
-  const cm = $("#color-options").val();
-
-  let edgeData = extractInfo(JSON.parse(highlight.edges), field.edgeFields);
-  drawingData.numBranches = edgeData.length
+  console.log("user highlight select");
+  let cat = $("#highlight-options").val();
+  let edgeData;
+  if($("#branch-color").is(":checked")) {
+    $("#highlight-options").attr("disabled", false);
+    edgeData = tree.colorBranches(cat);
+  }
+  else {
+    $("#highlight-options").attr("disabled", true);
+    edgeData = tree.colorBranches("default");
+  }
   fillBufferData(shaderProgram.treeVertBuffer, edgeData);
   requestAnimationFrame(loop);
+  console.log("done highlight select");
 }
 
 function userCladeColor(){
