@@ -1,3 +1,13 @@
+/* global settings */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 80%;
+}
+
+/* general classes */
+.hidden {
+    display: none;
+}
 
 .gradient-bar {
     display: grid;
@@ -8,14 +18,23 @@
     background: linear-gradient(to right, #ff0000, #00ff00);
 }
 
-.hover-div{
+.hover-div {
     position: fixed;
     left: 0vw;
     top: 0vh;
-    border: solid rgb(0, 0, 0, 1);
-    background-color: #DEE0E1;
+    /* border: solid rgb(0, 0, 0, 1); */
+    background-color: whitesmoke;
+    opacity: 0.85;
+    margin: 2px;
+    padding: 10px;
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
     display: none;
 }
+
+.hover-div:hover {
+    opacity: 1.0;
+}
+
 .switch-button-container {
     position: absolute;
     top: 0vh;
@@ -69,7 +88,7 @@ canvas {
 }
 /* end of reference */
 
-.metadata-tabs {
+#metadata-tabs {
     background: #fff;
     position: fixed;
     top: 0vh;
@@ -93,11 +112,17 @@ canvas {
     background-color: #555;
 
 }
+
 .content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
+    /* display: table-cell; 
+    vertical-align: middle; */
+    padding: 12px;
+    overflow: hidden;
+    background-color: whitesmoke;
+}
+
+.content p {
+    margin: 2px 5px;
 }
 
 .tab-options {
