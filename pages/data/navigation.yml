@@ -1,0 +1,35 @@
+main:
+  - title: Quickstart
+    url: /start
+  - title: Data
+    url: /data
+  - title: Gallery
+    url: /gallery
+  - title: Code
+    url: /code
+  - title: Protocols
+    url: /protocols
+  - title: About
+    url: /about
+
+top:
+  - title: Data
+    children:
+      - title: Genomes
+        url: /data/genomes
+      - title: Markers
+        url: /data/markers
+      - title: Alignments
+        url: /data/alignments
+      - title: Trees
+        url: /data/trees
+      - title: Taxonomy
+        url: /data/taxonomy
+  - title: Gallery
+    url: /gallery
+  - title: Code
+    url: /code
+  - title: Protocols
+    url: /protocols
+  - title: About
+    url: /about

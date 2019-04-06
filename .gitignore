@@ -50,3 +50,14 @@ doc/source/generated
 
 # IPythnon checkpoints
 .ipynb_checkpoints
+
+# GitHub Pages
+Gemfile
+Gemfile.lock
+_site/
+
+# Visual Studio Code
+.vscode
+
+#empress metadata generator
+metadata_gen
