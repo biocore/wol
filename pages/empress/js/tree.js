@@ -1,15 +1,16 @@
 class Tree{
-  constructor(tree_nwk, edgeData, metadata, m_headers, max){
+  constructor(tree_nwk, edgeData, metadata, m_headers, maxes){
     this.tree = tree_nwk;
     this.edgeData = edgeData;
     this.metadata = metadata;
     this.m_headers = m_headers;
-    this.max = max;
+    this.max = maxes.dim;
+    this.maxes = maxes;
     this.root = 'N1';
     this.numBranches = Object.keys(metadata).length;
     this.triData = [];
     this.triRoots = [];
-    this.lastHighTri = 0;;
+    this.lastHighTri = 0;
   }
 
   order(pre, start, include_self){
@@ -319,5 +320,58 @@ class Tree{
   }
   triangleArea(a, b, c) {
     return Math.abs((a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y)) / 2)
+  }
+
+  colorBranches(category) {
+    let i = 0;
+    if(category === "default") {
+        let color = this.getDefaultColor();
+        for(i in this.metadata) {
+            this.metadata[i]['branch_color'] = color;
+        }
+    }
+    else {
+        let min = this.maxes[category][0];
+        let max = this.maxes[category][1];
+        for(i in this.metadata) {
+            if(this.metadata[i][category] !== null){
+                this.metadata[i]['branch_color'] = this.getColor(min, max, this.metadata[i][category]);
+            }
+        }
+    }
+    this.updateEdgeData(0);
+    return this.edgeData
+  }
+  getDefaultColor() {
+    return [0.5, 0.5, 0.5];
+  }
+  getColor(min, max, val) {
+    let bucketSize = (max - min) / 9;
+    if(val < min + bucketSize - 1) {
+        return [0.99609375, 0.95703125, 0.91796875];
+    }
+    else if(val < min + 2*bucketSize - 1) {
+        return [0.9921875, 0.8984375, 0.8046875];
+    }
+    else if(val < min + 3*bucketSize - 1) {
+        return [0.98828125, 0.8125, 0.6328125];
+    }
+    else if(val < min + 4*bucketSize - 1) {
+        return [98828125, 0.6796875, 0.41796875];
+    }
+    else if(val < min + 5*bucketSize - 1) {
+        return [0.98828125, 0.55078125, 0.234375];
+    }
+    else if(val < min + 6*bucketSize - 1) {
+        return [0.94140625, 0.41015625, 0.07421875];
+    }
+    else if(val < min +  7*bucketSize - 1) {
+        return [0.84765625, 0.28125, 0.00390625];
+    }
+    else if(val < min + 8*bucketSize - 1) {
+        return [0.6484375, 0.2109375, 0.01171875];
+    }
+    return [0.49609375, 0.15234375, 0.015625];
+
   }
 }

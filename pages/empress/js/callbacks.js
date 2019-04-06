@@ -171,7 +171,6 @@ function nodeHover(x,y) {
   } else {
     // make the div
       let div = $("#node-hover-div");
-
       div.css({display: "none"});
   }
 
@@ -280,13 +279,20 @@ function resizeCanvas(event) {
  * for coordinating the highlight tip feature.
  */
 function userHighlightSelect() {
-  const attr = $("#highlight-options").val();
-  const cm = $("#color-options").val();
-
-  let edgeData = extractInfo(JSON.parse(highlight.edges), field.edgeFields);
-  drawingData.numBranches = edgeData.length
+  console.log("user highlight select");
+  let cat = $("#highlight-options").val();
+  let edgeData;
+  if($("#branch-color").is(":checked")) {
+    $("#highlight-options").attr("disabled", false);
+    edgeData = tree.colorBranches(cat);
+  }
+  else {
+    $("#highlight-options").attr("disabled", true);
+    edgeData = tree.colorBranches("default");
+  }
   fillBufferData(shaderProgram.treeVertBuffer, edgeData);
   requestAnimationFrame(loop);
+  console.log("done highlight select");
 }
 
 function userCladeColor(){

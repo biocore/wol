@@ -71,12 +71,10 @@
       <button class="collapsible">Branches</button>
       <div class="content">
         <div>
-          <label for="highlight-options">Color by...</label>
-          <select id="highlight-options">
-            <option value=0 disabled> -- select an option -- </option>
-          </select>
+          <input type="checkbox" id="branch-color" onclick="userHighlightSelect()">
+          <select id="highlight-options" onchange="userHighlightSelect()" disabled="true"></select>
         </div>
-        <div>
+        <!-- <div>
           <label for="color-options">Choose Color Map</label>
           <select id="color-options">
             <option disabled> -- Sequential -- </option>
@@ -94,10 +92,7 @@
             <option value=coolwarm>Cool to Warm</option>
             <option value="PRGn">Purple to Green</option>
           </select>
-        </div>
-        <div>
-          <button onclick="userHighlightSelect()">Color Branches</button>
-        </div>
+        </div> -->
       </div>
 
       <!-- Color Clades -->
@@ -170,12 +165,10 @@
       <div class="content">
         <!-- toggle NCBI / GTDB -->
         <div>
-          <p>
           <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked>
           <label for="ncbi">NCBI</label>
           <input type="radio" id="gtdb" name="sys" value="g_" onclick="changeTaxSys()">
           <label for="gtdb">GTDB</label>
-          </p>
         </div>
         <div>
           <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
