@@ -93,8 +93,14 @@
       <button class="collapsible">Branches</button>
       <div class="content">
         <div>
+          <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
+          <label for="tip-color">Tips</label>
+          <select id="tip-color-options" onchange="userHighlightSelect()" disabled="true"></select>
+        </div>
+        <div>
           <input type="checkbox" id="branch-color" onclick="userHighlightSelect()">
-          <select id="highlight-options" onchange="userHighlightSelect()" disabled="true"></select>
+          <label for="branch-color">Branches</label>
+          <select id="branch-color-options" onchange="userHighlightSelect()" disabled="true"></select>
         </div>
         <!-- <div>
           <label for="color-options">Choose Color Map</label>

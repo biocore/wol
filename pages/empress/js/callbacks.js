@@ -235,7 +235,7 @@ function triangleHover(x, y) {
     cell.innerHTML = taxLevel;
     cell = row.insertCell(-1);
     cell.innerHTML = tree.metadata[triRoot.id][taxPrefix + taxLevel];
-    
+
     // taxon count row
     row = table.insertRow(-1);
     cell = row.insertCell(-1);
@@ -335,20 +335,34 @@ function resizeCanvas(event) {
  * for coordinating the highlight tip feature.
  */
 function userHighlightSelect() {
-  console.log("user highlight select");
-  let cat = $("#highlight-options").val();
   let edgeData;
+  let selectElm = $("#collapse-level");
+  if (!$("#branch-color").is(":checked") || !$("#tip-color").is(":checked")) {
+    $("#tip-color-options").attr("disabled", true);
+    $("#branch-color-options").attr("disabled", true);
+    edgeData = tree.colorBranches("default");
+  }
   if($("#branch-color").is(":checked")) {
-    $("#highlight-options").attr("disabled", false);
+    let cat = $("#branch-color-options").val();
+    $("#branch-color-options").attr("disabled", false);
     edgeData = tree.colorBranches(cat);
   }
-  else {
-    $("#highlight-options").attr("disabled", true);
-    edgeData = tree.colorBranches("default");
+  if($("#tip-color").is(":checked")) {
+    let cat = $("#tip-color-options").val();
+    $("#tip-color-options").attr("disabled", false);
+    edgeData = tree.colorBranches(cat);
+  }
+  if($("#collapse-cb").is(":checked")) {
+    let taxLevel = selectElm.val();
+    let taxSys = $("input[name='sys']:checked").val();
+    let taxPrefix = taxSys + "d_";
+    tree.collapse(taxLevel, taxPrefix);
+    drawingData.numBranches = edgeData.length;
+    drawingData.triangles = tree.triData;
+    fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
   }
   fillBufferData(shaderProgram.treeVertBuffer, edgeData);
   requestAnimationFrame(loop);
-  console.log("done highlight select");
 }
 
 function userCladeColor(){
