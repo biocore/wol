@@ -1,10 +1,13 @@
 /* global settings */
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 80%;
 }
 
+
 /* general classes */
+
 .hidden {
     display: none;
 }
@@ -14,8 +17,99 @@ body {
     grid-template-columns: 1fr 4fr 1fr;
     height: 5vh;
 }
+
 .gradient-color {
     background: linear-gradient(to right, #ff0000, #00ff00);
+}
+
+
+/* general control styles */
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: white;
+    height: 28px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    padding-left: 5px;
+    padding-right: 30px;
+    border-radius: 3px;
+}
+
+select:hover:enabled {
+    background-color: lightgray;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 black;
+}
+
+.select-container {
+    display: inline-block;
+    position: relative;
+}
+
+.select-container:after {
+    position: absolute;
+    content: "\203A";
+    transform: rotate(90deg);
+    color: gray;
+    font-size: 18px;
+    right: 10px;
+    top: 0;
+    pointer-events: none;
+}
+
+input[type=radio], input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    color: dimgray;
+    height: 25px;
+    width: 25px;
+    border: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    outline: none;
+}
+
+input[type=radio] {
+    border-radius: 50px;
+}
+
+input[type=checkbox] {
+    border-radius: 3px;
+}
+
+input[type=radio]:checked::before, input[type=checkbox]:checked::before {
+    position: absolute;
+    content: "\02143";
+    transform: rotate(40deg);
+    font-size: 15px;
+    left: 9px;
+    top: 4px;
+}
+
+input[type=radio]:hover, input[type=checkbox]:hover {
+    background-color: lightgray;
 }
 
 
@@ -23,17 +117,16 @@ body {
 
 #hover-box {
     position: fixed;
-    left: 0vw;
-    top: 0vh;
-    background-color: whitesmoke;
+    border: 0;
+    background-color: white;
     opacity: 0.75;
     margin: 2px;
-    padding: 10px;
-    box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
+    padding: 20px;
 }
 
 #hover-box:hover {
     opacity: 1.0;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 #hover-table tr td {
@@ -53,7 +146,6 @@ body {
     max-width: 200px;
     text-overflow: ellipsis;
 }
-
 
 
 
@@ -110,41 +202,102 @@ canvas {
 }
 /* end of reference */
 
-#metadata-tabs {
+/* control panel */
+
+#side-panel {
     background: #fff;
     position: fixed;
     top: 0vh;
-    left: 70vw;
-    width: 30vw;
+    left: calc(100vw - 450px);
+    width: 450px;
     opacity: 0.5;
 }
 
-.collapsible {
+.side-header {
     background-color: #777;
     color: white;
     cursor: pointer;
-    padding: 18px;
-    width: 100%;
     border: none;
     text-align: left;
     outline: none;
+}
+
+button.side-header {
+    padding: 15px 20px;
+    width: 100%;
     font-size: 15px;
 }
-.active, .collapsible:hover {
-    background-color: #555;
 
+p.side-header {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
+p.side-header input[type=text]:hover {
+    background-color: lightgray;
+}
+
+p.side-header button {
+    height: 40px;
+    width: 50px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.active, button.side-header:hover, p.side-header button:hover {
+    background-color: #555;
+}
+
+
+/* quick search */
+
+#quick-search {
+    color: white;
+    height: 36px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 18px;
+    padding-right: 18px;
+    background-color: transparent;
+}
+
+#quick-search:hover {
+    background-color: lightgray;
+}
+
+
+/* content */
+
 .content {
-    /* display: table-cell; 
-    vertical-align: middle; */
-    padding: 12px;
+    padding: 5px 20px;
     overflow: hidden;
+    color: #444;
     background-color: whitesmoke;
+    font-size: 14px;
 }
 
 .content p {
-    margin: 2px 5px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.content p label:first-of-type {
+    margin-right: auto;
+}
+
+.content p button:only-child {
+    margin-right: auto;
 }
 
 .tab-options {

@@ -55,8 +55,8 @@ function checkForOrig() {
 
 function changeTaxSys() {
   let origChecked = $("#orig").is(":checked");
-  retriveTaxonNodes('t');
-  retriveTaxonNodes('n');
+  retrieveTaxonNodes("t");
+  retrieveTaxonNodes("n");
   if($("#collapse-cb").is(":checked") && !origChecked) {
     autoCollapseTree();
   }
@@ -66,7 +66,7 @@ function changeTaxSys() {
     $("#internal-nodes").attr("checked", false);
     $("#internal-nodes").attr('disabled',true);
     autoCollapseTree();
-    retriveTaxonNodes("n");
+    retrieveTaxonNodes("n");
   } else {
     $("#collapse-cb").attr("disabled", false);
     $("#internal-nodes").attr('disabled',false);
@@ -279,8 +279,8 @@ function autoCollapseTree() {
 
   clearLabels("tip-label-container");
   clearLabels("node-label-container");
-  retriveTaxonNodes('t');
-  retriveTaxonNodes('n');
+  retrieveTaxonNodes('t');
+  retrieveTaxonNodes('n');
   requestAnimationFrame(loop);
 }
 
@@ -376,7 +376,7 @@ function userCladeColor(){
   })
 }
 
-function retriveTaxonNodes(triggerBy) {
+function retrieveTaxonNodes(triggerBy) {
   let taxLevel;
   let node;
   let selectElm;

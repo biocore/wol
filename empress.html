@@ -61,7 +61,7 @@
         btn.addEventListener("click", function() {
           this.classList.toggle("active");
           this.nextElementSibling.classList.toggle("hidden");
-          document.getElementById("metadata-tabs").style.opacity =
+          document.getElementById("side-panel").style.opacity =
             document.querySelector(".content:not(.hidden)") ? 1.0 : 0.5;
         });
       });
@@ -87,22 +87,34 @@
     </div>
 
     <!-- Metadata tabs -->
-    <div id="metadata-tabs">
+    <div id="side-panel">
+
+      <!-- Header bar -->
+      <p class="side-header">
+        <input type="text" id="quick-search" placeholder="Search.." style="width: 100%;">
+        <button title="Help information">&quest;</button>
+        <button title="WoL homepage" onclick="location.href='https://biocore.github.io/wol/';">&#8962;</button>
+        <!-- <button>&#9906;</button> -->
+      </p>
 
       <!-- Branch tab -->
-      <button class="collapsible">Branches</button>
+      <button class="side-header collapsible">Branches</button>
       <div class="content">
-        <div>
-          <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
+        <p>
           <label for="tip-color">Tips</label>
-          <select id="tip-color-options" onchange="userHighlightSelect()" disabled="true"></select>
-        </div>
-        <div>
-          <input type="checkbox" id="branch-color" onclick="userHighlightSelect()">
+          <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
+          <label class="select-container">
+            <select id="tip-color-options" onchange="userHighlightSelect()" disabled="true"></select>
+          </label>
+        </p>
+        <p>
           <label for="branch-color">Branches</label>
-          <select id="branch-color-options" onchange="userHighlightSelect()" disabled="true"></select>
-        </div>
-        <!-- <div>
+          <input type="checkbox" id="branch-color" onclick="userHighlightSelect()">
+          <label class="select-container">
+            <select id="branch-color-options" onchange="userHighlightSelect()" disabled="true"></select>
+          </label>
+        </p>
+        <!-- <p>
           <label for="color-options">Choose Color Map</label>
           <select id="color-options">
             <option disabled> -- Sequential -- </option>
@@ -120,96 +132,109 @@
             <option value=coolwarm>Cool to Warm</option>
             <option value="PRGn">Purple to Green</option>
           </select>
-        </div> -->
+        </p> -->
       </div>
 
       <!-- Color Clades -->
-      <button class="collapsible">Color Clades</button>
+      <button class="side-header collapsible">Color Clades</button>
       <div class="content">
-        <div>
-          <label for="tax-level">Taxonomic Level...</label>
-          <select id="tax-level">
-            <option value=0 disabled> -- select an option -- </option>
-          </select>
-        </div>
-        <div>
-          <label for="clade-options">Color by...</label>
-          <select id="clade-options">
-            <option value=0 disabled> -- select an option -- </option>
-            <option value=0>Default</option>
-          </select>
-        </div>
-        <div>
-          <label for="color-options-tax">Choose Color Map</label>
-          <select id="color-options-tax">
-            <option disabled> -- Sequential -- </option>
-            <option value="viridis" color="red">viridis</option>
-            <option value="Blues">Blue</option>
-            <option value="Greens">Green</option>
-            <option value="Reds">Red</option>
-            <option value="BuGn">Blue to Green</option>
-            <option value="cool">Blue to Purple</option>
-            <option value="YlOrRd">Yellow to Red</option>
-            <option value="hot">Hot</option>
-            <option value="winter">Winter</option>
-            <option disabled>-- Diverging --</option>
-            <option value="seismic">Blue to Red</option>
-            <option value=coolwarm>Cool to Warm</option>
-            <option value="PRGn">Purple to Green</option>
-          </select>
-        </div>
-        <div>
+        <p>
+          <label for="tax-level">Rank</label>
+          <label class="select-container">
+            <select id="tax-level">
+              <option value=0 disabled> -- select an option -- </option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label for="clade-options">Color by</label>
+          <label class="select-container">
+            <select id="clade-options">
+              <option value=0 disabled> -- select an option -- </option>
+              <option value=0>Default</option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label for="color-options-tax">Color Map</label>
+          <label class="select-container">
+            <select id="color-options-tax">
+              <option disabled> -- Sequential -- </option>
+              <option value="viridis" color="red">viridis</option>
+              <option value="Blues">Blue</option>
+              <option value="Greens">Green</option>
+              <option value="Reds">Red</option>
+              <option value="BuGn">Blue to Green</option>
+              <option value="cool">Blue to Purple</option>
+              <option value="YlOrRd">Yellow to Red</option>
+              <option value="hot">Hot</option>
+              <option value="winter">Winter</option>
+              <option disabled>-- Diverging --</option>
+              <option value="seismic">Blue to Red</option>
+              <option value=coolwarm>Cool to Warm</option>
+              <option value="PRGn">Purple to Green</option>
+            </select>
+          </label>
+        </p>
+        <p>
           <button onclick="userCladeColor()">Color Clades</button>
-        </div>
+        </p>
       </div>
 
       <!-- Collapse -->
-      <button class="collapsible">Auto-Collapse</button>
+      <button class="side-header collapsible">Auto-Collapse</button>
       <div class="content">
-        <div>
+        <p>
+          <label for="collapse-cb">Collapse by</label>
           <input type="checkbox" id="collapse-cb" onmouseover="checkForOrig()" onclick="autoCollapseTree()" >
-          <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
-            <option value=0 disabled> -- select an option -- </option>
-          </select>
-        </div>
+          <label class="select-container">
+            <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
+              <option value=0 disabled> -- select an option -- </option>
+            </select>
+          </label>
+        </p>
       </div>
 
       <!-- Taxonomy -->
-      <button class="collapsible">Taxonomy</button>
+      <button class="side-header collapsible">Taxonomy</button>
       <div class="content">
         <!-- toggle NCBI / GTDB -->
-        <div>
-          <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked>
+        <p>
+          <label>System</label>
+          <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked />
           <label for="ncbi">NCBI</label>
-          <input type="radio" id="gtdb" name="sys" value="g_" onclick="changeTaxSys()">
+          &nbsp;
+          <input type="radio" id="gtdb" name="sys" value="g_" onclick="changeTaxSys()" />
           <label for="gtdb">GTDB</label>
-        </div>
-        <div>
+        </p>
+        <p>
+          <label>Curation</label>
           <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
           <label for="cura">curated</label>
           <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
           <label for="orig">original</label>
-        </div>
-        <div>
-          <p>
-            Displays the 10 largest clades within the viewing window. Ties are broken randomly.
-          </p>
-        </div>
-        <div>
-          <input type="checkbox" id="tips" onclick="retriveTaxonNodes('t')">
-          <label for="tips">Tips</label>
-          <select id="tips-find-level" onchange="retriveTaxonNodes('c')" disabled="true">
+        </p>
+        <p>
+          <label>Tip labels</label>
+          <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
+          <label class="select-container">
+            <select id="tips-find-level" onchange="retrieveTaxonNodes('c')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
-          </select>
-        </div>
-        <div>
-          <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retriveTaxonNodes('n')">
-          <label for="internal-nodes">Nodes</label>
-          <select id="nodes-find-level" onchange="retriveTaxonNodes('n')" disabled="true">
+            </select>
+          </label>
+        </p>
+        <p>
+          <label>Node labels</label>
+          <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retrieveTaxonNodes('n')">
+          <label class="select-container">
+            <select id="nodes-find-level" onchange="retrieveTaxonNodes('n')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
-          </select>
-        </div>
+            </select>
+          </label>
+        </p>
       </div>
+
+      <div class="side-header" style="height: 3px;"></div>
   </div>
 
   <div class="hidden" id="hover-box">
