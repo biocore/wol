@@ -61,7 +61,7 @@
         btn.addEventListener("click", function() {
           this.classList.toggle("active");
           this.nextElementSibling.classList.toggle("hidden");
-          document.getElementById("metadata-tabs").style.opacity =
+          document.getElementById("side-panel").style.opacity =
             document.querySelector(".content:not(.hidden)") ? 1.0 : 0.5;
         });
       });
@@ -87,10 +87,18 @@
     </div>
 
     <!-- Metadata tabs -->
-    <div id="metadata-tabs">
+    <div id="side-panel">
+
+      <!-- Header bar -->
+      <p class="side-header">
+        <input type="text" id="quick-search" placeholder="Search.." style="width: 100%;">
+        <button title="Help information">&quest;</button>
+        <button title="WoL homepage" onclick="location.href='https://biocore.github.io/wol/';">&#8962;</button>
+        <!-- <button>&#9906;</button> -->
+      </p>
 
       <!-- Branch tab -->
-      <button class="collapsible">Branches</button>
+      <button class="side-header collapsible">Branches</button>
       <div class="content">
         <p>
           <label for="tip-color">Tips</label>
@@ -128,7 +136,7 @@
       </div>
 
       <!-- Color Clades -->
-      <button class="collapsible">Color Clades</button>
+      <button class="side-header collapsible">Color Clades</button>
       <div class="content">
         <p>
           <label for="tax-level">Rank</label>
@@ -174,7 +182,7 @@
       </div>
 
       <!-- Collapse -->
-      <button class="collapsible">Auto-Collapse</button>
+      <button class="side-header collapsible">Auto-Collapse</button>
       <div class="content">
         <p>
           <label for="collapse-cb">Collapse by</label>
@@ -188,7 +196,7 @@
       </div>
 
       <!-- Taxonomy -->
-      <button class="collapsible">Taxonomy</button>
+      <button class="side-header collapsible">Taxonomy</button>
       <div class="content">
         <!-- toggle NCBI / GTDB -->
         <p>
@@ -225,6 +233,8 @@
           </label>
         </p>
       </div>
+
+      <div class="side-header" style="height: 3px;"></div>
   </div>
 
   <div class="hidden" id="hover-box">
