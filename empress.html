@@ -4,34 +4,56 @@
 <head>
   <meta charset="UTF-8">
   <title>Interactive Tree - Empress</title>
+
+  <!-- vendors -->
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/slick.grid.css">
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/jquery-ui-1.11.3.custom.css">
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/slick.grid.format.css">
-  <link rel="stylesheet" type="text/css" href="pages/empress/css/tree.css">
   <script type="text/javascript" src="pages/empress/vendor/js/gl-matrix.min.js"></script>
   <script type="text/javascript" src="pages/empress/vendor/js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="pages/empress/vendor/js/jquery.event.drag-2.2.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/slick.core.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/slick.editors.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/slick.formatters.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/slick.grid.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/parse.js"></script>
+
+  <!-- static -->
+  <link rel="stylesheet" type="text/css" href="pages/empress/css/tree.css">
   <script type="text/javascript" src="pages/empress/js/init_webgl.js"></script>
   <script type="text/javascript" src="pages/empress/js/initialize_empress.js"></script>
   <script type="text/javascript" src="pages/empress/js/mouse_events.js"></script>
   <script type="text/javascript" src="pages/empress/js/callbacks.js"></script>
   <script type="text/javascript" src="pages/empress/js/drawing_loop.js"></script>
   <script type="text/javascript" src="pages/empress/js/init_webpage.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/slick.core.min.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/slick.editors.min.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/slick.formatters.min.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/slick.grid.min.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/parse.js"></script>
   <script type="text/javascript" src="pages/empress/js/tree.js"></script>
   <script type="text/javascript" src="pages/empress/js/wol_tree.js"></script>
 
   <script type="text/javascript">
+
+    // global constants
+    const ranks = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
+
+    // window load
     window.addEventListener("load", function () {
       "use strict";
 
       // initialize interface
       document.querySelectorAll(".content").forEach(function(div) {
         div.classList.add("hidden");
+      });
+
+      ["tax-level", "collapse-level", "tips-find-level", "nodes-find-level"]
+        .forEach(function(id) {
+        const sel = document.getElementById(id);
+        ranks.forEach(function(rank) {
+          const opt = document.createElement("option");
+          opt.text = rank;
+          if (id === "collapse-level" && rank === "phylum") {
+            opt.selected = "selected";
+          }
+          sel.add(opt);
+        });
       });
 
       // collapsible
@@ -102,13 +124,6 @@
           <label for="tax-level">Taxonomic Level...</label>
           <select id="tax-level">
             <option value=0 disabled> -- select an option -- </option>
-            <option>Kingdom</option>
-            <option>Phylum</option>
-            <option>Class</option>
-            <option>Order</option>
-            <option>Family</option>
-            <option>Genus</option>
-            <option>Species</option>
           </select>
         </div>
         <div>
@@ -149,13 +164,6 @@
           <input type="checkbox" id="collapse-cb" onmouseover="checkForOrig()" onclick="autoCollapseTree()" >
           <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
             <option value=0 disabled> -- select an option -- </option>
-            <option>kingdom</option>
-            <option selected="selected">phylum</option>
-            <option>class</option>
-            <option>order</option>
-            <option>family</option>
-            <option>genus</option>
-            <option>species</option>
           </select>
         </div>
       </div>
@@ -186,13 +194,6 @@
           <label for="tips">Tips</label>
           <select id="tips-find-level" onchange="retriveTaxonNodes('c')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
-              <option>kingdom</option>
-              <option>phylum</option>
-              <option>class</option>
-              <option>order</option>
-              <option>family</option>
-              <option>genus</option>
-              <option>species</option>
           </select>
         </div>
         <div>
@@ -200,27 +201,22 @@
           <label for="internal-nodes">Nodes</label>
           <select id="nodes-find-level" onchange="retriveTaxonNodes('n')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
-              <option>kingdom</option>
-              <option>phylum</option>
-              <option>class</option>
-              <option>order</option>
-              <option>family</option>
-              <option>genus</option>
-              <option>species</option>
           </select>
         </div>
       </div>
   </div>
-  <div class="hover-div" id="node-hover-div"></div>
-  <div class="hover-div" id="tri-hover-div"></div>
+
+  <div class="hidden" id="hover-box">
+    <table id="hover-table"></table>
+  </div>
+
   <div class="metadata-container"></div>
   <div id="scrolltable"></div>
 
     <script type="text/javascript">
       // fields to extract from metadata, used in extractInfo()
       let field = {
-        edgeFields: ["px", "py", "branch_color", "x", "y",
-          "branch_color"],
+        edgeFields: ["px", "py", "branch_color", "x", "y", "branch_color"],
         nodeFields: ["x", "y", "color"],
         triangleFields: ["cx", "cy", "color", "lx", "ly", "color", "rx", "ry", "color"]
       };
@@ -260,10 +256,10 @@
         options: {},
         grid: {}
       };
+
       const TRI_PER_ARC = 100;
       const ELEMENTS_PER_VERT = 5;
       const VERT_PER_TRI = 3;
-
 
       let numUserSelects = 0;
       const CLEAR_COLOR_HEX = "FFFFFF";
@@ -275,16 +271,10 @@
       let taxonNodes = [];
 
       let highToLow = function (dataRow1, dataRow2) {
-        if(dataRow1[3] < dataRow2[3] ) {
-          return 1;
-        }
-        return -1;
+        return dataRow1[3] < dataRow2[3] ? 1 : -1;
       };
       let random = function(dataRow1, dataRow2) {
-        if(Math.round(Math.random()) > 0) {
-          return 1;
-        }
-        return -1;
+        return Math.round(Math.random()) > 0 ? 1 : -1;
       }
     </script>
 
