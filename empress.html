@@ -56,7 +56,7 @@
         });
       });
 
-      // collapsible
+      // control tabs
       document.querySelectorAll(".collapsible").forEach(function(btn) {
         btn.addEventListener("click", function() {
           this.classList.toggle("active");
@@ -66,12 +66,28 @@
         });
       });
 
+      // modals
+      document.querySelectorAll(".modal-header").forEach(function(bar) {
+        let btn = document.createElement("button");
+        btn.innerHTML = "&times;";
+        btn.classList.add("close");
+        btn.title = "Close the " + bar.textContent
+          .toLowerCase() + " window";
+        bar.appendChild(btn);
+        btn.addEventListener("click", function () {
+          this.parentElement.parentElement.parentElement.classList.add('hidden');
+        });
+        let div = document.createElement("div");
+        div.classList.add("modal-footer");
+        bar.parentElement.appendChild(div);
+      });
     });
   </script>
 
 </head>
 
 <body>
+
   <!-- The tree -->
   <div class="tree-container">
     <div class="container">
@@ -92,7 +108,7 @@
       <!-- Header bar -->
       <p class="side-header">
         <input type="text" id="quick-search" placeholder="Search.." style="width: 100%;">
-        <button title="Help information">&quest;</button>
+        <button title="Help information" onclick="document.getElementById('help-modal').classList.remove('hidden');">&quest;</button>
         <button title="WoL homepage" onclick="location.href='https://biocore.github.io/wol/';">&#8962;</button>
         <!-- <button>&#9906;</button> -->
       </p>
@@ -235,6 +251,18 @@
       </div>
 
       <div class="side-header" style="height: 3px;"></div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="help-modal">
+    <div class="modal-body">
+      <div class="modal-header">Help</div>
+      <div class="modal-content">
+        <p>Hi there!</p>
+        <p>This<br>where<br>help<br>information<br>can go<br>in.</p>
+        <p>Feel free<br>to<br>add<br>anything.</p>
+      </div>
+    </div>
   </div>
 
   <div class="hidden" id="hover-box">

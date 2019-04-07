@@ -67,7 +67,7 @@ select:-moz-focusring {
     content: "\203A";
     transform: rotate(90deg);
     color: gray;
-    font-size: 18px;
+    font-size: 13.5pt;
     right: 10px;
     top: 0;
     pointer-events: none;
@@ -225,7 +225,7 @@ canvas {
 button.side-header {
     padding: 15px 20px;
     width: 100%;
-    font-size: 15px;
+    font-size: 11pt;
 }
 
 p.side-header {
@@ -244,7 +244,7 @@ p.side-header button {
     width: 50px;
     border: none;
     outline: none;
-    font-size: 20px;
+    font-size: 15pt;
     color: white;
     cursor: pointer;
     background-color: transparent;
@@ -282,7 +282,7 @@ p.side-header button {
     overflow: hidden;
     color: #444;
     background-color: whitesmoke;
-    font-size: 14px;
+    font-size: 10.5pt;
 }
 
 .content p {
@@ -379,4 +379,72 @@ p.side-header button {
     height: 12px;
     width: 60;
     border: 2px sold black;
+}
+
+
+/* modal */
+
+div.modal {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.modal-body {
+    border: none;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2);
+    background: white;
+    width: 80%;
+    max-width: 700px;
+    margin: 5% auto;
+    overflow: hidden;
+}
+
+div.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* font-weight: bold; */
+    padding-left: 15px;
+    height: 40px;
+    font-size: 11pt;
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+div.modal-header:first-letter {
+    text-transform: capitalize;
+}
+
+div.modal-content {
+    padding: 20px;
+    background-color: whitesmoke;
+    font-size: 10.5pt;
+}
+
+div.modal-footer {
+    height: 3px;
+    background-color: #777;
+}
+
+button.close {
+    background-color: transparent;
+    color: white;
+    font-size: 14pt;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+  }
+  
+button.close:hover {
+    background-color: gray;
 }
