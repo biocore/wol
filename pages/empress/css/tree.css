@@ -19,21 +19,53 @@ body {
 }
 
 
+input[type=radio] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    background-color: #f1f1f1;
+    color: #666;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;     
+    margin-right: 7px;
+    outline: none;
+}
+
+input[type=radio]:checked::before {
+    position: absolute;
+    font: 13px/1 'Open Sans', sans-serif;
+    left: 11px;
+    top: 7px;
+    content: '\02143';
+    transform: rotate(40deg);
+}
+input[type=radio]:hover {
+    background-color: #f7f7f7;
+}
+input[type=radio]:checked {
+    background-color: #f1f1f1;
+}
+
+
 /* hover box */
 
 #hover-box {
     position: fixed;
-    left: 0vw;
-    top: 0vh;
-    background-color: whitesmoke;
+    background-color: white;
     opacity: 0.75;
     margin: 2px;
     padding: 10px;
-    box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
 }
 
 #hover-box:hover {
     opacity: 1.0;
+    box-shadow: 0px 6px 12px gray;
 }
 
 #hover-table tr td {
@@ -53,7 +85,6 @@ body {
     max-width: 200px;
     text-overflow: ellipsis;
 }
-
 
 
 
