@@ -36,8 +36,12 @@ body {
     opacity: 1.0;
 }
 
+#hover-table tr td {
+    vertical-align: top;
+}
+
 #hover-table tr td:nth-last-child(2) {
-    width: 50px;
+    width: 60px;
     font-weight: bold;
 }
 

@@ -137,6 +137,31 @@ function nodeHover(x,y) {
     cell = row.insertCell(-1);
     cell.innerHTML = clsID;
 
+    // links row
+    if (clsID[0] === "G") {
+      row = table.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.innerHTML = "Links";
+      cell = row.insertCell(-1);
+      cell.innerHTML = "<a href='"
+        + "https://www.ncbi.nlm.nih.gov/assembly/"
+        + tree.metadata[clsID]["assembly_accession"]
+        + "' target='_blank'>NCBI</a>";
+      const img_id = tree.metadata[clsID]["img_id"];
+      if (img_id !== null) {
+        cell.innerHTML += " | <a href='"
+          + "https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail"
+          + "&page=taxonDetail&taxon_oid=" + img_id
+          + "' target='_blank'>IMG</a>";
+      }
+      const gtdb_id = tree.metadata[clsID]["gtdb_id"]
+      if (gtdb_id !== null) {
+        cell.innerHTML += " | <a title='" + gtdb_id + "' href='"
+          + "http://gtdb.ecogenomic.org/genomes?gid=" + gtdb_id.slice(3)
+          + "' target='_blank'>GTDB</a>";
+      }
+    }
+
     // taxon count row
     if (clsID[0] === "N") {
       row = table.insertRow(-1);
@@ -160,12 +185,17 @@ function nodeHover(x,y) {
       });
     }
 
-    // link row
-    if (tree.tree[clsID]["link"] !== "") {
+    // download row
+    if (clsID[0] === "G") {
       row = table.insertRow(-1);
       cell = row.insertCell(-1);
-      cell.colspan = 2;
-      cell.innerHTML = "<a href=" + tree.tree[clsID]["link"] + " target='_blank'>Download</a>";
+      cell.colSpan = 2;
+      const btn = document.createElement("button");
+      btn.innerHTML = "Download";
+      btn.onclick = function () {
+        window.open(getDownloadURL(clsID), "_blank");
+      };
+      cell.appendChild(btn);
     }
 
     // calculate the screen coordinate of the label
@@ -445,3 +475,21 @@ function getOldTree(event) {
   });
 }
 
+
+/**
+ * Generate a URL toward NCBI FTP genome download.
+ * @function getDownloadURL
+ * @param {string} id - genome Id
+ * @param {string} target - specific file (e.g., "genomic.fna.gz")
+ */
+function getDownloadURL(id, target) {
+  const acc = tree.metadata[id]["assembly_accession"];
+  const asm = tree.metadata[id]["asm_name"].replace(" ", "_").replace("#", "_");
+  let url = "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/" + acc.substr(0, 3) + "/"
+    + acc.substr(4, 3) + "/" + acc.substr(7, 3) + "/" + acc.substr(10, 3) + "/"
+    + acc + "_" + asm;
+  if (target !== undefined) {
+    url += "/" + acc + "_" + asm + "_" + target;
+  }
+  return url;
+}
