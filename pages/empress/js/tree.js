@@ -13,12 +13,16 @@ class Tree{
     this.lastHighTri = 0;
   }
 
-  order(pre, start, include_self){
+  order(pre, start, include_self, tip=false){
     let result = [];
     let tmp = [start];
     while(tmp.length !== 0){
       let curr = tmp.pop();
-      if(include_self || start!==curr) result.push(curr);
+      if(include_self || start!==curr) {
+        if (tip && this.tree[curr].is_tip){
+            result.push(curr);
+        }
+      }
       for (var i = 0; i < this.tree[curr].children.length; ++i){
         tmp.push(this.tree[curr].children[i]);
       }
@@ -411,5 +415,16 @@ class Tree{
         'Proteobacteria': [0.31640625, 0.45703125, 0.62109375]
     }
     return colors[val];
+  }
+
+  getGenomeIDs(nodeId){
+    let node = this.tree[nodeId];
+    // If the node is a tip
+    if(node.children.length == 0){
+      return [nodeId];
+    } else {
+      order(true, node, false)
+
+    }
   }
 }
