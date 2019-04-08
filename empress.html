@@ -149,6 +149,8 @@
         <p>
           <label>Tip labels</label>
           <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
+          <input type="number" id="tips-number" min="1" max="100" value="10" style="
+            width: 50px;" onchange="retrieveTaxonNodes('c')" disabled="true">
           <label class="select-container">
             <select id="tips-find-level" onchange="retrieveTaxonNodes('c')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
@@ -158,6 +160,8 @@
         <p>
           <label>Node labels</label>
           <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retrieveTaxonNodes('n')">
+          <input type="number" id="internal-nodes-number" min="1" max="100" value="10" style="
+            width: 50px;" onchange="retrieveTaxonNodes('n')" disabled="=true">
           <label class="select-container">
             <select id="nodes-find-level" onchange="retrieveTaxonNodes('n')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
@@ -360,8 +364,8 @@
       let numAttr = 0;
       let attrItem = {};
       let grid = {};
-      let tipLabels = {};
-      let nodeLabels = {};
+      let tipLabels = [];
+      let nodeLabels = [];
       let labelPos = 0;
       let gridInfo = {
         initData: [],
