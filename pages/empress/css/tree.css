@@ -9,7 +9,7 @@ body {
 /* general classes */
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .gradient-bar {
@@ -24,6 +24,7 @@ body {
 
 
 /* general control styles */
+
 
 button::-moz-focus-inner {
     border: 0;
@@ -147,7 +148,21 @@ input[type=radio]:hover, input[type=checkbox]:hover {
     text-overflow: ellipsis;
 }
 
+#hover-table tr td button:only-child {
+    background-color: lightgray;
+    height: 25px;
+    margin-top: 10px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    padding: 0px 15px;
+    border-radius: 2px;
+    font-size: 8pt;
+}
 
+#hover-table tr td button:only-child:hover {
+    background-color: darkgray;
+}
 
 .switch-button-container {
     position: absolute;
@@ -268,6 +283,7 @@ p.side-header button {
     padding-left: 18px;
     padding-right: 18px;
     background-color: transparent;
+    font-size: 10.5pt;
 }
 
 #quick-search:hover {
@@ -275,9 +291,9 @@ p.side-header button {
 }
 
 
-/* content */
+/* controls */
 
-.content {
+.control {
     padding: 5px 20px;
     overflow: hidden;
     color: #444;
@@ -285,19 +301,41 @@ p.side-header button {
     font-size: 10.5pt;
 }
 
-.content p {
+.control p {
     line-height: 30px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.content p label:first-of-type {
+.control p label:first-of-type {
     margin-right: auto;
 }
 
-.content p button:only-child {
+.control p button {
+    color: white;
+    background-color: gray;
+    height: 32px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-size: 10pt;
+}
+
+.control p button:hover {
+    background-color: dimgray;
+    /* background-color: #777; */
+}
+
+.control p button:only-child {
     margin-right: auto;
+}
+
+.control hr {
+    border-top: 1px solid lightgray;
+    margin-bottom: 20px;
 }
 
 .tab-options {
@@ -409,7 +447,6 @@ div.modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* font-weight: bold; */
     padding-left: 15px;
     height: 40px;
     font-size: 11pt;
@@ -420,7 +457,7 @@ div.modal-header {
     outline: none;
 }
 
-div.modal-header:first-letter {
+div.modal-header label:first-letter {
     text-transform: capitalize;
 }
 
@@ -438,7 +475,7 @@ div.modal-footer {
 button.close {
     background-color: transparent;
     color: white;
-    font-size: 14pt;
+    font-size: 16pt;
     width: 40px;
     height: 40px;
     border: none;
