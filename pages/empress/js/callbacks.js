@@ -198,6 +198,23 @@ function nodeHover(x,y) {
       cell.appendChild(btn);
     }
 
+    // export row
+    else {
+      row = table.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.colSpan = 2;
+      const btn = document.createElement("button");
+      btn.innerHTML = "Export";
+      btn.onclick = function () {
+        let modal = document.getElementById("export-modal");
+        modal.dataset.clsID = clsID;
+        modal.firstElementChild.firstElementChild.firstElementChild.innerHTML
+          = clsID + " (" + tree.tree[clsID]["leafcount"] + " genomes)";
+        modal.classList.remove("hidden");
+      };
+      cell.appendChild(btn);
+    }
+
     // calculate the screen coordinate of the label
     let treeSpace = vec4.fromValues(clsXTC, clsYTC, 0, 1);
     let screenSpace = vec4.create();
