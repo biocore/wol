@@ -4,10 +4,11 @@ function initialize(){
   drawingData.nodeCoords = [0, 0, 0, 0, 0];
   drawingData.highTri = [];
   drawingData.numBranches = tree.edgeData.length
-  drawingData.initZoom = tree.max;
+  drawingData.initZoom = tree.maxes.dim;
   drawingData.currentZoom = drawingData.initZoom;
-  fillDropDownMenu(tree.m_headers, "#highlight-options");
-  fillDropDownMenu(tree.m_headers, '#clade-options');
+  fillDropDownMenu(tree.m_headers.numeric, "#tip-color-options");
+  fillDropDownMenu(tree.m_headers.cat, "#branch-color-options");
+  // fillDropDownMenu(tree.m_headers.all, '#clade-options');
 
   $("#show-metadata").prop('checked', true);
 

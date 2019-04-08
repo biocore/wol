@@ -55,8 +55,8 @@ function checkForOrig() {
 
 function changeTaxSys() {
   let origChecked = $("#orig").is(":checked");
-  retriveTaxonNodes('t');
-  retriveTaxonNodes('n');
+  retrieveTaxonNodes("t");
+  retrieveTaxonNodes("n");
   if($("#collapse-cb").is(":checked") && !origChecked) {
     autoCollapseTree();
   }
@@ -66,11 +66,11 @@ function changeTaxSys() {
     $("#internal-nodes").attr("checked", false);
     $("#internal-nodes").attr('disabled',true);
     autoCollapseTree();
-    retriveTaxonNodes("n");
- } else {
+    retrieveTaxonNodes("n");
+  } else {
     $("#collapse-cb").attr("disabled", false);
     $("#internal-nodes").attr('disabled',false);
- }
+  }
 }
 
 function getTaxPrefix() {
@@ -94,85 +94,140 @@ function nodeHover(x,y) {
   let tmp;
   let xDist, yDist, treeX, treeY, nScreenX, nScreenY, treeSpace, screenSpace;
   let canvas = $(".tree-surface")[0];
-  for(id in tree.tree) {
-      treeX = tree.tree[id].x;
-      treeY = tree.tree[id].y;
-      // calculate the screen coordinate of the label
-      treeSpace = vec4.fromValues(treeX, treeY, 0, 1);
-      screenSpace = vec4.create();
-      vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
-      screenSpace[0] /= screenSpace[3];
-      screenSpace[1] /= screenSpace[3];
-      nScreenX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
-      nScreenY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
-      xDist = x - nScreenX;
-      yDist = y - nScreenY;
+  for (id in tree.tree) {
+    treeX = tree.tree[id].x;
+    treeY = tree.tree[id].y;
 
-      tmp = xDist*xDist + yDist*yDist;
-    if(Math.abs(tmp) < close) {
-        close = Math.abs(tmp);
-        clsXTC = treeX;
-        clsYTC = treeY;
-        clsID = id;
+    // calculate the screen coordinate of the label
+    treeSpace = vec4.fromValues(treeX, treeY, 0, 1);
+    screenSpace = vec4.create();
+    vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
+    screenSpace[0] /= screenSpace[3];
+    screenSpace[1] /= screenSpace[3];
+    nScreenX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
+    nScreenY = (screenSpace[1] * -0.5 + 0.5) * canvas.offsetHeight;
+    xDist = x - nScreenX;
+    yDist = y - nScreenY;
+
+    tmp = xDist * xDist + yDist * yDist;
+
+    if (Math.abs(tmp) < close) {
+      close = Math.abs(tmp);
+      clsXTC = treeX;
+      clsYTC = treeY;
+      clsID = id;
     }
   }
-  if(close <= 50 && (clsID === "N1" || tree.metadata[clsID]["branch_is_visible"])) {
+
+  // generate hover box
+  let box = document.getElementById("hover-box");
+  box.classList.add("hidden");
+
+  if (close <= 50 && (clsID === "N1" || tree.metadata[clsID]["branch_is_visible"])) {
     drawingData.hoveredNode = [clsXTC, clsYTC, 0, 1, 0];
     let taxPrefix = getTaxPrefix();
-    if(clsID !== "N1") {
-      let idText = clsID[0];
-      if(idText === "G") {
-        idText = "Genome ID";
-      } else {
-        idText = "Node ID";
+
+    let table = document.getElementById("hover-table");
+    table.innerHTML = "";
+
+    // Id row
+    let row = table.insertRow(-1);
+    let cell = row.insertCell(-1);
+    cell.innerHTML = "ID";
+    cell = row.insertCell(-1);
+    cell.innerHTML = clsID;
+
+    // links row
+    if (clsID[0] === "G") {
+      row = table.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.innerHTML = "Links";
+      cell = row.insertCell(-1);
+      cell.innerHTML = "<a href='"
+        + "https://www.ncbi.nlm.nih.gov/assembly/"
+        + tree.metadata[clsID]["assembly_accession"]
+        + "' target='_blank'>NCBI</a>";
+      const img_id = tree.metadata[clsID]["img_id"];
+      if (img_id !== null) {
+        cell.innerHTML += " | <a href='"
+          + "https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail"
+          + "&page=taxonDetail&taxon_oid=" + img_id
+          + "' target='_blank'>IMG</a>";
       }
-      $("#node-hover-div").html(
-        "<b>" + idText + ":</b> " + clsID + "<br>"  +
-        "<b>Kingdom: </b>" + tree.metadata[clsID][taxPrefix + "kingdom"] + "<br>" +
-        "<b>Phylum: </b>" + tree.metadata[clsID][taxPrefix + "phylum"] + "<br>" +
-        "<b>Class: </b>" + tree.metadata[clsID][taxPrefix + "class"] + "<br>" +
-        "<b>Order: </b>" + tree.metadata[clsID][taxPrefix + "order"] + "<br>" +
-        "<b>Family: </b>" + tree.metadata[clsID][taxPrefix + "family"] + "<br>" +
-        "<b>Genus: </b>" + tree.metadata[clsID][taxPrefix + "genus"] + "<br>" +
-        "<b>Species: </b>" + tree.metadata[clsID][taxPrefix + "species"] + "<br>" +
-        "<b>taxa: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
-      );
-      if(tree.tree[clsID]["link"] !== "") {
-        $("#node-hover-div").append("<a href=" + tree.tree[clsID]["link"] + " target='_blank'>download</a><br>");
+      const gtdb_id = tree.metadata[clsID]["gtdb_id"]
+      if (gtdb_id !== null) {
+        cell.innerHTML += " | <a title='" + gtdb_id + "' href='"
+          + "http://gtdb.ecogenomic.org/genomes?gid=" + gtdb_id.slice(3)
+          + "' target='_blank'>GTDB</a>";
       }
-    } else {
-      $("#node-hover-div").html(
-        "<b>Node ID:</b> " + clsID + "<br>"  +
-        "<b>Kingdom: </b>" + "null" + "<br>" +
-        "<b>Phylum: </b>" + "null" +"<br>" +
-        "<b>Class: </b>" + "null" + "<br>" +
-        "<b>Order: </b>" + "null" + "<br>" +
-        "<b>Family: </b>" + "null" + "<br>" +
-        "<b>Genus: </b>" +"null" + "<br>" +
-        "<b>Species: </b>" + "null" + "<br>" +
-        "<b>taxa: </b>" + tree.tree[clsID]["leafcount"] + "<br>"
-      );
     }
-      // calculate the screen coordinate of the label
-      let treeSpace = vec4.fromValues(clsXTC, clsYTC, 0, 1);
-      let screenSpace = vec4.create();
-      vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
-      screenSpace[0] /= screenSpace[3];
-      screenSpace[1] /= screenSpace[3];
-      let pixelX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
-      let pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
 
-      // make the div
-      let div = $("#node-hover-div");
+    // taxon count row
+    if (clsID[0] === "N") {
+      row = table.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.innerHTML = "Taxa";
+      cell = row.insertCell(-1);
+      cell.innerHTML = tree.tree[clsID]["leafcount"];
+    }
 
-      div.css({left: Math.floor(pixelX) + "px",
-               top: Math.floor(pixelY) + "px",
-               display: "block"});
-  } else {
-    // make the div
-      let div = $("#node-hover-div");
+    // rank rows
+    if (clsID !== "N1") {
+      ranks.forEach(function(rank) {
+        const name = tree.metadata[clsID][taxPrefix + rank];
+        if (name) {
+          row = table.insertRow(-1);
+          cell = row.insertCell(-1);
+          cell.innerHTML = rank;
+          cell = row.insertCell(-1);
+          cell.innerHTML = name;
+        }
+      });
+    }
 
-      div.css({display: "none"});
+    // download row
+    if (clsID[0] === "G") {
+      row = table.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.colSpan = 2;
+      const btn = document.createElement("button");
+      btn.innerHTML = "Download";
+      btn.onclick = function () {
+        window.open(getDownloadURL(clsID), "_blank");
+      };
+      cell.appendChild(btn);
+    }
+
+    // export row
+    else {
+      row = table.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.colSpan = 2;
+      const btn = document.createElement("button");
+      btn.innerHTML = "Export";
+      btn.onclick = function () {
+        let modal = document.getElementById("export-modal");
+        modal.dataset.clsID = clsID;
+        modal.firstElementChild.firstElementChild.firstElementChild.innerHTML
+          = clsID + " (" + tree.tree[clsID]["leafcount"] + " genomes)";
+        modal.classList.remove("hidden");
+      };
+      cell.appendChild(btn);
+    }
+
+    // calculate the screen coordinate of the label
+    let treeSpace = vec4.fromValues(clsXTC, clsYTC, 0, 1);
+    let screenSpace = vec4.create();
+    vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
+    screenSpace[0] /= screenSpace[3];
+    screenSpace[1] /= screenSpace[3];
+    let pixelX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
+    let pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
+
+    // show hover box
+    box.style.left = Math.floor(pixelX) + "px";
+    box.style.top = Math.floor(pixelY) + "px";
+    box.classList.remove("hidden");
   }
 
   fillBufferData(shaderProgram.hoverNodeBuffer, drawingData.hoveredNode);
@@ -183,20 +238,37 @@ function triangleHover(x, y) {
   let treeCoords = toTreeCoords(x, y);
   let triRoot = tree.triangleAt(treeCoords[0], treeCoords[1]);
   let taxLevel = $("#collapse-level").val();
-  let div = $("#tri-hover-div");
   let taxPrefix = getTaxPrefix();
+
   if(triRoot != null) {
-    div.html("<b>" + tree.metadata[triRoot.id][taxPrefix + taxLevel] + "</b><br>" +
-             "<b>Descendants: </b>" + tree.tree[triRoot.id]["leafcount"] + "<br>" );
-    div.css({left: x + "px",
-             top: y + "px",
-             display: "block"});
+    let box = document.getElementById("hover-box");
+    box.classList.add("hidden");
+    let table = document.getElementById("hover-table");
+    table.innerHTML = "";
+
+    // name row
+    let row = table.insertRow(-1);
+    let cell = row.insertCell(-1);
+    cell.innerHTML = taxLevel;
+    cell = row.insertCell(-1);
+    cell.innerHTML = tree.metadata[triRoot.id][taxPrefix + taxLevel];
+
+    // taxon count row
+    row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML = "Taxa";
+    cell = row.insertCell(-1);
+    cell.innerHTML = tree.tree[triRoot.id]["leafcount"];
+
+    // show hover box
+    box.style.left = x + "px";
+    box.style.top = y + "px";
+    box.classList.remove("hidden");
+
     drawingData.highTri = triRoot.tri;
     fillBufferData(shaderProgram.highTriBuffer, drawingData.highTri);
-  }
-  else {
+  } else {
     drawingData.highTri = [];
-    div.css({display: "none"});
   }
   requestAnimationFrame(loop);
 }
@@ -224,8 +296,8 @@ function autoCollapseTree() {
 
   clearLabels("tip-label-container");
   clearLabels("node-label-container");
-  retriveTaxonNodes('t');
-  retriveTaxonNodes('n');
+  retrieveTaxonNodes('t');
+  retrieveTaxonNodes('n');
   requestAnimationFrame(loop);
 }
 
@@ -280,11 +352,32 @@ function resizeCanvas(event) {
  * for coordinating the highlight tip feature.
  */
 function userHighlightSelect() {
-  const attr = $("#highlight-options").val();
-  const cm = $("#color-options").val();
-
-  let edgeData = extractInfo(JSON.parse(highlight.edges), field.edgeFields);
-  drawingData.numBranches = edgeData.length
+  let edgeData;
+  let selectElm = $("#collapse-level");
+  if (!$("#branch-color").is(":checked") || !$("#tip-color").is(":checked")) {
+    $("#tip-color-options").attr("disabled", true);
+    $("#branch-color-options").attr("disabled", true);
+    edgeData = tree.colorBranches("default");
+  }
+  if($("#branch-color").is(":checked")) {
+    let cat = $("#branch-color-options").val();
+    $("#branch-color-options").attr("disabled", false);
+    edgeData = tree.colorBranches(cat);
+  }
+  if($("#tip-color").is(":checked")) {
+    let cat = $("#tip-color-options").val();
+    $("#tip-color-options").attr("disabled", false);
+    edgeData = tree.colorBranches(cat);
+  }
+  if($("#collapse-cb").is(":checked")) {
+    let taxLevel = selectElm.val();
+    let taxSys = $("input[name='sys']:checked").val();
+    let taxPrefix = taxSys + "d_";
+    tree.collapse(taxLevel, taxPrefix);
+    drawingData.numBranches = edgeData.length;
+    drawingData.triangles = tree.triData;
+    fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
+  }
   fillBufferData(shaderProgram.treeVertBuffer, edgeData);
   requestAnimationFrame(loop);
 }
@@ -300,7 +393,7 @@ function userCladeColor(){
   })
 }
 
-function retriveTaxonNodes(triggerBy) {
+function retrieveTaxonNodes(triggerBy) {
   let taxLevel;
   let node;
   let selectElm;
@@ -413,3 +506,21 @@ function getOldTree(event) {
   });
 }
 
+
+/**
+ * Generate a URL toward NCBI FTP genome download.
+ * @function getDownloadURL
+ * @param {string} id - genome Id
+ * @param {string} target - specific file (e.g., "genomic.fna.gz")
+ */
+function getDownloadURL(id, target) {
+  const acc = tree.metadata[id]["assembly_accession"];
+  const asm = tree.metadata[id]["asm_name"].replace(" ", "_").replace("#", "_");
+  let url = "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/" + acc.substr(0, 3) + "/"
+    + acc.substr(4, 3) + "/" + acc.substr(7, 3) + "/" + acc.substr(10, 3) + "/"
+    + acc + "_" + asm;
+  if (target !== undefined) {
+    url += "/" + acc + "_" + asm + "_" + target;
+  }
+  return url;
+}

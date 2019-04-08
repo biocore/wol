@@ -4,29 +4,100 @@
 <head>
   <meta charset="UTF-8">
   <title>Interactive Tree - Empress</title>
+
+  <!-- vendors -->
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/slick.grid.css">
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/jquery-ui-1.11.3.custom.css">
   <link rel="stylesheet" type="text/css" href="pages/empress/vendor/css/slick.grid.format.css">
-  <link rel="stylesheet" type="text/css" href="pages/empress/css/tree.css">
   <script type="text/javascript" src="pages/empress/vendor/js/gl-matrix.min.js"></script>
   <script type="text/javascript" src="pages/empress/vendor/js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="pages/empress/vendor/js/jquery.event.drag-2.2.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/slick.core.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/slick.editors.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/slick.formatters.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/slick.grid.min.js"></script>
+  <script type="text/javascript" src="pages/empress/vendor/js/parse.js"></script>
+
+  <!-- static -->
+  <link rel="stylesheet" type="text/css" href="pages/empress/css/tree.css">
   <script type="text/javascript" src="pages/empress/js/init_webgl.js"></script>
   <script type="text/javascript" src="pages/empress/js/initialize_empress.js"></script>
   <script type="text/javascript" src="pages/empress/js/mouse_events.js"></script>
   <script type="text/javascript" src="pages/empress/js/callbacks.js"></script>
   <script type="text/javascript" src="pages/empress/js/drawing_loop.js"></script>
   <script type="text/javascript" src="pages/empress/js/init_webpage.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/slick.core.min.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/slick.editors.min.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/slick.formatters.min.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/slick.grid.min.js"></script>
-  <script type="text/javascript" src="pages/empress/vendor/js/parse.js"></script>
   <script type="text/javascript" src="pages/empress/js/tree.js"></script>
   <script type="text/javascript" src="pages/empress/js/wol_tree.js"></script>
+
+  <script type="text/javascript">
+
+    // global constants
+    const ranks = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
+
+    // window load
+    window.addEventListener("load", function () {
+      "use strict";
+
+      // initialize interface
+      document.querySelectorAll(".side-content").forEach(function(div) {
+        div.classList.add("hidden");
+      });
+
+      // add rank names
+      // ["tax-level", "collapse-level", "tips-find-level", "nodes-find-level"]
+      ["collapse-level", "tips-find-level", "nodes-find-level"]
+        .forEach(function(id) {
+        const sel = document.getElementById(id);
+        ranks.forEach(function(rank) {
+          const opt = document.createElement("option");
+          opt.text = rank;
+          if (id === "collapse-level" && rank === "phylum") {
+            opt.selected = "selected";
+          }
+          sel.add(opt);
+        });
+      });
+
+      // toggle download links
+      document.getElementsByName("exp-content").forEach(function(rad) {
+        rad.addEventListener("click", function() {
+          document.getElementById("p-downlnks").classList
+            .toggle("hidden", !document.getElementById("rad-downlnks").checked);
+        });
+      });
+
+      // control tabs
+      document.querySelectorAll(".collapsible").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          this.classList.toggle("active");
+          this.nextElementSibling.classList.toggle("hidden");
+          document.getElementById("side-panel").style.opacity =
+            document.querySelector(".side-content:not(.hidden)") ? 1.0 : 0.5;
+        });
+      });
+
+      // modals
+      document.querySelectorAll(".modal-header").forEach(function(bar) {
+        let btn = document.createElement("button");
+        btn.innerHTML = "&times;";
+        btn.classList.add("close");
+        btn.title = "Close the " + bar.textContent
+          .toLowerCase() + " window";
+        bar.appendChild(btn);
+        btn.addEventListener("click", function () {
+          this.parentElement.parentElement.parentElement.classList.add("hidden");
+        });
+        let div = document.createElement("div");
+        div.classList.add("modal-footer");
+        bar.parentElement.appendChild(div);
+      });
+    });
+  </script>
+
 </head>
 
 <body>
+
   <!-- The tree -->
   <div class="tree-container">
     <div class="container">
@@ -41,17 +112,78 @@
       </div>
     </div>
 
-    <div class="metadata-tabs">
+    <!-- Metadata tabs -->
+    <div id="side-panel">
+
+      <!-- Header bar -->
+      <p class="side-header">
+        <input type="text" id="quick-search" placeholder="Search..." style="width: 100%;">
+        <button title="Help information" onclick="document.getElementById('help-modal').classList.remove('hidden');">&quest;</button>
+        <button title="WoL homepage" onclick="location.href='https://biocore.github.io/wol/';">&#8962;</button>
+        <!-- <button>&#9906;</button> -->
+      </p>
+
+      <!-- Taxonomy -->
+      <button class="side-header collapsible">Taxonomy</button>
+      <div class="side-content control">
+        <!-- toggle NCBI / GTDB -->
+        <p>
+          <label>System</label>
+          <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked />
+          <label for="ncbi">NCBI</label>
+          &nbsp;
+          <input type="radio" id="gtdb" name="sys" value="g_" onclick="changeTaxSys()" />
+          <label for="gtdb">GTDB</label>
+        </p>
+        <p>
+          <label>Curation</label>
+          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
+          <label for="cura">curated</label>
+          <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
+          <label for="orig">original</label>
+        </p>
+      </div>
+
+      <button class="side-header collapsible">Labeling</button>
+      <div class="side-content control">
+        <p>
+          <label>Tip labels</label>
+          <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
+          <label class="select-container">
+            <select id="tips-find-level" onchange="retrieveTaxonNodes('c')" disabled="true">
+              <option value=0 disabled> -- select an option -- </option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label>Node labels</label>
+          <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retrieveTaxonNodes('n')">
+          <label class="select-container">
+            <select id="nodes-find-level" onchange="retrieveTaxonNodes('n')" disabled="true">
+              <option value=0 disabled> -- select an option -- </option>
+            </select>
+          </label>
+        </p>
+      </div>
+
       <!-- Branch tab -->
-      <button class="collapsible">Branches</button>
-      <div class="content">
-        <div>
-          <label for="highlight-options">Color by...</label>
-          <select id="highlight-options">
-            <option value=0 disabled> -- select an option -- </option>
-          </select>
-        </div>
-        <div>
+      <button class="side-header collapsible">Coloring</button>
+      <div class="side-content control">
+        <p>
+          <label for="tip-color">Tips</label>
+          <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
+          <label class="select-container">
+            <select id="tip-color-options" onchange="userHighlightSelect()" disabled="true"></select>
+          </label>
+        </p>
+        <p>
+          <label for="branch-color">Branches</label>
+          <input type="checkbox" id="branch-color" onclick="userHighlightSelect()">
+          <label class="select-container">
+            <select id="branch-color-options" onchange="userHighlightSelect()" disabled="true"></select>
+          </label>
+        </p>
+        <!-- <p>
           <label for="color-options">Choose Color Map</label>
           <select id="color-options">
             <option disabled> -- Sequential -- </option>
@@ -69,167 +201,136 @@
             <option value=coolwarm>Cool to Warm</option>
             <option value="PRGn">Purple to Green</option>
           </select>
-        </div>
-        <div>
-          <button onclick="userHighlightSelect()">Color Branches</button>
-        </div>
+        </p> -->
       </div>
 
       <!-- Color Clades -->
-      <button class="collapsible">Color Clades</button>
-      <div class="content">
-        <div>
-          <label for="tax-level">Taxonomic Level...</label>
-          <select id="tax-level">
-            <option value=0 disabled> -- select an option -- </option>
-            <option>Kingdom</option>
-            <option>Phylum</option>
-            <option>Class</option>
-            <option>Order</option>
-            <option>Family</option>
-            <option>Genus</option>
-            <option>Species</option>
-          </select>
-        </div>
-        <div>
-          <label for="clade-options">Color by...</label>
-          <select id="clade-options">
-            <option value=0 disabled> -- select an option -- </option>
-            <option value=0>Default</option>
-          </select>
-        </div>
-        <div>
-          <label for="color-options-tax">Choose Color Map</label>
-          <select id="color-options-tax">
-            <option disabled> -- Sequential -- </option>
-            <option value="viridis" color="red">viridis</option>
-            <option value="Blues">Blue</option>
-            <option value="Greens">Green</option>
-            <option value="Reds">Red</option>
-            <option value="BuGn">Blue to Green</option>
-            <option value="cool">Blue to Purple</option>
-            <option value="YlOrRd">Yellow to Red</option>
-            <option value="hot">Hot</option>
-            <option value="winter">Winter</option>
-            <option disabled>-- Diverging --</option>
-            <option value="seismic">Blue to Red</option>
-            <option value=coolwarm>Cool to Warm</option>
-            <option value="PRGn">Purple to Green</option>
-          </select>
-        </div>
-        <div>
+      <!-- <button class="side-header collapsible">Color Clades</button>
+      <div class="side-content control">
+        <p>
+          <label for="tax-level">Rank</label>
+          <label class="select-container">
+            <select id="tax-level">
+              <option value=0 disabled> -- select an option -- </option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label for="clade-options">Color by</label>
+          <label class="select-container">
+            <select id="clade-options">
+              <option value=0 disabled> -- select an option -- </option>
+              <option value=0>Default</option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label for="color-options-tax">Color Map</label>
+          <label class="select-container">
+            <select id="color-options-tax">
+              <option disabled> -- Sequential -- </option>
+              <option value="viridis" color="red">viridis</option>
+              <option value="Blues">Blue</option>
+              <option value="Greens">Green</option>
+              <option value="Reds">Red</option>
+              <option value="BuGn">Blue to Green</option>
+              <option value="cool">Blue to Purple</option>
+              <option value="YlOrRd">Yellow to Red</option>
+              <option value="hot">Hot</option>
+              <option value="winter">Winter</option>
+              <option disabled>-- Diverging --</option>
+              <option value="seismic">Blue to Red</option>
+              <option value=coolwarm>Cool to Warm</option>
+              <option value="PRGn">Purple to Green</option>
+            </select>
+          </label>
+        </p>
+        <p>
           <button onclick="userCladeColor()">Color Clades</button>
-        </div>
-      </div>
+        </p>
+      </div> -->
+
       <!-- Collapse -->
-      <button class="collapsible">Auto-Collapse</button>
-      <div class="content">
-        <div>
+      <button class="side-header collapsible">Collapse</button>
+      <div class="side-content control">
+        <p>
+          <label for="collapse-cb">Collapse by</label>
           <input type="checkbox" id="collapse-cb" onmouseover="checkForOrig()" onclick="autoCollapseTree()" >
-          <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
-            <option value=0 disabled> -- select an option -- </option>
-            <option>kingdom</option>
-            <option selected="selected">phylum</option>
-            <option>class</option>
-            <option>order</option>
-            <option>family</option>
-            <option>genus</option>
-            <option>species</option>
-          </select>
-        </div>
+          <label class="select-container">
+            <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
+              <option value=0 disabled> -- select an option -- </option>
+            </select>
+          </label>
+        </p>
       </div>
 
-      <button class="collapsible">Taxonomy</button>
-      <div class="content">
-        <div>
-          <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked>
-          <label for="ncbi">ncbi</label>
-          <input type="radio" id="gtdb" name="sys" value="g_" onclick="changeTaxSys()">
-          <label for="gtdb">gtdb</label>
-        </div>
-        <div>
-          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
-          <label for="cura">curated</label>
-          <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
-          <label for="orig">original</label>
-        </div>
-        <div>
-          <p>
-            Displays the 10 largest clades within the viewing window. Ties are broken randomly.
-          </p>
-        </div>
-        <div>
-          <input type="checkbox" id="tips" onclick="retriveTaxonNodes('t')">
-          <label for="tips">Tips</label>
-          <select id="tips-find-level" onchange="retriveTaxonNodes('c')" disabled="true">
-              <option value=0 disabled> -- select an option -- </option>
-              <option>kingdom</option>
-              <option>phylum</option>
-              <option>class</option>
-              <option>order</option>
-              <option>family</option>
-              <option>genus</option>
-              <option>species</option>
-          </select>
-        </div>
-        <div>
-          <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retriveTaxonNodes('n')">
-          <label for="internal-nodes">Nodes</label>
-          <select id="nodes-find-level" onchange="retriveTaxonNodes('n')" disabled="true">
-              <option value=0 disabled> -- select an option -- </option>
-              <option>kingdom</option>
-              <option>phylum</option>
-              <option>class</option>
-              <option>order</option>
-              <option>family</option>
-              <option>genus</option>
-              <option>species</option>
-          </select>
-        </div>
-      </div>
-
-  <script type="text/javascript">
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-
-        var allCollapsed = true;
-        var menuItems = document.getElementsByClassName("content");
-        var i;
-        for(i = 0; i < menuItems.length; i++) {
-          if(menuItems[i].style.display === "block") {
-            allCollapsed = false;
-          }
-        }
-        if(allCollapsed) {
-          document.querySelector('.metadata-tabs').style.opacity = "0.5";
-        }
-        else {
-          document.querySelector('.metadata-tabs').style.opacity = "1.0";
-        }
-      });
-    }
-  </script>
-  </div>
-  <div class="hover-div" id="node-hover-div"></div>
-  <div class="hover-div" id="tri-hover-div"></div>
-  <div class="metadata-container"></div>
-    <div id="scrolltable">
+      <div class="side-header" style="height: 3px;"></div>
     </div>
+  </div>
+
+  <!-- hover box -->
+  <div class="hidden" id="hover-box">
+    <table id="hover-table"></table>
+  </div>
+
+  <!-- about modal -->
+  <div class="modal hidden" id="help-modal">
+    <div class="modal-body">
+      <div class="modal-header"><label>Help</label></div>
+      <div class="modal-content">
+        <p>Hi there!</p>
+        <p>This<br>where<br>help<br>information<br>can go<br>in.</p>
+        <p>Feel free<br>to<br>add<br>anything.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- export modal -->
+  <div class="modal hidden" id="export-modal">
+    <div class="modal-body">
+      <div class="modal-header"><label>Export</label></div>
+      <div class="modal-content control">
+        <p>
+          <label>Export target</label>
+          <input type="radio" id="rad-ids" name="exp-content" checked />
+          <label for="rad-ids">Identifiers</label>
+          &nbsp;
+          <input type="radio" id="rad-downlnks" name="exp-content" />
+          <label for="rad-downlnks">Download links</label>
+          &nbsp;
+          <input type="radio" id="rad-subtree" name="exp-content" />
+          <label for="rad-subtree">Subtree</label>
+        </p>
+        <p id="p-downlnks" class="hidden">
+          <label>Download target</label>
+          <label class="select-container">
+            <select id="downfile-options">
+              <option disabled> -- select an option -- </option>
+              <option value="genomic.fna" selected="selected">Genome sequences</option>
+              <option value="genomic.gbff">Genome annotations (GenBank)</option>
+              <option value="genomic.gff">Genome annotations (GFF3)</option>
+              <option value="protein.faa">Protein sequences</option>
+              <option value="protein.gpff">Protein annotations (GenPept)</option>
+              <option value="rna_from_genomic.fna">RNA sequences</option>
+              <option value="cds_from_genomic.fna">CDS sequences</option>
+              <option value="feature_table.txt">Feature tables</option>
+              <option value="feature_count.txt">Feature counts</option>
+            </select>
+          </label>
+        </p>
+        <hr>
+        <p><button>Export</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="metadata-container"></div>
+  <div id="scrolltable"></div>
 
     <script type="text/javascript">
       // fields to extract from metadata, used in extractInfo()
       let field = {
-        edgeFields: ["px", "py", "branch_color", "x", "y",
-          "branch_color"],
+        edgeFields: ["px", "py", "branch_color", "x", "y", "branch_color"],
         nodeFields: ["x", "y", "color"],
         triangleFields: ["cx", "cy", "color", "lx", "ly", "color", "rx", "ry", "color"]
       };
@@ -269,10 +370,10 @@
         options: {},
         grid: {}
       };
+
       const TRI_PER_ARC = 100;
       const ELEMENTS_PER_VERT = 5;
       const VERT_PER_TRI = 3;
-
 
       let numUserSelects = 0;
       const CLEAR_COLOR_HEX = "FFFFFF";
@@ -284,16 +385,10 @@
       let taxonNodes = [];
 
       let highToLow = function (dataRow1, dataRow2) {
-        if(dataRow1[3] < dataRow2[3] ) {
-          return 1;
-        }
-        return -1;
+        return dataRow1[3] < dataRow2[3] ? 1 : -1;
       };
       let random = function(dataRow1, dataRow2) {
-        if(Math.round(Math.random()) > 0) {
-          return 1;
-        }
-        return -1;
+        return Math.round(Math.random()) > 0 ? 1 : -1;
       }
     </script>
 
