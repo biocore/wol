@@ -334,7 +334,7 @@ class Tree{
         }
     }
     else {
-        if(category === "Qiyuns_Color_Map"){
+        if(category === "(preset)"){
             for(i in this.metadata) {
                 this.metadata[i]['branch_color'] = this.getColorPal(this.metadata[i]["color_pal"]);
             }

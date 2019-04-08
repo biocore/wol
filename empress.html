@@ -39,10 +39,11 @@
       "use strict";
 
       // initialize interface
-      document.querySelectorAll(".content").forEach(function(div) {
+      document.querySelectorAll(".side-content").forEach(function(div) {
         div.classList.add("hidden");
       });
 
+      // add rank names
       // ["tax-level", "collapse-level", "tips-find-level", "nodes-find-level"]
       ["collapse-level", "tips-find-level", "nodes-find-level"]
         .forEach(function(id) {
@@ -57,13 +58,21 @@
         });
       });
 
+      // toggle download links
+      document.getElementsByName("exp-content").forEach(function(rad) {
+        rad.addEventListener("click", function() {
+          document.getElementById("p-downlnks").classList
+            .toggle("hidden", !document.getElementById("rad-downlnks").checked);
+        });
+      });
+
       // control tabs
       document.querySelectorAll(".collapsible").forEach(function(btn) {
         btn.addEventListener("click", function() {
           this.classList.toggle("active");
           this.nextElementSibling.classList.toggle("hidden");
           document.getElementById("side-panel").style.opacity =
-            document.querySelector(".content:not(.hidden)") ? 1.0 : 0.5;
+            document.querySelector(".side-content:not(.hidden)") ? 1.0 : 0.5;
         });
       });
 
@@ -76,7 +85,7 @@
           .toLowerCase() + " window";
         bar.appendChild(btn);
         btn.addEventListener("click", function () {
-          this.parentElement.parentElement.parentElement.classList.add('hidden');
+          this.parentElement.parentElement.parentElement.classList.add("hidden");
         });
         let div = document.createElement("div");
         div.classList.add("modal-footer");
@@ -108,15 +117,15 @@
 
       <!-- Header bar -->
       <p class="side-header">
-        <input type="text" id="quick-search" placeholder="Search.." style="width: 100%;">
+        <input type="text" id="quick-search" placeholder="Search..." style="width: 100%;">
         <button title="Help information" onclick="document.getElementById('help-modal').classList.remove('hidden');">&quest;</button>
         <button title="WoL homepage" onclick="location.href='https://biocore.github.io/wol/';">&#8962;</button>
         <!-- <button>&#9906;</button> -->
       </p>
 
-       <!-- Taxonomy -->
+      <!-- Taxonomy -->
       <button class="side-header collapsible">Taxonomy</button>
-      <div class="content">
+      <div class="side-content control">
         <!-- toggle NCBI / GTDB -->
         <p>
           <label>System</label>
@@ -136,7 +145,7 @@
       </div>
 
       <button class="side-header collapsible">Labeling</button>
-      <div class="content">
+      <div class="side-content control">
         <p>
           <label>Tip labels</label>
           <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
@@ -157,10 +166,9 @@
         </p>
       </div>
 
-
       <!-- Branch tab -->
       <button class="side-header collapsible">Coloring</button>
-      <div class="content">
+      <div class="side-content control">
         <p>
           <label for="tip-color">Tips</label>
           <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
@@ -197,8 +205,8 @@
       </div>
 
       <!-- Color Clades -->
-     <!--  <button class="side-header collapsible">Color Clades</button>
-      <div class="content">
+      <!-- <button class="side-header collapsible">Color Clades</button>
+      <div class="side-content control">
         <p>
           <label for="tax-level">Rank</label>
           <label class="select-container">
@@ -244,7 +252,7 @@
 
       <!-- Collapse -->
       <button class="side-header collapsible">Collapse</button>
-      <div class="content">
+      <div class="side-content control">
         <p>
           <label for="collapse-cb">Collapse by</label>
           <input type="checkbox" id="collapse-cb" onmouseover="checkForOrig()" onclick="autoCollapseTree()" >
@@ -260,9 +268,15 @@
     </div>
   </div>
 
+  <!-- hover box -->
+  <div class="hidden" id="hover-box">
+    <table id="hover-table"></table>
+  </div>
+
+  <!-- about modal -->
   <div class="modal hidden" id="help-modal">
     <div class="modal-body">
-      <div class="modal-header">Help</div>
+      <div class="modal-header"><label>Help</label></div>
       <div class="modal-content">
         <p>Hi there!</p>
         <p>This<br>where<br>help<br>information<br>can go<br>in.</p>
@@ -271,8 +285,43 @@
     </div>
   </div>
 
-  <div class="hidden" id="hover-box">
-    <table id="hover-table"></table>
+  <!-- export modal -->
+  <div class="modal hidden" id="export-modal">
+    <div class="modal-body">
+      <div class="modal-header"><label>Export</label></div>
+      <div class="modal-content control">
+        <p>
+          <label>Export target</label>
+          <input type="radio" id="rad-ids" name="exp-content" checked />
+          <label for="rad-ids">Identifiers</label>
+          &nbsp;
+          <input type="radio" id="rad-downlnks" name="exp-content" />
+          <label for="rad-downlnks">Download links</label>
+          &nbsp;
+          <input type="radio" id="rad-subtree" name="exp-content" />
+          <label for="rad-subtree">Subtree</label>
+        </p>
+        <p id="p-downlnks" class="hidden">
+          <label>Download target</label>
+          <label class="select-container">
+            <select id="downfile-options">
+              <option disabled> -- select an option -- </option>
+              <option value="genomic.fna" selected="selected">Genome sequences</option>
+              <option value="genomic.gbff">Genome annotations (GenBank)</option>
+              <option value="genomic.gff">Genome annotations (GFF3)</option>
+              <option value="protein.faa">Protein sequences</option>
+              <option value="protein.gpff">Protein annotations (GenPept)</option>
+              <option value="rna_from_genomic.fna">RNA sequences</option>
+              <option value="cds_from_genomic.fna">CDS sequences</option>
+              <option value="feature_table.txt">Feature tables</option>
+              <option value="feature_count.txt">Feature counts</option>
+            </select>
+          </label>
+        </p>
+        <hr>
+        <p><button>Export</button></p>
+      </div>
+    </div>
   </div>
 
   <div class="metadata-container"></div>
