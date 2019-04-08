@@ -8,7 +8,7 @@ function initialize(){
   drawingData.currentZoom = drawingData.initZoom;
   fillDropDownMenu(tree.m_headers.numeric, "#tip-color-options");
   fillDropDownMenu(tree.m_headers.cat, "#branch-color-options");
-  fillDropDownMenu(tree.m_headers.all, '#clade-options');
+  // fillDropDownMenu(tree.m_headers.all, '#clade-options');
 
   $("#show-metadata").prop('checked', true);
 

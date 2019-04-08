@@ -43,7 +43,8 @@
         div.classList.add("hidden");
       });
 
-      ["tax-level", "collapse-level", "tips-find-level", "nodes-find-level"]
+      // ["tax-level", "collapse-level", "tips-find-level", "nodes-find-level"]
+      ["collapse-level", "tips-find-level", "nodes-find-level"]
         .forEach(function(id) {
         const sel = document.getElementById(id);
         ranks.forEach(function(rank) {
@@ -113,8 +114,52 @@
         <!-- <button>&#9906;</button> -->
       </p>
 
+       <!-- Taxonomy -->
+      <button class="side-header collapsible">Taxonomy</button>
+      <div class="content">
+        <!-- toggle NCBI / GTDB -->
+        <p>
+          <label>System</label>
+          <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked />
+          <label for="ncbi">NCBI</label>
+          &nbsp;
+          <input type="radio" id="gtdb" name="sys" value="g_" onclick="changeTaxSys()" />
+          <label for="gtdb">GTDB</label>
+        </p>
+        <p>
+          <label>Curation</label>
+          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
+          <label for="cura">curated</label>
+          <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
+          <label for="orig">original</label>
+        </p>
+      </div>
+
+      <button class="side-header collapsible">Labeling</button>
+      <div class="content">
+        <p>
+          <label>Tip labels</label>
+          <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
+          <label class="select-container">
+            <select id="tips-find-level" onchange="retrieveTaxonNodes('c')" disabled="true">
+              <option value=0 disabled> -- select an option -- </option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label>Node labels</label>
+          <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retrieveTaxonNodes('n')">
+          <label class="select-container">
+            <select id="nodes-find-level" onchange="retrieveTaxonNodes('n')" disabled="true">
+              <option value=0 disabled> -- select an option -- </option>
+            </select>
+          </label>
+        </p>
+      </div>
+
+
       <!-- Branch tab -->
-      <button class="side-header collapsible">Branches</button>
+      <button class="side-header collapsible">Coloring</button>
       <div class="content">
         <p>
           <label for="tip-color">Tips</label>
@@ -152,7 +197,7 @@
       </div>
 
       <!-- Color Clades -->
-      <button class="side-header collapsible">Color Clades</button>
+     <!--  <button class="side-header collapsible">Color Clades</button>
       <div class="content">
         <p>
           <label for="tax-level">Rank</label>
@@ -195,55 +240,16 @@
         <p>
           <button onclick="userCladeColor()">Color Clades</button>
         </p>
-      </div>
+      </div> -->
 
       <!-- Collapse -->
-      <button class="side-header collapsible">Auto-Collapse</button>
+      <button class="side-header collapsible">Collapse</button>
       <div class="content">
         <p>
           <label for="collapse-cb">Collapse by</label>
           <input type="checkbox" id="collapse-cb" onmouseover="checkForOrig()" onclick="autoCollapseTree()" >
           <label class="select-container">
             <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
-              <option value=0 disabled> -- select an option -- </option>
-            </select>
-          </label>
-        </p>
-      </div>
-
-      <!-- Taxonomy -->
-      <button class="side-header collapsible">Taxonomy</button>
-      <div class="content">
-        <!-- toggle NCBI / GTDB -->
-        <p>
-          <label>System</label>
-          <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked />
-          <label for="ncbi">NCBI</label>
-          &nbsp;
-          <input type="radio" id="gtdb" name="sys" value="g_" onclick="changeTaxSys()" />
-          <label for="gtdb">GTDB</label>
-        </p>
-        <p>
-          <label>Curation</label>
-          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
-          <label for="cura">curated</label>
-          <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
-          <label for="orig">original</label>
-        </p>
-        <p>
-          <label>Tip labels</label>
-          <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
-          <label class="select-container">
-            <select id="tips-find-level" onchange="retrieveTaxonNodes('c')" disabled="true">
-              <option value=0 disabled> -- select an option -- </option>
-            </select>
-          </label>
-        </p>
-        <p>
-          <label>Node labels</label>
-          <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retrieveTaxonNodes('n')">
-          <label class="select-container">
-            <select id="nodes-find-level" onchange="retrieveTaxonNodes('n')" disabled="true">
               <option value=0 disabled> -- select an option -- </option>
             </select>
           </label>
