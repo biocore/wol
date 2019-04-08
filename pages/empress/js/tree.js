@@ -353,7 +353,7 @@ class Tree{
     return this.edgeData
   }
   getDefaultColor() {
-    return [0.5, 0.5, 0.5];
+    return [0.7, 0.7, 0.7];
   }
   getColor(min, max, val) {
     let bucketSize = (max - min) / 9;
