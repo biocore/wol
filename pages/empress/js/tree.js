@@ -1,15 +1,16 @@
 class Tree{
-  constructor(tree_nwk, edgeData, metadata, m_headers, max){
+  constructor(tree_nwk, edgeData, metadata, m_headers, maxes){
     this.tree = tree_nwk;
     this.edgeData = edgeData;
     this.metadata = metadata;
     this.m_headers = m_headers;
-    this.max = max;
+    this.max = maxes.dim;
+    this.maxes = maxes;
     this.root = 'N1';
     this.numBranches = Object.keys(metadata).length;
     this.triData = [];
     this.triRoots = [];
-    this.lastHighTri = 0;;
+    this.lastHighTri = 0;
   }
 
   order(pre, start, include_self){
@@ -146,9 +147,10 @@ class Tree{
   }
 
   collapse(taxLevel, taxPrefix) {
-    const RED = 0.73828125;
-    const GREEN = 0.73828125;
-    const BLUE = 0.73828125;
+    const RED = 0;
+    const GREEN = 1;
+    const BLUE = 2;
+    let r, g, b;
     let preorder = this.order(true, this.root, false);
     let i;
     let collapsedNodes = 0;
@@ -176,25 +178,27 @@ class Tree{
             theta += rootNode["theta"];
             trX = rootNode["smallest_branch"] * Math.cos(theta) + rx;
             trY = rootNode["smallest_branch"] * Math.sin(theta) + ry;
+            r = this.metadata[node]['branch_color'][RED];
+            g = this.metadata[node]['branch_color'][GREEN];
+            b = this.metadata[node]['branch_color'][BLUE];
             this.triData.push(rx);
             this.triData.push(ry);
-            this.triData.push(RED);
-            this.triData.push(GREEN);
-            this.triData.push(BLUE);
+            this.triData.push(r);
+            this.triData.push(g);
+            this.triData.push(b);
             this.triData.push(tlX);
             this.triData.push(tlY);
-            this.triData.push(RED);
-            this.triData.push(GREEN);
-            this.triData.push(BLUE);
+            this.triData.push(r);
+            this.triData.push(g);
+            this.triData.push(b);
             this.triData.push(trX);
             this.triData.push(trY);
-            this.triData.push(RED);
-            this.triData.push(GREEN);
-            this.triData.push(BLUE);
+            this.triData.push(r);
+            this.triData.push(g);
+            this.triData.push(b);
             this.triRoots.push(node);
         }
     }
-    console.log(collapsedNodes);
     this.updateEdgeData(collapsedNodes);
     return this.edgeData;
   }
@@ -231,7 +235,7 @@ class Tree{
     const GREEN = 1;
     const BLUE = 2;
     let nodeMetadata;
-    this.edgeData = new Array((this.numBranches - numNotVis) * VERT_SIZE);
+    this.edgeData = new Array((this.numBranches ) * VERT_SIZE);
     for(node in this.metadata) {
         nodeMetadata = this.metadata[node];
         if(nodeMetadata['branch_is_visible']) {
@@ -319,5 +323,93 @@ class Tree{
   }
   triangleArea(a, b, c) {
     return Math.abs((a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y)) / 2)
+  }
+
+  colorBranches(category) {
+    let i = 0;
+    if(category === "default") {
+        let color = this.getDefaultColor();
+        for(i in this.metadata) {
+            this.metadata[i]['branch_color'] = color;
+        }
+    }
+    else {
+        if(category === "(preset)"){
+            for(i in this.metadata) {
+                this.metadata[i]['branch_color'] = this.getColorPal(this.metadata[i]["color_pal"]);
+            }
+        }
+        else {
+            let min = this.maxes[category][0];
+            let max = this.maxes[category][1];
+            for(i in this.metadata) {
+                if(this.metadata[i][category] !== null){
+                    this.metadata[i]['branch_color'] = this.getColor(min, max, this.metadata[i][category]);
+                }
+            }
+        }
+    }
+    this.updateEdgeData(0);
+    return this.edgeData
+  }
+  getDefaultColor() {
+    return [0.7, 0.7, 0.7];
+  }
+  getColor(min, max, val) {
+    let bucketSize = (max - min) / 9;
+    if(val < min + bucketSize - 1) {
+        return [0.99609375, 0.95703125, 0.91796875];
+    }
+    else if(val < min + 2*bucketSize - 1) {
+        return [0.9921875, 0.8984375, 0.8046875];
+    }
+    else if(val < min + 3*bucketSize - 1) {
+        return [0.98828125, 0.8125, 0.6328125];
+    }
+    else if(val < min + 4*bucketSize - 1) {
+        return [98828125, 0.6796875, 0.41796875];
+    }
+    else if(val < min + 5*bucketSize - 1) {
+        return [0.98828125, 0.55078125, 0.234375];
+    }
+    else if(val < min + 6*bucketSize - 1) {
+        return [0.94140625, 0.41015625, 0.07421875];
+    }
+    else if(val < min +  7*bucketSize - 1) {
+        return [0.84765625, 0.28125, 0.00390625];
+    }
+    else if(val < min + 8*bucketSize - 1) {
+        return [0.6484375, 0.2109375, 0.01171875];
+    }
+    return [0.49609375, 0.15234375, 0.015625];
+
+  }
+
+  getColorPal(val) {
+    let colors = {
+        'Eukaryota': [0.94140625, 0.90234375, 0.609375],
+        'Archaea': [0.65625, 0.62109375, 0.7890625],
+        'Asgard': [0.44140625, 0.33984375, 0.625],
+        'TACK': [0.74609375, 0.53515625, 0.6328125],
+        'Crenarchaeota': [0.578125, 0.35546875, 0.58984375],
+        'Euryarchaeota': [0.55078125, 0.48828125, 0.765625],
+        'DPANN': [0.41015625, 0.375, 0.55859375],
+        'CPR': [0.9140625, 0.75390625, 0.72265625],
+        'Microgenomates': [0.8828125, 0.53125, 0.57421875],
+        'Parcubacteria': [0.88671875, 0.62109375, 0.515625],
+        'Eubacteria': [0.6875, 0.875, 0.87890625],
+        'Terrabacteria': [0.625, 0.71484375, 0.875],
+        'Actinobacteria': [0.48828125, 0.55859375, 0.78125],
+        'Firmicutes': [0.12109375, 0.19140625, 0.46484375],
+        'Chloroflexi': [0.28125, 0.37890625, 0.6953125],
+        'Cyanobacteria': [0.34765625, 0.55859375, 0.875],
+        'Spirochaetes': [0.44140625, 0.609375, 0.6875],
+        'PVC': [0.78125, 0.83984375, 0.8125],
+        'Chlamydiae': [0.6015625, 0.75390625, 0.7265625],
+        'FCB': [0.66796875, 0.82421875, 0.90625],
+        'Bacteroidetes': [0.38671875, 0.65625, 0.828125],
+        'Proteobacteria': [0.31640625, 0.45703125, 0.62109375]
+    }
+    return colors[val];
   }
 }
