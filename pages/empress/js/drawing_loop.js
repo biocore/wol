@@ -56,8 +56,8 @@ function loop() {
   bindBuffer(shaderProgram.highTriBuffer);
   gl.drawArrays(gl.TRIANGLES, 0, drawingData.highTri.length / 5);
 
-  drawLabels(tipLabels, "tip-label-container", $("#tips-find-level").val());
-  drawLabels(nodeLabels, "node-label-container", $("#nodes-find-level").val());
+  drawLabels(tipLabels, "tip-label-container", $("#tips-find-level").val(), drawingData.numTipLabels);
+  drawLabels(nodeLabels, "node-label-container", $("#nodes-find-level").val(), drawingData.numNodeLabels);
 }
 
 /*
@@ -95,7 +95,7 @@ function bindBuffer(buffer) {
   );
 }
 
-function drawLabels(labels, container, taxLevel) {
+function drawLabels(labels, container, taxLevel, totalLabels) {
   const NEGATE = -1;
 
   let canvas = $(".tree-surface")[0];
@@ -187,7 +187,7 @@ function drawLabels(labels, container, taxLevel) {
         //add current label as a key
         currentLabels[node] = null;
       }
-      if(count === 10) {
+      if(count === totalLabels) {
         break;
       }
     }
