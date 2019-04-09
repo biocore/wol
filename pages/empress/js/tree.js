@@ -427,4 +427,20 @@ class Tree{
     }
   }
 
+  /**
+   * Generate newick format string based on the subtree rooted at nodeId
+   */
+  toNewick(nodeId){
+    let node = this.tree[nodeId];
+    let result = [];
+    let resultStr = nodeId+":"+node.length;
+    // Base case
+    if(node.children.length==0) return resultStr;
+    for( var i = 0; i < node.children.length;i++){
+      let child = node.children[i];
+      result.push(this.toNewick(child));
+    }
+    return '(' + result.join(',') + ')' + resultStr;
+  }
+
 }

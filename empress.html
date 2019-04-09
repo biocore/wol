@@ -92,10 +92,13 @@
         bar.parentElement.appendChild(div);
       });
 
-      // Export genome ids 
+      // Export genome ids
       document.getElementById("btn-export").addEventListener("click", function(){
         if(document.getElementById("rad-ids").checked){
           downloadGenomeIds();
+        }
+        else if(document.getElementById("rad-subtree").checked){
+          downloadSubtree();
         }
       });
     });
