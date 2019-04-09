@@ -1,0 +1,44 @@
+TREE_COLORS
+SEPARATOR TAB
+DATA
+G000402355	range	#69608f	Candidatus Diapherotrites	1
+G001871415	range	#69608f	Candidatus Woesearchaeota	1
+N2	range	#a89fca	Archaea	1
+N6	range	#eac1b9	CPR	1
+N7	range	#b0e0e1	Eubacteria	1
+N15	range	#7157a0	Asgard group	1
+N17	range	#69608f	Candidatus Micrarchaeota	1
+N18	range	#8d7dc4	Euryarchaeota	1
+N27	range	#8d7dc4	Euryarchaeota	1
+N28	range	#bf89a2	TACK group	1
+N39	range	#a0b7e0	Terrabacteria group	1
+N58	range	#e39f84	Parcubacteria group	1
+N60	range	#1f3177	Firmicutes	1
+N84	range	#e28893	Microgenomates group	1
+N153	range	#719cb0	Spirochaetes	1
+N167	range	#945b97	Crenarchaeota	1
+N224	range	#598fe0	Cyanobacteria	1
+N320	range	#1f3177	Firmicutes	1
+N434	range	#7d8fc8	Actinobacteria	1
+N437	range	#1f3177	Firmicutes	1
+N586	range	#1f3177	Firmicutes	1
+N753	range	#1f3177	Firmicutes	1
+N775	range	#abd3e8	FCB group	1
+N782	range	#51759f	Proteobacteria	1
+N916	range	#4861b2	Chloroflexi	1
+N966	range	#51759f	Proteobacteria	1
+N1122	range	#1f3177	Firmicutes	1
+N1145	range	#c8d7d0	PVC group	1
+N1159	range	#51759f	Proteobacteria	1
+N1579	range	#1f3177	Firmicutes	1
+N1604	range	#9ac1ba	Chlamydiae	1
+N1804	range	#7d8fc8	Actinobacteria	1
+N1843	range	#1f3177	Firmicutes	1
+N2128	range	#1f3177	Firmicutes	1
+N2717	range	#1f3177	Firmicutes	1
+N2809	range	#51759f	Proteobacteria	1
+N3488	range	#51759f	Proteobacteria	1
+N3799	range	#63a8d4	Bacteroidetes	1
+N3842	range	#51759f	Proteobacteria	1
+N3843	range	#51759f	Proteobacteria	1
+N4160	range	#63a8d4	Bacteroidetes	1

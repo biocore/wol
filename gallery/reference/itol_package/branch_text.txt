@@ -1,0 +1,1549 @@
+DATASET_TEXT
+SEPARATOR TAB
+DATASET_LABEL	branch text
+SHOW_INTERNAL	1
+DATA
+N2	k__Archaea (669)	0.5	#000000	normal	1	0
+N3	k__Bacteria (9906)	0.5	#000000	normal	1	0
+N6	n__CPR (1454)	0.5	#000000	normal	1	0
+N7	n__Eubacteria (8452)	0.5	#000000	normal	1	0
+N15	n__Asgard group (7)	0.5	#000000	normal	1	0
+N18	p__Euryarchaeota_1 (366)	0.5	#000000	normal	1	0
+N27	p__Euryarchaeota_2 (48)	0.5	#000000	normal	1	0
+N28	n__TACK group (242)	0.5	#000000	normal	1	0
+N35	g__Dictyoglomus (2)	0.5	#000000	normal	1	0
+N39	n__Terrabacteria group (3706)	0.5	#000000	normal	1	0
+N44	c__Hadesarchaea (2)	0.5	#000000	normal	1	0
+N48	o__Ca. Altiarchaeales (5)	0.5	#000000	normal	1	0
+N56	p__Ca. Peregrinibacteria (60)	0.5	#000000	normal	1	0
+N58	n__Parcubacteria group (846)	0.5	#000000	normal	1	0
+N60	p__Firmicutes_10 (3)	0.5	#000000	normal	1	0
+N68	o__Arc I group (8)	0.5	#000000	normal	1	0
+N69	f__Thermococcaceae (38)	0.5	#000000	normal	1	0
+N71	p__Thaumarchaeota (47)	0.5	#000000	normal	1	0
+N84	n__Microgenomates group (423)	0.5	#000000	normal	1	0
+N93	o__Thermotogales (23)	0.5	#000000	normal	1	0
+N98	f__Leptotrichiaceae (15)	0.5	#000000	normal	1	0
+N99	f__Fusobacteriaceae (21)	0.5	#000000	normal	1	0
+N103	g__Thermococcus_2 (13)	0.5	#000000	normal	1	0
+N108	f__Ca. Methanomethyliaceae (4)	0.5	#000000	normal	1	0
+N113	c__Marine Group III (2)	0.5	#000000	normal	1	0
+N116	o__Methanomassiliicoccales (22)	0.5	#000000	normal	1	0
+N119	c__Methanomicrobia (122)	0.5	#000000	normal	1	0
+N139	o__Kosmotogales (4)	0.5	#000000	normal	1	0
+N140	o__Petrotogales (7)	0.5	#000000	normal	1	0
+N141	f__Fervidobacteriaceae (5)	0.5	#000000	normal	1	0
+N142	f__Thermotogaceae (18)	0.5	#000000	normal	1	0
+N151	g__Fusobacterium (19)	0.5	#000000	normal	1	0
+N153	p__Spirochaetes (135)	0.5	#000000	normal	1	0
+N159	g__Pyrococcus (9)	0.5	#000000	normal	1	0
+N165	g__Ca. Methanomethylicus (3)	0.5	#000000	normal	1	0
+N167	p__Crenarchaeota (163)	0.5	#000000	normal	1	0
+N172	g__Aciduliprofundum (3)	0.5	#000000	normal	1	0
+N173	o__Thermoplasmatales (15)	0.5	#000000	normal	1	0
+N176	o__Halobacteriales_2 (6)	0.5	#000000	normal	1	0
+N180	o__Methanomicrobiales (32)	0.5	#000000	normal	1	0
+N211	g__Kosmotoga (2)	0.5	#000000	normal	1	0
+N212	g__Marinitoga (2)	0.5	#000000	normal	1	0
+N213	g__Petrotoga (5)	0.5	#000000	normal	1	0
+N214	g__Thermosipho (2)	0.5	#000000	normal	1	0
+N215	g__Fervidobacterium (3)	0.5	#000000	normal	1	0
+N216	g__Pseudothermotoga (7)	0.5	#000000	normal	1	0
+N217	g__Thermotoga (11)	0.5	#000000	normal	1	0
+N221	f__Synergistaceae (29)	0.5	#000000	normal	1	0
+N224	p__Cyanobacteria (295)	0.5	#000000	normal	1	0
+N227	g__Leptotrichia (6)	0.5	#000000	normal	1	0
+N229	g__Streptobacillus (5)	0.5	#000000	normal	1	0
+N240	g__Thermococcus_1 (15)	0.5	#000000	normal	1	0
+N244	g__Ca. Nitrosocosmicus (2)	0.5	#000000	normal	1	0
+N248	s__Ca. Methanomethylicus mesodigestum (2)	0.5	#000000	normal	1	0
+N250	c__Thermoprotei (156)	0.5	#000000	normal	1	0
+N251	f__Methanocaldococcaceae_1 (8)	0.5	#000000	normal	1	0
+N253	f__Methanobacteriaceae (33)	0.5	#000000	normal	1	0
+N263	f__Archaeoglobaceae (20)	0.5	#000000	normal	1	0
+N266	o__Methanosarcinales_2 (2)	0.5	#000000	normal	1	0
+N316	c__Gloeobacteria (2)	0.5	#000000	normal	1	0
+N320	p__Firmicutes_8 (13)	0.5	#000000	normal	1	0
+N328	f__Leptospiraceae (27)	0.5	#000000	normal	1	0
+N329	o__Brachyspirales (9)	0.5	#000000	normal	1	0
+N334	s__Thermococcus barophilus (2)	0.5	#000000	normal	1	0
+N337	s__Pyrococcus furiosus (2)	0.5	#000000	normal	1	0
+N345	g__Nitrososphaera (2)	0.5	#000000	normal	1	0
+N348	g__Ca. Nitrosotenuis (3)	0.5	#000000	normal	1	0
+N351	o__Thermoproteales_2 (4)	0.5	#000000	normal	1	0
+N355	f__Methanocaldococcaceae_2 (2)	0.5	#000000	normal	1	0
+N356	f__Methanococcaceae (9)	0.5	#000000	normal	1	0
+N361	f__Thermoplasmataceae (7)	0.5	#000000	normal	1	0
+N364	f__Methanomassiliicoccaceae (12)	0.5	#000000	normal	1	0
+N365	g__Halobacterium (3)	0.5	#000000	normal	1	0
+N366	o__Haloferacales (42)	0.5	#000000	normal	1	0
+N367	o__Halobacteriales_1 (23)	0.5	#000000	normal	1	0
+N369	g__Archaeoglobus_1 (9)	0.5	#000000	normal	1	0
+N371	f__Methanocorpusculaceae (4)	0.5	#000000	normal	1	0
+N374	o__Methanocellales (3)	0.5	#000000	normal	1	0
+N375	o__Methanosarcinales_1 (85)	0.5	#000000	normal	1	0
+N414	s__Petrotoga mobilis (2)	0.5	#000000	normal	1	0
+N417	s__Thermotoga neapolitana (2)	0.5	#000000	normal	1	0
+N420	g__Acetomicrobium (4)	0.5	#000000	normal	1	0
+N434	p__Actinobacteria (1101)	0.5	#000000	normal	1	0
+N435	f__Clostridiales Family XVII. Incertae Sedis (4)	0.5	#000000	normal	1	0
+N437	p__Firmicutes_6 (17)	0.5	#000000	normal	1	0
+N440	s__Leptotrichia goodfellowii (2)	0.5	#000000	normal	1	0
+N441	s__Streptobacillus notomytis (3)	0.5	#000000	normal	1	0
+N443	s__Fusobacterium necrophorum (10)	0.5	#000000	normal	1	0
+N447	f__Borreliaceae (43)	0.5	#000000	normal	1	0
+N453	s__Thermococcus sibiricus (3)	0.5	#000000	normal	1	0
+N468	o__Nitrosopumilales (23)	0.5	#000000	normal	1	0
+N471	o__Thermoproteales_1 (31)	0.5	#000000	normal	1	0
+N473	s__Methanocaldococcus villosus (2)	0.5	#000000	normal	1	0
+N477	g__Methanothermobacter (4)	0.5	#000000	normal	1	0
+N478	g__Methanobrevibacter (13)	0.5	#000000	normal	1	0
+N482	f__Ferroplasmaceae (6)	0.5	#000000	normal	1	0
+N487	g__Methanomassiliicoccus (4)	0.5	#000000	normal	1	0
+N491	f__Halorubraceae (25)	0.5	#000000	normal	1	0
+N492	f__Halococcaceae (7)	0.5	#000000	normal	1	0
+N494	o__Halobacteriales_3 (3)	0.5	#000000	normal	1	0
+N495	o__Natrialbales (30)	0.5	#000000	normal	1	0
+N499	g__Archaeoglobus_2 (7)	0.5	#000000	normal	1	0
+N500	g__Methanocorpusculum (3)	0.5	#000000	normal	1	0
+N501	f__Methanomicrobiaceae_2 (6)	0.5	#000000	normal	1	0
+N553	s__Pseudothermotoga lettingae (2)	0.5	#000000	normal	1	0
+N555	s__Thermotoga maritima (4)	0.5	#000000	normal	1	0
+N558	g__Jonquetella (4)	0.5	#000000	normal	1	0
+N560	g__Thermovirga (5)	0.5	#000000	normal	1	0
+N573	o__Synechococcales_1 (84)	0.5	#000000	normal	1	0
+N577	o__Thermales (19)	0.5	#000000	normal	1	0
+N578	o__Deinococcales (22)	0.5	#000000	normal	1	0
+N584	f__Halobacteroidaceae (7)	0.5	#000000	normal	1	0
+N585	f__Halanaerobiaceae (10)	0.5	#000000	normal	1	0
+N586	p__Firmicutes_4 (142)	0.5	#000000	normal	1	0
+N592	g__Leptonema (2)	0.5	#000000	normal	1	0
+N593	g__Leptospira (24)	0.5	#000000	normal	1	0
+N595	g__Brachyspira (4)	0.5	#000000	normal	1	0
+N596	g__Borrelia (18)	0.5	#000000	normal	1	0
+N597	g__Borreliella (25)	0.5	#000000	normal	1	0
+N598	f__Spirochaetaceae_2 (10)	0.5	#000000	normal	1	0
+N599	f__Spirochaetaceae_1 (45)	0.5	#000000	normal	1	0
+N610	s__Thermococcus thioreducens (2)	0.5	#000000	normal	1	0
+N617	g__Ca. Nitrosopelagicus (6)	0.5	#000000	normal	1	0
+N624	o__Sulfolobales (95)	0.5	#000000	normal	1	0
+N626	g__Methanothermococcus (2)	0.5	#000000	normal	1	0
+N627	g__Methanococcus (5)	0.5	#000000	normal	1	0
+N630	g__Methanosphaera (2)	0.5	#000000	normal	1	0
+N631	g__Methanobacterium (13)	0.5	#000000	normal	1	0
+N634	g__Acidiplasma (5)	0.5	#000000	normal	1	0
+N637	g__Thermoplasma (2)	0.5	#000000	normal	1	0
+N641	f__Haloferacaceae (16)	0.5	#000000	normal	1	0
+N646	f__Haloarculaceae_2 (2)	0.5	#000000	normal	1	0
+N648	g__Haladaptatus (2)	0.5	#000000	normal	1	0
+N656	f__Methanoregulaceae (4)	0.5	#000000	normal	1	0
+N657	f__Methanomicrobiaceae_1 (15)	0.5	#000000	normal	1	0
+N659	f__Methanosaetaceae (8)	0.5	#000000	normal	1	0
+N732	f__Synechococcaceae_1 (8)	0.5	#000000	normal	1	0
+N739	g__Deinococcus (21)	0.5	#000000	normal	1	0
+N744	g__Thermaerobacter (2)	0.5	#000000	normal	1	0
+N749	g__Halothermothrix (2)	0.5	#000000	normal	1	0
+N753	p__Firmicutes_2 (653)	0.5	#000000	normal	1	0
+N755	s__Fusobacterium nucleatum (3)	0.5	#000000	normal	1	0
+N769	g__Spirochaeta (10)	0.5	#000000	normal	1	0
+N775	n__FCB group (1013)	0.5	#000000	normal	1	0
+N782	p__Proteobacteria_1 (2552)	0.5	#000000	normal	1	0
+N791	f__Nitrosopumilaceae (21)	0.5	#000000	normal	1	0
+N793	g__Thermoproteus (5)	0.5	#000000	normal	1	0
+N794	g__Pyrobaculum (8)	0.5	#000000	normal	1	0
+N796	g__Vulcanisaeta (14)	0.5	#000000	normal	1	0
+N797	o__Desulfurococcales_4 (2)	0.5	#000000	normal	1	0
+N799	f__Sulfolobaceae (94)	0.5	#000000	normal	1	0
+N821	f__Haloarculaceae_1 (10)	0.5	#000000	normal	1	0
+N824	g__Geoglobus (2)	0.5	#000000	normal	1	0
+N828	g__Methanofollis (2)	0.5	#000000	normal	1	0
+N829	g__Methanoculleus (13)	0.5	#000000	normal	1	0
+N832	s__Methanosaeta harundinacea (4)	0.5	#000000	normal	1	0
+N833	f__Ca. Methanoperedenaceae (2)	0.5	#000000	normal	1	0
+N834	f__Methanosarcinaceae (71)	0.5	#000000	normal	1	0
+N897	s__Jonquetella anthropi (2)	0.5	#000000	normal	1	0
+N899	g__Aminobacterium (3)	0.5	#000000	normal	1	0
+N900	s__Thermovirga lienii (2)	0.5	#000000	normal	1	0
+N911	o__Synechococcales_5 (6)	0.5	#000000	normal	1	0
+N916	p__Chloroflexi (149)	0.5	#000000	normal	1	0
+N917	g__Meiothermus (6)	0.5	#000000	normal	1	0
+N918	g__Thermus (11)	0.5	#000000	normal	1	0
+N928	s__Fuchsiella alkaliacetigena (3)	0.5	#000000	normal	1	0
+N929	g__Halanaerobium (7)	0.5	#000000	normal	1	0
+N931	o__Veillonellales (25)	0.5	#000000	normal	1	0
+N933	c__Clostridia_10 (9)	0.5	#000000	normal	1	0
+N946	s__Borreliella burgdorferi (2)	0.5	#000000	normal	1	0
+N948	g__Sphaerochaeta (7)	0.5	#000000	normal	1	0
+N949	s__Spirochaeta thermophila (2)	0.5	#000000	normal	1	0
+N952	g__Treponema (32)	0.5	#000000	normal	1	0
+N966	p__Proteobacteria_2 (115)	0.5	#000000	normal	1	0
+N970	c__Alphaproteobacteria (893)	0.5	#000000	normal	1	0
+N976	g__Ca. Nitrosoarchaeum (3)	0.5	#000000	normal	1	0
+N977	g__Nitrosopumilus (18)	0.5	#000000	normal	1	0
+N981	g__Caldivirga (3)	0.5	#000000	normal	1	0
+N986	s__Methanococcus maripaludis (3)	0.5	#000000	normal	1	0
+N992	s__Acidiplasma aeolicum (2)	0.5	#000000	normal	1	0
+N995	g__Haloferax (5)	0.5	#000000	normal	1	0
+N997	g__Halolamina (2)	0.5	#000000	normal	1	0
+N1007	s__Archaeoglobus fulgidus (4)	0.5	#000000	normal	1	0
+N1009	g__Methanoregula (2)	0.5	#000000	normal	1	0
+N1050	o__Ca. Peribacterales (5)	0.5	#000000	normal	1	0
+N1083	g__Thermanaerovibrio (2)	0.5	#000000	normal	1	0
+N1084	g__Cloacibacillus (3)	0.5	#000000	normal	1	0
+N1091	f__Synechococcaceae_2 (6)	0.5	#000000	normal	1	0
+N1094	o__Synechococcales_6 (4)	0.5	#000000	normal	1	0
+N1116	o__Acidaminococcales (12)	0.5	#000000	normal	1	0
+N1117	o__Selenomonadales (36)	0.5	#000000	normal	1	0
+N1122	p__Firmicutes_7 (16)	0.5	#000000	normal	1	0
+N1130	s__Borreliella garinii (19)	0.5	#000000	normal	1	0
+N1145	n__PVC group (273)	0.5	#000000	normal	1	0
+N1153	c__Deltaproteobacteria_6 (5)	0.5	#000000	normal	1	0
+N1154	c__Epsilonproteobacteria (110)	0.5	#000000	normal	1	0
+N1158	p__Acidobacteria (56)	0.5	#000000	normal	1	0
+N1159	p__Proteobacteria_4 (66)	0.5	#000000	normal	1	0
+N1166	s__Ca. Nitrosoarchaeum limnia (2)	0.5	#000000	normal	1	0
+N1175	o__Desulfurococcales_1 (9)	0.5	#000000	normal	1	0
+N1179	s__Sulfolobus acidocaldarius (49)	0.5	#000000	normal	1	0
+N1182	s__Methanobrevibacter smithii (6)	0.5	#000000	normal	1	0
+N1195	g__Halorhabdus (2)	0.5	#000000	normal	1	0
+N1202	g__Methanolacinia (2)	0.5	#000000	normal	1	0
+N1295	s__Prochlorococcus marinus (51)	0.5	#000000	normal	1	0
+N1298	s__Synechococcus elongatus (3)	0.5	#000000	normal	1	0
+N1299	o__Synechococcales_4 (6)	0.5	#000000	normal	1	0
+N1312	o__Eggerthellales (20)	0.5	#000000	normal	1	0
+N1313	o__Coriobacteriales (43)	0.5	#000000	normal	1	0
+N1319	o__Clostridiales_3 (54)	0.5	#000000	normal	1	0
+N1320	g__Dialister (8)	0.5	#000000	normal	1	0
+N1321	g__Veillonella (8)	0.5	#000000	normal	1	0
+N1322	g__Megasphaera (8)	0.5	#000000	normal	1	0
+N1324	f__Sporomusaceae (11)	0.5	#000000	normal	1	0
+N1325	f__Selenomonadaceae (25)	0.5	#000000	normal	1	0
+N1326	g__Tepidanaerobacter (4)	0.5	#000000	normal	1	0
+N1328	f__Thermoanaerobacterales Family III. Incertae Sedis_1 (10)	0.5	#000000	normal	1	0
+N1331	c__Clostridia_1 (412)	0.5	#000000	normal	1	0
+N1333	f__Alicyclobacillaceae (15)	0.5	#000000	normal	1	0
+N1337	s__Borrelia duttonii (3)	0.5	#000000	normal	1	0
+N1339	s__Borrelia hermsii (7)	0.5	#000000	normal	1	0
+N1373	g__Hippea (4)	0.5	#000000	normal	1	0
+N1374	o__Nautiliales (3)	0.5	#000000	normal	1	0
+N1380	c__Holophagae (3)	0.5	#000000	normal	1	0
+N1386	o__Holosporales_2 (2)	0.5	#000000	normal	1	0
+N1400	g__Staphylothermus (2)	0.5	#000000	normal	1	0
+N1404	g__Metallosphaera (10)	0.5	#000000	normal	1	0
+N1406	g__Sulfolobus_2 (28)	0.5	#000000	normal	1	0
+N1411	s__Methanobacterium formicicum (5)	0.5	#000000	normal	1	0
+N1412	g__Ca. Methanomethylophilus (3)	0.5	#000000	normal	1	0
+N1414	g__Halogeometricum (2)	0.5	#000000	normal	1	0
+N1415	g__Haloquadratum (5)	0.5	#000000	normal	1	0
+N1418	g__Halostagnicola (2)	0.5	#000000	normal	1	0
+N1420	s__Methanoculleus bourgensis (2)	0.5	#000000	normal	1	0
+N1422	s__Methanoculleus marisnigri (2)	0.5	#000000	normal	1	0
+N1518	g__Cyanobium (3)	0.5	#000000	normal	1	0
+N1525	f__Acaryochloridaceae (2)	0.5	#000000	normal	1	0
+N1526	f__Synechococcaceae_4 (4)	0.5	#000000	normal	1	0
+N1527	o__Synechococcales_8 (2)	0.5	#000000	normal	1	0
+N1535	o__Thermogemmatisporales (2)	0.5	#000000	normal	1	0
+N1536	o__Ktedonobacterales (6)	0.5	#000000	normal	1	0
+N1544	g__Slackia (3)	0.5	#000000	normal	1	0
+N1546	f__Coriobacteriaceae (11)	0.5	#000000	normal	1	0
+N1547	f__Atopobiaceae (32)	0.5	#000000	normal	1	0
+N1553	o__Thermoanaerobacterales_3 (5)	0.5	#000000	normal	1	0
+N1554	o__Clostridiales_9 (8)	0.5	#000000	normal	1	0
+N1563	g__Acidaminococcus (6)	0.5	#000000	normal	1	0
+N1573	c__Clostridia_2 (83)	0.5	#000000	normal	1	0
+N1579	p__Firmicutes_3 (156)	0.5	#000000	normal	1	0
+N1582	s__Leptospira noguchii (3)	0.5	#000000	normal	1	0
+N1592	s__Treponema primitia (2)	0.5	#000000	normal	1	0
+N1602	p__Planctomycetes (63)	0.5	#000000	normal	1	0
+N1604	p__Chlamydiae (106)	0.5	#000000	normal	1	0
+N1617	o__Desulfurobacteriales (4)	0.5	#000000	normal	1	0
+N1618	o__Aquificales (12)	0.5	#000000	normal	1	0
+N1621	f__Helicobacteraceae_1 (32)	0.5	#000000	normal	1	0
+N1627	f__Holophagaceae (2)	0.5	#000000	normal	1	0
+N1632	o__Bdellovibrionales (37)	0.5	#000000	normal	1	0
+N1639	o__Acidithiobacillales (20)	0.5	#000000	normal	1	0
+N1641	c__Gammaproteobacteria (1295)	0.5	#000000	normal	1	0
+N1648	o__Desulfurococcales_2 (4)	0.5	#000000	normal	1	0
+N1650	g__Acidianus (2)	0.5	#000000	normal	1	0
+N1651	s__Sulfolobales archaeon AZ1 (2)	0.5	#000000	normal	1	0
+N1661	s__Haloquadratum walsbyi (4)	0.5	#000000	normal	1	0
+N1662	g__Halorubrum (9)	0.5	#000000	normal	1	0
+N1663	g__Haloarcula (4)	0.5	#000000	normal	1	0
+N1667	g__Methanolobus (5)	0.5	#000000	normal	1	0
+N1668	g__Methanococcoides (4)	0.5	#000000	normal	1	0
+N1669	g__Methanohalophilus (7)	0.5	#000000	normal	1	0
+N1777	s__Chthonomonas calidirosea (4)	0.5	#000000	normal	1	0
+N1779	o__Herpetosiphonales (3)	0.5	#000000	normal	1	0
+N1780	o__Chloroflexales (9)	0.5	#000000	normal	1	0
+N1798	g__Collinsella (8)	0.5	#000000	normal	1	0
+N1802	f__Acidimicrobiaceae_2 (7)	0.5	#000000	normal	1	0
+N1803	f__Acidimicrobiaceae_1 (14)	0.5	#000000	normal	1	0
+N1804	c__Actinobacteria (990)	0.5	#000000	normal	1	0
+N1808	g__Moorella (2)	0.5	#000000	normal	1	0
+N1817	g__Phascolarctobacterium (4)	0.5	#000000	normal	1	0
+N1822	g__Megamonas (2)	0.5	#000000	normal	1	0
+N1829	f__Thermoanaerobacteraceae_4 (2)	0.5	#000000	normal	1	0
+N1833	c__Clostridia_11 (8)	0.5	#000000	normal	1	0
+N1843	p__Firmicutes_1 (856)	0.5	#000000	normal	1	0
+N1844	s__Leptospira santarosai (2)	0.5	#000000	normal	1	0
+N1847	s__Leptospira kirschneri (3)	0.5	#000000	normal	1	0
+N1848	s__Leptospira interrogans (4)	0.5	#000000	normal	1	0
+N1864	p__Lentisphaerae (10)	0.5	#000000	normal	1	0
+N1865	p__Verrucomicrobia (55)	0.5	#000000	normal	1	0
+N1876	p__Fibrobacteres (26)	0.5	#000000	normal	1	0
+N1883	f__Hydrogenothermaceae (5)	0.5	#000000	normal	1	0
+N1884	f__Aquificaceae (7)	0.5	#000000	normal	1	0
+N1888	f__Campylobacteraceae_1 (30)	0.5	#000000	normal	1	0
+N1896	o__Myxococcales (24)	0.5	#000000	normal	1	0
+N1897	f__Bdellovibrionaceae (13)	0.5	#000000	normal	1	0
+N1898	f__Bacteriovoracaceae (24)	0.5	#000000	normal	1	0
+N1904	o__Pelagibacterales (19)	0.5	#000000	normal	1	0
+N1909	g__Acidithiobacillus (19)	0.5	#000000	normal	1	0
+N1911	c__Betaproteobacteria (334)	0.5	#000000	normal	1	0
+N1919	s__Vulcanisaeta distributa (6)	0.5	#000000	normal	1	0
+N1920	g__Desulfurococcus (5)	0.5	#000000	normal	1	0
+N1922	o__Desulfurococcales_3 (3)	0.5	#000000	normal	1	0
+N1923	o__Acidilobales (6)	0.5	#000000	normal	1	0
+N1925	s__Sulfolobus solfataricus (7)	0.5	#000000	normal	1	0
+N1926	s__Sulfolobus islandicus (20)	0.5	#000000	normal	1	0
+N1940	s__Methanococcoides methylutens (3)	0.5	#000000	normal	1	0
+N1946	s__Methanosarcina mazei (25)	0.5	#000000	normal	1	0
+N2047	g__Thermosynechococcus (2)	0.5	#000000	normal	1	0
+N2050	o__Synechococcales_2 (10)	0.5	#000000	normal	1	0
+N2053	c__Thermomicrobia (4)	0.5	#000000	normal	1	0
+N2054	g__Herpetosiphon (2)	0.5	#000000	normal	1	0
+N2055	f__Roseiflexaceae (3)	0.5	#000000	normal	1	0
+N2056	f__Chloroflexaceae (6)	0.5	#000000	normal	1	0
+N2066	g__Eggerthella (4)	0.5	#000000	normal	1	0
+N2067	g__Denitrobacterium (4)	0.5	#000000	normal	1	0
+N2070	g__Enorma (2)	0.5	#000000	normal	1	0
+N2073	g__Atopobium_2 (6)	0.5	#000000	normal	1	0
+N2084	s__Thermacetogenium phaeum (2)	0.5	#000000	normal	1	0
+N2085	g__Syntrophomonas (6)	0.5	#000000	normal	1	0
+N2086	g__Carboxydothermus (2)	0.5	#000000	normal	1	0
+N2088	g__Desulfitibacter (2)	0.5	#000000	normal	1	0
+N2098	s__Phascolarctobacterium succinatutens (2)	0.5	#000000	normal	1	0
+N2100	s__Acidaminococcus fermentans (3)	0.5	#000000	normal	1	0
+N2104	g__Anaerovibrio (2)	0.5	#000000	normal	1	0
+N2109	f__Thermoanaerobacterales Family III. Incertae Sedis_2 (2)	0.5	#000000	normal	1	0
+N2110	f__Thermoanaerobacteraceae_1 (10)	0.5	#000000	normal	1	0
+N2125	g__Alicyclobacillus (11)	0.5	#000000	normal	1	0
+N2128	p__Firmicutes_9 (5)	0.5	#000000	normal	1	0
+N2130	o__Bacillales_6 (9)	0.5	#000000	normal	1	0
+N2144	s__Treponema endosymbiont of Eucomonympha sp. (4)	0.5	#000000	normal	1	0
+N2172	g__Persephonella (2)	0.5	#000000	normal	1	0
+N2173	g__Sulfurihydrogenibium (3)	0.5	#000000	normal	1	0
+N2177	g__Sulfurospirillum (9)	0.5	#000000	normal	1	0
+N2178	g__Campylobacter (21)	0.5	#000000	normal	1	0
+N2202	o__Ferrovales (2)	0.5	#000000	normal	1	0
+N2213	g__Pyrodictium (2)	0.5	#000000	normal	1	0
+N2214	s__Aeropyrum camini (2)	0.5	#000000	normal	1	0
+N2215	g__Acidilobus (5)	0.5	#000000	normal	1	0
+N2216	s__Metallosphaera sedula (7)	0.5	#000000	normal	1	0
+N2229	g__Natronococcus (3)	0.5	#000000	normal	1	0
+N2230	g__Natrialba (3)	0.5	#000000	normal	1	0
+N2235	s__Methanohalophilus halophilus (2)	0.5	#000000	normal	1	0
+N2237	s__Methanosarcina thermophila (4)	0.5	#000000	normal	1	0
+N2241	s__Methanosarcina siciliae (3)	0.5	#000000	normal	1	0
+N2346	f__Leptolyngbyaceae (9)	0.5	#000000	normal	1	0
+N2347	o__Oscillatoriales_3 (4)	0.5	#000000	normal	1	0
+N2351	f__Sphaerobacteraceae (2)	0.5	#000000	normal	1	0
+N2352	g__Roseiflexus (2)	0.5	#000000	normal	1	0
+N2353	g__Chloroflexus (5)	0.5	#000000	normal	1	0
+N2365	s__Denitrobacterium detoxificans (2)	0.5	#000000	normal	1	0
+N2369	s__Collinsella aerofaciens (4)	0.5	#000000	normal	1	0
+N2371	g__Atopobium_1 (10)	0.5	#000000	normal	1	0
+N2386	s__Veillonella parvula (2)	0.5	#000000	normal	1	0
+N2388	g__Pelosinus (2)	0.5	#000000	normal	1	0
+N2394	g__Caldanaerobacter (4)	0.5	#000000	normal	1	0
+N2395	g__Thermoanaerobacter (6)	0.5	#000000	normal	1	0
+N2397	g__Ca. Arthromitus (12)	0.5	#000000	normal	1	0
+N2402	c__Clostridia_8 (16)	0.5	#000000	normal	1	0
+N2405	f__Christensenellaceae (4)	0.5	#000000	normal	1	0
+N2409	f__Ruminococcaceae_2 (19)	0.5	#000000	normal	1	0
+N2418	f__Thermoactinomycetaceae (19)	0.5	#000000	normal	1	0
+N2420	s__Turicibacter sanguinis (4)	0.5	#000000	normal	1	0
+N2425	o__Bacillales_1 (281)	0.5	#000000	normal	1	0
+N2427	s__Leptospira weilii (2)	0.5	#000000	normal	1	0
+N2435	s__Treponema socranskii (3)	0.5	#000000	normal	1	0
+N2442	f__Planctomycetaceae (25)	0.5	#000000	normal	1	0
+N2445	o__Opitutales (7)	0.5	#000000	normal	1	0
+N2446	o__Puniceicoccales (9)	0.5	#000000	normal	1	0
+N2449	o__Parachlamydiales (13)	0.5	#000000	normal	1	0
+N2451	s__Chlamydia trachomatis (2)	0.5	#000000	normal	1	0
+N2463	f__Gemmatimonadaceae (5)	0.5	#000000	normal	1	0
+N2481	f__Campylobacteraceae_2 (8)	0.5	#000000	normal	1	0
+N2496	s__Leptospirillum ferriphilum (5)	0.5	#000000	normal	1	0
+N2505	s__Ca. Pelagibacter ubique (13)	0.5	#000000	normal	1	0
+N2508	f__Anaplasmataceae (47)	0.5	#000000	normal	1	0
+N2509	o__Holosporales_1 (5)	0.5	#000000	normal	1	0
+N2513	s__Acidithiobacillus thiooxidans (11)	0.5	#000000	normal	1	0
+N2518	o__Cardiobacteriales (5)	0.5	#000000	normal	1	0
+N2546	s__Methanosarcina barkeri (7)	0.5	#000000	normal	1	0
+N2652	g__Enterorhabdus (2)	0.5	#000000	normal	1	0
+N2655	s__Atopobium minutum (4)	0.5	#000000	normal	1	0
+N2665	o__Frankiales (8)	0.5	#000000	normal	1	0
+N2671	g__Desulfotomaculum (18)	0.5	#000000	normal	1	0
+N2679	g__Proteiniclasticum (3)	0.5	#000000	normal	1	0
+N2681	g__Acetobacterium (3)	0.5	#000000	normal	1	0
+N2683	c__Clostridia_7 (17)	0.5	#000000	normal	1	0
+N2685	f__Peptostreptococcaceae (23)	0.5	#000000	normal	1	0
+N2717	p__Firmicutes_5 (65)	0.5	#000000	normal	1	0
+N2718	s__Exiguobacterium aurantiacum (3)	0.5	#000000	normal	1	0
+N2721	f__Sporolactobacillaceae (5)	0.5	#000000	normal	1	0
+N2723	o__Bacillales_3 (54)	0.5	#000000	normal	1	0
+N2729	s__Treponema bryantii (3)	0.5	#000000	normal	1	0
+N2735	f__Gemmataceae (2)	0.5	#000000	normal	1	0
+N2736	f__Isosphaeraceae (4)	0.5	#000000	normal	1	0
+N2741	f__Opitutaceae (6)	0.5	#000000	normal	1	0
+N2750	s__Chlamydia muridarum (7)	0.5	#000000	normal	1	0
+N2751	s__Chlamydia pecorum (11)	0.5	#000000	normal	1	0
+N2752	s__Chlamydia pneumoniae (13)	0.5	#000000	normal	1	0
+N2762	g__Fibrobacter (16)	0.5	#000000	normal	1	0
+N2767	g__Hydrogenobacter (2)	0.5	#000000	normal	1	0
+N2768	g__Thermocrinis (3)	0.5	#000000	normal	1	0
+N2789	f__Nannocystaceae (3)	0.5	#000000	normal	1	0
+N2790	f__Polyangiaceae (7)	0.5	#000000	normal	1	0
+N2791	f__Anaeromyxobacteraceae (2)	0.5	#000000	normal	1	0
+N2794	s__Bdellovibrio bacteriovorus (8)	0.5	#000000	normal	1	0
+N2809	p__Proteobacteria_5 (60)	0.5	#000000	normal	1	0
+N2816	f__Ca. Midichloriaceae (3)	0.5	#000000	normal	1	0
+N2824	s__Acidithiobacillus ferrivorans (2)	0.5	#000000	normal	1	0
+N2830	o__Rhodocyclales (25)	0.5	#000000	normal	1	0
+N2831	o__Burkholderiales (198)	0.5	#000000	normal	1	0
+N2835	g__Wohlfahrtiimonas (5)	0.5	#000000	normal	1	0
+N2951	o__Anaerolineales (19)	0.5	#000000	normal	1	0
+N2961	s__Atopobium parvulum (4)	0.5	#000000	normal	1	0
+N2963	g__Atopobium_3 (5)	0.5	#000000	normal	1	0
+N2964	g__Olsenella (9)	0.5	#000000	normal	1	0
+N2965	s__Ferrimicrobium acidiphilum (2)	0.5	#000000	normal	1	0
+N2968	g__Ilumatobacter (2)	0.5	#000000	normal	1	0
+N2969	g__Acidimicrobium (3)	0.5	#000000	normal	1	0
+N2987	g__Selenomonas_2 (6)	0.5	#000000	normal	1	0
+N2991	g__Caloramator (4)	0.5	#000000	normal	1	0
+N2993	s__Proteiniclasticum ruminis (2)	0.5	#000000	normal	1	0
+N2998	f__Clostridiaceae_2 (7)	0.5	#000000	normal	1	0
+N3019	g__Anaerostipes (4)	0.5	#000000	normal	1	0
+N3033	o__Acholeplasmatales_2 (7)	0.5	#000000	normal	1	0
+N3035	o__Mycoplasmatales (4)	0.5	#000000	normal	1	0
+N3036	o__Entomoplasmatales (17)	0.5	#000000	normal	1	0
+N3040	s__Exiguobacterium enclense (2)	0.5	#000000	normal	1	0
+N3042	g__Sporolactobacillus (3)	0.5	#000000	normal	1	0
+N3043	f__Bacillaceae_3 (45)	0.5	#000000	normal	1	0
+N3045	g__Gemella (3)	0.5	#000000	normal	1	0
+N3047	o__Bacillales_4 (23)	0.5	#000000	normal	1	0
+N3048	o__Lactobacillales (489)	0.5	#000000	normal	1	0
+N3071	f__Waddliaceae (2)	0.5	#000000	normal	1	0
+N3072	f__Parachlamydiaceae (10)	0.5	#000000	normal	1	0
+N3082	g__Gemmatimonas (2)	0.5	#000000	normal	1	0
+N3108	f__Helicobacteraceae_2 (28)	0.5	#000000	normal	1	0
+N3124	g__Bacteriovorax (5)	0.5	#000000	normal	1	0
+N3131	g__Nitrospina (7)	0.5	#000000	normal	1	0
+N3151	g__Neorickettsia (4)	0.5	#000000	normal	1	0
+N3152	g__Wolbachia (10)	0.5	#000000	normal	1	0
+N3154	g__Ca. Paracaedibacter (3)	0.5	#000000	normal	1	0
+N3161	s__Acidithiobacillus ferrooxidans (4)	0.5	#000000	normal	1	0
+N3164	o__Hydrogenophilales (3)	0.5	#000000	normal	1	0
+N3172	g__Cardiobacterium (2)	0.5	#000000	normal	1	0
+N3173	s__Wohlfahrtiimonas chitiniclastica (4)	0.5	#000000	normal	1	0
+N3179	o__Thiotrichales_2 (24)	0.5	#000000	normal	1	0
+N3192	g__Natronorubrum (3)	0.5	#000000	normal	1	0
+N3193	g__Natrinema (3)	0.5	#000000	normal	1	0
+N3278	o__Spirulinales (3)	0.5	#000000	normal	1	0
+N3280	o__Oscillatoriales_1 (23)	0.5	#000000	normal	1	0
+N3307	o__Geodermatophilales (12)	0.5	#000000	normal	1	0
+N3309	o__Nakamurellales (2)	0.5	#000000	normal	1	0
+N3311	o__Jiangellales (3)	0.5	#000000	normal	1	0
+N3314	o__Kineosporiales (3)	0.5	#000000	normal	1	0
+N3315	o__Micrococcales_2 (45)	0.5	#000000	normal	1	0
+N3316	o__Micrococcales_1 (150)	0.5	#000000	normal	1	0
+N3318	s__Syntrophomonas wolfei (2)	0.5	#000000	normal	1	0
+N3322	g__Desulfitobacterium (6)	0.5	#000000	normal	1	0
+N3323	g__Desulfosporosinus (9)	0.5	#000000	normal	1	0
+N3336	g__Alkaliphilus (6)	0.5	#000000	normal	1	0
+N3337	f__Clostridiales Family XII. Incertae Sedis (3)	0.5	#000000	normal	1	0
+N3341	g__Peptoclostridium (2)	0.5	#000000	normal	1	0
+N3346	f__Clostridiaceae_4 (4)	0.5	#000000	normal	1	0
+N3348	g__Peptoniphilus (15)	0.5	#000000	normal	1	0
+N3353	g__Ruminiclostridium (6)	0.5	#000000	normal	1	0
+N3354	g__Pseudobacteroides (7)	0.5	#000000	normal	1	0
+N3356	f__Clostridiaceae_3 (5)	0.5	#000000	normal	1	0
+N3361	f__Lachnospiraceae_2 (3)	0.5	#000000	normal	1	0
+N3362	g__Epulopiscium (5)	0.5	#000000	normal	1	0
+N3370	g__Butyrivibrio_2 (14)	0.5	#000000	normal	1	0
+N3372	s__Alicyclobacillus hesperidum (2)	0.5	#000000	normal	1	0
+N3383	g__Ca. Izimaplasma (2)	0.5	#000000	normal	1	0
+N3384	o__Acholeplasmatales_1 (37)	0.5	#000000	normal	1	0
+N3399	g__Brochothrix (2)	0.5	#000000	normal	1	0
+N3400	g__Listeria (21)	0.5	#000000	normal	1	0
+N3411	g__Planctopirus (2)	0.5	#000000	normal	1	0
+N3421	g__Methylacidiphilum (3)	0.5	#000000	normal	1	0
+N3422	c__Spartobacteria (2)	0.5	#000000	normal	1	0
+N3434	s__Chlamydia gallinacea (2)	0.5	#000000	normal	1	0
+N3436	s__Chlamydia psittaci (36)	0.5	#000000	normal	1	0
+N3456	s__Campylobacter coli (5)	0.5	#000000	normal	1	0
+N3464	c__Solibacteres (3)	0.5	#000000	normal	1	0
+N3488	p__Proteobacteria_3 (77)	0.5	#000000	normal	1	0
+N3495	f__Rickettsiaceae (29)	0.5	#000000	normal	1	0
+N3499	g__Anaplasma (25)	0.5	#000000	normal	1	0
+N3508	f__Chromobacteriaceae_2 (12)	0.5	#000000	normal	1	0
+N3511	o__Methylophilales (16)	0.5	#000000	normal	1	0
+N3517	f__Sutterellaceae (11)	0.5	#000000	normal	1	0
+N3538	g__Halobiforma (2)	0.5	#000000	normal	1	0
+N3616	g__Spirulina (2)	0.5	#000000	normal	1	0
+N3617	o__Synechococcales_7 (3)	0.5	#000000	normal	1	0
+N3619	f__Oscillatoriaceae_2 (3)	0.5	#000000	normal	1	0
+N3620	f__Microcoleaceae (20)	0.5	#000000	normal	1	0
+N3633	g__Dehalogenimonas (4)	0.5	#000000	normal	1	0
+N3634	o__Dehalococcoidales (27)	0.5	#000000	normal	1	0
+N3636	s__Atopobium rimae (2)	0.5	#000000	normal	1	0
+N3640	s__Olsenella umbonata (2)	0.5	#000000	normal	1	0
+N3641	s__Olsenella uli (3)	0.5	#000000	normal	1	0
+N3651	f__Geodermatophilaceae (10)	0.5	#000000	normal	1	0
+N3654	o__Corynebacteriales (270)	0.5	#000000	normal	1	0
+N3657	o__Streptosporangiales (39)	0.5	#000000	normal	1	0
+N3663	o__Micrococcales_4 (8)	0.5	#000000	normal	1	0
+N3670	s__Selenomonas artemidis (2)	0.5	#000000	normal	1	0
+N3688	g__Gottschalkia (2)	0.5	#000000	normal	1	0
+N3694	g__Anaerococcus (9)	0.5	#000000	normal	1	0
+N3697	s__Pseudobacteroides cellulosolvens (2)	0.5	#000000	normal	1	0
+N3701	g__Butyricicoccus (4)	0.5	#000000	normal	1	0
+N3709	g__Cellulosilyticum (2)	0.5	#000000	normal	1	0
+N3728	g__Aneurinibacillus (11)	0.5	#000000	normal	1	0
+N3729	g__Brevibacillus (26)	0.5	#000000	normal	1	0
+N3739	f__Entomoplasmataceae (3)	0.5	#000000	normal	1	0
+N3740	f__Spiroplasmataceae (7)	0.5	#000000	normal	1	0
+N3744	g__Erysipelothrix (3)	0.5	#000000	normal	1	0
+N3746	g__Fictibacillus (3)	0.5	#000000	normal	1	0
+N3752	g__Staphylococcus (38)	0.5	#000000	normal	1	0
+N3755	f__Carnobacteriaceae_1 (22)	0.5	#000000	normal	1	0
+N3771	f__Rubritaleaceae (8)	0.5	#000000	normal	1	0
+N3772	f__Akkermansiaceae (12)	0.5	#000000	normal	1	0
+N3790	g__Caldithrix (2)	0.5	#000000	normal	1	0
+N3795	p__Ignavibacteriae (23)	0.5	#000000	normal	1	0
+N3799	p__Bacteroidetes_1 (835)	0.5	#000000	normal	1	0
+N3803	s__Helicobacter cetorum (2)	0.5	#000000	normal	1	0
+N3807	g__Sulfurovum (5)	0.5	#000000	normal	1	0
+N3808	g__Sulfuricurvum (10)	0.5	#000000	normal	1	0
+N3809	g__Sulfurimonas (17)	0.5	#000000	normal	1	0
+N3815	f__Acidobacteriaceae (17)	0.5	#000000	normal	1	0
+N3816	g__Chondromyces (2)	0.5	#000000	normal	1	0
+N3817	f__Archangiaceae (2)	0.5	#000000	normal	1	0
+N3818	f__Myxococcaceae (4)	0.5	#000000	normal	1	0
+N3831	g__Thermodesulfovibrio (2)	0.5	#000000	normal	1	0
+N3838	f__Desulfohalobiaceae (6)	0.5	#000000	normal	1	0
+N3839	f__Desulfonatronaceae (3)	0.5	#000000	normal	1	0
+N3840	f__Desulfovibrionaceae (45)	0.5	#000000	normal	1	0
+N3842	p__Proteobacteria_7 (19)	0.5	#000000	normal	1	0
+N3843	p__Proteobacteria_6 (47)	0.5	#000000	normal	1	0
+N3846	g__Rickettsia (19)	0.5	#000000	normal	1	0
+N3850	g__Ehrlichia (6)	0.5	#000000	normal	1	0
+N3851	s__Anaplasma phagocytophilum (12)	0.5	#000000	normal	1	0
+N3860	f__Chromobacteriaceae_1 (14)	0.5	#000000	normal	1	0
+N3861	f__Neisseriaceae (26)	0.5	#000000	normal	1	0
+N3863	f__Methylophilaceae (12)	0.5	#000000	normal	1	0
+N3864	o__Gallionellales (9)	0.5	#000000	normal	1	0
+N3865	o__Nitrosomonadales (28)	0.5	#000000	normal	1	0
+N3869	g__Methyloversatilis (3)	0.5	#000000	normal	1	0
+N3872	g__Sutterella (7)	0.5	#000000	normal	1	0
+N3881	o__Chromatiales_4 (2)	0.5	#000000	normal	1	0
+N3888	o__Thiotrichales_1 (80)	0.5	#000000	normal	1	0
+N3889	o__Legionellales (117)	0.5	#000000	normal	1	0
+N3964	s__Phormidesmis priestleyi (2)	0.5	#000000	normal	1	0
+N3972	o__Oscillatoriales_2 (6)	0.5	#000000	normal	1	0
+N3979	s__Chloroflexi bacterium oral taxon 439 (2)	0.5	#000000	normal	1	0
+N3980	f__Anaerolineaceae (12)	0.5	#000000	normal	1	0
+N3996	g__Modestobacter (4)	0.5	#000000	normal	1	0
+N3998	o__Glycomycetales (5)	0.5	#000000	normal	1	0
+N3999	o__Micromonosporales (21)	0.5	#000000	normal	1	0
+N4000	o__Pseudonocardiales_2 (8)	0.5	#000000	normal	1	0
+N4004	f__Propionibacteriaceae (26)	0.5	#000000	normal	1	0
+N4005	f__Nocardioidaceae (31)	0.5	#000000	normal	1	0
+N4006	f__Nocardiopsaceae (18)	0.5	#000000	normal	1	0
+N4009	f__Intrasporangiaceae_2 (4)	0.5	#000000	normal	1	0
+N4011	f__Brevibacteriaceae (7)	0.5	#000000	normal	1	0
+N4016	o__Micrococcales_3 (31)	0.5	#000000	normal	1	0
+N4024	g__Mitsuokella (2)	0.5	#000000	normal	1	0
+N4025	g__Selenomonas_1 (8)	0.5	#000000	normal	1	0
+N4039	g__Peptoanaerobacter (2)	0.5	#000000	normal	1	0
+N4043	g__Caloranaerobacter (2)	0.5	#000000	normal	1	0
+N4046	g__Helcococcus (2)	0.5	#000000	normal	1	0
+N4064	g__Coprococcus (4)	0.5	#000000	normal	1	0
+N4071	g__Oribacterium (8)	0.5	#000000	normal	1	0
+N4072	g__Lachnoclostridium_2 (3)	0.5	#000000	normal	1	0
+N4083	s__Brevibacillus laterosporus (5)	0.5	#000000	normal	1	0
+N4090	s__Acholeplasmatales bacterium DTU067 (2)	0.5	#000000	normal	1	0
+N4095	g__Entomoplasma (2)	0.5	#000000	normal	1	0
+N4105	g__Bacillus_2 (16)	0.5	#000000	normal	1	0
+N4117	g__Carnobacterium (14)	0.5	#000000	normal	1	0
+N4118	f__Carnobacteriaceae_2 (6)	0.5	#000000	normal	1	0
+N4128	f__Ca. Brocadiaceae (2)	0.5	#000000	normal	1	0
+N4136	s__Akkermansia glycaniphila (2)	0.5	#000000	normal	1	0
+N4149	s__Fibrobacter succinogenes (2)	0.5	#000000	normal	1	0
+N4160	p__Bacteroidetes_2 (3)	0.5	#000000	normal	1	0
+N4165	s__Helicobacter pylori (5)	0.5	#000000	normal	1	0
+N4175	g__Myxococcus (3)	0.5	#000000	normal	1	0
+N4185	g__Nitrospira (4)	0.5	#000000	normal	1	0
+N4192	f__Desulfomicrobiaceae (3)	0.5	#000000	normal	1	0
+N4193	g__Desulfonauticus (3)	0.5	#000000	normal	1	0
+N4197	g__Desulfovibrio_1 (24)	0.5	#000000	normal	1	0
+N4198	f__Thermodesulfobacteriaceae (10)	0.5	#000000	normal	1	0
+N4200	f__Desulfobulbaceae (14)	0.5	#000000	normal	1	0
+N4201	o__Desulfarculales (4)	0.5	#000000	normal	1	0
+N4205	g__Orientia (9)	0.5	#000000	normal	1	0
+N4206	s__Rickettsia bellii (3)	0.5	#000000	normal	1	0
+N4214	s__Anaplasma marginale (12)	0.5	#000000	normal	1	0
+N4218	o__Rhodobacterales_1 (184)	0.5	#000000	normal	1	0
+N4224	g__Vitreoscilla (2)	0.5	#000000	normal	1	0
+N4229	f__Gallionellaceae (4)	0.5	#000000	normal	1	0
+N4231	f__Nitrosomonadaceae (27)	0.5	#000000	normal	1	0
+N4236	g__Parasutterella (2)	0.5	#000000	normal	1	0
+N4238	f__Alcaligenaceae (34)	0.5	#000000	normal	1	0
+N4245	f__Competibacteraceae (2)	0.5	#000000	normal	1	0
+N4246	o__Chromatiales_1 (33)	0.5	#000000	normal	1	0
+N4250	g__Thioalkalimicrobium (5)	0.5	#000000	normal	1	0
+N4251	g__Hydrogenovibrio (12)	0.5	#000000	normal	1	0
+N4252	f__Piscirickettsiaceae_1 (25)	0.5	#000000	normal	1	0
+N4253	f__Francisellaceae (55)	0.5	#000000	normal	1	0
+N4256	o__Pseudomonadales_1 (109)	0.5	#000000	normal	1	0
+N4258	o__Oceanospirillales_4 (2)	0.5	#000000	normal	1	0
+N4319	o__Pleurocapsales (4)	0.5	#000000	normal	1	0
+N4323	g__Trichodesmium (2)	0.5	#000000	normal	1	0
+N4330	g__Bellilinea (9)	0.5	#000000	normal	1	0
+N4347	g__Pseudonocardia (7)	0.5	#000000	normal	1	0
+N4349	o__Pseudonocardiales_1 (41)	0.5	#000000	normal	1	0
+N4350	f__Dietziaceae (3)	0.5	#000000	normal	1	0
+N4352	f__Segniliparaceae (2)	0.5	#000000	normal	1	0
+N4356	g__Kribbella (2)	0.5	#000000	normal	1	0
+N4358	g__Nocardiopsis (17)	0.5	#000000	normal	1	0
+N4359	f__Thermomonosporaceae (7)	0.5	#000000	normal	1	0
+N4360	f__Streptosporangiaceae (14)	0.5	#000000	normal	1	0
+N4361	o__Catenulisporales (2)	0.5	#000000	normal	1	0
+N4362	o__Streptomycetales (129)	0.5	#000000	normal	1	0
+N4373	g__Brachybacterium (5)	0.5	#000000	normal	1	0
+N4374	f__Demequinaceae (2)	0.5	#000000	normal	1	0
+N4376	o__Bifidobacteriales (43)	0.5	#000000	normal	1	0
+N4380	s__Desulfitobacterium hafniense (3)	0.5	#000000	normal	1	0
+N4396	g__Peptostreptococcus (3)	0.5	#000000	normal	1	0
+N4404	s__[Clostridium] papyrosolvens (2)	0.5	#000000	normal	1	0
+N4410	f__Oscillospiraceae (10)	0.5	#000000	normal	1	0
+N4421	g__Anaerocolumna (3)	0.5	#000000	normal	1	0
+N4441	g__Thermoactinomyces (4)	0.5	#000000	normal	1	0
+N4446	g__Paenibacillus_2 (16)	0.5	#000000	normal	1	0
+N4447	g__Cohnella (4)	0.5	#000000	normal	1	0
+N4451	f__Acholeplasmataceae (16)	0.5	#000000	normal	1	0
+N4456	g__Erysipelatoclostridium_2 (3)	0.5	#000000	normal	1	0
+N4471	f__Planococcaceae (38)	0.5	#000000	normal	1	0
+N4473	g__Jeotgalicoccus (4)	0.5	#000000	normal	1	0
+N4474	g__Salinicoccus (6)	0.5	#000000	normal	1	0
+N4484	g__Trichococcus (5)	0.5	#000000	normal	1	0
+N4485	f__Carnobacteriaceae_3 (4)	0.5	#000000	normal	1	0
+N4486	f__Aerococcaceae (14)	0.5	#000000	normal	1	0
+N4487	f__Enterococcaceae (31)	0.5	#000000	normal	1	0
+N4488	f__Streptococcaceae (65)	0.5	#000000	normal	1	0
+N4491	f__Lactobacillaceae_3 (31)	0.5	#000000	normal	1	0
+N4503	g__Rubritalea (2)	0.5	#000000	normal	1	0
+N4507	g__Ca. Protochlamydia (3)	0.5	#000000	normal	1	0
+N4520	g__Chlorobaculum (2)	0.5	#000000	normal	1	0
+N4526	c__Flavobacteriia (291)	0.5	#000000	normal	1	0
+N4527	c__Bacteroidia (300)	0.5	#000000	normal	1	0
+N4537	g__Terriglobus (4)	0.5	#000000	normal	1	0
+N4538	g__Granulicella (7)	0.5	#000000	normal	1	0
+N4549	g__Desulfomicrobium (2)	0.5	#000000	normal	1	0
+N4551	g__Desulfonatronovibrio (2)	0.5	#000000	normal	1	0
+N4555	g__Thermodesulfatator (2)	0.5	#000000	normal	1	0
+N4558	g__Desulfobulbus (6)	0.5	#000000	normal	1	0
+N4560	f__Desulfarculaceae (3)	0.5	#000000	normal	1	0
+N4561	o__Syntrophobacterales_2 (6)	0.5	#000000	normal	1	0
+N4562	o__Desulfobacterales_1 (37)	0.5	#000000	normal	1	0
+N4565	s__Orientia tsutsugamushi (8)	0.5	#000000	normal	1	0
+N4567	s__Rickettsia canadensis (2)	0.5	#000000	normal	1	0
+N4578	o__Rhodospirillales_1 (44)	0.5	#000000	normal	1	0
+N4592	g__Methylobacillus (2)	0.5	#000000	normal	1	0
+N4594	g__Sideroxydans (3)	0.5	#000000	normal	1	0
+N4596	g__Nitrosospira (7)	0.5	#000000	normal	1	0
+N4597	g__Nitrosomonas (20)	0.5	#000000	normal	1	0
+N4598	g__Dechloromonas (2)	0.5	#000000	normal	1	0
+N4599	g__Tepidiphilus (2)	0.5	#000000	normal	1	0
+N4608	o__Salinisphaerales (2)	0.5	#000000	normal	1	0
+N4609	o__Nevskiales (8)	0.5	#000000	normal	1	0
+N4613	o__Thiotrichales_3 (13)	0.5	#000000	normal	1	0
+N4622	s__Piscirickettsia salmonis (24)	0.5	#000000	normal	1	0
+N4624	f__Coxiellaceae (34)	0.5	#000000	normal	1	0
+N4677	g__Kamptonema (2)	0.5	#000000	normal	1	0
+N4678	g__Planktothrix (4)	0.5	#000000	normal	1	0
+N4681	s__Moorea producens (3)	0.5	#000000	normal	1	0
+N4682	o__Chroococcidiopsidales (5)	0.5	#000000	normal	1	0
+N4684	g__Leptolinea (2)	0.5	#000000	normal	1	0
+N4697	g__Blastococcus (2)	0.5	#000000	normal	1	0
+N4698	g__Glycomyces (3)	0.5	#000000	normal	1	0
+N4706	g__Lawsonella (2)	0.5	#000000	normal	1	0
+N4713	g__Aeromicrobium (7)	0.5	#000000	normal	1	0
+N4717	g__Actinomadura (6)	0.5	#000000	normal	1	0
+N4721	g__Serinicoccus (2)	0.5	#000000	normal	1	0
+N4722	f__Intrasporangiaceae_3 (2)	0.5	#000000	normal	1	0
+N4723	f__Dermatophilaceae (6)	0.5	#000000	normal	1	0
+N4724	f__Dermacoccaceae (6)	0.5	#000000	normal	1	0
+N4725	f__Intrasporangiaceae_1 (26)	0.5	#000000	normal	1	0
+N4726	s__Brevibacterium linens (2)	0.5	#000000	normal	1	0
+N4730	g__Kocuria (8)	0.5	#000000	normal	1	0
+N4737	f__Bifidobacteriaceae (42)	0.5	#000000	normal	1	0
+N4760	s__Anaerococcus prevotii (3)	0.5	#000000	normal	1	0
+N4774	g__Lachnoanaerobaculum (3)	0.5	#000000	normal	1	0
+N4780	s__Butyrivibrio crossotus (2)	0.5	#000000	normal	1	0
+N4794	g__Gorillibacterium (2)	0.5	#000000	normal	1	0
+N4804	g__Acholeplasma (5)	0.5	#000000	normal	1	0
+N4811	g__Catenibacterium (2)	0.5	#000000	normal	1	0
+N4813	g__Holdemania (3)	0.5	#000000	normal	1	0
+N4814	g__Solobacterium (4)	0.5	#000000	normal	1	0
+N4817	g__Erysipelatoclostridium_1 (13)	0.5	#000000	normal	1	0
+N4827	g__Pontibacillus (6)	0.5	#000000	normal	1	0
+N4833	g__Bacillus_3 (14)	0.5	#000000	normal	1	0
+N4849	g__Granulicatella (2)	0.5	#000000	normal	1	0
+N4850	g__Aerococcus (5)	0.5	#000000	normal	1	0
+N4868	g__Rhodopirellula (11)	0.5	#000000	normal	1	0
+N4891	f__Balneolaceae (3)	0.5	#000000	normal	1	0
+N4894	c__Chitinophagia (58)	0.5	#000000	normal	1	0
+N4895	c__Sphingobacteriia (69)	0.5	#000000	normal	1	0
+N4908	g__Acidobacterium (3)	0.5	#000000	normal	1	0
+N4909	s__Terriglobus roseus (3)	0.5	#000000	normal	1	0
+N4914	o__Desulfuromonadales (26)	0.5	#000000	normal	1	0
+N4915	o__Syntrophobacterales_1 (46)	0.5	#000000	normal	1	0
+N4926	f__Syntrophobacteraceae (3)	0.5	#000000	normal	1	0
+N4927	f__Syntrophaceae_2 (3)	0.5	#000000	normal	1	0
+N4940	f__Acetobacteraceae (43)	0.5	#000000	normal	1	0
+N4943	f__Sphingomonadaceae_6 (3)	0.5	#000000	normal	1	0
+N4954	g__Methylotenera (2)	0.5	#000000	normal	1	0
+N4964	s__Sutterella wadsworthensis (4)	0.5	#000000	normal	1	0
+N4966	g__Kinetoplastibacterium (5)	0.5	#000000	normal	1	0
+N4968	f__Oxalobacteraceae (32)	0.5	#000000	normal	1	0
+N4969	f__Burkholderiaceae (34)	0.5	#000000	normal	1	0
+N4970	g__Thiomonas (4)	0.5	#000000	normal	1	0
+N4973	f__Sinobacteraceae (7)	0.5	#000000	normal	1	0
+N4974	o__Xanthomonadales (68)	0.5	#000000	normal	1	0
+N4982	o__Thiotrichales_6 (2)	0.5	#000000	normal	1	0
+N4983	o__Methylococcales (23)	0.5	#000000	normal	1	0
+N4998	o__Oceanospirillales_2 (7)	0.5	#000000	normal	1	0
+N5000	f__Idiomarinaceae (17)	0.5	#000000	normal	1	0
+N5002	o__Aeromonadales_2 (11)	0.5	#000000	normal	1	0
+N5047	f__Hyellaceae (2)	0.5	#000000	normal	1	0
+N5048	o__Chroococcales_2 (5)	0.5	#000000	normal	1	0
+N5051	g__Arthrospira (8)	0.5	#000000	normal	1	0
+N5067	s__Pseudonocardia autotrophica (3)	0.5	#000000	normal	1	0
+N5068	o__Pseudonocardiales_3 (3)	0.5	#000000	normal	1	0
+N5069	o__Actinopolysporales (3)	0.5	#000000	normal	1	0
+N5081	g__Marmoricola (3)	0.5	#000000	normal	1	0
+N5082	g__Nocardioides (19)	0.5	#000000	normal	1	0
+N5093	g__Dermacoccus (2)	0.5	#000000	normal	1	0
+N5095	g__Intrasporangium (8)	0.5	#000000	normal	1	0
+N5098	g__Rothia (3)	0.5	#000000	normal	1	0
+N5101	g__Nesterenkonia (4)	0.5	#000000	normal	1	0
+N5107	f__Ruaniaceae (2)	0.5	#000000	normal	1	0
+N5109	f__Cellulomonadaceae (14)	0.5	#000000	normal	1	0
+N5115	s__Peptococcaceae bacterium SCADC1_2_3 (4)	0.5	#000000	normal	1	0
+N5130	g__Kallipyga (2)	0.5	#000000	normal	1	0
+N5134	g__Oscillibacter (5)	0.5	#000000	normal	1	0
+N5148	g__Hungatella (5)	0.5	#000000	normal	1	0
+N5149	g__Lachnoclostridium_1 (11)	0.5	#000000	normal	1	0
+N5162	s__Aneurinibacillus migulanus (7)	0.5	#000000	normal	1	0
+N5164	s__Brevibacillus borstelensis (3)	0.5	#000000	normal	1	0
+N5177	g__Ca. Phytoplasma (10)	0.5	#000000	normal	1	0
+N5180	g__Kandleria (5)	0.5	#000000	normal	1	0
+N5181	g__Sharpea (5)	0.5	#000000	normal	1	0
+N5185	g__Faecalitalea (6)	0.5	#000000	normal	1	0
+N5186	g__Faecalibaculum (6)	0.5	#000000	normal	1	0
+N5190	g__Marinococcus (2)	0.5	#000000	normal	1	0
+N5194	s__Pontibacillus halophilus (2)	0.5	#000000	normal	1	0
+N5197	g__Terribacillus (2)	0.5	#000000	normal	1	0
+N5199	g__Ornithinibacillus (4)	0.5	#000000	normal	1	0
+N5201	g__Bhargavaea (3)	0.5	#000000	normal	1	0
+N5214	s__Listeria innocua (2)	0.5	#000000	normal	1	0
+N5215	s__Listeria monocytogenes (10)	0.5	#000000	normal	1	0
+N5223	s__Aerococcus urinae (4)	0.5	#000000	normal	1	0
+N5227	g__Lactococcus (3)	0.5	#000000	normal	1	0
+N5236	f__Leuconostocaceae (92)	0.5	#000000	normal	1	0
+N5245	s__Akkermansia muciniphila (2)	0.5	#000000	normal	1	0
+N5256	g__Melioribacter (9)	0.5	#000000	normal	1	0
+N5257	g__Ca. Kryptobacter (3)	0.5	#000000	normal	1	0
+N5258	g__Ca. Kryptonium (16)	0.5	#000000	normal	1	0
+N5261	g__Balneola (2)	0.5	#000000	normal	1	0
+N5263	f__Saprospiraceae (3)	0.5	#000000	normal	1	0
+N5268	f__Amoebophilaceae (3)	0.5	#000000	normal	1	0
+N5276	o__Bacteroidales (261)	0.5	#000000	normal	1	0
+N5289	f__Desulfuromonadaceae (12)	0.5	#000000	normal	1	0
+N5290	f__Geobacteraceae (14)	0.5	#000000	normal	1	0
+N5293	g__Desulfovibrio_4 (2)	0.5	#000000	normal	1	0
+N5294	g__Halodesulfovibrio (5)	0.5	#000000	normal	1	0
+N5300	g__Thermodesulfobacterium (6)	0.5	#000000	normal	1	0
+N5309	f__Desulfobacteraceae (29)	0.5	#000000	normal	1	0
+N5318	o__Rhodospirillales_3 (12)	0.5	#000000	normal	1	0
+N5319	o__Kiloniellales (6)	0.5	#000000	normal	1	0
+N5321	g__Sandarakinorhabdus (2)	0.5	#000000	normal	1	0
+N5326	o__Parvularculales (2)	0.5	#000000	normal	1	0
+N5330	g__Chitinilyticum (2)	0.5	#000000	normal	1	0
+N5335	g__Neisseria (13)	0.5	#000000	normal	1	0
+N5343	g__Azoarcus (2)	0.5	#000000	normal	1	0
+N5344	g__Thauera (4)	0.5	#000000	normal	1	0
+N5351	g__Oxalobacter (2)	0.5	#000000	normal	1	0
+N5353	g__Polynucleobacter (4)	0.5	#000000	normal	1	0
+N5361	f__Rhodanobacteraceae (17)	0.5	#000000	normal	1	0
+N5366	g__Beggiatoa (2)	0.5	#000000	normal	1	0
+N5372	o__Chromatiales_3 (3)	0.5	#000000	normal	1	0
+N5373	o__Thiotrichales_4 (7)	0.5	#000000	normal	1	0
+N5376	o__Thiotrichales_5 (4)	0.5	#000000	normal	1	0
+N5377	o__Chromatiales_2 (12)	0.5	#000000	normal	1	0
+N5394	g__Moraxella_2 (5)	0.5	#000000	normal	1	0
+N5396	g__Alcanivorax (6)	0.5	#000000	normal	1	0
+N5400	g__Idiomarina (14)	0.5	#000000	normal	1	0
+N5401	f__Alteromonadaceae_1 (41)	0.5	#000000	normal	1	0
+N5449	f__Cyanobacteriaceae (2)	0.5	#000000	normal	1	0
+N5450	f__Chroococcaceae (3)	0.5	#000000	normal	1	0
+N5451	o__Synechococcales_3 (8)	0.5	#000000	normal	1	0
+N5454	s__Arthrospira platensis (3)	0.5	#000000	normal	1	0
+N5459	f__Nostocaceae_1 (7)	0.5	#000000	normal	1	0
+N5481	s__Mycobacterium rhodesiae (34)	0.5	#000000	normal	1	0
+N5482	f__Tsukamurellaceae (2)	0.5	#000000	normal	1	0
+N5501	g__Streptacidiphilus (5)	0.5	#000000	normal	1	0
+N5509	s__Rothia dentocariosa (2)	0.5	#000000	normal	1	0
+N5519	f__Jonesiaceae (4)	0.5	#000000	normal	1	0
+N5520	f__Promicromonosporaceae (8)	0.5	#000000	normal	1	0
+N5523	g__Alloscardovia (2)	0.5	#000000	normal	1	0
+N5527	g__Arcanobacterium (4)	0.5	#000000	normal	1	0
+N5530	g__Mobiluncus (8)	0.5	#000000	normal	1	0
+N5543	g__Clostridioides (3)	0.5	#000000	normal	1	0
+N5559	g__Ruminococcus (23)	0.5	#000000	normal	1	0
+N5569	g__Roseburia (8)	0.5	#000000	normal	1	0
+N5571	g__Pseudobutyrivibrio (9)	0.5	#000000	normal	1	0
+N5581	s__Paenibacillus larvae (2)	0.5	#000000	normal	1	0
+N5590	g__Paenibacillus_1 (35)	0.5	#000000	normal	1	0
+N5597	s__Sharpea azabuensis (4)	0.5	#000000	normal	1	0
+N5598	s__Solobacterium moorei (2)	0.5	#000000	normal	1	0
+N5613	g__Salimicrobium (2)	0.5	#000000	normal	1	0
+N5614	g__Halobacillus (6)	0.5	#000000	normal	1	0
+N5621	g__Sporosarcina (4)	0.5	#000000	normal	1	0
+N5622	g__Planococcus (4)	0.5	#000000	normal	1	0
+N5625	g__Lysinibacillus (14)	0.5	#000000	normal	1	0
+N5629	g__Bacillus_1 (45)	0.5	#000000	normal	1	0
+N5635	s__Staphylococcus saprophyticus (8)	0.5	#000000	normal	1	0
+N5641	s__Trichococcus flocculiformis (2)	0.5	#000000	normal	1	0
+N5645	g__Facklamia (6)	0.5	#000000	normal	1	0
+N5646	g__Enterococcus_2 (7)	0.5	#000000	normal	1	0
+N5648	g__Enterococcus_1 (7)	0.5	#000000	normal	1	0
+N5654	s__Lactobacillus fuchuensis (2)	0.5	#000000	normal	1	0
+N5664	g__Weissella (17)	0.5	#000000	normal	1	0
+N5666	g__Pediococcus (9)	0.5	#000000	normal	1	0
+N5667	g__Lactobacillus_2 (87)	0.5	#000000	normal	1	0
+N5683	s__Saprospira grandis (2)	0.5	#000000	normal	1	0
+N5689	g__Ca. Cardinium (2)	0.5	#000000	normal	1	0
+N5691	f__Crocinitomicaceae (9)	0.5	#000000	normal	1	0
+N5712	g__Geobacter (7)	0.5	#000000	normal	1	0
+N5718	g__Desulfovibrio_3 (2)	0.5	#000000	normal	1	0
+N5720	s__Desulfovibrio magneticus (2)	0.5	#000000	normal	1	0
+N5742	o__Rhodospirillales_4 (4)	0.5	#000000	normal	1	0
+N5743	o__Rhizobiales_2 (5)	0.5	#000000	normal	1	0
+N5744	g__Magnetospirillum (4)	0.5	#000000	normal	1	0
+N5747	g__Kiloniella (3)	0.5	#000000	normal	1	0
+N5748	o__Rhodospirillales_2 (21)	0.5	#000000	normal	1	0
+N5750	f__Sphingomonadaceae_5 (8)	0.5	#000000	normal	1	0
+N5753	o__Rhodobacterales_2 (21)	0.5	#000000	normal	1	0
+N5754	o__Caulobacterales (23)	0.5	#000000	normal	1	0
+N5757	o__Rhizobiales_1 (314)	0.5	#000000	normal	1	0
+N5759	g__Conchiformibius (2)	0.5	#000000	normal	1	0
+N5760	g__Kingella (5)	0.5	#000000	normal	1	0
+N5764	g__Methylophilus (3)	0.5	#000000	normal	1	0
+N5790	g__Nevskia (2)	0.5	#000000	normal	1	0
+N5797	g__Thiothrix (5)	0.5	#000000	normal	1	0
+N5806	f__Methylothermaceae (2)	0.5	#000000	normal	1	0
+N5812	g__Ca. Thiodiazotropha (7)	0.5	#000000	normal	1	0
+N5814	s__Solemya velum gill symbiont (27)	0.5	#000000	normal	1	0
+N5822	g__Rickettsiella (3)	0.5	#000000	normal	1	0
+N5828	g__Legionella_2 (17)	0.5	#000000	normal	1	0
+N5831	g__Acinetobacter (40)	0.5	#000000	normal	1	0
+N5833	s__Moraxella osloensis (3)	0.5	#000000	normal	1	0
+N5834	g__Psychrobacter (9)	0.5	#000000	normal	1	0
+N5840	s__Idiomarinaceae bacterium HL-53 (2)	0.5	#000000	normal	1	0
+N5843	g__Catenovulum (4)	0.5	#000000	normal	1	0
+N5845	f__Colwelliaceae (10)	0.5	#000000	normal	1	0
+N5849	g__Succinivibrio (5)	0.5	#000000	normal	1	0
+N5850	o__Alteromonadales_2 (28)	0.5	#000000	normal	1	0
+N5887	g__Geminocystis (2)	0.5	#000000	normal	1	0
+N5888	s__Synechocystis sp. PCC 6803 (7)	0.5	#000000	normal	1	0
+N5890	o__Chroococcales_1 (36)	0.5	#000000	normal	1	0
+N5892	s__Arthrospira sp. PCC 8005 (2)	0.5	#000000	normal	1	0
+N5894	f__Rivulariaceae (3)	0.5	#000000	normal	1	0
+N5895	f__Nostocaceae_2 (4)	0.5	#000000	normal	1	0
+N5896	f__Scytonemataceae (6)	0.5	#000000	normal	1	0
+N5921	f__Williamsiaceae (4)	0.5	#000000	normal	1	0
+N5922	f__Gordoniaceae (18)	0.5	#000000	normal	1	0
+N5936	g__Microbispora (2)	0.5	#000000	normal	1	0
+N5937	g__Nonomuraea (3)	0.5	#000000	normal	1	0
+N5940	g__Kitasatospora (11)	0.5	#000000	normal	1	0
+N5944	g__Mobilicoccus (2)	0.5	#000000	normal	1	0
+N5945	g__Luteipulveratus (2)	0.5	#000000	normal	1	0
+N5947	g__Janibacter (2)	0.5	#000000	normal	1	0
+N5953	g__Glutamicibacter (5)	0.5	#000000	normal	1	0
+N5960	g__Scardovia (2)	0.5	#000000	normal	1	0
+N5963	g__Gardnerella (5)	0.5	#000000	normal	1	0
+N5964	g__Bifidobacterium (27)	0.5	#000000	normal	1	0
+N5969	s__Mobiluncus curtisii (4)	0.5	#000000	normal	1	0
+N5970	s__Mobiluncus mulieris (4)	0.5	#000000	normal	1	0
+N5974	s__Ca. Arthromitus sp. SFB-mouse (2)	0.5	#000000	normal	1	0
+N5977	s__Clostridium botulinum (3)	0.5	#000000	normal	1	0
+N5982	s__Eubacterium pyruvativorans (2)	0.5	#000000	normal	1	0
+N5984	s__Clostridioides difficile (2)	0.5	#000000	normal	1	0
+N5986	g__Intestinimonas (2)	0.5	#000000	normal	1	0
+N5993	g__Faecalibacterium (2)	0.5	#000000	normal	1	0
+N6005	g__Butyrivibrio_1 (33)	0.5	#000000	normal	1	0
+N6028	g__Saccharibacillus (2)	0.5	#000000	normal	1	0
+N6042	s__Faecalibaculum rodentium (2)	0.5	#000000	normal	1	0
+N6045	g__Alteribacillus (2)	0.5	#000000	normal	1	0
+N6048	s__Bacillus clausii (3)	0.5	#000000	normal	1	0
+N6054	g__Gracilibacillus (5)	0.5	#000000	normal	1	0
+N6057	g__Lentibacillus (2)	0.5	#000000	normal	1	0
+N6058	g__Oceanobacillus (5)	0.5	#000000	normal	1	0
+N6059	g__Virgibacillus (5)	0.5	#000000	normal	1	0
+N6064	g__Paenisporosarcina (4)	0.5	#000000	normal	1	0
+N6095	s__Lactobacillus sakei (5)	0.5	#000000	normal	1	0
+N6123	f__Haliscomenobacteraceae (2)	0.5	#000000	normal	1	0
+N6124	f__Lewinellaceae (4)	0.5	#000000	normal	1	0
+N6130	g__Crocinitomix (3)	0.5	#000000	normal	1	0
+N6156	f__Syntrophaceae_1 (15)	0.5	#000000	normal	1	0
+N6157	s__Halodesulfovibrio aestuarii (3)	0.5	#000000	normal	1	0
+N6158	g__Lawsonia (4)	0.5	#000000	normal	1	0
+N6159	g__Desulfovibrio_2 (5)	0.5	#000000	normal	1	0
+N6164	s__Thermodesulfobacterium commune (2)	0.5	#000000	normal	1	0
+N6168	g__Desulfatibacillum (2)	0.5	#000000	normal	1	0
+N6169	g__Desulfosarcina (11)	0.5	#000000	normal	1	0
+N6176	g__Roseomonas (4)	0.5	#000000	normal	1	0
+N6180	g__Terasakiella (2)	0.5	#000000	normal	1	0
+N6187	g__Ca. Endolissoclinum (6)	0.5	#000000	normal	1	0
+N6190	f__Sphingomonadaceae_1 (32)	0.5	#000000	normal	1	0
+N6199	f__Hyphomicrobiaceae_2 (9)	0.5	#000000	normal	1	0
+N6208	s__Nitrosomonas communis (4)	0.5	#000000	normal	1	0
+N6212	g__Taylorella (2)	0.5	#000000	normal	1	0
+N6213	g__Oligella (4)	0.5	#000000	normal	1	0
+N6214	g__Pusillimonas (3)	0.5	#000000	normal	1	0
+N6216	g__Massilia (7)	0.5	#000000	normal	1	0
+N6217	g__Janthinobacterium (7)	0.5	#000000	normal	1	0
+N6236	g__Thioalkalivibrio (8)	0.5	#000000	normal	1	0
+N6239	s__Methylophaga thiooxydans (2)	0.5	#000000	normal	1	0
+N6242	f__Methylococcaceae (15)	0.5	#000000	normal	1	0
+N6246	g__Sedimenticola (2)	0.5	#000000	normal	1	0
+N6248	s__Ca. Thiodiazotropha endoloripes (5)	0.5	#000000	normal	1	0
+N6250	s__Hydrogenovibrio marinus (2)	0.5	#000000	normal	1	0
+N6256	s__Rickettsiella grylli (2)	0.5	#000000	normal	1	0
+N6259	g__Coxiella (5)	0.5	#000000	normal	1	0
+N6275	o__Oceanospirillales_3 (5)	0.5	#000000	normal	1	0
+N6276	o__Pseudomonadales_2 (44)	0.5	#000000	normal	1	0
+N6284	g__Thalassotalea (3)	0.5	#000000	normal	1	0
+N6287	f__Pseudoalteromonadaceae (27)	0.5	#000000	normal	1	0
+N6288	g__Ruminobacter (2)	0.5	#000000	normal	1	0
+N6290	s__Succinivibrio dextrinosolvens (3)	0.5	#000000	normal	1	0
+N6291	f__Ferrimonadaceae (4)	0.5	#000000	normal	1	0
+N6292	f__Shewanellaceae (24)	0.5	#000000	normal	1	0
+N6325	f__Microcystaceae (23)	0.5	#000000	normal	1	0
+N6328	s__Richelia intracellularis (3)	0.5	#000000	normal	1	0
+N6330	g__Scytonema (4)	0.5	#000000	normal	1	0
+N6331	f__Chlorogloeopsidaceae (3)	0.5	#000000	normal	1	0
+N6332	f__Hapalosiphonaceae (10)	0.5	#000000	normal	1	0
+N6336	f__Aphanizomenonaceae (14)	0.5	#000000	normal	1	0
+N6340	g__Micromonospora (3)	0.5	#000000	normal	1	0
+N6342	g__Actinoplanes (8)	0.5	#000000	normal	1	0
+N6344	g__Kutzneria (2)	0.5	#000000	normal	1	0
+N6346	g__Thermocrispum (2)	0.5	#000000	normal	1	0
+N6347	g__Amycolatopsis (7)	0.5	#000000	normal	1	0
+N6351	s__Corynebacterium falsenii (5)	0.5	#000000	normal	1	0
+N6362	g__Williamsia (3)	0.5	#000000	normal	1	0
+N6365	f__Nocardiaceae (45)	0.5	#000000	normal	1	0
+N6366	g__Propionibacterium (3)	0.5	#000000	normal	1	0
+N6375	g__Streptosporangium (2)	0.5	#000000	normal	1	0
+N6384	g__Phycicoccus (3)	0.5	#000000	normal	1	0
+N6389	g__Leucobacter (8)	0.5	#000000	normal	1	0
+N6391	g__Jonesia (2)	0.5	#000000	normal	1	0
+N6402	g__Actinotignum (4)	0.5	#000000	normal	1	0
+N6403	g__Actinobaculum (5)	0.5	#000000	normal	1	0
+N6414	s__Clostridium pasteurianum (2)	0.5	#000000	normal	1	0
+N6425	s__[Clostridium] citroniae (2)	0.5	#000000	normal	1	0
+N6437	s__Pseudobutyrivibrio ruminis (3)	0.5	#000000	normal	1	0
+N6441	g__Blautia (13)	0.5	#000000	normal	1	0
+N6447	s__Brevibacillus brevis (10)	0.5	#000000	normal	1	0
+N6461	s__Faecalitalea cylindroides (3)	0.5	#000000	normal	1	0
+N6463	g__Salibacterium (2)	0.5	#000000	normal	1	0
+N6474	g__Kurthia (4)	0.5	#000000	normal	1	0
+N6483	g__Bacillus_4 (11)	0.5	#000000	normal	1	0
+N6495	s__Enterococcus faecalis (5)	0.5	#000000	normal	1	0
+N6498	s__Streptococcus suis (2)	0.5	#000000	normal	1	0
+N6505	s__Lactobacillus curvatus (8)	0.5	#000000	normal	1	0
+N6509	s__Lactobacillus harbinensis (4)	0.5	#000000	normal	1	0
+N6522	g__Leuconostoc (16)	0.5	#000000	normal	1	0
+N6523	s__Oenococcus oeni (50)	0.5	#000000	normal	1	0
+N6533	s__Rhodopirellula europaea (2)	0.5	#000000	normal	1	0
+N6534	s__Rhodopirellula baltica (4)	0.5	#000000	normal	1	0
+N6540	g__Chitinophaga (12)	0.5	#000000	normal	1	0
+N6544	g__Pedobacter_2 (5)	0.5	#000000	normal	1	0
+N6546	f__Bernardetiaceae (2)	0.5	#000000	normal	1	0
+N6552	f__Blattabacteriaceae (9)	0.5	#000000	normal	1	0
+N6553	f__Flavobacteriaceae_2 (48)	0.5	#000000	normal	1	0
+N6569	g__Geoalkalibacter (2)	0.5	#000000	normal	1	0
+N6585	s__Lawsonia intracellularis (3)	0.5	#000000	normal	1	0
+N6609	f__Sphingomonadaceae_3 (13)	0.5	#000000	normal	1	0
+N6617	g__Hirschia (2)	0.5	#000000	normal	1	0
+N6620	g__Asticcacaulis (5)	0.5	#000000	normal	1	0
+N6621	g__Brevundimonas (10)	0.5	#000000	normal	1	0
+N6626	g__Chromobacterium (4)	0.5	#000000	normal	1	0
+N6631	s__Nitrosomonas marina (2)	0.5	#000000	normal	1	0
+N6632	s__Nitrosomonas ureae (3)	0.5	#000000	normal	1	0
+N6633	s__Oligella urethralis (3)	0.5	#000000	normal	1	0
+N6640	g__Noviherbaspirillum (3)	0.5	#000000	normal	1	0
+N6642	g__Cupriavidus (4)	0.5	#000000	normal	1	0
+N6643	g__Ralstonia (4)	0.5	#000000	normal	1	0
+N6645	g__Aquabacterium (2)	0.5	#000000	normal	1	0
+N6650	g__Hydrogenophaga (2)	0.5	#000000	normal	1	0
+N6653	g__Solimonas (2)	0.5	#000000	normal	1	0
+N6655	g__Arenimonas (5)	0.5	#000000	normal	1	0
+N6658	g__Spiribacter (3)	0.5	#000000	normal	1	0
+N6667	g__Thiohalocapsa (2)	0.5	#000000	normal	1	0
+N6674	s__Francisella noatunensis (4)	0.5	#000000	normal	1	0
+N6675	s__Francisella tularensis (43)	0.5	#000000	normal	1	0
+N6686	g__Legionella_1 (49)	0.5	#000000	normal	1	0
+N6692	s__Moraxella catarrhalis (45)	0.5	#000000	normal	1	0
+N6694	f__Spongiibacteraceae (7)	0.5	#000000	normal	1	0
+N6695	f__Halieaceae (10)	0.5	#000000	normal	1	0
+N6698	g__Endozoicomonas (4)	0.5	#000000	normal	1	0
+N6701	f__Oceanospirillaceae_3 (3)	0.5	#000000	normal	1	0
+N6708	s__Catenovulum agarivorans (2)	0.5	#000000	normal	1	0
+N6711	s__Thalassotalea sp. LPB0090 (2)	0.5	#000000	normal	1	0
+N6714	g__Pseudoalteromonas (26)	0.5	#000000	normal	1	0
+N6720	o__Alteromonadales_3 (11)	0.5	#000000	normal	1	0
+N6721	o__Aeromonadales_1 (11)	0.5	#000000	normal	1	0
+N6750	f__Aphanothecaceae (11)	0.5	#000000	normal	1	0
+N6752	s__Microcystis aeruginosa (21)	0.5	#000000	normal	1	0
+N6755	s__Chlorogloeopsis fritschii (2)	0.5	#000000	normal	1	0
+N6756	s__Fischerella muscicola (9)	0.5	#000000	normal	1	0
+N6762	s__Bellilinea caldifistulae (2)	0.5	#000000	normal	1	0
+N6766	g__Salinispora (2)	0.5	#000000	normal	1	0
+N6769	g__Actinokineospora (3)	0.5	#000000	normal	1	0
+N6794	g__Rhodococcus (13)	0.5	#000000	normal	1	0
+N6797	g__Acidipropionibacterium (3)	0.5	#000000	normal	1	0
+N6798	g__Cutibacterium (8)	0.5	#000000	normal	1	0
+N6829	s__Actinotignum schaalii (3)	0.5	#000000	normal	1	0
+N6830	s__Actinobaculum suis (4)	0.5	#000000	normal	1	0
+N6835	g__Actinomyces (8)	0.5	#000000	normal	1	0
+N6839	s__Clostridium magnum (2)	0.5	#000000	normal	1	0
+N6882	g__Amphibacillus (2)	0.5	#000000	normal	1	0
+N6891	g__Parageobacillus (7)	0.5	#000000	normal	1	0
+N6892	g__Geobacillus (7)	0.5	#000000	normal	1	0
+N6893	s__Bacillus endophyticus (2)	0.5	#000000	normal	1	0
+N6904	s__Staphylococcus capitis (2)	0.5	#000000	normal	1	0
+N6905	s__Staphylococcus epidermidis (11)	0.5	#000000	normal	1	0
+N6909	s__Enterococcus asini (2)	0.5	#000000	normal	1	0
+N6910	g__Tetragenococcus (2)	0.5	#000000	normal	1	0
+N6924	s__Lactobacillus thailandensis (2)	0.5	#000000	normal	1	0
+N6925	s__Lactobacillus pantheris (3)	0.5	#000000	normal	1	0
+N6933	s__Lactobacillus sucicola (2)	0.5	#000000	normal	1	0
+N6940	g__Fructobacillus (7)	0.5	#000000	normal	1	0
+N6960	g__Sphingobacterium (15)	0.5	#000000	normal	1	0
+N6964	g__Pedobacter_1 (25)	0.5	#000000	normal	1	0
+N6965	f__Flammeovirgaceae_2 (3)	0.5	#000000	normal	1	0
+N6969	g__Fluviicola (4)	0.5	#000000	normal	1	0
+N6971	g__Blattabacterium (8)	0.5	#000000	normal	1	0
+N6982	f__Rikenellaceae (15)	0.5	#000000	normal	1	0
+N6983	f__Odoribacteraceae (14)	0.5	#000000	normal	1	0
+N6984	f__Marinilabiliaceae (10)	0.5	#000000	normal	1	0
+N6987	f__Porphyromonadaceae_3 (5)	0.5	#000000	normal	1	0
+N6988	f__Porphyromonadaceae_1 (41)	0.5	#000000	normal	1	0
+N6994	g__Desulfuromonas (2)	0.5	#000000	normal	1	0
+N7005	g__Smithella (5)	0.5	#000000	normal	1	0
+N7008	s__Desulfovibrio desulfuricans (3)	0.5	#000000	normal	1	0
+N7021	g__Acidocella (2)	0.5	#000000	normal	1	0
+N7022	g__Acidiphilium (2)	0.5	#000000	normal	1	0
+N7023	g__Commensalibacter (2)	0.5	#000000	normal	1	0
+N7034	f__Sphingomonadaceae_4 (8)	0.5	#000000	normal	1	0
+N7043	g__Phenylobacterium (3)	0.5	#000000	normal	1	0
+N7044	g__Caulobacter (4)	0.5	#000000	normal	1	0
+N7072	g__Ottowia (2)	0.5	#000000	normal	1	0
+N7074	g__Luteibacter (3)	0.5	#000000	normal	1	0
+N7078	g__Lysobacter (12)	0.5	#000000	normal	1	0
+N7086	g__Methylomonas (3)	0.5	#000000	normal	1	0
+N7087	g__Methylomicrobium (2)	0.5	#000000	normal	1	0
+N7097	s__Coxiella burnetii (2)	0.5	#000000	normal	1	0
+N7112	s__Moraxella nonliquefaciens (2)	0.5	#000000	normal	1	0
+N7120	f__Microbulbiferaceae (2)	0.5	#000000	normal	1	0
+N7121	f__Cellvibrionaceae (24)	0.5	#000000	normal	1	0
+N7123	s__Endozoicomonas elysicola (2)	0.5	#000000	normal	1	0
+N7127	f__Oceanospirillaceae_2 (5)	0.5	#000000	normal	1	0
+N7128	f__Halomonadaceae (35)	0.5	#000000	normal	1	0
+N7129	f__Hahellaceae_2 (2)	0.5	#000000	normal	1	0
+N7130	f__Alteromonadaceae_2 (16)	0.5	#000000	normal	1	0
+N7132	f__Oceanospirillaceae_1 (28)	0.5	#000000	normal	1	0
+N7134	g__Paraglaciecola (11)	0.5	#000000	normal	1	0
+N7136	g__Colwellia (5)	0.5	#000000	normal	1	0
+N7143	f__Alteromonadaceae_3 (3)	0.5	#000000	normal	1	0
+N7172	g__Ca. Atelocyanobacterium (2)	0.5	#000000	normal	1	0
+N7173	g__Crocosphaera (9)	0.5	#000000	normal	1	0
+N7179	g__Anabaena (2)	0.5	#000000	normal	1	0
+N7183	s__Cylindrospermopsis raciborskii (7)	0.5	#000000	normal	1	0
+N7188	g__Saccharothrix (3)	0.5	#000000	normal	1	0
+N7189	g__Lentzea (3)	0.5	#000000	normal	1	0
+N7191	g__Saccharomonospora (9)	0.5	#000000	normal	1	0
+N7199	s__Mycobacterium heraklionense (2)	0.5	#000000	normal	1	0
+N7229	g__Knoellia (6)	0.5	#000000	normal	1	0
+N7230	s__Glutamicibacter arilaitensis (2)	0.5	#000000	normal	1	0
+N7235	g__Microbacterium (34)	0.5	#000000	normal	1	0
+N7246	g__Varibaculum (4)	0.5	#000000	normal	1	0
+N7253	g__Anaerotruncus (2)	0.5	#000000	normal	1	0
+N7257	s__[Clostridium] clostridioforme (3)	0.5	#000000	normal	1	0
+N7271	g__Dorea (4)	0.5	#000000	normal	1	0
+N7303	g__Jeotgalibacillus (3)	0.5	#000000	normal	1	0
+N7304	g__Bacillus_5 (6)	0.5	#000000	normal	1	0
+N7327	s__Lactobacillus versmoldensis (2)	0.5	#000000	normal	1	0
+N7333	s__Lactobacillus ruminis (7)	0.5	#000000	normal	1	0
+N7336	s__Weissella halotolerans (2)	0.5	#000000	normal	1	0
+N7337	s__Weissella ceti (4)	0.5	#000000	normal	1	0
+N7356	s__Ca. Kryptonium thompsoni (10)	0.5	#000000	normal	1	0
+N7363	s__Pedobacter glucosidilyticus (2)	0.5	#000000	normal	1	0
+N7365	g__Mucilaginibacter (13)	0.5	#000000	normal	1	0
+N7368	g__Flammeovirga (2)	0.5	#000000	normal	1	0
+N7370	f__Cytophagaceae_2 (5)	0.5	#000000	normal	1	0
+N7371	f__Hymenobacteraceae (20)	0.5	#000000	normal	1	0
+N7373	f__Cytophagaceae_1 (25)	0.5	#000000	normal	1	0
+N7381	g__Capnocytophaga (17)	0.5	#000000	normal	1	0
+N7390	g__Alistipes (13)	0.5	#000000	normal	1	0
+N7392	g__Odoribacter (7)	0.5	#000000	normal	1	0
+N7393	g__Saccharicrinis (4)	0.5	#000000	normal	1	0
+N7394	g__Anaerophaga (6)	0.5	#000000	normal	1	0
+N7396	g__Paludibacter (4)	0.5	#000000	normal	1	0
+N7397	g__Porphyromonas (16)	0.5	#000000	normal	1	0
+N7399	f__Porphyromonadaceae_2 (12)	0.5	#000000	normal	1	0
+N7431	g__Paracoccus (12)	0.5	#000000	normal	1	0
+N7437	g__Hyphomonas (9)	0.5	#000000	normal	1	0
+N7439	s__Caulobacter vibrioides (2)	0.5	#000000	normal	1	0
+N7440	s__Caulobacter henricii (2)	0.5	#000000	normal	1	0
+N7443	g__Hyphomicrobium (5)	0.5	#000000	normal	1	0
+N7444	f__Methylocystaceae_4 (2)	0.5	#000000	normal	1	0
+N7446	f__Hyphomicrobiaceae_1 (14)	0.5	#000000	normal	1	0
+N7451	g__Bordetella (6)	0.5	#000000	normal	1	0
+N7457	s__Ralstonia mannitolilytica (2)	0.5	#000000	normal	1	0
+N7459	g__Rhizobacter (4)	0.5	#000000	normal	1	0
+N7468	g__Luteimonas (6)	0.5	#000000	normal	1	0
+N7470	g__Pseudoxanthomonas (3)	0.5	#000000	normal	1	0
+N7472	g__Ectothiorhodospira (2)	0.5	#000000	normal	1	0
+N7475	g__Methylobacter (3)	0.5	#000000	normal	1	0
+N7494	g__Legionella_3 (2)	0.5	#000000	normal	1	0
+N7495	g__Fluoribacter (5)	0.5	#000000	normal	1	0
+N7506	g__Spongiibacter (2)	0.5	#000000	normal	1	0
+N7515	g__Ca. Portiera (8)	0.5	#000000	normal	1	0
+N7518	f__Saccharospirillaceae (3)	0.5	#000000	normal	1	0
+N7520	g__Marinomonas (7)	0.5	#000000	normal	1	0
+N7522	s__Idiomarina abyssalis (2)	0.5	#000000	normal	1	0
+N7526	g__Glaciecola (6)	0.5	#000000	normal	1	0
+N7528	s__Colwellia psychrerythraea (4)	0.5	#000000	normal	1	0
+N7530	f__Chromatiaceae_2 (4)	0.5	#000000	normal	1	0
+N7533	s__Pseudoalteromonas ruthenica (3)	0.5	#000000	normal	1	0
+N7537	g__Agarivorans (2)	0.5	#000000	normal	1	0
+N7538	f__Moritellaceae (2)	0.5	#000000	normal	1	0
+N7539	f__Psychromonadaceae (6)	0.5	#000000	normal	1	0
+N7540	g__Aeromonas (8)	0.5	#000000	normal	1	0
+N7542	g__Photobacterium (13)	0.5	#000000	normal	1	0
+N7566	s__Crocosphaera watsonii (6)	0.5	#000000	normal	1	0
+N7604	s__Rhodococcus fascians (2)	0.5	#000000	normal	1	0
+N7606	g__Nocardia (30)	0.5	#000000	normal	1	0
+N7634	s__Varibaculum cambriense (3)	0.5	#000000	normal	1	0
+N7643	s__Ruminococcus flavefaciens (6)	0.5	#000000	normal	1	0
+N7658	s__Paenibacillus durus (2)	0.5	#000000	normal	1	0
+N7662	s__Paenibacillus polymyxa (6)	0.5	#000000	normal	1	0
+N7669	s__Parageobacillus caldoxylosilyticus (3)	0.5	#000000	normal	1	0
+N7676	g__Bacillus_6 (3)	0.5	#000000	normal	1	0
+N7679	s__Bacillus coahuilensis (2)	0.5	#000000	normal	1	0
+N7689	s__Streptococcus mutans (10)	0.5	#000000	normal	1	0
+N7690	s__Streptococcus thermophilus (2)	0.5	#000000	normal	1	0
+N7691	s__Streptococcus sobrinus (5)	0.5	#000000	normal	1	0
+N7696	s__Lactobacillus nasuensis (2)	0.5	#000000	normal	1	0
+N7697	s__Lactobacillus rhamnosus (2)	0.5	#000000	normal	1	0
+N7706	s__Weissella confusa (3)	0.5	#000000	normal	1	0
+N7708	s__Fructobacillus pseudoficulneus (2)	0.5	#000000	normal	1	0
+N7709	s__Fructobacillus fructosus (3)	0.5	#000000	normal	1	0
+N7711	s__Leuconostoc mesenteroides (8)	0.5	#000000	normal	1	0
+N7718	s__Lactobacillus plantarum (4)	0.5	#000000	normal	1	0
+N7742	g__Arcticibacter (2)	0.5	#000000	normal	1	0
+N7754	f__Microscillaceae (3)	0.5	#000000	normal	1	0
+N7763	g__Riemerella (2)	0.5	#000000	normal	1	0
+N7765	g__Tenacibaculum (4)	0.5	#000000	normal	1	0
+N7783	g__Sanguibacteroides (3)	0.5	#000000	normal	1	0
+N7784	g__Butyricimonas (4)	0.5	#000000	normal	1	0
+N7790	f__Prolixibacteraceae (5)	0.5	#000000	normal	1	0
+N7799	f__Bacteroidaceae (45)	0.5	#000000	normal	1	0
+N7805	g__Syntrophus (2)	0.5	#000000	normal	1	0
+N7809	g__Desulfobacula (6)	0.5	#000000	normal	1	0
+N7812	g__Acetobacter (11)	0.5	#000000	normal	1	0
+N7813	s__Ca. Endolissoclinum faulkneri (2)	0.5	#000000	normal	1	0
+N7818	s__Sphingomonas wittichii (3)	0.5	#000000	normal	1	0
+N7826	f__Sphingomonadaceae_7 (2)	0.5	#000000	normal	1	0
+N7830	g__Thioclava (4)	0.5	#000000	normal	1	0
+N7834	g__Jannaschia (4)	0.5	#000000	normal	1	0
+N7838	g__Oceanicaulis (3)	0.5	#000000	normal	1	0
+N7851	g__Achromobacter (2)	0.5	#000000	normal	1	0
+N7855	g__Herbaspirillum (6)	0.5	#000000	normal	1	0
+N7856	g__Burkholderia (5)	0.5	#000000	normal	1	0
+N7861	g__Limnohabitans (2)	0.5	#000000	normal	1	0
+N7875	g__Methylosarcina (3)	0.5	#000000	normal	1	0
+N7890	s__Legionella jordanis (2)	0.5	#000000	normal	1	0
+N7894	s__Legionella pneumophila (43)	0.5	#000000	normal	1	0
+N7895	s__Acinetobacter pittii (2)	0.5	#000000	normal	1	0
+N7908	g__Teredinibacter (11)	0.5	#000000	normal	1	0
+N7911	g__Marinospirillum (3)	0.5	#000000	normal	1	0
+N7920	s__Idiomarina loihiensis (2)	0.5	#000000	normal	1	0
+N7924	g__Alteromonas (16)	0.5	#000000	normal	1	0
+N7927	f__Alteromonadaceae_4 (2)	0.5	#000000	normal	1	0
+N7928	f__Chromatiaceae_4 (3)	0.5	#000000	normal	1	0
+N7940	g__Salinivibrio (10)	0.5	#000000	normal	1	0
+N7943	g__Aliivibrio (3)	0.5	#000000	normal	1	0
+N7945	g__Gallibacterium (10)	0.5	#000000	normal	1	0
+N7977	s__Corynebacterium callunae (2)	0.5	#000000	normal	1	0
+N7982	s__Corynebacterium diphtheriae (13)	0.5	#000000	normal	1	0
+N7983	s__Corynebacterium pseudotuberculosis (44)	0.5	#000000	normal	1	0
+N8033	s__Ruminococcus bicirculans (2)	0.5	#000000	normal	1	0
+N8039	s__Butyrivibrio hungatei (5)	0.5	#000000	normal	1	0
+N8042	s__Blautia obeum (5)	0.5	#000000	normal	1	0
+N8054	s__[Clostridium] innocuum (2)	0.5	#000000	normal	1	0
+N8055	s__Bacillus anthracis (2)	0.5	#000000	normal	1	0
+N8063	s__Bacillus coagulans (5)	0.5	#000000	normal	1	0
+N8064	s__Bacillus badius (2)	0.5	#000000	normal	1	0
+N8065	g__Domibacillus (3)	0.5	#000000	normal	1	0
+N8074	s__Streptococcus ratti (2)	0.5	#000000	normal	1	0
+N8085	s__Lactobacillus hominis (2)	0.5	#000000	normal	1	0
+N8086	s__Lactobacillus psittaci (2)	0.5	#000000	normal	1	0
+N8087	s__Lactobacillus jensenii (13)	0.5	#000000	normal	1	0
+N8105	s__Lactobacillus kimchicus (2)	0.5	#000000	normal	1	0
+N8117	g__Hydrotalea (6)	0.5	#000000	normal	1	0
+N8119	g__Flavihumibacter (4)	0.5	#000000	normal	1	0
+N8133	f__Flammeovirgaceae_1 (10)	0.5	#000000	normal	1	0
+N8134	f__Cyclobacteriaceae (25)	0.5	#000000	normal	1	0
+N8135	g__Cytophaga (2)	0.5	#000000	normal	1	0
+N8136	g__Hymenobacter (8)	0.5	#000000	normal	1	0
+N8138	g__Pontibacter (7)	0.5	#000000	normal	1	0
+N8140	g__Leadbetterella (2)	0.5	#000000	normal	1	0
+N8147	g__Polaribacter (4)	0.5	#000000	normal	1	0
+N8151	g__Myroides (18)	0.5	#000000	normal	1	0
+N8152	g__Flavobacterium (36)	0.5	#000000	normal	1	0
+N8165	s__Sanguibacteroides justesenii (2)	0.5	#000000	normal	1	0
+N8171	s__Saccharicrinis fermentans (2)	0.5	#000000	normal	1	0
+N8174	g__Draconibacterium (3)	0.5	#000000	normal	1	0
+N8182	g__Barnesiella (2)	0.5	#000000	normal	1	0
+N8188	f__Prevotellaceae_2 (5)	0.5	#000000	normal	1	0
+N8189	f__Prevotellaceae_1 (86)	0.5	#000000	normal	1	0
+N8194	g__Desulfobacter (3)	0.5	#000000	normal	1	0
+N8199	g__Komagataeibacter (3)	0.5	#000000	normal	1	0
+N8203	g__Skermanella (2)	0.5	#000000	normal	1	0
+N8204	g__Azospirillum (4)	0.5	#000000	normal	1	0
+N8216	f__Sphingomonadaceae_2 (16)	0.5	#000000	normal	1	0
+N8217	f__Erythrobacteraceae (25)	0.5	#000000	normal	1	0
+N8237	g__Devosia (11)	0.5	#000000	normal	1	0
+N8257	g__Stenotrophomonas (9)	0.5	#000000	normal	1	0
+N8272	s__Fluoribacter dumoffii (2)	0.5	#000000	normal	1	0
+N8280	f__Porticoccaceae (5)	0.5	#000000	normal	1	0
+N8281	g__Simiduia (2)	0.5	#000000	normal	1	0
+N8290	g__Halomonas (22)	0.5	#000000	normal	1	0
+N8297	s__Paraglaciecola psychrophila (2)	0.5	#000000	normal	1	0
+N8300	s__Glaciecola punicea (2)	0.5	#000000	normal	1	0
+N8320	g__Grimontia (2)	0.5	#000000	normal	1	0
+N8321	g__Enterovibrio (2)	0.5	#000000	normal	1	0
+N8322	s__Salinivibrio socompensis (3)	0.5	#000000	normal	1	0
+N8331	g__Avibacterium (7)	0.5	#000000	normal	1	0
+N8333	o__Orbales (19)	0.5	#000000	normal	1	0
+N8334	f__Budviciaceae (4)	0.5	#000000	normal	1	0
+N8374	s__Cutibacterium acnes (4)	0.5	#000000	normal	1	0
+N8390	s__Leucobacter chromiiresistens (2)	0.5	#000000	normal	1	0
+N8396	g__Curtobacterium (4)	0.5	#000000	normal	1	0
+N8420	s__Bacillus megaterium (3)	0.5	#000000	normal	1	0
+N8421	s__Bacillus pumilus (3)	0.5	#000000	normal	1	0
+N8423	s__Bacillus subtilis (5)	0.5	#000000	normal	1	0
+N8427	s__Bacillus enclensis (2)	0.5	#000000	normal	1	0
+N8452	s__Lactobacillus ingluviei (2)	0.5	#000000	normal	1	0
+N8460	s__Lactobacillus florum (4)	0.5	#000000	normal	1	0
+N8472	g__Flavisolibacter (2)	0.5	#000000	normal	1	0
+N8474	g__Niabella (6)	0.5	#000000	normal	1	0
+N8482	s__Pedobacter antarcticus (3)	0.5	#000000	normal	1	0
+N8493	g__Rufibacter (3)	0.5	#000000	normal	1	0
+N8506	s__Capnocytophaga haemolytica (2)	0.5	#000000	normal	1	0
+N8511	g__Zhouia (7)	0.5	#000000	normal	1	0
+N8521	s__Anaerophaga thermohalophila (2)	0.5	#000000	normal	1	0
+N8522	s__Draconibacterium orientale (2)	0.5	#000000	normal	1	0
+N8528	g__Parabacteroides (5)	0.5	#000000	normal	1	0
+N8535	g__Paraprevotella (2)	0.5	#000000	normal	1	0
+N8547	g__Saccharibacter (3)	0.5	#000000	normal	1	0
+N8548	g__Gluconobacter (4)	0.5	#000000	normal	1	0
+N8559	s__Sphingobium herbicidovorans (2)	0.5	#000000	normal	1	0
+N8564	s__Novosphingobium barchaimii (9)	0.5	#000000	normal	1	0
+N8566	g__Rhodobacter_2 (3)	0.5	#000000	normal	1	0
+N8582	f__Rhizobiaceae_2 (3)	0.5	#000000	normal	1	0
+N8584	s__Herbaspirillum chlorophenolicum (2)	0.5	#000000	normal	1	0
+N8588	g__Caballeronia (4)	0.5	#000000	normal	1	0
+N8589	g__Paraburkholderia (6)	0.5	#000000	normal	1	0
+N8597	g__Comamonas (6)	0.5	#000000	normal	1	0
+N8599	g__Dyella (2)	0.5	#000000	normal	1	0
+N8600	g__Rhodanobacter (5)	0.5	#000000	normal	1	0
+N8610	g__Thiorhodococcus (2)	0.5	#000000	normal	1	0
+N8629	g__Cellvibrio (4)	0.5	#000000	normal	1	0
+N8636	s__Ca. Portiera aleyrodidarum (3)	0.5	#000000	normal	1	0
+N8638	g__Chromohalobacter (2)	0.5	#000000	normal	1	0
+N8650	s__Glaciecola pallidula (2)	0.5	#000000	normal	1	0
+N8657	s__Shewanella baltica (2)	0.5	#000000	normal	1	0
+N8672	g__Bibersteinia (3)	0.5	#000000	normal	1	0
+N8673	g__Haemophilus_1 (13)	0.5	#000000	normal	1	0
+N8679	f__Morganellaceae (17)	0.5	#000000	normal	1	0
+N8692	s__Corynebacterium pseudodiphtheriticum (5)	0.5	#000000	normal	1	0
+N8722	g__Pseudarthrobacter (5)	0.5	#000000	normal	1	0
+N8763	s__Lactobacillus gigeriorum (2)	0.5	#000000	normal	1	0
+N8764	s__Lactobacillus pasteurii (2)	0.5	#000000	normal	1	0
+N8774	s__Lactobacillus antri (2)	0.5	#000000	normal	1	0
+N8776	s__Lactobacillus fermentum (19)	0.5	#000000	normal	1	0
+N8778	s__Lactobacillus similis (2)	0.5	#000000	normal	1	0
+N8781	s__Lactobacillus parafarraginis (2)	0.5	#000000	normal	1	0
+N8783	s__Lactobacillus lindneri (2)	0.5	#000000	normal	1	0
+N8794	g__Sediminibacterium (2)	0.5	#000000	normal	1	0
+N8797	g__Niastella (2)	0.5	#000000	normal	1	0
+N8808	s__Pedobacter heparinus (2)	0.5	#000000	normal	1	0
+N8818	s__Pontibacter akesuensis (2)	0.5	#000000	normal	1	0
+N8819	g__Runella (3)	0.5	#000000	normal	1	0
+N8822	g__Chryseobacterium (35)	0.5	#000000	normal	1	0
+N8825	s__Myroides odoratus (3)	0.5	#000000	normal	1	0
+N8834	g__Kordia (3)	0.5	#000000	normal	1	0
+N8836	g__Nonlabens (7)	0.5	#000000	normal	1	0
+N8843	g__Dysgonomonas (6)	0.5	#000000	normal	1	0
+N8853	g__Asaia (2)	0.5	#000000	normal	1	0
+N8855	s__Gluconobacter oxydans (3)	0.5	#000000	normal	1	0
+N8868	s__Rhodobacter sphaeroides (2)	0.5	#000000	normal	1	0
+N8874	f__Methylocystaceae_3 (5)	0.5	#000000	normal	1	0
+N8875	f__Beijerinckiaceae (6)	0.5	#000000	normal	1	0
+N8876	f__Bradyrhizobiaceae_2 (8)	0.5	#000000	normal	1	0
+N8878	f__Xanthobacteraceae (8)	0.5	#000000	normal	1	0
+N8881	g__Kaistia (2)	0.5	#000000	normal	1	0
+N8887	g__Rhodoferax (3)	0.5	#000000	normal	1	0
+N8888	g__Polaromonas (3)	0.5	#000000	normal	1	0
+N8889	g__Ramlibacter (3)	0.5	#000000	normal	1	0
+N8890	g__Pseudorhodoferax (2)	0.5	#000000	normal	1	0
+N8922	g__Marinimicrobium (2)	0.5	#000000	normal	1	0
+N8923	g__Gilvimarinus (3)	0.5	#000000	normal	1	0
+N8925	s__Teredinibacter turnerae (6)	0.5	#000000	normal	1	0
+N8927	s__Pseudomonas alcaligenes (6)	0.5	#000000	normal	1	0
+N8954	s__[Haemophilus] parasuis (12)	0.5	#000000	normal	1	0
+N8957	g__Aggregatibacter (2)	0.5	#000000	normal	1	0
+N8958	g__Haemophilus_2 (9)	0.5	#000000	normal	1	0
+N8959	s__Gilliamella apicola (17)	0.5	#000000	normal	1	0
+N8960	s__Pragia fontium (2)	0.5	#000000	normal	1	0
+N8986	s__Streptomyces sp. WMMB 714 (2)	0.5	#000000	normal	1	0
+N8988	s__Streptomyces lydicus (2)	0.5	#000000	normal	1	0
+N9005	g__Rathayibacter (3)	0.5	#000000	normal	1	0
+N9015	s__Bacillus velezensis (4)	0.5	#000000	normal	1	0
+N9016	s__Bacillus amyloliquefaciens (8)	0.5	#000000	normal	1	0
+N9031	s__Lactobacillus acetotolerans (3)	0.5	#000000	normal	1	0
+N9044	s__Lactobacillus odoratitofui (2)	0.5	#000000	normal	1	0
+N9059	s__Pedobacter steynii (3)	0.5	#000000	normal	1	0
+N9060	g__Roseivirga (4)	0.5	#000000	normal	1	0
+N9061	g__Fabibacter (4)	0.5	#000000	normal	1	0
+N9062	g__Echinicola (2)	0.5	#000000	normal	1	0
+N9063	g__Cyclobacterium (3)	0.5	#000000	normal	1	0
+N9064	g__Rhodonellum (7)	0.5	#000000	normal	1	0
+N9065	g__Algoriphagus (10)	0.5	#000000	normal	1	0
+N9069	g__Dyadobacter (4)	0.5	#000000	normal	1	0
+N9074	s__Capnocytophaga granulosa (2)	0.5	#000000	normal	1	0
+N9108	g__Alloprevotella (2)	0.5	#000000	normal	1	0
+N9129	g__Pseudorhodobacter (4)	0.5	#000000	normal	1	0
+N9130	g__Rhodobacter_1 (5)	0.5	#000000	normal	1	0
+N9134	g__Methylosinus (2)	0.5	#000000	normal	1	0
+N9135	g__Methylocystis (3)	0.5	#000000	normal	1	0
+N9142	f__Bradyrhizobiaceae_1 (37)	0.5	#000000	normal	1	0
+N9145	f__Methylocystaceae_2 (5)	0.5	#000000	normal	1	0
+N9155	g__Variovorax (2)	0.5	#000000	normal	1	0
+N9156	g__Verminephrobacter (2)	0.5	#000000	normal	1	0
+N9165	g__Xylella (2)	0.5	#000000	normal	1	0
+N9166	g__Xanthomonas (5)	0.5	#000000	normal	1	0
+N9177	s__Acinetobacter bohemicus (2)	0.5	#000000	normal	1	0
+N9190	s__Pseudomonas stutzeri (5)	0.5	#000000	normal	1	0
+N9198	g__Marinobacterium (3)	0.5	#000000	normal	1	0
+N9199	g__Nitrincola (3)	0.5	#000000	normal	1	0
+N9203	s__Pseudoalteromonas luteoviolacea (2)	0.5	#000000	normal	1	0
+N9214	s__Avibacterium paragallinarum (4)	0.5	#000000	normal	1	0
+N9215	g__Basfia (2)	0.5	#000000	normal	1	0
+N9216	s__Haemophilus parainfluenzae (4)	0.5	#000000	normal	1	0
+N9219	g__Xenorhabdus (4)	0.5	#000000	normal	1	0
+N9246	s__Streptomyces clavuligerus (2)	0.5	#000000	normal	1	0
+N9255	s__Pseudarthrobacter phenanthrenivorans (3)	0.5	#000000	normal	1	0
+N9257	s__Microbacterium hydrocarbonoxydans (4)	0.5	#000000	normal	1	0
+N9262	g__Leifsonia (6)	0.5	#000000	normal	1	0
+N9283	s__Lactobacillus apis (2)	0.5	#000000	normal	1	0
+N9309	g__Spirosoma (7)	0.5	#000000	normal	1	0
+N9314	s__Myroides profundi (2)	0.5	#000000	normal	1	0
+N9315	s__Myroides odoratimimus (11)	0.5	#000000	normal	1	0
+N9316	s__Flavobacterium akiainvivens (2)	0.5	#000000	normal	1	0
+N9323	s__Zhouia amylolytica (2)	0.5	#000000	normal	1	0
+N9325	g__Robiginitalea (2)	0.5	#000000	normal	1	0
+N9333	g__Aquimarina (6)	0.5	#000000	normal	1	0
+N9353	g__Altererythrobacter (2)	0.5	#000000	normal	1	0
+N9360	g__Actibacterium (2)	0.5	#000000	normal	1	0
+N9364	g__Beijerinckia (2)	0.5	#000000	normal	1	0
+N9367	f__Methylobacteriaceae (19)	0.5	#000000	normal	1	0
+N9369	g__Azorhizobium (2)	0.5	#000000	normal	1	0
+N9370	g__Xanthobacter (2)	0.5	#000000	normal	1	0
+N9376	f__Rhodobacteraceae_2 (15)	0.5	#000000	normal	1	0
+N9377	f__Aurantimonadaceae_1 (8)	0.5	#000000	normal	1	0
+N9382	s__Stenotrophomonas maltophilia (2)	0.5	#000000	normal	1	0
+N9393	s__Acinetobacter venetianus (3)	0.5	#000000	normal	1	0
+N9394	s__Acinetobacter indicus (2)	0.5	#000000	normal	1	0
+N9420	s__Alteromonas mediterranea (4)	0.5	#000000	normal	1	0
+N9421	s__Alteromonas macleodii (5)	0.5	#000000	normal	1	0
+N9432	s__Haemophilus influenzae (4)	0.5	#000000	normal	1	0
+N9437	g__Morganella (3)	0.5	#000000	normal	1	0
+N9438	g__Arsenophonus (3)	0.5	#000000	normal	1	0
+N9440	f__Pectobacteriaceae_2 (6)	0.5	#000000	normal	1	0
+N9442	f__Hafniaceae (3)	0.5	#000000	normal	1	0
+N9445	s__Corynebacterium aurimucosum (6)	0.5	#000000	normal	1	0
+N9456	s__Streptomyces avermitilis (2)	0.5	#000000	normal	1	0
+N9467	g__Agromyces (4)	0.5	#000000	normal	1	0
+N9468	s__Butyrivibrio proteoclasticus (2)	0.5	#000000	normal	1	0
+N9482	s__Lactobacillus acidophilus (3)	0.5	#000000	normal	1	0
+N9489	s__Roseivirga seohaensis (2)	0.5	#000000	normal	1	0
+N9491	s__Rhodonellum psychrophilum (3)	0.5	#000000	normal	1	0
+N9505	s__Flavobacterium rivuli (2)	0.5	#000000	normal	1	0
+N9506	s__Flavobacterium subsaxonicum (2)	0.5	#000000	normal	1	0
+N9514	g__Mangrovimonas (2)	0.5	#000000	normal	1	0
+N9520	g__Aequorivita (2)	0.5	#000000	normal	1	0
+N9526	g__Proteiniphilum (4)	0.5	#000000	normal	1	0
+N9547	g__Halocynthiibacter (2)	0.5	#000000	normal	1	0
+N9551	g__Methylocapsa (2)	0.5	#000000	normal	1	0
+N9554	g__Methylobacterium (14)	0.5	#000000	normal	1	0
+N9556	g__Afipia (6)	0.5	#000000	normal	1	0
+N9560	g__Pleomorphomonas (2)	0.5	#000000	normal	1	0
+N9562	g__Aurantimonas (3)	0.5	#000000	normal	1	0
+N9563	g__Aureimonas (5)	0.5	#000000	normal	1	0
+N9564	f__Rhodobacteraceae_3 (3)	0.5	#000000	normal	1	0
+N9594	s__Pseudomonas putida (5)	0.5	#000000	normal	1	0
+N9596	s__Halomonas sp. HL-93 (2)	0.5	#000000	normal	1	0
+N9601	g__Amphritea (2)	0.5	#000000	normal	1	0
+N9603	g__Neptunomonas (5)	0.5	#000000	normal	1	0
+N9610	g__Vibrio (16)	0.5	#000000	normal	1	0
+N9620	s__Morganella psychrotolerans (2)	0.5	#000000	normal	1	0
+N9622	g__Providencia (3)	0.5	#000000	normal	1	0
+N9623	g__Sodalis (3)	0.5	#000000	normal	1	0
+N9628	f__Yersiniaceae (47)	0.5	#000000	normal	1	0
+N9646	s__Microbacterium testaceum (2)	0.5	#000000	normal	1	0
+N9653	s__Streptococcus pyogenes (2)	0.5	#000000	normal	1	0
+N9666	s__Algoriphagus marincola (2)	0.5	#000000	normal	1	0
+N9682	g__Winogradskyella (3)	0.5	#000000	normal	1	0
+N9686	s__Nonlabens ulvanivorans (2)	0.5	#000000	normal	1	0
+N9688	g__Dokdonia (2)	0.5	#000000	normal	1	0
+N9689	g__Leeuwenhoekiella (4)	0.5	#000000	normal	1	0
+N9719	g__Microvirga (4)	0.5	#000000	normal	1	0
+N9724	g__Rhodopseudomonas (9)	0.5	#000000	normal	1	0
+N9759	g__Neptuniibacter (2)	0.5	#000000	normal	1	0
+N9760	s__Neptunomonas phycophila (2)	0.5	#000000	normal	1	0
+N9765	g__Ca. Photodesmus (2)	0.5	#000000	normal	1	0
+N9781	f__Pectobacteriaceae_1 (7)	0.5	#000000	normal	1	0
+N9809	s__Chryseobacterium formosense (2)	0.5	#000000	normal	1	0
+N9820	g__Muricauda (5)	0.5	#000000	normal	1	0
+N9821	g__Cellulophaga (3)	0.5	#000000	normal	1	0
+N9824	g__Maribacter (8)	0.5	#000000	normal	1	0
+N9828	g__Formosa (2)	0.5	#000000	normal	1	0
+N9833	g__Salinimicrobium (3)	0.5	#000000	normal	1	0
+N9835	s__Bacteroides fragilis (4)	0.5	#000000	normal	1	0
+N9838	s__Prevotella ruminicola (6)	0.5	#000000	normal	1	0
+N9846	g__Celeribacter (2)	0.5	#000000	normal	1	0
+N9856	s__Methylobacterium aquaticum (2)	0.5	#000000	normal	1	0
+N9860	s__Rhodopseudomonas palustris (8)	0.5	#000000	normal	1	0
+N9861	g__Nitrobacter (2)	0.5	#000000	normal	1	0
+N9862	g__Bradyrhizobium (19)	0.5	#000000	normal	1	0
+N9866	f__Phyllobacteriaceae_2 (3)	0.5	#000000	normal	1	0
+N9868	f__Phyllobacteriaceae_1 (24)	0.5	#000000	normal	1	0
+N9888	s__Neptunomonas antarctica (2)	0.5	#000000	normal	1	0
+N9899	s__Ca. Baumannia cicadellinicola (3)	0.5	#000000	normal	1	0
+N9902	g__Serratia (7)	0.5	#000000	normal	1	0
+N9906	f__Erwiniaceae_1 (26)	0.5	#000000	normal	1	0
+N9907	f__Enterobacteriaceae_1 (38)	0.5	#000000	normal	1	0
+N9931	s__Chryseobacterium indologenes (4)	0.5	#000000	normal	1	0
+N9939	g__Arenibacter (6)	0.5	#000000	normal	1	0
+N9942	g__Psychroserpens (5)	0.5	#000000	normal	1	0
+N9944	g__Lacinutrix (4)	0.5	#000000	normal	1	0
+N9946	g__Algibacter (6)	0.5	#000000	normal	1	0
+N9951	g__Gillisia (3)	0.5	#000000	normal	1	0
+N9963	g__Porphyrobacter (4)	0.5	#000000	normal	1	0
+N9965	g__Rubellimicrobium (2)	0.5	#000000	normal	1	0
+N9979	g__Nesiotobacter (2)	0.5	#000000	normal	1	0
+N9980	g__Pseudovibrio (4)	0.5	#000000	normal	1	0
+N9983	s__Aureimonas ureilytica (2)	0.5	#000000	normal	1	0
+N9985	f__Aurantimonadaceae_2 (3)	0.5	#000000	normal	1	0
+N9990	f__Bartonellaceae (61)	0.5	#000000	normal	1	0
+N9995	s__Acinetobacter lwoffii (3)	0.5	#000000	normal	1	0
+N10006	f__Enterobacteriaceae_2 (5)	0.5	#000000	normal	1	0
+N10012	g__Yersinia (33)	0.5	#000000	normal	1	0
+N10036	s__Flavobacterium johnsoniae (2)	0.5	#000000	normal	1	0
+N10039	s__Muricauda antarctica (2)	0.5	#000000	normal	1	0
+N10049	g__Psychroflexus (4)	0.5	#000000	normal	1	0
+N10059	g__Citromicrobium (2)	0.5	#000000	normal	1	0
+N10071	s__Methylobacterium populi (2)	0.5	#000000	normal	1	0
+N10077	g__Labrenzia (4)	0.5	#000000	normal	1	0
+N10079	g__Ca. Liberibacter (19)	0.5	#000000	normal	1	0
+N10082	g__Nitratireductor (3)	0.5	#000000	normal	1	0
+N10085	f__Phyllobacteriaceae_3 (2)	0.5	#000000	normal	1	0
+N10105	g__Dickeya (3)	0.5	#000000	normal	1	0
+N10106	g__Erwinia (12)	0.5	#000000	normal	1	0
+N10138	g__Gramella (4)	0.5	#000000	normal	1	0
+N10139	s__Bacteroides thetaiotaomicron (2)	0.5	#000000	normal	1	0
+N10147	g__Octadecabacter (3)	0.5	#000000	normal	1	0
+N10148	g__Loktanella (6)	0.5	#000000	normal	1	0
+N10156	s__Bradyrhizobium elkanii (3)	0.5	#000000	normal	1	0
+N10157	s__Bradyrhizobium lablabi (4)	0.5	#000000	normal	1	0
+N10165	g__Chelativorans (2)	0.5	#000000	normal	1	0
+N10169	f__Brucellaceae (6)	0.5	#000000	normal	1	0
+N10173	s__Pseudomonas fluorescens (3)	0.5	#000000	normal	1	0
+N10175	s__Vibrio parahaemolyticus (2)	0.5	#000000	normal	1	0
+N10179	f__Erwiniaceae_2 (9)	0.5	#000000	normal	1	0
+N10182	s__Yersinia pestis (29)	0.5	#000000	normal	1	0
+N10187	g__Pantoea (7)	0.5	#000000	normal	1	0
+N10204	g__Zobellia (2)	0.5	#000000	normal	1	0
+N10205	s__Maribacter dokdonensis (3)	0.5	#000000	normal	1	0
+N10214	s__Octadecabacter temperatus (2)	0.5	#000000	normal	1	0
+N10217	g__Pseudooceanicola (3)	0.5	#000000	normal	1	0
+N10220	g__Roseovarius (6)	0.5	#000000	normal	1	0
+N10228	s__Labrenzia alba (2)	0.5	#000000	normal	1	0
+N10232	g__Agrobacterium_1 (15)	0.5	#000000	normal	1	0
+N10234	s__Ochrobactrum anthropi (5)	0.5	#000000	normal	1	0
+N10235	s__Bartonella tamiae (2)	0.5	#000000	normal	1	0
+N10236	s__Bartonella apis (6)	0.5	#000000	normal	1	0
+N10241	s__Vibrio alginolyticus (2)	0.5	#000000	normal	1	0
+N10242	s__Vibrio sp. JCM 18905 (2)	0.5	#000000	normal	1	0
+N10244	f__Enterobacteriaceae_3 (2)	0.5	#000000	normal	1	0
+N10245	f__Erwiniaceae_3 (2)	0.5	#000000	normal	1	0
+N10246	s__Buchnera aphidicola (8)	0.5	#000000	normal	1	0
+N10247	s__Yersinia enterocolitica (2)	0.5	#000000	normal	1	0
+N10288	s__Ca. Liberibacter solanacearum (7)	0.5	#000000	normal	1	0
+N10292	g__Agrobacterium_2 (5)	0.5	#000000	normal	1	0
+N10293	g__Rhizobium (7)	0.5	#000000	normal	1	0
+N10297	g__Mesorhizobium (11)	0.5	#000000	normal	1	0
+N10334	g__Thalassobius (2)	0.5	#000000	normal	1	0
+N10345	s__Ca. Liberibacter asiaticus (9)	0.5	#000000	normal	1	0
+N10347	g__Ensifer (2)	0.5	#000000	normal	1	0
+N10348	g__Sinorhizobium (5)	0.5	#000000	normal	1	0
+N10349	s__Agrobacterium rhizogenes (4)	0.5	#000000	normal	1	0
+N10361	s__Bartonella clarridgeiae (2)	0.5	#000000	normal	1	0
+N10377	g__Enterobacter (4)	0.5	#000000	normal	1	0
+N10394	g__Shimia (2)	0.5	#000000	normal	1	0
+N10417	s__Bartonella bovis (2)	0.5	#000000	normal	1	0
+N10418	s__Bartonella bacilliformis (16)	0.5	#000000	normal	1	0
+N10431	s__Prevotella intermedia (3)	0.5	#000000	normal	1	0
+N10434	s__Prevotella bryantii (3)	0.5	#000000	normal	1	0
+N10436	g__Roseivivax (3)	0.5	#000000	normal	1	0
+N10451	s__Bartonella washoensis (2)	0.5	#000000	normal	1	0
+N10459	g__Escherichia (8)	0.5	#000000	normal	1	0
+N10469	g__Sulfitobacter (10)	0.5	#000000	normal	1	0
+N10483	g__Kluyvera (2)	0.5	#000000	normal	1	0
+N10484	g__Klebsiella (4)	0.5	#000000	normal	1	0
+N10485	g__Citrobacter (2)	0.5	#000000	normal	1	0
+N10492	g__Ruegeria (4)	0.5	#000000	normal	1	0
+N10499	s__Bartonella rattimassiliensis (2)	0.5	#000000	normal	1	0
+N10500	s__Bartonella tribocorum (2)	0.5	#000000	normal	1	0
+N10508	g__Citreicella (4)	0.5	#000000	normal	1	0
+N10510	s__Sulfitobacter donghicola (2)	0.5	#000000	normal	1	0
+N10521	s__Bartonella henselae (7)	0.5	#000000	normal	1	0
+N10523	s__Bartonella vinsonii (3)	0.5	#000000	normal	1	0
+N10534	g__Leisingera (3)	0.5	#000000	normal	1	0
