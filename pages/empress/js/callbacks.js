@@ -524,3 +524,25 @@ function getDownloadURL(id, target) {
   }
   return url;
 }
+/**
+ * Download some text as a file
+ * @function download
+ * @param (string) filename - the name of the file
+ * @param (string) text - the content of the file
+ */
+function downloadGenomeIds() {
+    var element = document.createElement('a');
+    let modal = document.getElementById("export-modal");
+    let clsID = modal.dataset.clsID;
+    let filename = "Genome_Ids-" + clsID;
+    let genomeIds = tree.getGenomeIDs(clsID);
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(genomeIds.join("\r\n")));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}

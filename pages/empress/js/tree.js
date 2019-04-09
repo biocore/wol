@@ -19,7 +19,7 @@ class Tree{
     while(tmp.length !== 0){
       let curr = tmp.pop();
       if(include_self || start!==curr) {
-        if (tip && this.tree[curr].is_tip){
+        if (!tip || this.tree[curr].is_tip == "true"){
             result.push(curr);
         }
       }
@@ -423,8 +423,8 @@ class Tree{
     if(node.children.length == 0){
       return [nodeId];
     } else {
-      order(true, node, false)
-
+      return this.order(true, nodeId, false, true);
     }
   }
+
 }
