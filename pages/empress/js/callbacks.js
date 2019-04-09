@@ -396,29 +396,45 @@ function userCladeColor(){
 function retrieveTaxonNodes(triggerBy) {
   let taxLevel;
   let node;
-  let selectElm;
+  let selectElm, numElm;
   let taxPrefix = getTaxPrefix();
   if(triggerBy === 't' && $("#tips").is(":checked")) {
     selectElm = $("#tips-find-level");
+    numElm = $("#tips-number");
     selectElm.attr("disabled", false);
+    numElm.attr("disabled", false);
     taxLevel = selectElm.val();
-    tipLabels = tree.getTaxonLabels(taxLevel, "true", taxPrefix, random);
+    if(tipLabels.length < 1) {
+      tipLabels = tree.getTaxonLabels(taxLevel, "true", taxPrefix, random);
+    }
   }
   else if(!$("#tips").is(":checked")) {
     $("#tips-find-level").attr('disabled',true);
+    $("#tips-number").attr('disabled',true);
     tipLabels = [];
   }
 
   if(triggerBy === 'n' && $("#internal-nodes").is(":checked")) {
     selectElm = $("#nodes-find-level");
+    numElm = $("#internal-nodes-number")
     selectElm.attr("disabled", false);
+    numElm.attr("disabled", false);
     taxLevel = selectElm.val();
     nodeLabels = tree.getTaxonLabels(taxLevel, "false", taxPrefix, highToLow);
   }
   else if(!$("#internal-nodes").is(":checked")) {
     $("#nodes-find-level").attr("disabled", true);
+    $("#internal-nodes-number").attr("disabled", true);
     nodeLabels = [];
   }
+  if(parseInt($("#tips-number").val()) > 100) {
+    $("#tips-number").val("100");
+  }
+  if(parseInt($("#internal-nodes-number").val()) > 100) {
+    $("#internal-nodes-number").val("100");
+  }
+  drawingData.numTipLabels = parseInt($("#tips-number").val());
+  drawingData.numNodeLabels = parseInt($("#internal-nodes-number").val());
   requestAnimationFrame(loop);
 }
 
