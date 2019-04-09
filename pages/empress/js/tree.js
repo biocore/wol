@@ -13,12 +13,16 @@ class Tree{
     this.lastHighTri = 0;
   }
 
-  order(pre, start, include_self){
+  order(pre, start, include_self, tip=false){
     let result = [];
     let tmp = [start];
     while(tmp.length !== 0){
       let curr = tmp.pop();
-      if(include_self || start!==curr) result.push(curr);
+      if(include_self || start!==curr) {
+        if (!tip || this.tree[curr].is_tip == "true"){
+            result.push(curr);
+        }
+      }
       for (var i = 0; i < this.tree[curr].children.length; ++i){
         tmp.push(this.tree[curr].children[i]);
       }
@@ -455,4 +459,31 @@ class Tree{
     }
     return colors[val];
   }
+
+  getGenomeIDs(nodeId){
+    let node = this.tree[nodeId];
+    // If the node is a tip
+    if(node.children.length == 0){
+      return [nodeId];
+    } else {
+      return this.order(true, nodeId, false, true);
+    }
+  }
+
+  /**
+   * Generate newick format string based on the subtree rooted at nodeId
+   */
+  toNewick(nodeId){
+    let node = this.tree[nodeId];
+    let result = [];
+    let resultStr = nodeId+":"+node.length;
+    // Base case
+    if(node.children.length==0) return resultStr;
+    for( var i = 0; i < node.children.length;i++){
+      let child = node.children[i];
+      result.push(this.toNewick(child));
+    }
+    return '(' + result.join(',') + ')' + resultStr;
+  }
+
 }
