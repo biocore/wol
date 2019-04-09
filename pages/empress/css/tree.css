@@ -13,13 +13,15 @@ body {
 }
 
 .gradient-bar {
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3px;
+    height: 2vh;
+    padding: 3px;
 }
 
 .gradient-color {
-    background: linear-gradient(to right, #ff0000, #00ff00);
+    width: 10vw;
 }
 
 
@@ -196,8 +198,6 @@ canvas {
     top: 0vh;
     left: 0vw;
     overflow: none;
-    /*width: 66vw;
-    height: 75vh;*/
     width: 100vw;
     height: 100vh;
 }
@@ -216,6 +216,22 @@ canvas {
     position: absolute;
 }
 /* end of reference */
+
+/* color key */
+.gradient-label {
+    overflow: visible;
+    white-space: nowrap;
+    display: inline-block;
+}
+#node-color-key, #tip-color-key {
+    border: solid;
+    border-width: 1px;
+    max-height: 25vh;
+    display: inline-flex;
+    flex-direction: column;
+    overflow: auto;
+}
+/*end of color key*/
 
 /* control panel */
 
@@ -326,7 +342,6 @@ p.side-header button {
 
 .control p button:hover {
     background-color: dimgray;
-    /* background-color: #777; */
 }
 
 .control p button:only-child {
@@ -481,7 +496,7 @@ button.close {
     border: none;
     outline: none;
   }
-  
+
 button.close:hover {
     background-color: gray;
 }

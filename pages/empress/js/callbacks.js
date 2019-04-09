@@ -347,6 +347,59 @@ function resizeCanvas(event) {
   requestAnimationFrame(loop);
 }
 
+function addColorKey(keyInfo, keyContainer, gradient) {
+  let container;
+
+  let component;
+  if(gradient) {
+    //create key container
+    container = document.createElement("div");
+    container.classList.add("gradient-bar")
+    // min label
+    component = document.createElement("label");
+    component.classList.add("gradient-label");
+    component.innerHTML = keyInfo.min[0]
+    container.appendChild(component);
+
+    // color gradient
+    component = document.createElement("div");
+    component.classList.add("gradient-color");
+    component.setAttribute("style", "background: linear-gradient(to right, #" + keyInfo.min[1] + " 0%, #" + keyInfo.max[1] + " 100%);");
+    container.appendChild(component);
+
+    //max label
+    component = document.createElement("label");
+    component.classList.add("gradient-label");
+    component.innerHTML = keyInfo.max[0];
+    container.appendChild(component);
+
+    keyContainer.appendChild(container);
+
+  }
+  else {
+    let key;
+    for(key in keyInfo) {
+      console.log(keyInfo[key]);
+      //create key container
+      container = document.createElement("div");
+      container.classList.add("gradient-bar")
+
+      // color gradient
+      component = document.createElement("div");
+      component.classList.add("gradient-color");
+      component.setAttribute("style", "background: #" + keyInfo[key] + ";");
+      container.appendChild(component);
+
+      //label
+      component = document.createElement("label");
+      component.classList.add("gradient-label");
+      component.innerHTML = key;
+      container.appendChild(component);
+
+      keyContainer.appendChild(container);
+    }
+  }
+}
 /**
  * Event called when user presses the select-data button. This method is responsible
  * for coordinating the highlight tip feature.
@@ -354,20 +407,33 @@ function resizeCanvas(event) {
 function userHighlightSelect() {
   let edgeData;
   let selectElm = $("#collapse-level");
+  let tipKey = document.getElementById("tip-color-key");
+  let nodeKey = document.getElementById("node-color-key");
+  let result;
+  tipKey.innerHTML = "";
+  tipKey.classList.add("hidden");
+  nodeKey.innerHTML = "";
+  nodeKey.classList.add("hidden");
   if (!$("#branch-color").is(":checked") || !$("#tip-color").is(":checked")) {
     $("#tip-color-options").attr("disabled", true);
     $("#branch-color-options").attr("disabled", true);
-    edgeData = tree.colorBranches("default");
+    edgeData = tree.colorBranches("default")["edgeData"];
   }
   if($("#branch-color").is(":checked")) {
     let cat = $("#branch-color-options").val();
     $("#branch-color-options").attr("disabled", false);
-    edgeData = tree.colorBranches(cat);
+    result = tree.colorBranches(cat);
+    addColorKey(result["keyInfo"], nodeKey, false);
+    nodeKey.classList.remove("hidden");
+    edgeData = result["edgeData"];
   }
   if($("#tip-color").is(":checked")) {
     let cat = $("#tip-color-options").val();
     $("#tip-color-options").attr("disabled", false);
-    edgeData = tree.colorBranches(cat);
+    result = tree.colorBranches(cat);
+    tipKey.classList.remove("hidden");
+    addColorKey(result["keyInfo"], tipKey, true);
+    edgeData = result["edgeData"];
   }
   if($("#collapse-cb").is(":checked")) {
     let taxLevel = selectElm.val();
