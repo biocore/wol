@@ -1,7 +1,9 @@
 Python scripts
 ==============
 
-All scripts depend on Python 3.5+ with [scikit-bio](http://scikit-bio.org/) 0.5.1+, unless otherwise stated.
+Go to [GitHub directory](https://github.com/biocore/wol/tree/master/code/scripts).
+
+These scripts may be generally or specifically useful in research. All scripts have a simple command-line interface indicating its purpose and usage. All scripts depend on Python 3.5+ with [scikit-bio](http://scikit-bio.org/) 0.5.1+, unless otherwise stated.
 
 
 Basic tree operations

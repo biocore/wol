@@ -94,4 +94,4 @@ Please stay tuned for [PhyloPhlAn2](https://bitbucket.org/nsegata/phylophlan/wik
 
 If you use the data, code or protocols developed in this work, please directly cite our website: [https://github.com/biocore/wol](https://github.com/biocore/wol). A manuscript detailing this work is current under peer review. Please stay tuned.
 
-Please forward any questions to the project leader: **Dr. Qiyun Zhu** ([qiyunzhu@gmail.com](qiyunzhu@gmail.com)) or the senior PI: **Dr. Rob Knight** ([robknight@ucsd.edu](robknight@ucsd.edu)).
+Please forward any questions to the project leader: **Dr. Qiyun Zhu** ([qiz173@ucsd.edu](mailto:qiz173@ucsd.edu)) or the senior PI: **Dr. Rob Knight** ([robknight@ucsd.edu](mailto:robknight@ucsd.edu)).
