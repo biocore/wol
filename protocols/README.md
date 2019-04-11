@@ -13,7 +13,9 @@ Building
 
 - [**Marker identification**](https://bitbucket.org/nsegata/phylophlan/wiki/Home): Identify and extract amino acid sequences of 400 global marker genes from genomes, using PhyloPhlAn.
 
-- [**Phylogenetic inference**](nothing): Build phylogenetic trees of genes and species using various approaches.
+- [**Tree building**](tree_building): Build phylogenetic trees of genes and species using various approaches.
+
+- [**Tree manipulation**](tree_manipulation): manipulate phylogenetic trees using the Python scripts developed by our team.
 
 - [**Taxon subsampling**](taxon_subsampling): Select _n_ taxa from a larger phylogenetic tree such that it maximizes representation of deep-branching, large clades.
 
