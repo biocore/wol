@@ -11,6 +11,7 @@ Core protocol of this project. Phylogentic reconstruction of evolutionary relati
 - [**ASTRAL**](https://github.com/smirarab/ASTRAL) 5.12.6a
 - [**UPP**](https://github.com/smirarab/sepp) 2.0
 - [**PhyloPhlAn**](http://huttenhower.sph.harvard.edu/phylophlan) commit 2c0e61a
+- [**TreeShrink**](https://github.com/uym2/TreeShrink)
 
 Note: the commands listed below have ignored multi-threading parameters and filename-specific parameters.
 
@@ -48,6 +49,12 @@ Build a starting tree using FastTree:
 FastTree -lg -gamma -seed 12345 align.fa > fasttree.nwk
 ```
 
+Remove outliers (low quality sequences, contaminations, etc.) presented as long branches in the tree using TreeShrink:
+
+```
+run_treeshrink.py -i input_directory -t fasttree.nwk -a align.fa -o output_directory
+```
+
 Infer gene tree topology using CAT in RAxML. Three runs were performed, one with the FastTree tree as the starting tree; the other two with random seeds:
 
 ```
@@ -64,7 +71,7 @@ Optimize branch lengths and compute likelihood score using Gamma in RAxML:
 raxmlHPC -m PROTGAMMALG -f e -s align.fa -t cat.nwk
 ```
 
-If one or more of the three runs fail to due computational limitation, use IQ-TREE instead for all three:
+If one or more of the three runs fail due to computational limitation, use IQ-TREE instead for all three:
 
 ```
 iqtree -m LG+G4 -s align.fa -te cat.nwk
