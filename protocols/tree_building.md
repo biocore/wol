@@ -11,6 +11,7 @@ Core protocol of this project. Phylogentic reconstruction of evolutionary relati
 - [**ASTRAL**](https://github.com/smirarab/ASTRAL) 5.12.6a
 - [**UPP**](https://github.com/smirarab/sepp) 2.0
 - [**PhyloPhlAn**](http://huttenhower.sph.harvard.edu/phylophlan) commit 2c0e61a
+- [**TreeShrink**](https://github.com/uym2/TreeShrink)
 
 Note: the commands listed below have ignored multi-threading parameters and filename-specific parameters.
 
@@ -18,8 +19,14 @@ Note: the commands listed below have ignored multi-threading parameters and file
 ### 2. Sequence alignment
 
 #### 2.1. Per-gene alignment
+UPP was run with all sequences but fragments are used for the backbone. Sequences with length L < 0.34\*M or L > 1.33\*M, where M is the median length of all the sequences, are detected as fragments and not included in the backbone.
 
-(to be filled)
+
+```
+run_upp.py -s seqfile.fa -B 100000 -M -1 -T 0.66 -m amino
+```
+
+After aligned the sequences by UPP, we filter out the gappy **sites** with more than 95% gaps, then filter out the low quality sequences with  more than 66% gaps.
 
 #### 2.2 Gene filtering
 
@@ -42,6 +49,12 @@ Build a starting tree using FastTree:
 FastTree -lg -gamma -seed 12345 align.fa > fasttree.nwk
 ```
 
+Remove outliers (low quality sequences, contaminations, etc.) presented as unproportionally long branches in the FastTree trees using TreeShrink:
+
+```
+run_treeshrink.py -i input_directory -t fasttree.nwk -a align.fa -o output_directory
+```
+
 Infer gene tree topology using CAT in RAxML. Three runs were performed, one with the FastTree tree as the starting tree; the other two with random seeds:
 
 ```
@@ -58,7 +71,7 @@ Optimize branch lengths and compute likelihood score using Gamma in RAxML:
 raxmlHPC -m PROTGAMMALG -f e -s align.fa -t cat.nwk
 ```
 
-If one or more of the three runs fail to due computational limitation, use IQ-TREE instead for all three:
+If one or more of the three runs fail due to computational limitation, use IQ-TREE instead for all three:
 
 ```
 iqtree -m LG+G4 -s align.fa -te cat.nwk
