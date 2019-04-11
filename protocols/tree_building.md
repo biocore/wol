@@ -19,14 +19,14 @@ Note: the commands listed below have ignored multi-threading parameters and file
 ### 2. Sequence alignment
 
 #### 2.1. Per-gene alignment
-UPP was run with all sequences but fragments are used for the backbone. Sequences with length L < 0.34\*M or L > 1.33\*M, where M is the median length of all the sequences, are detected as fragments and not included in the backbone.
 
+We aligned amino acid sequences using UPP. It was run with all sequences but fragments are used for the backbone. Sequences with length L < 0.34\*M or L > 1.33\*M, where _M_ is the median length of all the sequences, were detected as fragments and not included in the backbone.
 
 ```
 run_upp.py -s seqfile.fa -B 100000 -M -1 -T 0.66 -m amino
 ```
 
-After aligned the sequences by UPP, we filter out the gappy **sites** with more than 95% gaps, then filter out the low quality sequences with  more than 66% gaps.
+After aligned the sequences by UPP, we filtered out **sites** with more than 95% gaps, then filtered out **sequences** with more than 66% gaps.
 
 #### 2.2 Gene filtering
 
@@ -52,7 +52,7 @@ FastTree -lg -gamma -seed 12345 align.fa > fasttree.nwk
 Remove outliers (low quality sequences, contaminations, etc.) presented as unproportionally long branches in the FastTree trees using TreeShrink:
 
 ```
-run_treeshrink.py -i input_directory -t fasttree.nwk -a align.fa -o output_directory
+run_treeshrink.py -i input_dir -t fasttree.nwk -a align.fa -o output_dir
 ```
 
 Infer gene tree topology using CAT in RAxML. Three runs were performed, one with the FastTree tree as the starting tree; the other two with random seeds:
