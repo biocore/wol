@@ -49,7 +49,7 @@ Build a starting tree using FastTree:
 FastTree -lg -gamma -seed 12345 align.fa > fasttree.nwk
 ```
 
-Remove outliers (low quality sequences, contaminations, etc.) presented as long branches in the tree using TreeShrink:
+Remove outliers (low quality sequences, contaminations, etc.) presented as unproportionally long branches in the FastTree trees using TreeShrink:
 
 ```
 run_treeshrink.py -i input_directory -t fasttree.nwk -a align.fa -o output_directory
