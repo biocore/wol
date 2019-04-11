@@ -25,6 +25,8 @@ UPP was run with all sequences but fragments are used for the backbone. Sequence
 run_upp.py -s seqfile.fa -B 100000 -M -1 -T 0.66 -m amino
 ```
 
+After aligned the sequences by UPP, we filter out the gappy **sites** with more than 95% gaps, then filter out the low quality sequences with  more than 66% gaps.
+
 #### 2.2 Gene filtering
 
 We dropped marker genes with more than 75% gaps in the alignment matrix.
