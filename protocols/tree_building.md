@@ -19,7 +19,9 @@ Note: the commands listed below have ignored multi-threading parameters and file
 
 #### 2.1. Per-gene alignment
 
-(to be filled)
+```
+run_upp.py -s seqfile.fa -B 100000 -M -1 -T 0.66 -m amino
+```
 
 #### 2.2 Gene filtering
 
