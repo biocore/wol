@@ -18,6 +18,8 @@ Note: the commands listed below have ignored multi-threading parameters and file
 ### 2. Sequence alignment
 
 #### 2.1. Per-gene alignment
+UPP was run with all sequences but fragments are used for the backbone. Sequences with length L < 0.34\*M or L > 1.33\*M, where M is the median length of all the sequences, are detected as fragments and not included in the backbone.
+
 
 ```
 run_upp.py -s seqfile.fa -B 100000 -M -1 -T 0.66 -m amino
