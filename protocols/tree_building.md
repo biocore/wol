@@ -39,7 +39,11 @@ This left **381** out of 400 marker genes, and left **10,575** out of 11,079 gen
 
 #### 3.1. Model selection
 
-We used [`ProteinModelSelection.pl`](https://github.com/stamatak/standard-RAxML/blob/master/usefulScripts/ProteinModelSelection.pl) as bundled in RAxML.
+We used [`ProteinModelSelection.pl`](https://github.com/stamatak/standard-RAxML/blob/master/usefulScripts/ProteinModelSelection.pl) as bundled in RAxML:
+
+```
+perl ProteinModelSelection.pl align.fa > best_model.txt
+```
 
 
 #### 3.2. Tree building
