@@ -41,6 +41,7 @@ This left **381** out of 400 marker genes, and left **10,575** out of 11,079 gen
 
 We used [`ProteinModelSelection.pl`](https://github.com/stamatak/standard-RAxML/blob/master/usefulScripts/ProteinModelSelection.pl) as bundled in RAxML.
 
+
 #### 3.2. Tree building
 
 Build a starting tree using FastTree:
@@ -86,11 +87,32 @@ Among the three trees, keep one with the highest likelihood score.
 
 The 381 gene alignments were concatenated into a supermatrix. To reduce computational cost, and to improve alignment reliability, we performed two types of site sampling:
 
-1. Select up to _k_ most conserved sites per gene, using the **Trident** algorithm implemented in PhyloPhlAn.
+1. Select up to _k_ most conserved sites per gene, using the [**Trident**](https://doi.org/10.1002/prot.10146) scoring function implemented in PhyloPhlAn.
+
+```{python}
+import phylophlan as ppa
+ppa.subsample('path/to/input/folder',
+              'path/to/output/folder',
+              ppa.onehundred,
+              ppa.trident,
+              'substitution_matrices/pfasum60.pkl',
+              unknown_fraction=0.3)
+```
 
 2. Randomly select _k_ sites per gene, from sites with less than 50% gaps.
 
+```{python}
+import phylophlan as ppa
+ppa.subsample('path/to/input/folder',
+              'path/to/output/folder',
+              ppa.onehundred,
+              ppa.random_score,
+              'substitution_matrices/pfasum60.pkl',
+              unknown_fraction=0.3)
+```
+
 In the current release, _k_ = 100.
+
 
 #### 4.2. Tree building
 
@@ -116,6 +138,7 @@ Optimize branch lengths and compute likelihood score using Gamma in IQ-TREE:
 iqtree -m LG+G4 -s concat.phy -te raxml.nwk
 ```
 
+
 #### 4.3. Branch supports
 
 Branch support values were provided by 100 rapid bootstraps using RAxML:
@@ -130,11 +153,13 @@ raxmlHPC -m PROTGAMMALG -f b -z xboot.nwk -t iqtree.nwk
 
 We use ASTRAL, which infers the optimal species tree topolgy by summarizing multiple gene trees.
 
+
 #### 5.1. Tree building
 
 ```
 java -jar astral.jar -i gene.trees -o astral.tre
 ```
+
 
 #### 5.2. Branch supports
 
@@ -147,6 +172,7 @@ In which three are cared:
 - EN: **Effective number (en): number of gene trees that provided information.
 - q1: Quartet score (qts): proportion of gene trees that support this branch.
 - pp1: Local posterior probability (lpp): computed based on the quartet score.
+
 
 #### 5.3. Branch lengths
 
