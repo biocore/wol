@@ -144,6 +144,8 @@ Optimize branch lengths and compute likelihood score using Gamma in IQ-TREE:
 iqtree -m LG+G4 -s concat.phy -te raxml.nwk
 ```
 
+Keep the highest-score tree of the three.
+
 
 #### 4.3. Branch supports
 
@@ -151,7 +153,7 @@ Branch support values were provided by 100 rapid bootstraps using RAxML:
 
 ```
 raxmlHPC -m PROTCATLG -s concat.phy -p 12345 -x 12345 -N 100
-raxmlHPC -m PROTGAMMALG -f b -z xboot.nwk -t iqtree.nwk
+raxmlHPC -m PROTCATLG -f b -z xboot.nwk -t iqtree.nwk
 ```
 
 
