@@ -5,13 +5,13 @@ Core protocol of this project. Phylogentic reconstruction of evolutionary relati
 
 ### 1. Tools
 
+- [**UPP**](https://github.com/smirarab/sepp) 2.0
 - [**FastTree**](http://www.microbesonline.org/fasttree/) 2.1.9
 - [**RAxML**](https://cme.h-its.org/exelixis/web/software/raxml/) 8.2.10
 - [**IQ-TREE**](http://www.iqtree.org/) 1.6.1
+- [**PhyloPhlAn**](http://huttenhower.sph.harvard.edu/phylophlan) 2c0e61a
+- [**TreeShrink**](https://github.com/uym2/TreeShrink) 1.1
 - [**ASTRAL**](https://github.com/smirarab/ASTRAL) 5.12.6a
-- [**UPP**](https://github.com/smirarab/sepp) 2.0
-- [**PhyloPhlAn**](http://huttenhower.sph.harvard.edu/phylophlan) commit 2c0e61a
-- [**TreeShrink**](https://github.com/uym2/TreeShrink)
 
 Note: the commands listed below have ignored multi-threading parameters and filename-specific parameters.
 
@@ -20,17 +20,19 @@ Note: the commands listed below have ignored multi-threading parameters and file
 
 #### 2.1. Per-gene alignment
 
-We aligned amino acid sequences using UPP. It was run with all sequences but fragments are used for the backbone. Sequences with length L < 0.34\*M or L > 1.33\*M, where _M_ is the median length of all the sequences, were detected as fragments and not included in the backbone.
+Align amino acid sequences using UPP.
 
 ```
 run_upp.py -s seqfile.fa -B 100000 -M -1 -T 0.66 -m amino
 ```
 
+- UPP was run with all sequences but fragments are used for the backbone. Sequences with length _L_ < 0.34\*_M_ or _L_ > 1.33\*_M_, where _M_ is the median length of all the sequences, were detected as fragments and not included in the backbone.
+
 After aligned the sequences by UPP, we filtered out **sites** with more than 95% gaps, then filtered out **sequences** with more than 66% gaps.
 
 #### 2.2 Gene filtering
 
-We dropped marker genes with more than 75% gaps in the alignment matrix.
+Drop marker genes with more than 75% gaps in the alignment matrix.
 
 This left **381** out of 400 marker genes, and left **10,575** out of 11,079 genomes.
 
