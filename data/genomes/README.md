@@ -23,11 +23,19 @@ We also provide a Bash script [batch_down.sh](batch_down.sh) to batch-download a
 bash batch_down.sh download.list
 ```
 
-**Lineage-specific download**: In the [interactive tree browser](../../empress), one can mouse over a clade of interest to display the taxonomic annotation and an "**Export**" button, which leads to choices of genome IDs, download links and subtree. The interface further allows choice of download data types (e.g., genomes, proteins, RNAs).
+**Moreover**, in the [metadata](../data/genomes/metadata.tsv.bz2), column `ftp_path` indicates the original path of each genome on the NCBI FTP server.
+
+
+## Lineage-specific download
+
+In the [interactive tree browser](../../empress), one can mouse over a clade of interest to display the taxonomic annotation and an "**Export**" button, which leads to choices of genome IDs, download links and subtree. The interface further allows choice of download data types (e.g., genomes, proteins, RNAs).
 
 Then one can use [batch_down.sh](batch_down.sh) to batch-download them (see above).
 
-**Moreover**, in the [metadata](../data/genomes/metadata.tsv.bz2), column `ftp_path` indicates the original path of each genome on the NCBI FTP server.
+
+## Mapping
+
+[**nucl2g.txt**](nucl2g.txt.bz2) is a nucleotide accession to genome ID mapping file. It is useful in some downstream applications (e.g., check out our [community ecology](../../protocols/community_ecology) protocol). Although it isn't hard to generate one from the genome sequences.
 
 
 ## Metadata

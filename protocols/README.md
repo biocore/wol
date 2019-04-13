@@ -9,7 +9,7 @@ Building
 
 - [**Genome retrieval**](https://bitbucket.org/nsegata/repophlan): Download all bacterial and archaeal genomes available from NCBI GenBank and RefSeq, using RepoPhlAn.
 
-- [**Genome sampling**](genomes): Select _n_ genomes form a genome pool such that they maximize included biodiversity as measured by the _k_-mer signatures of genomes.
+- [**Genome sampling**](genomes_sampling): Select _n_ genomes form a genome pool such that they maximize included biodiversity as measured by the _k_-mer signatures of genomes.
 
 - [**Marker identification**](https://bitbucket.org/nsegata/phylophlan/wiki/Home): Identify and extract amino acid sequences of 400 global marker genes from genomes, using PhyloPhlAn.
 

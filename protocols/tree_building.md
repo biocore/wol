@@ -95,7 +95,7 @@ The 381 gene alignments were concatenated into a supermatrix. To reduce computat
 
 1. Select up to _k_ most conserved sites per gene, using the [**Trident**](https://doi.org/10.1002/prot.10146) scoring function implemented in PhyloPhlAn.
 
-```{python}
+```
 import phylophlan as ppa
 ppa.subsample('path/to/input/folder',
               'path/to/output/folder',
@@ -107,7 +107,7 @@ ppa.subsample('path/to/input/folder',
 
 2. Randomly select _k_ sites per gene, from sites with less than 50% gaps.
 
-```{python}
+```
 import phylophlan as ppa
 ppa.subsample('path/to/input/folder',
               'path/to/output/folder',
