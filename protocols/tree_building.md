@@ -5,12 +5,13 @@ Core protocol of this project. Phylogentic reconstruction of evolutionary relati
 
 ### 1. Tools
 
+- [**UPP**](https://github.com/smirarab/sepp) 2.0
 - [**FastTree**](http://www.microbesonline.org/fasttree/) 2.1.9
 - [**RAxML**](https://cme.h-its.org/exelixis/web/software/raxml/) 8.2.10
 - [**IQ-TREE**](http://www.iqtree.org/) 1.6.1
+- [**PhyloPhlAn**](http://huttenhower.sph.harvard.edu/phylophlan) 2c0e61a
+- [**TreeShrink**](https://github.com/uym2/TreeShrink) 1.1
 - [**ASTRAL**](https://github.com/smirarab/ASTRAL) 5.12.6a
-- [**UPP**](https://github.com/smirarab/sepp) 2.0
-- [**PhyloPhlAn**](http://huttenhower.sph.harvard.edu/phylophlan) commit 2c0e61a
 
 Note: the commands listed below have ignored multi-threading parameters and filename-specific parameters.
 
@@ -19,11 +20,19 @@ Note: the commands listed below have ignored multi-threading parameters and file
 
 #### 2.1. Per-gene alignment
 
-(to be filled)
+Align amino acid sequences using UPP.
+
+```
+run_upp.py -s seqfile.fa -B 100000 -M -1 -T 0.66 -m amino
+```
+
+- UPP was run with all sequences but fragments are used for the backbone. Sequences with length _L_ < 0.34\*_M_ or _L_ > 1.33\*_M_, where _M_ is the median length of all the sequences, were detected as fragments and not included in the backbone.
+
+After aligned the sequences by UPP, we filtered out **sites** with more than 95% gaps, then filtered out **sequences** with more than 66% gaps.
 
 #### 2.2 Gene filtering
 
-We dropped marker genes with more than 75% gaps in the alignment matrix.
+Drop marker genes with more than 75% gaps in the alignment matrix.
 
 This left **381** out of 400 marker genes, and left **10,575** out of 11,079 genomes.
 
@@ -32,7 +41,12 @@ This left **381** out of 400 marker genes, and left **10,575** out of 11,079 gen
 
 #### 3.1. Model selection
 
-We used [`ProteinModelSelection.pl`](https://github.com/stamatak/standard-RAxML/blob/master/usefulScripts/ProteinModelSelection.pl) as bundled in RAxML.
+We used [`ProteinModelSelection.pl`](https://github.com/stamatak/standard-RAxML/blob/master/usefulScripts/ProteinModelSelection.pl) as bundled in RAxML:
+
+```
+perl ProteinModelSelection.pl align.fa > best_model.txt
+```
+
 
 #### 3.2. Tree building
 
@@ -40,6 +54,12 @@ Build a starting tree using FastTree:
 
 ```
 FastTree -lg -gamma -seed 12345 align.fa > fasttree.nwk
+```
+
+Remove outliers (low quality sequences, contaminations, etc.) presented as unproportionally long branches in the FastTree trees using TreeShrink:
+
+```
+run_treeshrink.py -i input_dir -t fasttree.nwk -a align.fa -o output_dir
 ```
 
 Infer gene tree topology using CAT in RAxML. Three runs were performed, one with the FastTree tree as the starting tree; the other two with random seeds:
@@ -58,7 +78,7 @@ Optimize branch lengths and compute likelihood score using Gamma in RAxML:
 raxmlHPC -m PROTGAMMALG -f e -s align.fa -t cat.nwk
 ```
 
-If one or more of the three runs fail to due computational limitation, use IQ-TREE instead for all three:
+If one or more of the three runs fail due to computational limitation, use IQ-TREE instead for all three:
 
 ```
 iqtree -m LG+G4 -s align.fa -te cat.nwk
@@ -73,11 +93,32 @@ Among the three trees, keep one with the highest likelihood score.
 
 The 381 gene alignments were concatenated into a supermatrix. To reduce computational cost, and to improve alignment reliability, we performed two types of site sampling:
 
-1. Select up to _k_ most conserved sites per gene, using the **Trident** algorithm implemented in PhyloPhlAn.
+1. Select up to _k_ most conserved sites per gene, using the [**Trident**](https://doi.org/10.1002/prot.10146) scoring function implemented in PhyloPhlAn.
+
+```{python}
+import phylophlan as ppa
+ppa.subsample('path/to/input/folder',
+              'path/to/output/folder',
+              ppa.onehundred,
+              ppa.trident,
+              'substitution_matrices/pfasum60.pkl',
+              unknown_fraction=0.3)
+```
 
 2. Randomly select _k_ sites per gene, from sites with less than 50% gaps.
 
+```{python}
+import phylophlan as ppa
+ppa.subsample('path/to/input/folder',
+              'path/to/output/folder',
+              ppa.onehundred,
+              ppa.random_score,
+              'substitution_matrices/pfasum60.pkl',
+              unknown_fraction=0.3)
+```
+
 In the current release, _k_ = 100.
+
 
 #### 4.2. Tree building
 
@@ -103,13 +144,16 @@ Optimize branch lengths and compute likelihood score using Gamma in IQ-TREE:
 iqtree -m LG+G4 -s concat.phy -te raxml.nwk
 ```
 
+Keep the highest-score tree of the three.
+
+
 #### 4.3. Branch supports
 
 Branch support values were provided by 100 rapid bootstraps using RAxML:
 
 ```
 raxmlHPC -m PROTCATLG -s concat.phy -p 12345 -x 12345 -N 100
-raxmlHPC -m PROTGAMMALG -f b -z xboot.nwk -t iqtree.nwk
+raxmlHPC -m PROTCATLG -f b -z xboot.nwk -t iqtree.nwk
 ```
 
 
@@ -117,11 +161,13 @@ raxmlHPC -m PROTGAMMALG -f b -z xboot.nwk -t iqtree.nwk
 
 We use ASTRAL, which infers the optimal species tree topolgy by summarizing multiple gene trees.
 
+
 #### 5.1. Tree building
 
 ```
 java -jar astral.jar -i gene.trees -o astral.tre
 ```
+
 
 #### 5.2. Branch supports
 
@@ -134,6 +180,7 @@ In which three are cared:
 - EN: **Effective number (en): number of gene trees that provided information.
 - q1: Quartet score (qts): proportion of gene trees that support this branch.
 - pp1: Local posterior probability (lpp): computed based on the quartet score.
+
 
 #### 5.3. Branch lengths
 

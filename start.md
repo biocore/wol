@@ -37,16 +37,28 @@ The genome and protein sequences, multiple sequence alignments and other large d
 
 ## How to view it
 
-For readers interested in exploring the evolutionary storying underlying our trees, we provide high-resolution renderings at multiple levels, using NCBI and GTDB taxonomies, as images (PDF format) or compiled packages that can be directly parsed by [FigTree](http://tree.bio.ed.ac.uk/software/figtree/) and [iTOL](https://itol.embl.de/).
+We present an [interactive visualization](empress) of the tree. You can zoom, collapse, label, and color the tree. Mouse over individual tips or nodes to view its taxonomy (NCBI or GTDB), to navigate to external databases, or to export download links or subtree.
 
-We also provide the Newick files, metadata of taxa and nodes, and code for perform rendering
+We also provide high-resolution PDF images in multiple layouts and collapsed at multiple ranks, and their [FigTree](http://tree.bio.ed.ac.uk/software/figtree/) and [iTOL](https://itol.embl.de/)-ready rendering packages, as well as the protocol and source code for rendering, at [**gallery**](gallery).
 
-In addition, our group is actively developing [**Empress**](https://github.com/biocore/empress/), a novel interactive visualizer for massive trees (with hundreds of thousands of tips). Please stay tuned!
+Alternatively, you can always start with the raw Newick files, and metadata of taxa and nodes provided at [data](data) to build your own view!
 
 
 ## How to use it in research
 
-In addition to direct eyeballing, the reference tree can be used to extend the understanding of the composition and diversity of microbial communities. See [protocols](protocols).
+In addition to direct eyeballing, you can use the reference phylogeny in actual research to extend the understanding of the composition and diversity of microbial communities.
+
+### Genome and taxonomy database
+
+The 10,575-genome catalog, with its _curated_ taxonomy, can be compiled into a reference genome database, and plugged into your existing analysis workflow (e.g., for metagenomic profiling). See this [protocol](protocols/genome_database).
+
+### Microbial community ecology
+
+This reference phylogeny enables classical diversity analyses designed during the 16S rRNA era, such as [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [**Faith's PD**](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity, on WGS datasets. Finer-grained output is enabled at per-genome level resolution (we call it  "**gOTU**"). See this [protocol](protocols/community_ecology) and corresponding source code.
+
+### Phylogeny-based profiling
+
+We present a novel metagenomic profiling strategy, which _solely relies on phylogeny, and NOT taxonomy_, to enable higher-resolution and more accurate classification, and new insights in light of evolution. WGS data are directly assigned to internal nodes of the tree, and can be visualized in our interface. See this [protocol](protocols/tree_profiling) and corresponding source code.
 
 
 ## Information for users of
