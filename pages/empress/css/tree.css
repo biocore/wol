@@ -251,6 +251,7 @@ canvas {
     border: none;
     text-align: left;
     outline: none;
+    margin: 0;
 }
 
 button.side-header {
