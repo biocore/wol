@@ -1,6 +1,10 @@
 ## Microbial community ecology
 
-(Manuscript in preparation)
+- [Overview](#Overview)
+- [Core notion: gOTU](#Core-notion:-gOTU)
+- [Sequence mapping](#Sequence-mapping)
+- [gOTU table generation](#gOTU-table-generation)
+- [gOTU analysis using QIIME2](#gOTU-analysis-using-QIIME2)
 
 
 ### Overview
@@ -26,7 +30,7 @@ The notion we introduce here, gOTU, means to be an analogue to sOTU, but for WGS
 
 Any sequence aligner, such as Bowtie2 or BLAST, or more complicated metagenome classifier, such as [SHOGUN](https://github.com/knights-lab/SHOGUN) or [Centrifuge](https://ccb.jhu.edu/software/centrifuge/), as long as it directly associates query sequences with reference genome sequences, can be used for this analysis. For the later, this process does not block the original analysis (i.e., taxonomic classication). It just makes use of the intermediate files (read maps)
 
-Evaluation of individual aligners in the context of gOTU analysis is currently ongoing.
+(Evaluation of individual aligners in the context of gOTU analysis is currently ongoing.)
 
 Example 1: Taxonomic profiling using SHOGUN, with Bowtie2 as aligner:
 
@@ -43,7 +47,7 @@ centrifuge -p 32 -x /path/to/db -1 input.R1.fq.gz -2 input.R2.fq.gz -S output.ma
 
 ### gOTU table generation
 
-**gOTU from maps**
+#### gOTU from maps
 
 We provide a Python script [**gOTU_from_maps.py**](../code/scripts/gOTU_from_maps.py) to convert mapping files of multiple samples into a BIOM table (i.e., the gOTU table). This script supports multiple mapping file formats, including:
 - [SAM format](https://en.wikipedia.org/wiki/SAM_(file_format)) (used by Bowtie2, BWA, etc.),
@@ -76,7 +80,7 @@ The script generates three gOTU tables. They differ by the way _non-unique_ hits
 
 Either one can be used for the downstream analyses. Choice depends on specific research goal and experimental design. Let's use `uniq.tsv` as an example hereafter.
 
-**Data formatting**
+#### Data formatting
 
 One can further convert the .tsv file into the [BIOM](http://biom-format.org/) format, which is the standard for microbiome studies and broader bioinformatics.
 
@@ -87,13 +91,7 @@ biom convert -i table.tsv -o table.biom --table-type="OTU table" --to-hdf5
 To work with BIOM format one needs the Python package [`biom-format`](https://pypi.org/project/biom-format/). Multiple bioinformatics packages such as QIIME2 already include it. 
 {: .notice}
 
-We recommend using [QIIME2](https://qiime2.org/) to analyze microbiome datasets. To do so, one needs to convert the BIOM table into a QIIME2 [artifact](https://docs.qiime2.org/2019.1/concepts/#data-files-qiime-2-artifacts):
-
-```
-qiime tools import --type FeatureTable[Frequency] --input-path table.biom --output-path table.qza
-```
-
-**Data refining**
+#### Data refining
 
 A microbiome dataset usually needs to be refined in order to obtain optimal results. Please refer to QIIME2 tutorials for data [filtering](https://docs.qiime2.org/2019.1/tutorials/filtering/) and [rarefaction](https://docs.qiime2.org/2019.1/plugins/available/feature-table/rarefy/).
 
@@ -106,17 +104,23 @@ filter_otus_per_sample.py input.biom 0.0001 output.biom
 - This command filters out gOTUs with less than 0.01% assignments per sample.
 
 
-### Phylogeny-guided gOTU analysis
+### gOTU analysis using QIIME2
 
-**Reference tree**
+#### Importing data
+
+We recommend using [QIIME2](https://qiime2.org/) to analyze microbiome datasets. To do so, one needs to convert the BIOM table into a QIIME2 [artifact](https://docs.qiime2.org/2019.1/concepts/#data-files-qiime-2-artifacts):
+
+```
+qiime tools import --type FeatureTable[Frequency] --input-path table.biom --output-path table.qza
+```
 
 The reference [**phylogeny**](../data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk) provided in the also needs to be imported into QIIME2 as an artifact:
 
 ```
-qiime tools import --input-path tree.nwk --type Phylogeny[Rooted] --output-path tree.qza
+qiime tools import --type Phylogeny[Rooted] --input-path tree.nwk --output-path tree.qza
 ```
 
-**Lazy person's all-in-one solution**
+#### Lazy person's all-in-one solution
 
 Here you go:
 
@@ -133,7 +137,7 @@ And enjoy the output!
 
 This might be overly simple (and the sampling depth 1,000 is arbitrary). We would rather you spend bit more time reading and understanding the analyses under the hood. QIIME2's [“Moving Pictures” tutorial](https://docs.qiime2.org/2019.1/tutorials/moving-pictures/) is a good starting point. We also list individual relevant analyses below.
 
-**Alpha diversity analysis using Faith's PD**
+#### Alpha diversity analysis using Faith's PD
 
 [Alpha diversity](https://en.wikipedia.org/wiki/Alpha_diversity) describes the microbial diversity within each community. **Faith's PD** ([Faith, 1992](https://www.sciencedirect.com/science/article/abs/pii/0006320792912013)) is an alpha diversity metric that incorporates phylogenetic distances (i.e., branch lengths) in the equation. It can be calculated using QIIME2' [alpha-phylogenetic](https://docs.qiime2.org/2019.1/plugins/available/diversity/alpha-phylogenetic/) command:
 
@@ -145,7 +149,7 @@ qiime diversity alpha-phylogenetic \
   --output-dir .
 ```
 
-**Beta diversity analysis using UniFrac**
+#### Beta diversity analysis using UniFrac
 
 [Beta diversity](https://en.wikipedia.org/wiki/Beta_diversity) describes the microbial diversity across different communities. [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) ([Lozupone and Knight, 2006](https://aem.asm.org/content/71/12/8228)) is a group of beta diversity metrics that concern the phylogenetic distances among OTUs. Recently, we improved the implementation of UniFrac ([McDonald et al., 2018](https://www.nature.com/articles/s41592-018-0187-8)), allowing efficient analysis of very large datasets (e.g., 100k+ samples). These are provided by QIIME2's [beta-phylogenetic](https://docs.qiime2.org/2019.1/plugins/available/diversity/beta-phylogenetic/) command.
 
