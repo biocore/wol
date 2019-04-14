@@ -65,11 +65,7 @@ We present a novel metagenomic profiling strategy, which _solely relies on phylo
 
 ### NCBI
 
-IDs of our genome pool are directly translated from NCBI assembly accessions. Duplicate genomes are merged.
-
-A script is provided to download genomes fresh from the original NCBI server.
-
-we provide mock taxdump files based on curated NCBI and GTDB taxonomy.
+IDs of our genome pool are directly translated from NCBI assembly accessions. Duplicate genomes are merged. Copies of genome sequences are hosted at our Globus endpoint. Instructions are provided to download genomes fresh from the original NCBI server. See [details](data/genomes).
 
 ### GTDB
 
@@ -85,21 +81,25 @@ The reference tree can be used for the diversity analysis of shotgun metagenomes
 
 A derivative for 16S rRNA-based analysis is under development. Please stay tuned.
 
-### SHOGUN
-
-The tree can replace the NCBI taxonomy hierarchy used in a Kraken analysis to guide the heuristic search. See here for how-to.
-
-Checkout protocol for taxonomy-free profiles
-
-### Kraken
-
-The tree can replace the NCBI taxonomy hierarchy used in a Kraken analysis to guide the heuristic search. See here for how-to.
-
 ### PhyloPhlAn
 
-The 381 marker genes used to build the tree are a curated subsample of the 400 marker genes originally implemented in [PhyloPhlAn](https://bitbucket.org/nsegata/phylophlan/wiki/Home) ([Segata et al., 2013](https://www.nature.com/articles/ncomms3304)). For each marker gene, we provide functional annotation, gene tree and its degree of congruence with the species evolution. Please see [data/markers](data/markers) and [data/trees/genes](data/trees/genes).
+The 381 marker genes used to build the tree are a curated subsample of the 400 marker genes originally implemented in [PhyloPhlAn](https://bitbucket.org/nsegata/phylophlan/wiki/Home). For each marker gene, we provide functional annotation, gene tree and its degree of congruence with the species evolution. Please see [data/markers](data/markers) and [data/trees/genes](data/trees/genes).
 
-Please stay tuned for [PhyloPhlAn2](https://bitbucket.org/nsegata/phylophlan/wiki/phylophlan2).
+Please also check out [PhyloPhlAn2](https://bitbucket.org/nsegata/phylophlan/wiki/phylophlan2).
+
+### Kraken / Centrifuge
+
+Two things can be done for each program: (**basic**) The genome pool and a _curated taxonomy_ can be compiled into an improved reference genome database for metagenomic profiling. See this [protocol](protocols/genome_database) for details.
+
+(**advanced**) The reference phylogeny can replace the NCBI taxonomy hierarchy used in a Kraken / Centrifuge analysis to guide the classification process. Query sequences are directly assigned to nodes instead of taxonomic ranks. See this [protocol](protocols/tree_profiling).
+
+### SHOGUN
+
+The genome pool, the curated taxonomy and the phylogenetic tree itself can be compiled into a reference database to improve metagenomic profiling. The intermediate files can be further used for community ecology analysis. See these protocols: [1](protocols/genome_database), [2](protocols/community_ecology) and [3](protocols/tree_profiling).
+
+### TIPP
+
+We will integrate the reference phylogeney with [TIPP](https://github.com/smirarab/sepp/blob/master/tutorial/tipp-tutorial.md), a phylogenetic placement-based metagenomic sequence classifier. Please stay tuned.
 
 
 ## How to cite it
