@@ -9,8 +9,6 @@ main:
     url: /code
   - title: Protocols
     url: /protocols
-  - title: About
-    url: /about
 
 top:
   - title: Data
@@ -31,5 +29,3 @@ top:
     url: /code
   - title: Protocols
     url: /protocols
-  - title: About
-    url: /about
