@@ -1,7 +1,44 @@
 Genomes
 =======
 
-The metadata of genomes, including properties retrieved from NCBI and statistics calculated in our analyses. You may obtain the original genome sequences from our [Globus endpoint](https://www.globus.org/app/transfer?origin_id=23fd07dc-b6c8-11e8-8bf8-0a1d4c5c824a&origin_path=%2F), or download them from NCBI using the FTP paths provided in the table.
+The bacterial and archaeal genomes analyzed in this project. This GitHub directory hosts the metadata of the **10,575** genomes included in the reference phylogeny ([metadata.tsv](metadata.tsv.bz2)), and that of all **86,200** genomes ([metadata.ext.tsv](metadata.ext.tsv.bz2)) from which the genomes were sampled.
+
+## Download
+
+There are several ways one can obtain the genome sequences (*.fna).
+
+**Recommended**: We host all genome sequences at our [Globus](https://www.globus.org/) endpoint: [**WebOfLife**](https://www.globus.org/app/transfer?origin_id=23fd07dc-b6c8-11e8-8bf8-0a1d4c5c824a&origin_path=%2F) (owner: [jdereus@globusid.org](mailto:jdereus@globusid.org)). Downloading bulk data using Globus is free, fast and secure. To find out how please see this [guide](https://docs.globus.org/how-to/get-started/).
+
+**Alternative**: The genome data were directly pulled from NCBI. Therefore, one may also choose to download the original data from the [NCBI FTP server](ftp://ftp.ncbi.nlm.nih.gov/genomes/all).
+
+We provide a Python script [make_down_list.py](make_down_list.py) to generate a list of download links from the metadata:
+
+```
+make_down_list.py metadata.tsv > download.list
+```
+
+We also provide a Bash script [batch_down.sh](batch_down.sh) to batch-download all genome sequences in the list:
+
+```
+bash batch_down.sh download.list
+```
+
+**Moreover**, in the [metadata](../data/genomes/metadata.tsv.bz2), column `ftp_path` indicates the original path of each genome on the NCBI FTP server.
+
+
+## Lineage-specific download
+
+In the [interactive tree browser](../../empress), one can mouse over a clade of interest to display the taxonomic annotation and an "**Export**" button, which leads to choices of genome IDs, download links and subtree. The interface further allows choice of download data types (e.g., genomes, proteins, RNAs).
+
+Then one can use [batch_down.sh](batch_down.sh) to batch-download them (see above).
+
+
+## Mapping
+
+[**nucl2g.txt**](nucl2g.txt.bz2) is a nucleotide accession to genome ID mapping file. It is useful in some downstream applications (e.g., check out our [community ecology](../../protocols/community_ecology) protocol). Although it isn't hard to generate one from the genome sequences.
+
+
+## Metadata
 
 [**metadata.tsv**](metadata.tsv.bz2) contains metadata of the **10,575** genomes selected for phylogenetic reconstruction. Definition of columns:
 - **Identifier**
