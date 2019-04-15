@@ -13,13 +13,15 @@ body {
 }
 
 .gradient-bar {
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3px;
+    height: 2vh;
+    padding: 3px;
 }
 
 .gradient-color {
-    background: linear-gradient(to right, #ff0000, #00ff00);
+    width: 10vw;
 }
 
 
@@ -74,6 +76,21 @@ select:-moz-focusring {
     pointer-events: none;
 }
 
+input[type=number] {
+    background-color: white;
+    height: 25px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+    padding-left: 5px;
+    margin-right: 5px;
+}
+
+input[type=number]:hover:enabled {
+    background-color: lightgray;
+}
+
 input[type=radio], input[type=checkbox] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -114,20 +131,78 @@ input[type=radio]:hover, input[type=checkbox]:hover {
 }
 
 
+/* tooltip */
+
+.tooltip {
+    visibility: hidden;
+    background-color: black;
+    opacity: 0.5;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    margin-top: 35px;
+    margin-left: -60px;
+    transition-delay: 0.5s;
+}
+
+label:hover .tooltip {
+    visibility: visible;
+}
+
+.tooltip:hover {
+    opacity: 1.0;
+    transition-delay: 0s;
+}
+
+.tooltip::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    margin-left: 30px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+
 /* hover box */
 
 #hover-box {
     position: fixed;
-    border: 0;
+    border: 1px solid transparent;
     background-color: white;
     opacity: 0.75;
-    margin: 2px;
     padding: 20px;
 }
 
 #hover-box:hover {
     opacity: 1.0;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid lightgray;
+}
+
+#hover-box::after, #hover-box:hover::before {
+    content: " ";
+    position: absolute;
+    border-style: solid;
+    right: 100%;
+    margin-top: -10px;
+}
+
+#hover-box:after {
+    top: 40px;
+    border-width: 10px;
+    border-color: transparent white transparent transparent;
+}
+
+#hover-box:hover:before {
+    top: 39px;
+    border-width: 11px;
+    border-color: transparent lightgray transparent transparent;
 }
 
 #hover-table tr td {
@@ -196,8 +271,6 @@ canvas {
     top: 0vh;
     left: 0vw;
     overflow: none;
-    /*width: 66vw;
-    height: 75vh;*/
     width: 100vw;
     height: 100vh;
 }
@@ -217,6 +290,22 @@ canvas {
 }
 /* end of reference */
 
+/* color key */
+.gradient-label {
+    overflow: visible;
+    white-space: nowrap;
+    display: inline-block;
+}
+#node-color-key, #tip-color-key {
+    border: solid;
+    border-width: 1px;
+    max-height: 25vh;
+    display: inline-flex;
+    flex-direction: column;
+    overflow: auto;
+}
+/*end of color key*/
+
 /* control panel */
 
 #side-panel {
@@ -235,6 +324,7 @@ canvas {
     border: none;
     text-align: left;
     outline: none;
+    margin: 0;
 }
 
 button.side-header {
@@ -326,7 +416,6 @@ p.side-header button {
 
 .control p button:hover {
     background-color: dimgray;
-    /* background-color: #777; */
 }
 
 .control p button:only-child {
@@ -335,6 +424,7 @@ p.side-header button {
 
 .control hr {
     border-top: 1px solid lightgray;
+    border-bottom: none;
     margin-bottom: 20px;
 }
 
@@ -481,7 +571,7 @@ button.close {
     border: none;
     outline: none;
   }
-  
+
 button.close:hover {
     background-color: gray;
 }
