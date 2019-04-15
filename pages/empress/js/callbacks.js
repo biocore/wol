@@ -237,8 +237,8 @@ function nodeHover(x,y) {
     let pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
 
     // show hover box
-    box.style.left = Math.floor(pixelX) + "px";
-    box.style.top = Math.floor(pixelY) + "px";
+    box.style.left = Math.floor(pixelX + 23) + "px";
+    box.style.top = Math.floor(pixelY - 43) + "px";
     box.classList.remove("hidden");
   }
 
@@ -276,8 +276,8 @@ function triangleHover(x, y) {
     createExportBtn(table, triRoot.id);
 
     // show hover box
-    box.style.left = x + "px";
-    box.style.top = y + "px";
+    box.style.left = (x + 23) + "px";
+    box.style.top = (y - 43) + "px";
     box.classList.remove("hidden");
 
     drawingData.highTri = triRoot.tri;

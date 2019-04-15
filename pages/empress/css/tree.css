@@ -173,16 +173,36 @@ label:hover .tooltip {
 
 #hover-box {
     position: fixed;
-    border: 0;
+    border: 1px solid transparent;
     background-color: white;
     opacity: 0.75;
-    margin: 2px;
     padding: 20px;
 }
 
 #hover-box:hover {
     opacity: 1.0;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid lightgray;
+}
+
+#hover-box::after, #hover-box:hover::before {
+    content: " ";
+    position: absolute;
+    border-style: solid;
+    right: 100%;
+    margin-top: -10px;
+}
+
+#hover-box:after {
+    top: 40px;
+    border-width: 10px;
+    border-color: transparent white transparent transparent;
+}
+
+#hover-box:hover:before {
+    top: 39px;
+    border-width: 11px;
+    border-color: transparent lightgray transparent transparent;
 }
 
 #hover-table tr td {
