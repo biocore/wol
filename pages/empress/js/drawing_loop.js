@@ -120,9 +120,7 @@ function drawLabels(labels, container, taxLevel, totalLabels) {
   let minY = bottomRight[Y], maxY = topLeft[Y];
 
   let divContainerElement = document.getElementById(container);
-    while(divContainerElement.firstChild) {
-      divContainerElement.removeChild(divContainerElement.firstChild);
-    }
+  divContainerElement.innerHTML = "";
 
   // draw top 10 node labels within the viewing window
   let i, k;

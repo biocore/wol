@@ -13,12 +13,16 @@ class Tree{
     this.lastHighTri = 0;
   }
 
-  order(pre, start, include_self){
+  order(pre, start, include_self, tip=false){
     let result = [];
     let tmp = [start];
     while(tmp.length !== 0){
       let curr = tmp.pop();
-      if(include_self || start!==curr) result.push(curr);
+      if(include_self || start!==curr) {
+        if (!tip || this.tree[curr].is_tip == "true"){
+            result.push(curr);
+        }
+      }
       for (var i = 0; i < this.tree[curr].children.length; ++i){
         tmp.push(this.tree[curr].children[i]);
       }
@@ -327,6 +331,7 @@ class Tree{
 
   colorBranches(category) {
     let i = 0;
+    let result = {};
     if(category === "default") {
         let color = this.getDefaultColor();
         for(i in this.metadata) {
@@ -334,54 +339,96 @@ class Tree{
         }
     }
     else {
+        let keyInfo = {};
         if(category === "(preset)"){
+            let value, color;
             for(i in this.metadata) {
-                this.metadata[i]['branch_color'] = this.getColorPal(this.metadata[i]["color_pal"]);
+                value = this.metadata[i]["color_pal"];
+                color = this.getColorPal(value);
+                keyInfo[value] = this.getColorHexCode(color);
+                this.metadata[i]['branch_color'] = color;
             }
         }
         else {
             let min = this.maxes[category][0];
             let max = this.maxes[category][1];
+            keyInfo = {
+                "min": [min, this.getColorHexCode(this.getColor(min,max, min))],
+                "max": [max, this.getColorHexCode(this.getColor(min, max, max))]
+            };
             for(i in this.metadata) {
                 if(this.metadata[i][category] !== null){
                     this.metadata[i]['branch_color'] = this.getColor(min, max, this.metadata[i][category]);
                 }
             }
         }
+        result["keyInfo"] = keyInfo;
     }
     this.updateEdgeData(0);
-    return this.edgeData
+    result["edgeData"] = this.edgeData;
+    return result;
+  }
+  getColorHexCode(colorArray) {
+    const RED = 0, GREEN = 1, BLUE = 2, BASE_HEX = 16, LARGEST_COLOR = 256;
+    let hexString = (colorArray[RED] * LARGEST_COLOR).toString(BASE_HEX)
+        + (colorArray[GREEN] * LARGEST_COLOR).toString(BASE_HEX)
+        + (colorArray[BLUE] * LARGEST_COLOR).toString(BASE_HEX);
+    return (hexString.length < 6) ? hexString + "0" : hexString;
   }
   getDefaultColor() {
     return [0.7, 0.7, 0.7];
   }
   getColor(min, max, val) {
-    let bucketSize = (max - min) / 9;
-    if(val < min + bucketSize - 1) {
-        return [0.99609375, 0.95703125, 0.91796875];
+    //n red
+    // let bucketSize = (max - min) / 9;
+    // if(val < min + bucketSize) {
+    //     return [0.99609375, 0.95703125, 0.91796875];
+    // }
+    // else if(val < min + 2*bucketSize) {
+    //     return [0.9921875, 0.8984375, 0.8046875];
+    // }
+    // else if(val < min + 3*bucketSize) {
+    //     return [0.98828125, 0.8125, 0.6328125];
+    // }
+    // else if(val < min + 4*bucketSize) {
+    //     return [98828125, 0.6796875, 0.41796875];
+    // }
+    // else if(val < min + 5*bucketSize) {
+    //     return [0.98828125, 0.55078125, 0.234375];
+    // }
+    // else if(val < min + 6*bucketSize) {
+    //     return [0.94140625, 0.41015625, 0.07421875];
+    // }
+    // else if(val < min +  7*bucketSize) {
+    //     return [0.84765625, 0.28125, 0.00390625];
+    // }
+    // else if(val < min + 8*bucketSize) {
+    //     return [0.6484375, 0.2109375, 0.01171875];
+    // }
+    // return [0.49609375, 0.15234375, 0.015625];
+
+    // yellow red
+    // console.log( min + 6&bucketSize)
+    let bucketSize = (max - min) / 5;
+    if(val < min + bucketSize) {
+        return [0.9921875, 0.84765625, 0.4609375];
     }
-    else if(val < min + 2*bucketSize - 1) {
-        return [0.9921875, 0.8984375, 0.8046875];
+    else if(val < min + 2*bucketSize) {
+        return [0.9921875, 0.6953125, 0.296875];
     }
-    else if(val < min + 3*bucketSize - 1) {
-        return [0.98828125, 0.8125, 0.6328125];
-    }
-    else if(val < min + 4*bucketSize - 1) {
-        return [98828125, 0.6796875, 0.41796875];
-    }
-    else if(val < min + 5*bucketSize - 1) {
+    else if(val < min + 3*bucketSize) {
         return [0.98828125, 0.55078125, 0.234375];
     }
-    else if(val < min + 6*bucketSize - 1) {
-        return [0.94140625, 0.41015625, 0.07421875];
+    else if(val < min + 4*bucketSize) {
+        return [0.984375, 0.3046875, 0.1640625];
     }
-    else if(val < min +  7*bucketSize - 1) {
-        return [0.84765625, 0.28125, 0.00390625];
-    }
-    else if(val < min + 8*bucketSize - 1) {
-        return [0.6484375, 0.2109375, 0.01171875];
-    }
-    return [0.49609375, 0.15234375, 0.015625];
+    // else if(val < min + 5*bucketSize) {
+        return [0.88671875, 0.1015625, 0.109375];
+    // }
+    // else if(val < min + 6*bucketSize) {
+    //     return [0.73828125, 0.0, 0.1484375];
+    // }
+    // return [0.5, 0.0, 0.1484375];
 
   }
 
@@ -412,4 +459,31 @@ class Tree{
     }
     return colors[val];
   }
+
+  getGenomeIDs(nodeId){
+    let node = this.tree[nodeId];
+    // If the node is a tip
+    if(node.children.length == 0){
+      return [nodeId];
+    } else {
+      return this.order(true, nodeId, false, true);
+    }
+  }
+
+  /**
+   * Generate newick format string based on the subtree rooted at nodeId
+   */
+  toNewick(nodeId){
+    let node = this.tree[nodeId];
+    let result = [];
+    let resultStr = nodeId+":"+node.length;
+    // Base case
+    if(node.children.length==0) return resultStr;
+    for( var i = 0; i < node.children.length;i++){
+      let child = node.children[i];
+      result.push(this.toNewick(child));
+    }
+    return '(' + result.join(',') + ')' + resultStr;
+  }
+
 }
