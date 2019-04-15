@@ -57,10 +57,10 @@ function changeTaxSys() {
   let origChecked = $("#orig").is(":checked");
   retrieveTaxonNodes("t");
   retrieveTaxonNodes("n");
-  if($("#collapse-cb").is(":checked") && !origChecked) {
+  if ($("#collapse-cb").is(":checked") && !origChecked) {
     autoCollapseTree();
   }
-  if(origChecked) {
+  if (origChecked) {
     $("#collapse-cb").attr("checked", false);
     $("#collapse-cb").attr("disabled", true);
     $("#internal-nodes").attr("checked", false);
@@ -86,6 +86,30 @@ function hover(x,y) {
     triangleHover(x,y);
   }
 }
+
+
+/**
+ * Create an "Export" button in a hover box.
+ * @function createExportBtn
+ * @param {Object} table - table in the hover box
+ * @param {number} clsID - current node Id
+ */
+function createExportBtn(table, clsID) {
+  let row = table.insertRow(-1);
+  let cell = row.insertCell(-1);
+  cell.colSpan = 2;
+  const btn = document.createElement("button");
+  btn.innerHTML = "Export";
+  btn.onclick = function () {
+    let modal = document.getElementById("export-modal");
+    modal.dataset.clsID = clsID;
+    modal.firstElementChild.firstElementChild.firstElementChild.innerHTML
+      = clsID + " (" + tree.tree[clsID]["leafcount"] + " genomes)";
+    modal.classList.remove("hidden");
+  };
+  cell.appendChild(btn);
+}
+
 
 function nodeHover(x,y) {
   let id;
@@ -200,19 +224,7 @@ function nodeHover(x,y) {
 
     // export row
     else {
-      row = table.insertRow(-1);
-      cell = row.insertCell(-1);
-      cell.colSpan = 2;
-      const btn = document.createElement("button");
-      btn.innerHTML = "Export";
-      btn.onclick = function () {
-        let modal = document.getElementById("export-modal");
-        modal.dataset.clsID = clsID;
-        modal.firstElementChild.firstElementChild.firstElementChild.innerHTML
-          = clsID + " (" + tree.tree[clsID]["leafcount"] + " genomes)";
-        modal.classList.remove("hidden");
-      };
-      cell.appendChild(btn);
+      createExportBtn(table, clsID);
     }
 
     // calculate the screen coordinate of the label
@@ -240,7 +252,7 @@ function triangleHover(x, y) {
   let taxLevel = $("#collapse-level").val();
   let taxPrefix = getTaxPrefix();
 
-  if(triRoot != null) {
+  if (triRoot != null) {
     let box = document.getElementById("hover-box");
     box.classList.add("hidden");
     let table = document.getElementById("hover-table");
@@ -260,6 +272,9 @@ function triangleHover(x, y) {
     cell = row.insertCell(-1);
     cell.innerHTML = tree.tree[triRoot.id]["leafcount"];
 
+    // export button
+    createExportBtn(table, triRoot.id);
+
     // show hover box
     box.style.left = x + "px";
     box.style.top = y + "px";
@@ -277,7 +292,7 @@ function autoCollapseTree() {
   let selectElm = $("#collapse-level");
   let taxSys = $("input[name='sys']:checked").val();
   let taxPrefix = taxSys + "d_";
-  if($("#collapse-cb").is(":checked")) {
+  if ($("#collapse-cb").is(":checked")) {
     selectElm.attr("disabled", false);
     let taxLevel = selectElm.val();
     let edgeData = tree.collapse(taxLevel, taxPrefix);
@@ -351,7 +366,7 @@ function addColorKey(keyInfo, keyContainer, gradient) {
   let container;
 
   let component;
-  if(gradient) {
+  if (gradient) {
     //create key container
     container = document.createElement("div");
     container.classList.add("gradient-bar")
@@ -378,8 +393,7 @@ function addColorKey(keyInfo, keyContainer, gradient) {
   }
   else {
     let key;
-    for(key in keyInfo) {
-      console.log(keyInfo[key]);
+    for (key in keyInfo) {
       //create key container
       container = document.createElement("div");
       container.classList.add("gradient-bar")
@@ -634,6 +648,7 @@ function downloadText(text, fname) {
  */
 function downloadGenomeIds(clsID) {
   let genomeIds = tree.getGenomeIDs(clsID);
+  genomeIds.sort();
   downloadText(genomeIds.join("\r\n") + "\r\n", clsID + ".ids.txt");
 }
 
@@ -646,6 +661,7 @@ function downloadLinks(clsID) {
   let sel = document.getElementById("downfile-options");
   let target = sel.options[sel.selectedIndex].value;
   let genomeIds = tree.getGenomeIDs(clsID);
+  genomeIds.sort();
   let links = "";
   genomeIds.forEach(function(id) {
     links += getDownloadURL(id, target) + "\r\n";

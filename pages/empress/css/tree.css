@@ -76,6 +76,21 @@ select:-moz-focusring {
     pointer-events: none;
 }
 
+input[type=number] {
+    background-color: white;
+    height: 25px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+    padding-left: 5px;
+    margin-right: 5px;
+}
+
+input[type=number]:hover:enabled {
+    background-color: lightgray;
+}
+
 input[type=radio], input[type=checkbox] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -351,6 +366,7 @@ p.side-header button {
 
 .control hr {
     border-top: 1px solid lightgray;
+    border-bottom: none;
     margin-bottom: 20px;
 }
 

@@ -44,14 +44,13 @@
       });
 
       // add rank names
-      // ["tax-level", "collapse-level", "tips-find-level", "nodes-find-level"]
       ["collapse-level", "tips-find-level", "nodes-find-level"]
         .forEach(function(id) {
         const sel = document.getElementById(id);
         ranks.forEach(function(rank) {
           const opt = document.createElement("option");
           opt.text = rank;
-          if (id === "collapse-level" && rank === "phylum") {
+          if (rank === "phylum") {
             opt.selected = "selected";
           }
           sel.add(opt);
@@ -151,10 +150,10 @@
         </p>
         <p>
           <label>Curation</label>
-          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
-          <label for="cura">curated</label>
           <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
-          <label for="orig">original</label>
+          <label for="orig">Original</label>
+          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
+          <label for="cura">Curated</label>
         </p>
       </div>
 
