@@ -131,6 +131,44 @@ input[type=radio]:hover, input[type=checkbox]:hover {
 }
 
 
+/* tooltip */
+
+.tooltip {
+    visibility: hidden;
+    background-color: black;
+    opacity: 0.5;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    margin-top: 35px;
+    margin-left: -60px;
+    transition-delay: 0.5s;
+}
+
+label:hover .tooltip {
+    visibility: visible;
+}
+
+.tooltip:hover {
+    opacity: 1.0;
+    transition-delay: 0s;
+}
+
+.tooltip::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    margin-left: 30px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+
 /* hover box */
 
 #hover-box {
