@@ -57,10 +57,10 @@ function changeTaxSys() {
   let origChecked = $("#orig").is(":checked");
   retrieveTaxonNodes("t");
   retrieveTaxonNodes("n");
-  if($("#collapse-cb").is(":checked") && !origChecked) {
+  if ($("#collapse-cb").is(":checked") && !origChecked) {
     autoCollapseTree();
   }
-  if(origChecked) {
+  if (origChecked) {
     $("#collapse-cb").attr("checked", false);
     $("#collapse-cb").attr("disabled", true);
     $("#internal-nodes").attr("checked", false);
@@ -86,6 +86,30 @@ function hover(x,y) {
     triangleHover(x,y);
   }
 }
+
+
+/**
+ * Create an "Export" button in a hover box.
+ * @function createExportBtn
+ * @param {Object} table - table in the hover box
+ * @param {number} clsID - current node Id
+ */
+function createExportBtn(table, clsID) {
+  let row = table.insertRow(-1);
+  let cell = row.insertCell(-1);
+  cell.colSpan = 2;
+  const btn = document.createElement("button");
+  btn.innerHTML = "Export";
+  btn.onclick = function () {
+    let modal = document.getElementById("export-modal");
+    modal.dataset.clsID = clsID;
+    modal.firstElementChild.firstElementChild.firstElementChild.innerHTML
+      = clsID + " (" + tree.tree[clsID]["leafcount"] + " genomes)";
+    modal.classList.remove("hidden");
+  };
+  cell.appendChild(btn);
+}
+
 
 function nodeHover(x,y) {
   let id;
@@ -200,19 +224,7 @@ function nodeHover(x,y) {
 
     // export row
     else {
-      row = table.insertRow(-1);
-      cell = row.insertCell(-1);
-      cell.colSpan = 2;
-      const btn = document.createElement("button");
-      btn.innerHTML = "Export";
-      btn.onclick = function () {
-        let modal = document.getElementById("export-modal");
-        modal.dataset.clsID = clsID;
-        modal.firstElementChild.firstElementChild.firstElementChild.innerHTML
-          = clsID + " (" + tree.tree[clsID]["leafcount"] + " genomes)";
-        modal.classList.remove("hidden");
-      };
-      cell.appendChild(btn);
+      createExportBtn(table, clsID);
     }
 
     // calculate the screen coordinate of the label
@@ -225,8 +237,8 @@ function nodeHover(x,y) {
     let pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
 
     // show hover box
-    box.style.left = Math.floor(pixelX) + "px";
-    box.style.top = Math.floor(pixelY) + "px";
+    box.style.left = Math.floor(pixelX + 23) + "px";
+    box.style.top = Math.floor(pixelY - 43) + "px";
     box.classList.remove("hidden");
   }
 
@@ -240,7 +252,7 @@ function triangleHover(x, y) {
   let taxLevel = $("#collapse-level").val();
   let taxPrefix = getTaxPrefix();
 
-  if(triRoot != null) {
+  if (triRoot != null) {
     let box = document.getElementById("hover-box");
     box.classList.add("hidden");
     let table = document.getElementById("hover-table");
@@ -260,9 +272,12 @@ function triangleHover(x, y) {
     cell = row.insertCell(-1);
     cell.innerHTML = tree.tree[triRoot.id]["leafcount"];
 
+    // export button
+    createExportBtn(table, triRoot.id);
+
     // show hover box
-    box.style.left = x + "px";
-    box.style.top = y + "px";
+    box.style.left = (x + 23) + "px";
+    box.style.top = (y - 43) + "px";
     box.classList.remove("hidden");
 
     drawingData.highTri = triRoot.tri;
@@ -277,7 +292,7 @@ function autoCollapseTree() {
   let selectElm = $("#collapse-level");
   let taxSys = $("input[name='sys']:checked").val();
   let taxPrefix = taxSys + "d_";
-  if($("#collapse-cb").is(":checked")) {
+  if ($("#collapse-cb").is(":checked")) {
     selectElm.attr("disabled", false);
     let taxLevel = selectElm.val();
     let edgeData = tree.collapse(taxLevel, taxPrefix);
@@ -351,7 +366,7 @@ function addColorKey(keyInfo, keyContainer, gradient) {
   let container;
 
   let component;
-  if(gradient) {
+  if (gradient) {
     //create key container
     container = document.createElement("div");
     container.classList.add("gradient-bar")
@@ -378,8 +393,7 @@ function addColorKey(keyInfo, keyContainer, gradient) {
   }
   else {
     let key;
-    for(key in keyInfo) {
-      console.log(keyInfo[key]);
+    for (key in keyInfo) {
       //create key container
       container = document.createElement("div");
       container.classList.add("gradient-bar")
@@ -597,57 +611,69 @@ function getOldTree(event) {
  */
 function getDownloadURL(id, target) {
   const acc = tree.metadata[id]["assembly_accession"];
-  const asm = tree.metadata[id]["asm_name"].replace(" ", "_").replace("#", "_");
+  const asm = tree.metadata[id]["asm_name"].replace(/[\s#]/g, "_");
   let url = "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/" + acc.substr(0, 3) + "/"
     + acc.substr(4, 3) + "/" + acc.substr(7, 3) + "/" + acc.substr(10, 3) + "/"
     + acc + "_" + asm;
   if (target !== undefined) {
     url += "/" + acc + "_" + asm + "_" + target;
+    if (!target.endsWith(".gz")) {
+      url += ".gz";
+    }
   }
   return url;
 }
+
+
 /**
- * Download some text as a file
- * @function download
- * @param (string) filename - the name of the file
- * @param (string) text - the content of the file
+ * Generate a text file for download.
+ * @function downloadText
+ * @param {string} text - file content
+ * @param {string} fname - file name
  */
-function downloadGenomeIds() {
-    var element = document.createElement('a');
-    let modal = document.getElementById("export-modal");
-    let clsID = modal.dataset.clsID;
-    let filename = "Genome_Ids-" + clsID;
-    let genomeIds = tree.getGenomeIDs(clsID);
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(genomeIds.join("\r\n")));
-    element.setAttribute('download', filename);
-
-    element.style.display = 'none';
-    document.body.appendChild(element);
-
-    element.click();
-
-    document.body.removeChild(element);
+function downloadText(text, fname) {
+  var a = document.createElement("a");
+  a.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+  a.setAttribute("download", fname);
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
+
+
 /**
- * Download some text as a file
- * @function download
- * @param (string) filename - the name of the file
- * @param (string) text - the content of the file
+ * Download genome Id list as a text file.
+ * @function downloadGenomeIds
  */
-function downloadSubtree() {
-    var element = document.createElement('a');
-    let modal = document.getElementById("export-modal");
-    let clsID = modal.dataset.clsID;
-    let filename = "Subtree-" + clsID;
-    let newick = tree.toNewick(clsID) + ";";
+function downloadGenomeIds(clsID) {
+  let genomeIds = tree.getGenomeIDs(clsID);
+  genomeIds.sort();
+  downloadText(genomeIds.join("\r\n") + "\r\n", clsID + ".ids.txt");
+}
 
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(newick));
-    element.setAttribute('download', filename);
 
-    element.style.display = 'none';
-    document.body.appendChild(element);
+/**
+ * Download genome download links as a text file.
+ * @function downloadLinks
+ */
+function downloadLinks(clsID) {
+  let sel = document.getElementById("downfile-options");
+  let target = sel.options[sel.selectedIndex].value;
+  let genomeIds = tree.getGenomeIDs(clsID);
+  genomeIds.sort();
+  let links = "";
+  genomeIds.forEach(function(id) {
+    links += getDownloadURL(id, target) + "\r\n";
+  });
+  downloadText(links, clsID + ".links.txt");
+}
 
-    element.click();
 
-    document.body.removeChild(element);
+/**
+ * Download subtree as a Newick file.
+ * @function downloadSubtree
+ */
+function downloadSubtree(clsID) {
+    downloadText(tree.toNewick(clsID) + ";", clsID + ".nwk");
 }

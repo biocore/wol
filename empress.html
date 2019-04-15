@@ -44,14 +44,13 @@
       });
 
       // add rank names
-      // ["tax-level", "collapse-level", "tips-find-level", "nodes-find-level"]
       ["collapse-level", "tips-find-level", "nodes-find-level"]
         .forEach(function(id) {
         const sel = document.getElementById(id);
         ranks.forEach(function(rank) {
           const opt = document.createElement("option");
           opt.text = rank;
-          if (id === "collapse-level" && rank === "phylum") {
+          if (rank === "phylum") {
             opt.selected = "selected";
           }
           sel.add(opt);
@@ -61,8 +60,8 @@
       // toggle download links
       document.getElementsByName("exp-content").forEach(function(rad) {
         rad.addEventListener("click", function() {
-          document.getElementById("p-downlnks").classList
-            .toggle("hidden", !document.getElementById("rad-downlnks").checked);
+          document.getElementById("p-links").classList
+            .toggle("hidden", !document.getElementById("rad-links").checked);
         });
       });
 
@@ -92,13 +91,17 @@
         bar.parentElement.appendChild(div);
       });
 
-      // Export genome ids
+      // export clade
       document.getElementById("btn-export").addEventListener("click", function(){
+        let clsID = document.getElementById("export-modal").dataset.clsID;
         if(document.getElementById("rad-ids").checked){
-          downloadGenomeIds();
+          downloadGenomeIds(clsID);
+        }
+        else if(document.getElementById("rad-links").checked){
+          downloadLinks(clsID);
         }
         else if(document.getElementById("rad-subtree").checked){
-          downloadSubtree();
+          downloadSubtree(clsID);
         }
       });
     });
@@ -147,10 +150,10 @@
         </p>
         <p>
           <label>Curation</label>
-          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
-          <label for="cura">curated</label>
           <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
-          <label for="orig">original</label>
+          <label for="orig">Original</label>
+          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
+          <label for="cura">Curated</label>
         </p>
       </div>
 
@@ -272,7 +275,7 @@
       <button class="side-header collapsible">Collapse</button>
       <div class="side-content control">
         <p>
-          <label for="collapse-cb">Collapse by</label>
+          <label for="collapse-cb">Collapse by<span class="tooltip">Select a rank to collapse</span></label>
           <input type="checkbox" id="collapse-cb" onmouseover="checkForOrig()" onclick="autoCollapseTree()" >
           <label class="select-container">
             <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
@@ -296,9 +299,28 @@
     <div class="modal-body">
       <div class="modal-header"><label>Help</label></div>
       <div class="modal-content">
-        <p>Hi there!</p>
-        <p>This<br>where<br>help<br>information<br>can go<br>in.</p>
-        <p>Feel free<br>to<br>add<br>anything.</p>
+        <table style="border-collapse: separate;">
+          <tr>
+            <td rowspan="5" style="padding-right: 25px;"><img src="gallery/logo/logo_s.png" alt="Empress" width="200" height="176"></td>
+            <td>Interactive view of the reference <a href="data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk">phylogeney</a>, powered by:</td>
+          </tr>
+          <tr><td><span style="font-weight: bold; font-size: 150%">Empress</span></a>, a very fast and scalable tree viewer.</td></tr>
+          <tr><td>Website: <a href="https://github.com/biocore/empress">https://github.com/biocore/empress</a></td></tr>
+          <tr><td>For questions contact the main developers: Kalen Cantrell (<a href="mailto:kcantrel@ucsd.edu">kcantrel@ucsd.edu</a>) and Yimeng Yang (<a href="mailto:yiy170@ucsd.edu">yiy170@ucsd.edu</a>)<br></td></tr>
+          <tr><td></td></tr>
+        </table>
+        <br>
+        <div style="margin: 10px; padding: 10px; border: 2px groove lightgray">
+          <p>Quick tips:</p>
+          <ul style="margin-left: 10px; margin-bottom: 5px;">
+            <li>Mouse drag to move, mouse scroll to zoom.</li>
+            <li>Mouse over a node to show taxonomy and download.</li>
+            <li>Taxonomic annotation by NCBI and GTDB, original and curated.</li>
+            <li>Dynamic labeling and collapsing by taxonomic rank.</li>
+            <li>Coloring by metadata and user upload.</li>
+          </ul>
+          <br>
+        </div>
       </div>
     </div>
   </div>
@@ -313,13 +335,13 @@
           <input type="radio" id="rad-ids" name="exp-content" checked />
           <label for="rad-ids">Identifiers</label>
           &nbsp;
-          <input type="radio" id="rad-downlnks" name="exp-content" />
-          <label for="rad-downlnks">Download links</label>
+          <input type="radio" id="rad-links" name="exp-content" />
+          <label for="rad-links">Download links</label>
           &nbsp;
           <input type="radio" id="rad-subtree" name="exp-content" />
           <label for="rad-subtree">Subtree</label>
         </p>
-        <p id="p-downlnks" class="hidden">
+        <p id="p-links" class="hidden">
           <label>Download target</label>
           <label class="select-container">
             <select id="downfile-options">
