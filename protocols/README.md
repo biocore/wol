@@ -9,7 +9,7 @@ Building
 
 - [**Genome retrieval**](https://bitbucket.org/nsegata/repophlan): Download all bacterial and archaeal genomes available from NCBI GenBank and RefSeq, using RepoPhlAn.
 
-- [**Genome sampling**](genomes_sampling): Select _n_ genomes form a genome pool such that they maximize included biodiversity as measured by the _k_-mer signatures of genomes.
+- [**Genome sampling**](genome_sampling): Select _n_ genomes form a genome pool such that they maximize included biodiversity as measured by the _k_-mer signatures of genomes.
 
 - [**Marker identification**](https://bitbucket.org/nsegata/phylophlan/wiki/Home): Identify and extract amino acid sequences of 400 global marker genes from genomes, using PhyloPhlAn.
 
@@ -46,7 +46,11 @@ Observation
 - [**Tree rendering**](tree_rendering): Collapse tree at given rank(s) and generate files ready for iTOL and FigTree rendering.
 
 
-Usage
------
+Application
+-----------
 
-For QIIME users
+- [**Genome database**](genome_database): Build a reference genome database with phylogeny-curated taxonomy to improve an existing metagenomic sequence classification workflow.
+
+- [**Community ecology**](community_ecology): Convert WGS sequence alignments into a "gOTU table" and perform microbial community ecology analyses with the reference phylogeny.
+
+- [**Tree profiling**](tree_profiling): Modify an existing metagenomic profiling workflow to allow sequences to be directly assigned to tips and internal nodes of the reference phylogeny.

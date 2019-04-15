@@ -17,20 +17,20 @@ The MinHash distance between two genomes is defined as the [Jaccard index](https
 
 We used [Mash](https://github.com/marbl/mash) 1.1.1 ([Ondov et al., 2016](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x)) with its default setting (_k_ = 21) to compute the MinHash sketch of each genome:
 
-```
+```bash
 mash sketch $id.fna
 ```
 
 Merge sketches and generate a table of pairwise distances:
 
-```
+```bash
 mash paste -l all.msh ids.txt
 mash dist -p $cpus all.msh all.msh > all.dist
 ```
 
 We wrote a Python script mash_pair_to_mat.py to convert this file into a distance matrix:
 
-```
+```bash
 mash_pair_to_mat.py all.dist > all.dm
 ```
 
@@ -42,7 +42,7 @@ We designed and implemented a new heuristic solution: `destructive_maxdist`, to 
 
 We provide the Python implementation of this as well as several previous solutions in [code/prototypeSelection](../code/prototypeSelection), with more detailed help information. Here is the example usage:
 
-```
+```python
 from skbio.stats.distance import DistanceMatrix
 dm = DistanceMatrix.read('all.dm')
 k = 10000
@@ -51,14 +51,14 @@ prototypes = prototype_selection_destructive_maxdist(dm, k)
 
 In addition, our algorithm allows inclusion of "seed" elements (e.g., pre-selected taxa), without losing performance:
 
-```
+```python
 seeds = ['G000123456', 'G000654321', ...]
 prototypes = prototype_selection_destructive_maxdist(dm, k, seeds)
 ```
 
 Finally, one can obtain the sum of distances by:
 
-```
+```python
 distsum = distance_sum(prototypes, dm)
 ```
 

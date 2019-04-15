@@ -10,7 +10,7 @@ This protocol introduces how to perform metagenomic profiling using existing too
 
 We provide [**tree_to_taxonomy.py**](../code/scripts/tree_to_taxonomy.py), which converts a phylogeney tree into "fake" taxonomy files:
 
-```
+```bash
 tree_to_taxonomy.py tree.nwk
 ```
 
@@ -20,7 +20,7 @@ This script generates fake taxdump files (`names.dmp` and `nodes.dmp`), a genome
 
 One may also want to generate a nucleotide accession to fake TaxID map. This can be done using a Bash command:
 
-```
+```bash
 join -12 -21 nucl2g.txt g2tid.txt -o1.1,2.2 -t$'\t' > nucl2tid.txt
 ```
 
@@ -57,7 +57,7 @@ sed -e 's/^/TAXID\t/' nucl2tid.txt > library/added/prelim_map.txt
 
 5. Now build the Kraken database:
 
-```
+```bash
 kraken-build --build --db dbdir --threads 32
 ```
 
@@ -65,7 +65,7 @@ kraken-build --build --db dbdir --threads 32
 
 6. Finally, clean up the database directory. 
 
-```
+```bash
 kraken-build --clean
 ```
 
@@ -73,7 +73,7 @@ kraken-build --clean
 
 The commands are exactly the same as one does with a regular (original) Kraken database:
 
-```
+```bash
 kraken --db dbdir --threads 32 --paired R1.fq.gz R2.fq.gz --output output.tsv 2> log.txt
 kraken-report --db dbdir output.tsv > output.report
 ```
@@ -93,13 +93,13 @@ centrifuge_build --seed 42 --threads 32 --conversion-table nucl2tid.txt --taxono
 
 Run search:
 
-```
+```bash
 centrifuge --seed 42 -p 32 -1 R1.fq.gz -2 R2.fq.gz -x dbname -S output.map --report-file output.report
 ```
 
 Generate a Kraken-style report we explained above:
 
-```
+```bash
 centrifuge-kreport -x dbname output.tsv > output.kreport
 ```
 
@@ -116,7 +116,7 @@ The support for phylogeny instead of taxonomy is built-in in UTree.
 
 Build database:
 
-```
+```bash
 utree-build_gg reference.fna nucl2tid.txt temp.ubt 0 2
 utree-compress temp.ubt dbname.ctr
 rm temp.ubt temp.ubt.gg.log
@@ -124,13 +124,13 @@ rm temp.ubt temp.ubt.gg.log
 
 Run search by directly calling UTree:
 
-```
+```bash
 utree-search_gg dbname.ctr input.fa output.txt 32 RC
 ```
 
 Or via the SHOGUN interface:
 
-```
+```bash
 shogun align -t 32 -d dbdir -a utree -i input.fa -o .
 ```
 
