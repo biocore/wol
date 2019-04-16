@@ -93,8 +93,6 @@ input[type=radio], input[type=checkbox] {
     position: relative;
     background-color: white;
     color: dimgray;
-    height: 25px;
-    width: 25px;
     border: 0;
     cursor: pointer;
     margin-left: 10px;
@@ -104,19 +102,32 @@ input[type=radio], input[type=checkbox] {
 
 input[type=radio] {
     border-radius: 50px;
+    height: 25px;
+    width: 25px;
 }
 
 input[type=checkbox] {
     border-radius: 3px;
+    height: 20px;
+    width: 20px;
 }
 
-input[type=radio]:checked::before, input[type=checkbox]:checked::before {
+input[type=radio]:checked::before {
     position: absolute;
     content: "\02143";
     transform: rotate(40deg);
     font-size: 15px;
     left: 9px;
     top: 4px;
+}
+
+input[type=checkbox]:checked::before {
+    position: absolute;
+    content: "\02143";
+    transform: rotate(40deg);
+    font-size: 15px;
+    left: 7px;
+    top: 1px;
 }
 
 input[type=radio]:hover, input[type=checkbox]:hover {
@@ -457,6 +468,14 @@ p.side-header button {
     background-color: lightgray;
 }
 
+#quick-search::placeholder {
+    color: lightgray;
+}
+
+#quick-search:hover::placeholder {
+    color: dimgray;
+}
+
 
 /* controls */
 
@@ -606,7 +625,7 @@ p.side-header button {
 
 #loading-text {
     position: fixed;
-    top: calc(50%-8px);
+    top: calc(50% - 8px);
     font-size: 12pt;
     color: dimgray;
 }
@@ -692,6 +711,24 @@ div.legend:hover {
     width: 15px;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+
+/* toast */
+
+#toast {
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: black;
+    opacity: 0.75;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    bottom: 50px;
 }
 
 

@@ -124,8 +124,9 @@
           </label>
         </p>
         <p>
-          <label for="custom-color">Custom data<span class="tooltip">Upload a tab-delimited file with first column as genome/node IDs.</span></label>
-          <input type="file" id="custom-color">
+          <label for="open-file">Upload data<span class="tooltip">Upload a tab-delimited file with first column as genome/node IDs.</span></label>
+          <button id="open-file" onclick="document.getElementById('custom-color').click();">Browse...</button>
+          <input type="file" id="custom-color" class="hidden">
         </p>
 
 
@@ -298,6 +299,9 @@
   <div class="metadata-container"></div>
   <div id="scrolltable"></div>
 
+  <!-- toast -->
+  <div id="toast" class="hidden"></div>
+
   <!-- loading screen -->
   <div id="loading-screen">
     <div id="loading-animation"></div>
@@ -334,6 +338,14 @@
         }
         sel.add(opt);
       });
+    });
+
+    // quick search box
+    document.getElementById("quick-search").addEventListener("keyup", function(e) {
+      e.preventDefault();
+      if (e.keyCode === 13) {
+        quickSearch();
+      }
     });
 
     // file upload button
