@@ -1,9 +1,9 @@
 class Tree{
-  constructor(tree_nwk, edgeData, metadata, m_headers, maxes){
+  constructor(tree_nwk, edgeData, metadata, headers, maxes){
     this.tree = tree_nwk;
     this.edgeData = edgeData;
     this.metadata = metadata;
-    this.m_headers = m_headers;
+    this.headers = headers;
     this.max = maxes.dim;
     this.maxes = maxes;
     this.root = 'N1';
