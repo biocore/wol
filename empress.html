@@ -27,88 +27,6 @@
   <script type="text/javascript" src="pages/empress/js/drawing_loop.js"></script>
   <script type="text/javascript" src="pages/empress/js/init_webpage.js"></script>
   <script type="text/javascript" src="pages/empress/js/tree.js"></script>
-  <script type="text/javascript" src="pages/empress/js/wol_tree.js"></script>
-
-  <script type="text/javascript">
-
-    // global constants
-    const ranks = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
-
-    // window load
-    window.addEventListener("load", function () {
-      "use strict";
-
-      // initialize interface
-      document.querySelectorAll(".side-content").forEach(function(div) {
-        div.classList.add("hidden");
-      });
-
-      // add rank names
-      ["collapse-level", "tips-find-level", "nodes-find-level"]
-        .forEach(function(id) {
-        const sel = document.getElementById(id);
-        ranks.forEach(function(rank) {
-          const opt = document.createElement("option");
-          opt.text = rank;
-          if (rank === "phylum") {
-            opt.selected = "selected";
-          }
-          sel.add(opt);
-        });
-      });
-
-      // toggle download links
-      document.getElementsByName("exp-content").forEach(function(rad) {
-        rad.addEventListener("click", function() {
-          document.getElementById("p-links").classList
-            .toggle("hidden", !document.getElementById("rad-links").checked);
-        });
-      });
-
-      // control tabs
-      document.querySelectorAll(".collapsible").forEach(function(btn) {
-        btn.addEventListener("click", function() {
-          this.classList.toggle("active");
-          this.nextElementSibling.classList.toggle("hidden");
-          const expanded = document.querySelector(".side-content:not(.hidden)");
-          let panel = document.getElementById("side-panel");
-          panel.classList.toggle("panel-shadow", expanded);
-          panel.style.opacity = expanded ? 1.0 : 0.5;
-        });
-      });
-
-      // modals
-      document.querySelectorAll(".modal-header").forEach(function(bar) {
-        let btn = document.createElement("button");
-        btn.innerHTML = "&times;";
-        btn.classList.add("close");
-        btn.title = "Close the " + bar.textContent
-          .toLowerCase() + " window";
-        bar.appendChild(btn);
-        btn.addEventListener("click", function () {
-          this.parentElement.parentElement.parentElement.classList.add("hidden");
-        });
-        let div = document.createElement("div");
-        div.classList.add("modal-footer");
-        bar.parentElement.appendChild(div);
-      });
-
-      // export clade
-      document.getElementById("btn-export").addEventListener("click", function(){
-        let clsID = document.getElementById("export-modal").dataset.clsID;
-        if(document.getElementById("rad-ids").checked){
-          downloadGenomeIds(clsID);
-        }
-        else if(document.getElementById("rad-links").checked){
-          downloadLinks(clsID);
-        }
-        else if(document.getElementById("rad-subtree").checked){
-          downloadSubtree(clsID);
-        }
-      });
-    });
-  </script>
-
 </head>
 
 <body>
@@ -182,23 +100,34 @@
         </p>
       </div>
 
-      <!-- Branch tab -->
+      <!-- Coloring tab -->
       <button class="side-header collapsible">Coloring</button>
       <div class="side-content control">
         <p>
-          <label for="branch-color">Branches</label>
+          <label for="preset-color">Preset</label>
+          <label class="switch">
+            <input type="checkbox" id="preset-color" onclick="userHighlightSelect()"><span class="slider"></span>
+          </label>
+        </p>
+        <p>
+          <label for="tip-color">Tip color</label>
+          <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
+          <label class="select-container">
+            <select id="tip-color-options" onchange="userHighlightSelect()" disabled="true"></select>
+          </label>
+        </p>
+        <p>
+          <label for="branch-color">Node color</label>
           <input type="checkbox" id="branch-color" onclick="userHighlightSelect()">
           <label class="select-container">
             <select id="branch-color-options" onchange="userHighlightSelect()" disabled="true"></select>
           </label>
         </p>
         <p>
-          <label for="tip-color">Tips</label>
-          <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
-          <label class="select-container">
-            <select id="tip-color-options" onchange="userHighlightSelect()" disabled="true"></select>
-          </label>
+          <label for="custom-color">Custom data<span class="tooltip">Upload a tab-delimited file with first column as genome/node IDs.</span></label>
+          <input type="file" id="custom-color">
         </p>
+
 
         <!-- <p>
           <label for="color-options">Choose Color Map</label>
@@ -369,77 +298,164 @@
   <div class="metadata-container"></div>
   <div id="scrolltable"></div>
 
-    <script type="text/javascript">
-      // fields to extract from metadata, used in extractInfo()
-      let field = {
-        edgeFields: ["px", "py", "branch_color", "x", "y", "branch_color"],
-        nodeFields: ["x", "y", "color"],
-        triangleFields: ["cx", "cy", "color", "lx", "ly", "color", "rx", "ry", "color"]
-      };
-
-      // stores matrices, and buffers that webgl will uses
-      let shaderProgram = {};
-      let c_shaderProgram = {};
-
-      // the complied vertex/fragment shaders
-      let gl = {}; // webgl context - used to call webgl functions
-
-      // stores info need to draw such as vertex data
-      let drawingData = {
-        isMouseDown: false,
-        lastMouseX: null,
-        lastMouseY: null,
-        zoomAmount: 50,
-        currentZoom: 0,
-        maxZoom: 30,
-        hoveredNode: [],
-        coloredClades: [],
-        selectTree: [],
-        triangles: [],
-        numBranches: 0
-      };
-
-      let numAttr = 0;
-      let attrItem = {};
-      let grid = {};
-      let tipLabels = [];
-      let nodeLabels = [];
-      let labelPos = 0;
-      let gridInfo = {
-        initData: [],
-        data: [],
-        columns: [],
-        options: {},
-        grid: {}
-      };
-
-      const TRI_PER_ARC = 100;
-      const ELEMENTS_PER_VERT = 5;
-      const VERT_PER_TRI = 3;
-
-      let numUserSelects = 0;
-      const CLEAR_COLOR_HEX = "FFFFFF";
-      const CLEAR_COLOR = 1;
-      let camera = {};
-      let shftPress = false;
-
-      let showLabels = false;
-      let taxonNodes = [];
-
-      let highToLow = function (dataRow1, dataRow2) {
-        return dataRow1[3] < dataRow2[3] ? 1 : -1;
-      };
-      let random = function(dataRow1, dataRow2) {
-        return Math.round(Math.random()) > 0 ? 1 : -1;
-      }
-    </script>
-
-    <script type="text/javascript">
-      {
-        initialize();
-      }
-    </script>
-
 </body>
+
+<!-- main data file, which is big, so loaded in the end -->
+<script type="text/javascript" src="pages/empress/js/wol_tree.js"></script>
+<script type="text/javascript">
+
+  // global constants
+  const ranks = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
+
+  // window load
+  window.addEventListener("load", function () {
+    "use strict";
+
+    // initialize interface
+    document.querySelectorAll(".side-content").forEach(function(div) {
+      div.classList.add("hidden");
+    });
+
+    // add rank names
+    ["collapse-level", "tips-find-level", "nodes-find-level"]
+      .forEach(function(id) {
+      const sel = document.getElementById(id);
+      ranks.forEach(function(rank) {
+        const opt = document.createElement("option");
+        opt.text = rank;
+        if (rank === "phylum") {
+          opt.selected = "selected";
+        }
+        sel.add(opt);
+      });
+    });
+
+    // file upload button
+    document.getElementById("custom-color").addEventListener("change",
+      function (e) {
+      uploadFile(e.target.files[0]);
+    });
+
+    // toggle download links
+    document.getElementsByName("exp-content").forEach(function(rad) {
+      rad.addEventListener("click", function() {
+        document.getElementById("p-links").classList
+          .toggle("hidden", !document.getElementById("rad-links").checked);
+      });
+    });
+
+    // control tabs
+    document.querySelectorAll(".collapsible").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("hidden");
+        document.getElementById("side-panel").classList.toggle("panel-active",
+          document.querySelector(".side-content:not(.hidden)"));
+      });
+    });
+
+    // modals
+    document.querySelectorAll(".modal-header").forEach(function(bar) {
+      let btn = document.createElement("button");
+      btn.innerHTML = "&times;";
+      btn.classList.add("close");
+      btn.title = "Close the " + bar.textContent
+        .toLowerCase() + " window";
+      bar.appendChild(btn);
+      btn.addEventListener("click", function () {
+        this.parentElement.parentElement.parentElement.classList.add("hidden");
+      });
+      let div = document.createElement("div");
+      div.classList.add("modal-footer");
+      bar.parentElement.appendChild(div);
+    });
+
+    // export clade
+    document.getElementById("btn-export").addEventListener("click", function(){
+      let clsID = document.getElementById("export-modal").dataset.clsID;
+      if(document.getElementById("rad-ids").checked){
+        downloadGenomeIds(clsID);
+      }
+      else if(document.getElementById("rad-links").checked){
+        downloadLinks(clsID);
+      }
+      else if(document.getElementById("rad-subtree").checked){
+        downloadSubtree(clsID);
+      }
+    });
+  });
+</script>
+
+
+<script type="text/javascript">
+  // fields to extract from metadata, used in extractInfo()
+  let field = {
+    edgeFields: ["px", "py", "branch_color", "x", "y", "branch_color"],
+    nodeFields: ["x", "y", "color"],
+    triangleFields: ["cx", "cy", "color", "lx", "ly", "color", "rx", "ry", "color"]
+  };
+
+  // stores matrices, and buffers that webgl will uses
+  let shaderProgram = {};
+  let c_shaderProgram = {};
+
+  // the complied vertex/fragment shaders
+  let gl = {}; // webgl context - used to call webgl functions
+
+  // stores info need to draw such as vertex data
+  let drawingData = {
+    isMouseDown: false,
+    lastMouseX: null,
+    lastMouseY: null,
+    zoomAmount: 50,
+    currentZoom: 0,
+    maxZoom: 30,
+    hoveredNode: [],
+    coloredClades: [],
+    selectTree: [],
+    triangles: [],
+    numBranches: 0
+  };
+
+  let numAttr = 0;
+  let attrItem = {};
+  let grid = {};
+  let tipLabels = [];
+  let nodeLabels = [];
+  let labelPos = 0;
+  let gridInfo = {
+    initData: [],
+    data: [],
+    columns: [],
+    options: {},
+    grid: {}
+  };
+
+  const TRI_PER_ARC = 100;
+  const ELEMENTS_PER_VERT = 5;
+  const VERT_PER_TRI = 3;
+
+  let numUserSelects = 0;
+  const CLEAR_COLOR_HEX = "FFFFFF";
+  const CLEAR_COLOR = 1;
+  let camera = {};
+  let shftPress = false;
+
+  let showLabels = false;
+  let taxonNodes = [];
+
+  let highToLow = function (dataRow1, dataRow2) {
+    return dataRow1[3] < dataRow2[3] ? 1 : -1;
+  };
+  let random = function(dataRow1, dataRow2) {
+    return Math.round(Math.random()) > 0 ? 1 : -1;
+  }
+</script>
+
+<script type="text/javascript">
+  {
+    initialize();
+  }
+</script>
 
 </html>
