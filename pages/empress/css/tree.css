@@ -354,14 +354,14 @@ canvas {
     height: 24px;
     display: flex;
     align-items: center;
-    /* border: 1px solid transparent; */
+    border: 1px solid transparent;
     padding-left: 9px;
     padding-right: 7px;
 }
 
 .floating-div:hover {
     background: white;
-    /* border: 1px solid lightgray; */
+    border: 1px solid lightgray;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -389,7 +389,8 @@ canvas {
     opacity: 0.5;
 }
 
-.panel-shadow {
+.panel-active {
+    opacity: 1.0 !important;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
 }
 
