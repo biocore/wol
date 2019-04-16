@@ -70,8 +70,10 @@
         btn.addEventListener("click", function() {
           this.classList.toggle("active");
           this.nextElementSibling.classList.toggle("hidden");
-          document.getElementById("side-panel").style.opacity =
-            document.querySelector(".side-content:not(.hidden)") ? 1.0 : 0.5;
+          const expanded = document.querySelector(".side-content:not(.hidden)");
+          let panel = document.getElementById("side-panel");
+          panel.classList.toggle("panel-shadow", expanded);
+          panel.style.opacity = expanded ? 1.0 : 0.5;
         });
       });
 
@@ -141,7 +143,7 @@
       <div class="side-content control">
         <!-- toggle NCBI / GTDB -->
         <p>
-          <label>System</label>
+          <label>System<span class="tooltip">Choose from <a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI</a> or <a href="http://gtdb.ecogenomic.org/">GTDB</a> taxonomy system.</span></label>
           <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked />
           <label for="ncbi">NCBI</label>
           &nbsp;
@@ -149,35 +151,32 @@
           <label for="gtdb">GTDB</label>
         </p>
         <p>
-          <label>Curation</label>
-          <input type="radio" id="orig" name="type" value="o_" onclick="changeTaxSys()">
-          <label for="orig">Original</label>
-          <input type="radio" id="cura" name="type" value="c_" onclick="changeTaxSys()" checked>
-          <label for="cura">Curated</label>
+          <label for="curation">Curation<span class="tooltip">Choose from original (OFF) or <a href="https://github.com/biocore/tax2tree">tax2tree</a>-curated taxonomy (ON).</span></label>
+          <label class="switch">
+            <input type="checkbox" id="curation" onclick="changeTaxSys()" checked><span class="slider"></span>
+          </label>
         </p>
       </div>
 
       <button class="side-header collapsible">Labeling</button>
       <div class="side-content control">
         <p>
-          <label>Tip labels</label>
+          <label for="tips">Tip labels</label>
           <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
-          <input type="number" id="tips-number" min="1" max="100" value="10" style="
-            width: 50px;" onchange="retrieveTaxonNodes('c')" disabled="true">
+          <input type="number" id="tips-number" min="1" max="100" value="10" onchange="retrieveTaxonNodes('c')" disabled="true">
           <label class="select-container">
             <select id="tips-find-level" onchange="retrieveTaxonNodes('c')" disabled="true">
-              <option value=0 disabled> -- select an option -- </option>
+              <option value="0" disabled> -- select an option -- </option>
             </select>
           </label>
         </p>
         <p>
-          <label>Node labels</label>
-          <input type="checkbox" id="internal-nodes" onmouseover="checkForOrig()" onclick="retrieveTaxonNodes('n')">
-          <input type="number" id="internal-nodes-number" min="1" max="100" value="10" style="
-            width: 50px;" onchange="retrieveTaxonNodes('n')" disabled="=true">
+          <label for="internal-nodes">Node labels</label>
+          <input type="checkbox" id="internal-nodes" onclick="retrieveTaxonNodes('n')">
+          <input type="number" id="internal-nodes-number" min="1" max="100" value="10" onchange="retrieveTaxonNodes('n')" disabled="=true">
           <label class="select-container">
             <select id="nodes-find-level" onchange="retrieveTaxonNodes('n')" disabled="true">
-              <option value=0 disabled> -- select an option -- </option>
+              <option value="0" disabled> -- select an option -- </option>
             </select>
           </label>
         </p>
@@ -187,22 +186,19 @@
       <button class="side-header collapsible">Coloring</button>
       <div class="side-content control">
         <p>
-          <label for="tip-color">Tips</label>
-          <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
-          <label class="select-container">
-            <select id="tip-color-options" onchange="userHighlightSelect()" disabled="true"></select>
-          </label>
-        </p>
-        <div id="tip-color-key" class="hidden" disabled="true"></div>
-        <p>
           <label for="branch-color">Branches</label>
           <input type="checkbox" id="branch-color" onclick="userHighlightSelect()">
           <label class="select-container">
             <select id="branch-color-options" onchange="userHighlightSelect()" disabled="true"></select>
           </label>
         </p>
-        <div id="node-color-key" class="hidden" disabled="true"></div>
-
+        <p>
+          <label for="tip-color">Tips</label>
+          <input type="checkbox" id="tip-color" onclick="userHighlightSelect()">
+          <label class="select-container">
+            <select id="tip-color-options" onchange="userHighlightSelect()" disabled="true"></select>
+          </label>
+        </p>
 
         <!-- <p>
           <label for="color-options">Choose Color Map</label>
@@ -232,7 +228,7 @@
           <label for="tax-level">Rank</label>
           <label class="select-container">
             <select id="tax-level">
-              <option value=0 disabled> -- select an option -- </option>
+              <option value="0" disabled> -- select an option -- </option>
             </select>
           </label>
         </p>
@@ -240,8 +236,8 @@
           <label for="clade-options">Color by</label>
           <label class="select-container">
             <select id="clade-options">
-              <option value=0 disabled> -- select an option -- </option>
-              <option value=0>Default</option>
+              <option value="0" disabled> -- select an option -- </option>
+              <option value="0">Default</option>
             </select>
           </label>
         </p>
@@ -275,11 +271,11 @@
       <button class="side-header collapsible">Collapse</button>
       <div class="side-content control">
         <p>
-          <label for="collapse-cb">Collapse by<span class="tooltip">Select a rank to collapse</span></label>
-          <input type="checkbox" id="collapse-cb" onmouseover="checkForOrig()" onclick="autoCollapseTree()" >
+          <label for="collapse-cb">Collapse by<span class="tooltip">Collapse clades at selected rank into triangles, where the long and short edges represent the longest and shortest tips.</span></label>
+          <input type="checkbox" id="collapse-cb" onclick="autoCollapseTree()" >
           <label class="select-container">
             <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
-              <option value=0 disabled> -- select an option -- </option>
+              <option value="0" disabled> -- select an option -- </option>
             </select>
           </label>
         </p>
@@ -292,6 +288,12 @@
   <!-- hover box -->
   <div class="hidden" id="hover-box">
     <table id="hover-table"></table>
+  </div>
+
+  <!-- color keys -->
+  <div id="legend-panel">
+    <div id="tip-color-key" class="legend hidden" disabled="true"></div>
+    <div id="node-color-key" class="legend hidden" disabled="true"></div>
   </div>
 
   <!-- about modal -->
@@ -333,13 +335,13 @@
         <p>
           <label>Export target</label>
           <input type="radio" id="rad-ids" name="exp-content" checked />
-          <label for="rad-ids">Identifiers</label>
+          <label for="rad-ids">Identifiers<span class="tooltip">Export a list of genome IDs.</span></label>
           &nbsp;
           <input type="radio" id="rad-links" name="exp-content" />
-          <label for="rad-links">Download links</label>
+          <label for="rad-links">Download links<span class="tooltip">Export a list of URLs pointing to the original genome data at the NCBI FTP server, which can then be batch-downloaded using a <a href="data/genomes/batch_down.sh">script</a>.</span></label>
           &nbsp;
           <input type="radio" id="rad-subtree" name="exp-content" />
-          <label for="rad-subtree">Subtree</label>
+          <label for="rad-subtree">Subtree<span class="tooltip">Export a subtree under the current node in Newick format.</span></label>
         </p>
         <p id="p-links" class="hidden">
           <label>Download target</label>
