@@ -58,7 +58,7 @@
 
       <!-- Taxonomy -->
       <button class="side-header collapsible">Taxonomy</button>
-      <div class="side-content control">
+      <div class="side-content control hidden">
         <!-- toggle NCBI / GTDB -->
         <p>
           <label>System<span class="tooltip">Choose from <a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI</a> or <a href="http://gtdb.ecogenomic.org/">GTDB</a> taxonomy system.</span></label>
@@ -77,7 +77,7 @@
       </div>
 
       <button class="side-header collapsible">Labeling</button>
-      <div class="side-content control">
+      <div class="side-content control hidden">
         <p>
           <label for="tips">Tip labels</label>
           <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
@@ -102,7 +102,7 @@
 
       <!-- Coloring tab -->
       <button class="side-header collapsible">Coloring</button>
-      <div class="side-content control">
+      <div class="side-content control hidden">
         <p>
           <label for="preset-color">Preset</label>
           <label class="switch">
@@ -198,7 +198,7 @@
 
       <!-- Collapse -->
       <button class="side-header collapsible">Collapse</button>
-      <div class="side-content control">
+      <div class="side-content control hidden">
         <p>
           <label for="collapse-cb">Collapse by<span class="tooltip">Collapse clades at selected rank into triangles, where the long and short edges represent the longest and shortest tips.</span></label>
           <input type="checkbox" id="collapse-cb" onclick="autoCollapseTree()" >
@@ -298,10 +298,16 @@
   <div class="metadata-container"></div>
   <div id="scrolltable"></div>
 
+  <!-- loading screen -->
+  <div id="loading-screen">
+    <div id="loading-animation"></div>
+    <div id="loading-text">Loading...</div>
+  </div>
 </body>
 
-<!-- main data file, which is big, so loaded in the end -->
+<!-- main data file, which is big, so load after DOMs -->
 <script type="text/javascript" src="pages/empress/js/wol_tree.js"></script>
+
 <script type="text/javascript">
 
   // global constants
@@ -312,9 +318,9 @@
     "use strict";
 
     // initialize interface
-    document.querySelectorAll(".side-content").forEach(function(div) {
-      div.classList.add("hidden");
-    });
+    // document.querySelectorAll(".side-content").forEach(function(div) {
+    //   div.classList.add("hidden");
+    // });
 
     // add rank names
     ["collapse-level", "tips-find-level", "nodes-find-level"]
@@ -383,6 +389,8 @@
         downloadSubtree(clsID);
       }
     });
+
+    document.getElementById("loading-screen").classList.add("hidden");
   });
 </script>
 
