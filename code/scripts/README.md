@@ -101,6 +101,8 @@ Taxonomy utilities
 Community analysis utilities
 ----------------------------
 
+[**gOTU_from_maps.py**](gOTU_from_maps.py): Generate a "gOTU table" from WGS sequence alignment results.
+
 [**normalize_to_cpm.py**](normalize_to_cpm.py): Normalize a BIOM table to copies per million sequences (cpm).
 
 [**filter_otus_per_sample.py**](filter_otus_per_sample.py): Filter out low-abundance OTUs within each sample in a BIOM table.
