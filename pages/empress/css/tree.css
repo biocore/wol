@@ -587,6 +587,47 @@ p.side-header button {
 }
 
 
+/* loading screen */
+
+#loading-screen {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#loading-text {
+    position: fixed;
+    top: calc(50%-8px);
+    font-size: 12pt;
+    color: dimgray;
+}
+
+#loading-animation {
+    border: 20px solid lightgray;
+    border-top: 20px solid dimgray;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: spin 3s linear infinite;
+    -moz-animation: spin 3s linear infinite;
+    -webkit-animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
 /* legend */
 
 #legend-panel {
