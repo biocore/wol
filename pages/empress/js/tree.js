@@ -353,10 +353,10 @@ class Tree{
             let min = this.maxes[category][0];
             let max = this.maxes[category][1];
             keyInfo = {
-                "min": [min, this.getColorHexCode(this.getColor(min,max, min))],
+                "min": [min, this.getColorHexCode(this.getColor(min, max, min))],
                 "max": [max, this.getColorHexCode(this.getColor(min, max, max))]
             };
-            for(i in this.metadata) {
+            for (i in this.metadata) {
                 if(this.metadata[i][category] !== null){
                     this.metadata[i]['branch_color'] = this.getColor(min, max, this.metadata[i][category]);
                 }
@@ -476,10 +476,10 @@ class Tree{
   toNewick(nodeId){
     let node = this.tree[nodeId];
     let result = [];
-    let resultStr = nodeId+":"+node.length;
+    let resultStr = nodeId + ":" + node.length;
     // Base case
-    if(node.children.length==0) return resultStr;
-    for( var i = 0; i < node.children.length;i++){
+    if (node.children.length == 0) return resultStr;
+    for (var i = 0; i < node.children.length; i++){
       let child = node.children[i];
       result.push(this.toNewick(child));
     }

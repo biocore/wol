@@ -12,21 +12,12 @@ body {
     display: none !important;
 }
 
-.gradient-bar {
-    display: flex;
-    flex-direction: row;
-    column-gap: 3px;
-    height: 2vh;
-    padding: 3px;
-}
-
-.gradient-color {
-    width: 10vw;
-}
-
 
 /* general control styles */
 
+a:link, a:visited {
+    color: royalblue;
+}
 
 button::-moz-focus-inner {
     border: 0;
@@ -45,6 +36,7 @@ select {
     padding-left: 5px;
     padding-right: 30px;
     border-radius: 3px;
+    min-width: 150px;
 }
 
 select:hover:enabled {
@@ -79,6 +71,7 @@ select:-moz-focusring {
 input[type=number] {
     background-color: white;
     height: 25px;
+    width: 40px;
     border: 0;
     cursor: pointer;
     outline: none;
@@ -131,6 +124,67 @@ input[type=radio]:hover, input[type=checkbox]:hover {
 }
 
 
+/* slide checkbox */
+/* Based on: https://www.w3schools.com/howto/howto_css_switch.asp */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: lightgray;
+    border-radius: 26px;
+}
+
+.slider:hover {
+    background-color: darkgray;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: gray;
+}
+
+input:checked + .slider:hover {
+    background-color: dimgray;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px gray;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+
 /* tooltip */
 
 .tooltip {
@@ -138,14 +192,21 @@ input[type=radio]:hover, input[type=checkbox]:hover {
     background-color: black;
     opacity: 0.5;
     color: white;
-    text-align: center;
-    padding: 5px 10px;
+    font-size: 9pt;
+    /* text-align: center; */
+    padding: 10px 15px;
     border-radius: 6px;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
+    max-width: 300px;
     margin-top: 35px;
     margin-left: -60px;
+    line-height: 125%;
     transition-delay: 0.5s;
+}
+
+.tooltip a:link, .tooltip a:visited {
+    color: lightskyblue;
 }
 
 label:hover .tooltip {
@@ -285,26 +346,37 @@ canvas {
     overflow: hidden;
 }
 
+
+/* dynamic label */
+
 .floating-div {
     position: absolute;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid transparent; */
+    padding-left: 9px;
+    padding-right: 7px;
 }
+
+.floating-div:hover {
+    background: white;
+    /* border: 1px solid lightgray; */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.floating-div:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 8px solid dimgray;
+    border-right: 8px solid transparent;
+    width: 0;
+}
+
 /* end of reference */
 
-/* color key */
-.gradient-label {
-    overflow: visible;
-    white-space: nowrap;
-    display: inline-block;
-}
-#node-color-key, #tip-color-key {
-    border: solid;
-    border-width: 1px;
-    max-height: 25vh;
-    display: inline-flex;
-    flex-direction: column;
-    overflow: auto;
-}
-/*end of color key*/
 
 /* control panel */
 
@@ -315,6 +387,10 @@ canvas {
     left: calc(100vw - 450px);
     width: 450px;
     opacity: 0.5;
+}
+
+.panel-shadow {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
 }
 
 .side-header {
@@ -510,11 +586,76 @@ p.side-header button {
 }
 
 
+/* legend */
+
+#legend-panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+div.legend {
+    margin: 20px;
+    padding: 5px;
+    border: 1px solid darkgray;
+    max-height: 33vh;
+    max-width: 200px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+div.legend:hover {
+    border: 1px solid black;
+    background-color: white;
+    overflow: auto;
+}
+
+.legend-title {
+    text-align: center;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* color key */
+
+.gradient-label {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.gradient-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 3px;
+    height: 18px;
+    padding: 3px;
+}
+
+.gradient-color {
+    width: 150px;
+}
+
+.category-color {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+
 /* modal */
 
 div.modal {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     left: 0;
     top: 0;
     width: 100%;
