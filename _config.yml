@@ -4,7 +4,7 @@ name: WoL development team
 description: A Reference Phylogeny for 10,575 Bacterial and Archaeal Genomes
 url: https://github.com/biocore/wol
 repository: NWO
-logo: logo.png
+logo: gallery/logo/logo_s_b.png
 
 # features:
 # search: true

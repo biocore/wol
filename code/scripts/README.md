@@ -1,7 +1,9 @@
 Python scripts
 ==============
 
-All scripts depend on Python 3.5+ with [scikit-bio](http://scikit-bio.org/) 0.5.1+, unless otherwise stated.
+Go to [GitHub directory](https://github.com/biocore/wol/tree/master/code/scripts).
+
+These scripts may be generally or specifically useful in research. All scripts have a simple command-line interface indicating its purpose and usage. All scripts depend on Python 3.5+ with [scikit-bio](http://scikit-bio.org/) 0.5.1+, unless otherwise stated.
 
 
 Basic tree operations
@@ -98,6 +100,8 @@ Taxonomy utilities
 
 Community analysis utilities
 ----------------------------
+
+[**gOTU_from_maps.py**](gOTU_from_maps.py): Generate a "gOTU table" from WGS sequence alignment results.
 
 [**normalize_to_cpm.py**](normalize_to_cpm.py): Normalize a BIOM table to copies per million sequences (cpm).
 
