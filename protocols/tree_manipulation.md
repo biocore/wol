@@ -12,7 +12,7 @@ Note: Different tree-building programs treat sequence duplicates in different wa
 
 De-duplication can be done using RAxML:
 
-```
+```bash
 raxmlHPC -m PROTCATLG -s align.fa -p 12345
 ```
 
@@ -20,13 +20,13 @@ raxmlHPC -m PROTCATLG -s align.fa -p 12345
 
 We provide [raxml_duplicate_map.py](../code/scripts/raxml_duplicate_map.py) to generate a representative-to-duplicates map from the RAxML output files:
 
-```
+```bash
 raxml_duplicate_map.py align.fa align.reduced.fa > duplicate.map
 ```
 
 After tree building, we use [append_taxa.py](../code/scripts/append_taxa.py) to add duplicate taxa back to the tree:
 
-```
+```bash
 append_taxa.py input.nwk duplicate.map > output.nwk
 ```
 
@@ -40,7 +40,7 @@ In the resulting tree, duplicates form a polytomic clade with zero branch length
 
 We provide [root_by_outgroup.py](../code/scripts/root_by_outgroup.py) to root a tree based on a given taxon set as outgroup:
 
-```
+```bash
 root_by_outgroup.py input.nwk outgroup.list > output.nwk
 ```
 
@@ -48,7 +48,7 @@ root_by_outgroup.py input.nwk outgroup.list > output.nwk
 
 We also have [restore_rooting.py](../code/scripts/restore_rooting.py) to root one tree based on another.
 
-```
+```bash
 restore_rooting.py source.nwk target.nwk > output.nwk
 ```
 
@@ -58,7 +58,7 @@ These scripts can treat both rooted (i.e., "root" has two children) and unrooted
 
 In some cases the input tree is arbitrarily rooted (e.g., the ASTRAL output tree) and one wants to make it unrooted. Here is [trifurcate_tree.py](../code/scripts/trifurcate_tree.py):
 
-```
+```bash
 trifurcate_tree.py input.nwk > output.nwk
 ```
 
@@ -67,7 +67,7 @@ trifurcate_tree.py input.nwk > output.nwk
 
 One can rearrange nodes in decreasing order using [decrease_node_order.py](../code/scripts/decrease_node_order.py):
 
-```
+```bash
 decrease_node_order.py input.nwk > output.nwk
 ```
 
@@ -76,7 +76,7 @@ decrease_node_order.py input.nwk > output.nwk
 
 One can restore node ordering of one tree based on another, using [restore_node_order.py](../code/scripts/restore_node_order.py):
 
-```
+```bash
 restore_node_order.py source.nwk target.nwk > output.nwk
 ```
 
@@ -84,6 +84,6 @@ As a bonus, the script [trianglize_tree.py](../code/scripts/trianglize_tree.py) 
 decreasing node order, respectively. If the input tree is already midpoint-
 rooted, the output tree will shape like a triangle:
 
-```
+```bash
 trianglize_tree.py input.nwk > output.nwk
 ```

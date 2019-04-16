@@ -25,5 +25,3 @@ intro:
 ---
 
 {% include feature_row id="intro" type="center" %}
-
-<!-- {% include_relative README.md %} -->

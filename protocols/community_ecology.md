@@ -34,13 +34,13 @@ Any sequence aligner, such as Bowtie2 or BLAST, or more complicated metagenome c
 
 Example 1: Taxonomic profiling using SHOGUN, with Bowtie2 as aligner:
 
-```
+```bash
 shogun align -t 32 -d /path/to/db -a bowtie2 -i input.fa -o .
 ```
 
 Example 2: Taxonomic profiling using Centrifuge:
 
-```
+```bash
 centrifuge -p 32 -x /path/to/db -1 input.R1.fq.gz -2 input.R2.fq.gz -S output.map
 ```
 
@@ -59,7 +59,7 @@ Place all mapping files in one directory. The stem filenames represent sample ID
 
 Example 1: SHOGUN by Bowtie2 maps:
 
-```
+```bash
 gOTU_from_maps.py bowtie2_result_dir output -m bowtie2 -e .sam.bz2 -t nucl2g.txt
 ```
 
@@ -68,7 +68,7 @@ gOTU_from_maps.py bowtie2_result_dir output -m bowtie2 -e .sam.bz2 -t nucl2g.txt
 
 Example 2: Centrifuge maps:
 
-```
+```bash
 gOTU_from_maps.py centrifuge_result_dir output -m centrifuge -e .map.xz -t nucl2g.txt
 ```
 
@@ -84,7 +84,7 @@ Either one can be used for the downstream analyses. Choice depends on specific r
 
 One can further convert the .tsv file into the [BIOM](http://biom-format.org/) format, which is the standard for microbiome studies and broader bioinformatics.
 
-```
+```bash
 biom convert -i table.tsv -o table.biom --table-type="OTU table" --to-hdf5
 ```
 
@@ -97,7 +97,7 @@ A microbiome dataset usually needs to be refined in order to obtain optimal resu
 
 In addition, we provide [filter_otus_per_sample.py](../code/scripts/filter_otus_per_sample.py), which allows filtering by threshold at a per-sample base, which is useful in some cases, especially when **false positive** mapping is a concern. For example:
 
-```
+```bash
 filter_otus_per_sample.py input.biom 0.0001 output.biom
 ```
 
@@ -110,13 +110,13 @@ filter_otus_per_sample.py input.biom 0.0001 output.biom
 
 We recommend using [QIIME2](https://qiime2.org/) to analyze microbiome datasets. To do so, one needs to convert the BIOM table into a QIIME2 [artifact](https://docs.qiime2.org/2019.1/concepts/#data-files-qiime-2-artifacts):
 
-```
+```bash
 qiime tools import --type FeatureTable[Frequency] --input-path table.biom --output-path table.qza
 ```
 
 The reference [**phylogeny**](../data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk) provided in the also needs to be imported into QIIME2 as an artifact:
 
-```
+```bash
 qiime tools import --type Phylogeny[Rooted] --input-path tree.nwk --output-path tree.qza
 ```
 
@@ -124,7 +124,7 @@ qiime tools import --type Phylogeny[Rooted] --input-path tree.nwk --output-path 
 
 Here you go:
 
-```
+```bash
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny tree.qza \
   --i-table table.qza \
@@ -141,7 +141,7 @@ This might be overly simple (and the sampling depth 1,000 is arbitrary). We woul
 
 [Alpha diversity](https://en.wikipedia.org/wiki/Alpha_diversity) describes the microbial diversity within each community. **Faith's PD** ([Faith, 1992](https://www.sciencedirect.com/science/article/abs/pii/0006320792912013)) is an alpha diversity metric that incorporates phylogenetic distances (i.e., branch lengths) in the equation. It can be calculated using QIIME2' [alpha-phylogenetic](https://docs.qiime2.org/2019.1/plugins/available/diversity/alpha-phylogenetic/) command:
 
-```
+```bash
 qiime diversity alpha-phylogenetic \
   --i-phylogeny tree.qza \
   --i-table table.qza \
@@ -153,7 +153,7 @@ qiime diversity alpha-phylogenetic \
 
 [Beta diversity](https://en.wikipedia.org/wiki/Beta_diversity) describes the microbial diversity across different communities. [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) ([Lozupone and Knight, 2006](https://aem.asm.org/content/71/12/8228)) is a group of beta diversity metrics that concern the phylogenetic distances among OTUs. Recently, we improved the implementation of UniFrac ([McDonald et al., 2018](https://www.nature.com/articles/s41592-018-0187-8)), allowing efficient analysis of very large datasets (e.g., 100k+ samples). These are provided by QIIME2's [beta-phylogenetic](https://docs.qiime2.org/2019.1/plugins/available/diversity/beta-phylogenetic/) command.
 
-```
+```bash
 qiime diversity alpha-phylogenetic \
   --i-phylogeny tree.qza \
   --i-table table.qza \

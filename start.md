@@ -14,14 +14,14 @@ Quick-Start Guide
 
 ## What it is (and isn't)
 
-We present a **reference phylogenetic tree** (or more precisely, mutiple trees depending on your choice) for bacterial and archaeal genomes that are publicly available from [NCBI RefSeq](https://www.ncbi.nlm.nih.gov/refseq/) and [GenBank](https://www.ncbi.nlm.nih.gov/genbank/). It means to server as a reference for researchers to explore the evolution and diversity of microbes, and to improve the study of microbial communities.
+We present a **reference phylogenetic tree** (or more precisely, mutiple trees depending on your choice) for bacterial and archaeal genomes that are publicly available from [NCBI RefSeq](https://www.ncbi.nlm.nih.gov/refseq/) and [GenBank](https://www.ncbi.nlm.nih.gov/genbank/). It means to serve as a reference for researchers to explore the evolution and diversity of microbes, and to improve the study of microbial communities.
 
 We do not attempt to create a new taxonomy. However we provide annotations (and curations) for the tree and the genome catalog based on either [NCBI](https://www.ncbi.nlm.nih.gov/taxonomy) or [GTDB](http://gtdb.ecogenomic.org/) taxonomy.
 
 
 ## How it was made
 
-In brief, we used [**ASTRAL**](https://github.com/smirarab/ASTRAL) to generate a consensus tree by summarizing individual trees of **381** single-copy marker genes extracted from **10,575** genomes.
+In brief, we used [**ASTRAL**](https://github.com/smirarab/ASTRAL) to generate a consensus tree by summarizing individual trees of [**381**](data/markers) single-copy marker genes extracted from [**10,575**](data/genomes) genomes sampled to maximize covered biodiversity.
 
 For comparative purpose, we also generated multiple trees using the conventional gene alignment concatenation strategy, and using multiple alternative genome and gene sampling rules. Detailed [protocols](protocols) are provided.
 
@@ -104,6 +104,6 @@ We will integrate the reference phylogeney with [TIPP](https://github.com/smirar
 
 ## How to cite it
 
-If you use the data, code or protocols developed in this work, please directly cite our website: [https://github.com/biocore/wol](https://github.com/biocore/wol). A manuscript detailing this work is current under peer review. Please stay tuned.
+If you use the data, code or protocols developed in this work, please directly cite our website: [https://biocore.github.io/wol/](https://biocore.github.io/wol/). A manuscript detailing this work is current under peer review. Please stay tuned.
 
 Please forward any questions to the project leader: **Dr. Qiyun Zhu** ([qiz173@ucsd.edu](mailto:qiz173@ucsd.edu)) or the senior PI: **Dr. Rob Knight** ([robknight@ucsd.edu](mailto:robknight@ucsd.edu)).

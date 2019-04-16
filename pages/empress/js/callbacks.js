@@ -7,7 +7,7 @@ function initCallbacks(){
   const SHFT_KEY = 16;
   const DELAY = 500;
   window.onTreeSurface = false;
-  window.timer = setTimeout(hover, 100, 0,0);
+  window.timer = setTimeout(hover, 100, 0, 0);
   $(".tree-surface").on("mousedown", mouseHandler);
   $(document).on("mouseup", mouseHandler);
   $(document).on("mousemove", mouseHandler);
@@ -49,12 +49,9 @@ function initCallbacks(){
   });
 }
 
-function checkForOrig() {
-  console.log("check tax sys");
-}
 
 function changeTaxSys() {
-  let origChecked = $("#orig").is(":checked");
+  let origChecked = !$("#curation").is(":checked");
   retrieveTaxonNodes("t");
   retrieveTaxonNodes("n");
   if ($("#collapse-cb").is(":checked") && !origChecked) {
@@ -75,7 +72,8 @@ function changeTaxSys() {
 
 function getTaxPrefix() {
   let taxSys = $("input[name='sys']:checked").val();
-  let taxType = $("input[name='type']:checked").val();
+  let taxType = $("#curation").is(":checked") ? "c_" : "o_";
+  // let taxType = $("input[name='type']:checked").val();
   let taxPrefix = taxSys + taxType;
   return taxPrefix;
 }
@@ -351,10 +349,10 @@ function clearSelectedTreeCollapse(event) {
   });
 }
 
+
 /**
- * resizes the drawing canvas to fix the screen
- *
- * @param {Object} resize event used to dynamically resize the html document.
+ * Resize the drawing canvas to fix the screen.
+ * @param {Object} resize - event used to dynamically resize the html document.
  */
 function resizeCanvas(event) {
   setCanvasSize(gl.canvas);
@@ -362,61 +360,106 @@ function resizeCanvas(event) {
   requestAnimationFrame(loop);
 }
 
-function addColorKey(keyInfo, keyContainer, gradient) {
-  let container;
 
-  let component;
-  if (gradient) {
-    //create key container
-    container = document.createElement("div");
-    container.classList.add("gradient-bar")
-    // min label
-    component = document.createElement("label");
-    component.classList.add("gradient-label");
-    component.innerHTML = keyInfo.min[0]
-    container.appendChild(component);
-
-    // color gradient
-    component = document.createElement("div");
-    component.classList.add("gradient-color");
-    component.setAttribute("style", "background: linear-gradient(to right, #" + keyInfo.min[1] + " 0%, #" + keyInfo.max[1] + " 100%);");
-    container.appendChild(component);
-
-    //max label
-    component = document.createElement("label");
-    component.classList.add("gradient-label");
-    component.innerHTML = keyInfo.max[0];
-    container.appendChild(component);
-
-    keyContainer.appendChild(container);
-
+/**
+ * Display a color key in the legend box.
+ * @param {string} name - key name
+ * @param {Object} info - key information
+ * @param {Object} container - container DOM
+ * @param {boolean} gradient - gradient or discrete
+ */
+function addColorKey(name, info, container, gradient) {
+  if (name) {
+    let div = document.createElement("div");
+    div.classList.add("legend-title");
+    div.innerHTML = name;
+    container.appendChild(div);
   }
-  else {
-    let key;
-    for (key in keyInfo) {
-      //create key container
-      container = document.createElement("div");
-      container.classList.add("gradient-bar")
-
-      // color gradient
-      component = document.createElement("div");
-      component.classList.add("gradient-color");
-      component.setAttribute("style", "background: #" + keyInfo[key] + ";");
-      container.appendChild(component);
-
-      //label
-      component = document.createElement("label");
-      component.classList.add("gradient-label");
-      component.innerHTML = key;
-      container.appendChild(component);
-
-      keyContainer.appendChild(container);
-    }
+  if (gradient) {
+    addContinuousKey(info, container);
+  } else {
+    addCategoricalKey(info, container);
   }
 }
+
+
 /**
- * Event called when user presses the select-data button. This method is responsible
- * for coordinating the highlight tip feature.
+ * Format a number that is to be displayed in a label.
+ * @param {number} num - number to be formatted
+ * @returns {string} formatted number
+ */
+function formatNumLabel(num) {
+  return num.toPrecision(4).replace(/\.?0+$/, "");
+}
+
+
+/**
+ * Display a continuous color key.
+ * @param {Object} info - key information
+ * @param {Object} container - container DOM
+ */
+function addContinuousKey(info, container) {
+  // create key container
+  let div = document.createElement("div");
+  div.classList.add("gradient-bar");
+
+  // min label
+  let component = document.createElement("label");
+  component.classList.add("gradient-label");
+  component.innerHTML = formatNumLabel(info.min[0]);
+  div.appendChild(component);
+
+  // color gradient
+  component = document.createElement("div");
+  component.classList.add("gradient-color");
+  component.setAttribute("style", "background: linear-gradient(to right, #" +
+    info.min[1] + " 0%, #" + info.max[1] + " 100%);");
+  div.appendChild(component);
+
+  // max label
+  component = document.createElement("label");
+  component.classList.add("gradient-label");
+  component.innerHTML = formatNumLabel(info.max[0]);
+  div.appendChild(component);
+
+  container.appendChild(div);
+}
+
+
+/**
+ * Display a categorical color key.
+ * @param {Object} info - key information
+ * @param {Object} container - container DOM
+ */
+function addCategoricalKey(info, container) {
+  let key;
+  for (key in info) {
+    // create key container
+    let div = document.createElement("div");
+    div.classList.add("gradient-bar");
+
+    // color gradient
+    let component = document.createElement("div");
+    component.classList.add("category-color");
+    component.setAttribute("style", "background: #" + info[key] + ";");
+    div.appendChild(component);
+
+    // label
+    component = document.createElement("label");
+    component.classList.add("gradient-label");
+    component.innerHTML = key;
+    component.title = key;
+    div.appendChild(component);
+
+    container.appendChild(div);
+  }
+}
+
+
+/**
+ * Event called when user presses the select-data button.
+ * @function userHighlightSelect
+ * This method is responsible for coordinating the highlight tip feature.
  */
 function userHighlightSelect() {
   let edgeData;
@@ -433,23 +476,23 @@ function userHighlightSelect() {
     $("#branch-color-options").attr("disabled", true);
     edgeData = tree.colorBranches("default")["edgeData"];
   }
-  if($("#branch-color").is(":checked")) {
+  if ($("#branch-color").is(":checked")) {
     let cat = $("#branch-color-options").val();
     $("#branch-color-options").attr("disabled", false);
     result = tree.colorBranches(cat);
-    addColorKey(result["keyInfo"], nodeKey, false);
+    addColorKey(cat, result["keyInfo"], nodeKey, false);
     nodeKey.classList.remove("hidden");
     edgeData = result["edgeData"];
   }
-  if($("#tip-color").is(":checked")) {
+  if ($("#tip-color").is(":checked")) {
     let cat = $("#tip-color-options").val();
     $("#tip-color-options").attr("disabled", false);
     result = tree.colorBranches(cat);
     tipKey.classList.remove("hidden");
-    addColorKey(result["keyInfo"], tipKey, true);
+    addColorKey(cat, result["keyInfo"], tipKey, true);
     edgeData = result["edgeData"];
   }
-  if($("#collapse-cb").is(":checked")) {
+  if ($("#collapse-cb").is(":checked")) {
     let taxLevel = selectElm.val();
     let taxSys = $("input[name='sys']:checked").val();
     let taxPrefix = taxSys + "d_";
