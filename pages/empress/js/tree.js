@@ -329,109 +329,162 @@ class Tree{
     return Math.abs((a.x*(b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y)) / 2)
   }
 
+  /*
+   * directs to appropriate coloring function based on category
+   * @param {string} category - default || the category from metadata to color from
+  */
   colorBranches(category) {
     let i = 0;
     let result = {};
-    if(category === "default") {
-        let color = this.getDefaultColor();
-        for(i in this.metadata) {
-            this.metadata[i]['branch_color'] = color;
-        }
+    let keyInfo = {};
+    console.log(category)
+    if (category === "default") {
+        this.colorTreeDefault();
+    }
+    else if (category === "(preset)"){
+        keyInfo = this.colorTreePreset();
+        result["keyInfo"] = keyInfo;
+        result["gradient"] = false;
+    }
+    else if (this.headers.tip_num.includes(category) || this.headers.node_headers.includes(category)) {
+        keyInfo = this.colorTreeGradient(category);
+        result["keyInfo"] = keyInfo;
+        result["gradient"] = true;
     }
     else {
-        let keyInfo = {};
-        if(category === "(preset)"){
-            let value, color;
-            for(i in this.metadata) {
-                value = this.metadata[i]["color_pal"];
-                color = this.getColorPal(value);
-                keyInfo[value] = this.getColorHexCode(color);
-                this.metadata[i]['branch_color'] = color;
-            }
-        }
-        else {
-            let min = this.maxes[category][0];
-            let max = this.maxes[category][1];
-            keyInfo = {
-                "min": [min, this.getColorHexCode(this.getColor(min, max, min))],
-                "max": [max, this.getColorHexCode(this.getColor(min, max, max))]
-            };
-            for (i in this.metadata) {
-                if(this.metadata[i][category] !== null){
-                    this.metadata[i]['branch_color'] = this.getColor(min, max, this.metadata[i][category]);
-                }
-            }
-        }
+        keyInfo = this.colorTreeCategorical(category);
         result["keyInfo"] = keyInfo;
+        result["gradient"] = false;
     }
     this.updateEdgeData(0);
     result["edgeData"] = this.edgeData;
     return result;
   }
+
+  /*
+   * Colors the entire tree using the default color
+  */
+  colorTreeDefault() {
+    let i, color = this.getDefaultColor();
+    for(i in this.metadata) {
+        this.metadata[i]['branch_color'] = color;
+    }
+  }
+
+  /*
+   * Colors the tree using the preset color map
+  */
+  colorTreePreset() {
+    let i, value, color, keyInfo = {};
+    for(i in this.metadata) {
+        value = this.metadata[i]["color_pal"];
+        color = this.getColorPal(value);
+        keyInfo[value] = this.getColorHexCode(color);
+        this.metadata[i]['branch_color'] = color;
+    }
+    return keyInfo;
+  }
+
+  /*
+   * Colors the tree using a gradient color map
+   * @ param {string} category - numerical column in this.metadata
+  */
+  colorTreeGradient(category) {
+    let i, keyInfo = {};
+    let min = this.maxes[category][0];
+    let max = this.maxes[category][1];
+    let interpolator = this.getColorInterp(min, max, "YlOrRd");
+    keyInfo = {
+        "min": [min, interpolator(min).hex()],
+        "max": [max, interpolator(max).hex()]
+    };
+    for (i in this.metadata) {
+        if (this.metadata[i][category] !== null){
+            this.metadata[i]['branch_color'] = interpolator(this.metadata[i][category])
+                                                    .rgb()
+                                                    .map(x => x / 256);
+        }
+    }
+    return keyInfo;
+  }
+
+  /*
+    // TODO: need to distinguish between nodes and tips
+   * colors the tree using categorical data . This will assign a unique color to
+   * the 8th largest groups within the category and remaining will be colored
+   * using a "others" color.
+   * @ param{string} category - categorical column in this.metadata
+  */
+  colorTreeCategorical(category) {
+    let i, keyInfo = {}, cats = {};
+    let group;
+    for (i in this.metadata) {
+        group = this.metadata[i][category];
+        if (group in cats) {
+            cats[group] += 1;
+        }
+        else {
+            cats[group] = 0;
+        }
+    }
+    let groups = Object.keys(cats);
+    for (i in groups) {
+        cats[groups[i]] = parseInt(i);
+
+    }
+    let min = 0, max = groups.length;
+    let interpolator = this.getColorInterp(min, max, "set2");
+    console.log(interpolator(0).rgb())
+
+    // TODO: need to distinguish between nodes and tips
+    for (i in this.metadata) {
+        if (this.metadata[i][category] !== null){
+            group = this.metadata[i][category];
+            // console.log(groups[group])
+            keyInfo[group] = interpolator(cats[group]).hex();
+            this.metadata[i]['branch_color'] = interpolator(cats[group])
+                                                    .rgb()
+                                                    .map(x => x / 256);
+        }
+    }
+    return keyInfo;
+  }
+
+  /*
+   * Returns the hex string that represents a rbg array
+   * @param {array} colorArray - an rbg array whose entries are between 0 and 1
+  */
   getColorHexCode(colorArray) {
     const RED = 0, GREEN = 1, BLUE = 2, BASE_HEX = 16, LARGEST_COLOR = 256;
     let hexString = (colorArray[RED] * LARGEST_COLOR).toString(BASE_HEX)
         + (colorArray[GREEN] * LARGEST_COLOR).toString(BASE_HEX)
         + (colorArray[BLUE] * LARGEST_COLOR).toString(BASE_HEX);
-    return (hexString.length < 6) ? hexString + "0" : hexString;
+    // return (hexString.length < 6) ? "#" + hexString + "0" : hexString;
+    return "#" + hexString;
   }
+
+  /*
+   * Returns the rgb array of the default color for the tree
+  */
   getDefaultColor() {
     return [0.7, 0.7, 0.7];
   }
-  getColor(min, max, val) {
-    //n red
-    // let bucketSize = (max - min) / 9;
-    // if(val < min + bucketSize) {
-    //     return [0.99609375, 0.95703125, 0.91796875];
-    // }
-    // else if(val < min + 2*bucketSize) {
-    //     return [0.9921875, 0.8984375, 0.8046875];
-    // }
-    // else if(val < min + 3*bucketSize) {
-    //     return [0.98828125, 0.8125, 0.6328125];
-    // }
-    // else if(val < min + 4*bucketSize) {
-    //     return [98828125, 0.6796875, 0.41796875];
-    // }
-    // else if(val < min + 5*bucketSize) {
-    //     return [0.98828125, 0.55078125, 0.234375];
-    // }
-    // else if(val < min + 6*bucketSize) {
-    //     return [0.94140625, 0.41015625, 0.07421875];
-    // }
-    // else if(val < min +  7*bucketSize) {
-    //     return [0.84765625, 0.28125, 0.00390625];
-    // }
-    // else if(val < min + 8*bucketSize) {
-    //     return [0.6484375, 0.2109375, 0.01171875];
-    // }
-    // return [0.49609375, 0.15234375, 0.015625];
 
-    // yellow red
-    // console.log( min + 6&bucketSize)
-    let bucketSize = (max - min) / 5;
-    if(val < min + bucketSize) {
-        return [0.9921875, 0.84765625, 0.4609375];
-    }
-    else if(val < min + 2*bucketSize) {
-        return [0.9921875, 0.6953125, 0.296875];
-    }
-    else if(val < min + 3*bucketSize) {
-        return [0.98828125, 0.55078125, 0.234375];
-    }
-    else if(val < min + 4*bucketSize) {
-        return [0.984375, 0.3046875, 0.1640625];
-    }
-    // else if(val < min + 5*bucketSize) {
-        return [0.88671875, 0.1015625, 0.109375];
-    // }
-    // else if(val < min + 6*bucketSize) {
-    //     return [0.73828125, 0.0, 0.1484375];
-    // }
-    // return [0.5, 0.0, 0.1484375];
-
+    /**
+     * Creates a color interpreter for a color scale.
+     * @param {number} min - the smallest value for the color map
+     * @param {number} max - the largest value for the color map
+     * @param {string} colorMap the color map to be used
+    */
+  getColorInterp(min, max, colorMap) {
+    let colors = chroma.brewer[colorMap];
+    return chroma.scale(colors).domain([min, max]);
   }
 
+  /**
+   * The color map for preset
+   * @param {string} a catergor from preset
+  */
   getColorPal(val) {
     let colors = {
         'Eukaryota': [0.94140625, 0.90234375, 0.609375],
@@ -462,6 +515,7 @@ class Tree{
 
   getGenomeIDs(nodeId){
     let node = this.tree[nodeId];
+
     // If the node is a tip
     if(node.children.length == 0){
       return [nodeId];

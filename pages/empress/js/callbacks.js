@@ -412,8 +412,8 @@ function addContinuousKey(info, container) {
   // color gradient
   component = document.createElement("div");
   component.classList.add("gradient-color");
-  component.setAttribute("style", "background: linear-gradient(to right, #" +
-    info.min[1] + " 0%, #" + info.max[1] + " 100%);");
+  component.setAttribute("style", "background: linear-gradient(to right, " +
+    info.min[1] + " 0%, " + info.max[1] + " 100%);");
   div.appendChild(component);
 
   // max label
@@ -441,7 +441,7 @@ function addCategoricalKey(info, container) {
     // color gradient
     let component = document.createElement("div");
     component.classList.add("category-color");
-    component.setAttribute("style", "background: #" + info[key] + ";");
+    component.setAttribute("style", "background: " + info[key] + ";");
     div.appendChild(component);
 
     // label
@@ -497,7 +497,7 @@ function userHighlightSelect() {
     let cat = $("#branch-color-options").val();
     $("#branch-color-options").attr("disabled", false);
     result = tree.colorBranches(cat);
-    addColorKey(cat, result["keyInfo"], nodeKey, false);
+    addColorKey(cat, result["keyInfo"], nodeKey, result["gradient"]);
     nodeKey.classList.remove("hidden");
     edgeData = result["edgeData"];
   }
@@ -508,7 +508,8 @@ function userHighlightSelect() {
     $("#tip-color-options").attr("disabled", false);
     result = tree.colorBranches(cat);
     tipKey.classList.remove("hidden");
-    addColorKey(cat, result["keyInfo"], tipKey, true);
+    console.log(result);
+    addColorKey(cat, result["keyInfo"], tipKey, result["gradient"]);
     edgeData = result["edgeData"];
   }
 

@@ -10,12 +10,12 @@ function initialize(){
   drawingData.currentZoom = drawingData.initZoom;
 
   // Fill 'Tip color' drop down menu
-  fillDropDownMenu(tree.headers.general, "#tip-color-options");
-  fillDropDownMenu(tree.headers.tip_num, "#tip-color-options");
+  // fillDropDownMenu(tree.headers.general, "#tip-color-options");
   fillDropDownMenu(tree.headers.tip_cat, "#tip-color-options");
+  fillDropDownMenu(tree.headers.tip_num, "#tip-color-options");
 
   // File 'Node color' drop down menu
-  fillDropDownMenu(tree.headers.general, "#branch-color-options");
+  // fillDropDownMenu(tree.headers.general, "#branch-color-options");
   fillDropDownMenu(tree.headers.node_headers, "#branch-color-options");
 
   // TODO: create clade coloring drop box
