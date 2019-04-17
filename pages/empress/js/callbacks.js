@@ -78,38 +78,28 @@ function getTaxPrefix() {
   return taxPrefix;
 }
 
-function hover(x,y) {
-  if($("body").css("cursor") !== 'none') {
-    nodeHover(x,y);
-    triangleHover(x,y);
+
+/**
+ * Canvas hover event.
+ * @function hover
+ * @param {number} x - x-coordinate
+ * @param {number} y - y-coordinate
+ */
+function hover(x, y) {
+  if ($("body").css("cursor") !== "none") {
+    nodeHover(x, y);
+    triangleHover(x, y);
   }
 }
 
 
 /**
- * Create an "Export" button in a hover box.
- * @function createExportBtn
- * @param {Object} table - table in the hover box
- * @param {number} clsID - current node Id
+ * Hover on node.
+ * @function nodeHover
+ * @param {number} x - x-coordinate
+ * @param {number} y - y-coordinate
  */
-function createExportBtn(table, clsID) {
-  let row = table.insertRow(-1);
-  let cell = row.insertCell(-1);
-  cell.colSpan = 2;
-  const btn = document.createElement("button");
-  btn.innerHTML = "Export";
-  btn.onclick = function () {
-    let modal = document.getElementById("export-modal");
-    modal.dataset.clsID = clsID;
-    modal.firstElementChild.firstElementChild.firstElementChild.innerHTML
-      = clsID + " (" + tree.tree[clsID]["leafcount"] + " genomes)";
-    modal.classList.remove("hidden");
-  };
-  cell.appendChild(btn);
-}
-
-
-function nodeHover(x,y) {
+function nodeHover(x, y) {
   let id;
   let clsXTC, clsYTC, clsID;
   let close = 1000;
@@ -147,83 +137,8 @@ function nodeHover(x,y) {
 
   if (close <= 50 && (clsID === "N1" || tree.metadata[clsID]["branch_is_visible"])) {
     drawingData.hoveredNode = [clsXTC, clsYTC, 0, 1, 0];
-    let taxPrefix = getTaxPrefix();
 
-    let table = document.getElementById("hover-table");
-    table.innerHTML = "";
-
-    // Id row
-    let row = table.insertRow(-1);
-    let cell = row.insertCell(-1);
-    cell.innerHTML = "ID";
-    cell = row.insertCell(-1);
-    cell.innerHTML = clsID;
-
-    // links row
-    if (clsID[0] === "G") {
-      row = table.insertRow(-1);
-      cell = row.insertCell(-1);
-      cell.innerHTML = "Links";
-      cell = row.insertCell(-1);
-      cell.innerHTML = "<a href='"
-        + "https://www.ncbi.nlm.nih.gov/assembly/"
-        + tree.metadata[clsID]["assembly_accession"]
-        + "' target='_blank'>NCBI</a>";
-      const img_id = tree.metadata[clsID]["img_id"];
-      if (img_id !== null) {
-        cell.innerHTML += " | <a href='"
-          + "https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail"
-          + "&page=taxonDetail&taxon_oid=" + img_id
-          + "' target='_blank'>IMG</a>";
-      }
-      const gtdb_id = tree.metadata[clsID]["gtdb_id"]
-      if (gtdb_id !== null) {
-        cell.innerHTML += " | <a title='" + gtdb_id + "' href='"
-          + "http://gtdb.ecogenomic.org/genomes?gid=" + gtdb_id.slice(3)
-          + "' target='_blank'>GTDB</a>";
-      }
-    }
-
-    // taxon count row
-    if (clsID[0] === "N") {
-      row = table.insertRow(-1);
-      cell = row.insertCell(-1);
-      cell.innerHTML = "Taxa";
-      cell = row.insertCell(-1);
-      cell.innerHTML = tree.tree[clsID]["leafcount"];
-    }
-
-    // rank rows
-    if (clsID !== "N1") {
-      ranks.forEach(function(rank) {
-        const name = tree.metadata[clsID][taxPrefix + rank];
-        if (name) {
-          row = table.insertRow(-1);
-          cell = row.insertCell(-1);
-          cell.innerHTML = rank;
-          cell = row.insertCell(-1);
-          cell.innerHTML = name;
-        }
-      });
-    }
-
-    // download row
-    if (clsID[0] === "G") {
-      row = table.insertRow(-1);
-      cell = row.insertCell(-1);
-      cell.colSpan = 2;
-      const btn = document.createElement("button");
-      btn.innerHTML = "Download";
-      btn.onclick = function () {
-        window.open(getDownloadURL(clsID), "_blank");
-      };
-      cell.appendChild(btn);
-    }
-
-    // export row
-    else {
-      createExportBtn(table, clsID);
-    }
+    nodeHoverBox(clsID);
 
     // calculate the screen coordinate of the label
     let treeSpace = vec4.fromValues(clsXTC, clsYTC, 0, 1);
@@ -232,7 +147,7 @@ function nodeHover(x,y) {
     screenSpace[0] /= screenSpace[3];
     screenSpace[1] /= screenSpace[3];
     let pixelX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
-    let pixelY = (screenSpace[1] * -0.5 + 0.5)* canvas.offsetHeight;
+    let pixelY = (screenSpace[1] * -0.5 + 0.5) * canvas.offsetHeight;
 
     // show hover box
     box.style.left = Math.floor(pixelX + 23) + "px";
@@ -244,34 +159,22 @@ function nodeHover(x,y) {
   requestAnimationFrame(loop);
 }
 
+
+/**
+ * Hover on clade.
+ * @function triangleHover
+ * @param {number} x - x-coordinate
+ * @param {number} y - y-coordinate
+ */
 function triangleHover(x, y) {
   let treeCoords = toTreeCoords(x, y);
   let triRoot = tree.triangleAt(treeCoords[0], treeCoords[1]);
-  let taxLevel = $("#collapse-level").val();
-  let taxPrefix = getTaxPrefix();
 
   if (triRoot != null) {
     let box = document.getElementById("hover-box");
     box.classList.add("hidden");
-    let table = document.getElementById("hover-table");
-    table.innerHTML = "";
 
-    // name row
-    let row = table.insertRow(-1);
-    let cell = row.insertCell(-1);
-    cell.innerHTML = taxLevel;
-    cell = row.insertCell(-1);
-    cell.innerHTML = tree.metadata[triRoot.id][taxPrefix + taxLevel];
-
-    // taxon count row
-    row = table.insertRow(-1);
-    cell = row.insertCell(-1);
-    cell.innerHTML = "Taxa";
-    cell = row.insertCell(-1);
-    cell.innerHTML = tree.tree[triRoot.id]["leafcount"];
-
-    // export button
-    createExportBtn(table, triRoot.id);
+    cladeHoverBox(triRoot.id);
 
     // show hover box
     box.style.left = (x + 23) + "px";
@@ -285,6 +188,147 @@ function triangleHover(x, y) {
   }
   requestAnimationFrame(loop);
 }
+
+
+/**
+ * Refresh hover box for node.
+ * @function nodeHoverBox
+ * @param {number} clsID - node ID
+ */
+function nodeHoverBox(clsID) {
+  let taxPrefix = getTaxPrefix();
+  let table = document.getElementById("hover-table");
+  table.innerHTML = "";
+
+  // Id row
+  let row = table.insertRow(-1);
+  let cell = row.insertCell(-1);
+  cell.innerHTML = "ID";
+  cell = row.insertCell(-1);
+  cell.innerHTML = clsID;
+
+  // links row
+  if (clsID[0] === "G") {
+    row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML = "Links";
+    cell = row.insertCell(-1);
+    cell.innerHTML = "<a href='"
+      + "https://www.ncbi.nlm.nih.gov/assembly/"
+      + tree.metadata[clsID]["assembly_accession"]
+      + "' target='_blank'>NCBI</a>";
+    const img_id = tree.metadata[clsID]["img_id"];
+    if (img_id !== null) {
+      cell.innerHTML += " | <a href='"
+        + "https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail"
+        + "&page=taxonDetail&taxon_oid=" + img_id
+        + "' target='_blank'>IMG</a>";
+    }
+    const gtdb_id = tree.metadata[clsID]["gtdb_id"]
+    if (gtdb_id !== null) {
+      cell.innerHTML += " | <a title='" + gtdb_id + "' href='"
+        + "http://gtdb.ecogenomic.org/genomes?gid=" + gtdb_id.slice(3)
+        + "' target='_blank'>GTDB</a>";
+    }
+  }
+
+  // taxon count row
+  if (clsID[0] === "N") {
+    row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML = "Taxa";
+    cell = row.insertCell(-1);
+    cell.innerHTML = tree.tree[clsID]["leafcount"];
+  }
+
+  // rank rows
+  if (clsID !== "N1") {
+    ranks.forEach(function(rank) {
+      const name = tree.metadata[clsID][taxPrefix + rank];
+      if (name) {
+        row = table.insertRow(-1);
+        cell = row.insertCell(-1);
+        cell.innerHTML = rank;
+        cell = row.insertCell(-1);
+        cell.innerHTML = name;
+      }
+    });
+  }
+
+  // download row
+  if (clsID[0] === "G") {
+    row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.colSpan = 2;
+    const btn = document.createElement("button");
+    btn.innerHTML = "Download";
+    btn.onclick = function () {
+      window.open(getDownloadURL(clsID), "_blank");
+    };
+    cell.appendChild(btn);
+  }
+
+  // export row
+  else {
+    createExportBtn(table, clsID);
+  }
+}
+
+
+/**
+ * Refresh hover box for collapsed clade.
+ * @function cladeHoverBox
+ * @param {number} clsID - node ID
+ */
+function cladeHoverBox(clsID) {
+  let table = document.getElementById("hover-table");
+  table.innerHTML = "";
+
+  let sel = document.getElementById("collapse-level");
+  let taxLevel = sel.options[sel.selectedIndex].value;
+  let taxPrefix = getTaxPrefix();
+
+  // name row
+  let row = table.insertRow(-1);
+  let cell = row.insertCell(-1);
+  cell.innerHTML = taxLevel;
+  cell = row.insertCell(-1);
+  cell.innerHTML = tree.metadata[clsID][taxPrefix + taxLevel];
+
+  // taxon count row
+  row = table.insertRow(-1);
+  cell = row.insertCell(-1);
+  cell.innerHTML = "Taxa";
+  cell = row.insertCell(-1);
+  cell.innerHTML = tree.tree[clsID]["leafcount"];
+
+  // export button
+  createExportBtn(table, clsID);
+}
+
+
+/**
+ * Create an "Export" button in a hover box.
+ * @function createExportBtn
+ * @param {Object} table - table in the hover box
+ * @param {number} clsID - current node Id
+ */
+function createExportBtn(table, clsID) {
+  let row = table.insertRow(-1);
+  let cell = row.insertCell(-1);
+  cell.colSpan = 2;
+  const btn = document.createElement("button");
+  btn.innerHTML = "Export";
+  btn.onclick = function () {
+    let modal = document.getElementById("export-modal");
+    modal.dataset.clsID = clsID;
+    modal.firstElementChild.firstElementChild.firstElementChild.innerHTML
+      = clsID + " (" + tree.tree[clsID]["leafcount"] + " genomes)";
+    modal.classList.remove("hidden");
+  };
+  cell.appendChild(btn);
+}
+
 
 function autoCollapseTree() {
   let selectElm = $("#collapse-level");
@@ -412,8 +456,8 @@ function addContinuousKey(info, container) {
   // color gradient
   component = document.createElement("div");
   component.classList.add("gradient-color");
-  component.setAttribute("style", "background: linear-gradient(to right, #" +
-    info.min[1] + " 0%, #" + info.max[1] + " 100%);");
+  component.setAttribute("style", "background: linear-gradient(to right, " +
+    info.min[1] + " 0%, " + info.max[1] + " 100%);");
   div.appendChild(component);
 
   // max label
@@ -441,7 +485,7 @@ function addCategoricalKey(info, container) {
     // color gradient
     let component = document.createElement("div");
     component.classList.add("category-color");
-    component.setAttribute("style", "background: #" + info[key] + ";");
+    component.setAttribute("style", "background: " + info[key] + ";");
     div.appendChild(component);
 
     // label
@@ -466,32 +510,54 @@ function userHighlightSelect() {
   let selectElm = $("#collapse-level");
   let tipKey = document.getElementById("tip-color-key");
   let nodeKey = document.getElementById("node-color-key");
+  let presetKey = document.getElementById("preset-color-key");
   let result;
+
+  // reset color key
   tipKey.innerHTML = "";
   tipKey.classList.add("hidden");
   nodeKey.innerHTML = "";
   nodeKey.classList.add("hidden");
+  presetKey.innerHTML = "";
+  presetKey.classList.add("hidden");
+
+  // reset tree back to default color
+  // TODO: this method can be optimized to make this action unnecessary
   if (!$("#branch-color").is(":checked") || !$("#tip-color").is(":checked")) {
     $("#tip-color-options").attr("disabled", true);
     $("#branch-color-options").attr("disabled", true);
     edgeData = tree.colorBranches("default")["edgeData"];
   }
+
+  // color tree using preset
+  if ($("#preset-color").is(":checked")) {
+    result = tree.colorBranches("(preset)")
+    addColorKey("preset", result["keyInfo"], presetKey, false)
+    presetKey.classList.remove("hidden");
+    edgeData = result["edgeData"];
+  }
+  // color branches
   if ($("#branch-color").is(":checked")) {
     let cat = $("#branch-color-options").val();
     $("#branch-color-options").attr("disabled", false);
     result = tree.colorBranches(cat);
-    addColorKey(cat, result["keyInfo"], nodeKey, false);
+    addColorKey(cat, result["keyInfo"], nodeKey, result["gradient"]);
     nodeKey.classList.remove("hidden");
     edgeData = result["edgeData"];
   }
+
+  // color tips
   if ($("#tip-color").is(":checked")) {
     let cat = $("#tip-color-options").val();
     $("#tip-color-options").attr("disabled", false);
     result = tree.colorBranches(cat);
     tipKey.classList.remove("hidden");
-    addColorKey(cat, result["keyInfo"], tipKey, true);
+    console.log(result);
+    addColorKey(cat, result["keyInfo"], tipKey, result["gradient"]);
     edgeData = result["edgeData"];
   }
+
+  // update color any collapsed triangles
   if ($("#collapse-cb").is(":checked")) {
     let taxLevel = selectElm.val();
     let taxSys = $("input[name='sys']:checked").val();
@@ -501,6 +567,8 @@ function userHighlightSelect() {
     drawingData.triangles = tree.triData;
     fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
   }
+
+  // draw tree
   fillBufferData(shaderProgram.treeVertBuffer, edgeData);
   requestAnimationFrame(loop);
 }
@@ -719,4 +787,116 @@ function downloadLinks(clsID) {
  */
 function downloadSubtree(clsID) {
     downloadText(tree.toNewick(clsID) + ";", clsID + ".nwk");
+}
+
+
+/**
+ * Perform quick search.
+ * @function quickSearch
+ */
+function quickSearch() {
+  let bar = document.getElementById("quick-search");
+  let keyword = bar.value;
+  bar.value = "";
+
+  // obtain and sort candidate Ids
+  let taxPrefix = getTaxPrefix();
+  let metaKeys = Object.keys(tree.metadata);
+  let ids = metaKeys.filter(function(x) {
+    return x.startsWith("G");
+  });
+  ids.sort(sort2ndNum);
+  if (taxPrefix.endsWith("c_")) {
+    let nIds = metaKeys.filter(function(x) {
+      return x.startsWith("N") && x !== "N1";
+    });
+    nIds.sort(sort2ndNum);
+    ids = nIds.concat(ids);
+  }
+
+  // search for keyword
+  let target = searchKeyword(keyword, taxPrefix, ids);
+
+  // not found
+  if (!target) {
+    toastMsg("Keyword \"" + keyword + "\" is not found.");
+    return;
+  }
+
+  // found but invisible
+  if (!tree.metadata[target]["branch_is_visible"]) {
+    toastMsg("Found " + target + " but it is currently invisible.");
+    return;
+  }
+
+  // show hover box
+  const treeX = tree.tree[target].x;
+  const treeY = tree.tree[target].y;
+  drawingData.hoveredNode = [treeX, treeY, 0, 1, 0];
+
+  // calculate the screen coordinate of the label
+  let canvas = document.querySelector(".tree-surface");
+  let treeSpace = vec4.fromValues(treeX, treeY, 0, 1);
+  let screenSpace = vec4.create();
+  vec4.transformMat4(screenSpace, treeSpace, shaderProgram.mvpMat);
+  screenSpace[0] /= screenSpace[3];
+  screenSpace[1] /= screenSpace[3];
+  let pixelX = (screenSpace[0] * 0.5 + 0.5) * canvas.offsetWidth;
+  let pixelY = (screenSpace[1] * -0.5 + 0.5) * canvas.offsetHeight;
+
+  // show hover box
+  let box = document.getElementById("hover-box");
+  box.classList.add("hidden");
+  nodeHoverBox(target);
+  box.style.left = Math.floor(pixelX + 23) + "px";
+  box.style.top = Math.floor(pixelY - 43) + "px";
+  box.classList.remove("hidden");
+}
+
+
+/**
+ * Sort genome/node IDs by numeric part from 2nd character
+ * @function sort2ndNum
+ * @param {string} a - left side
+ * @param {string} b - right side
+ */
+function sort2ndNum(a, b) {
+  return parseInt(a.slice(1)) - parseInt(b.slice(1));
+}
+
+
+/**
+ * Perform quick search.
+ * @function searchKeyword
+ * @param {string} keyword - search keyword
+ * @param {string} prefix - taxonomic prefix
+ * @param {string} ids - genome or node ID list
+ */
+function searchKeyword(keyword, taxPrefix, ids) {
+  for (const rank of ranks) {
+    for (const id of ids) {
+      const name = tree.metadata[id][taxPrefix + rank];
+      if (name && name.includes(keyword)) {
+        return id;
+      }
+    }
+  }
+  return null;
+}
+
+
+/**
+ * Display a message in toast.
+ * @function toastMsg
+ * @param {string} msg - message to display
+ * @param {number} duration - milliseconds to keep toast visible
+ */
+function toastMsg(msg, duration) {
+  duration = duration || 2000;
+  var toast = document.getElementById("toast");
+  toast.innerHTML = msg;
+  toast.classList.remove("hidden");
+  setTimeout(function(){
+    toast.classList.add("hidden");
+  }, duration);
 }

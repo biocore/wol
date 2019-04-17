@@ -20,10 +20,10 @@ function fillDropDownMenu(headers, menuName) {
 
 
   let menu = $(menuName)[0];
-  // let menu = $(menuName).empty()[0];
-  headers.sort().sort(function (a, b) {
-    return a.toLowerCase().localeCompare(b.toLowerCase());
-  });
+  // // let menu = $(menuName).empty()[0];
+  // headers.sort().sort(function (a, b) {
+  //   return a.toLowerCase().localeCompare(b.toLowerCase());
+  // });
   for (let header of headers) {
     let option = document.createElement("option");
       option.text = header;
