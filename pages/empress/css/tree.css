@@ -16,11 +16,41 @@ body {
 /* general control styles */
 
 a:link, a:visited {
-    color: royalblue;
+    color: steelblue;
 }
 
 button::-moz-focus-inner {
     border: 0;
+}
+
+input[type=text], input[type=number], select {
+    box-sizing: border-box;
+    background-color: white;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+    padding-left: 5px;
+    margin-right: 5px;
+}
+
+input[type=text]:hover:enabled, input[type=number]:hover:enabled,
+input[type=radio]:hover:enabled, input[type=checkbox]:hover:enabled,
+select:hover:enabled {
+    background-color: lightgray;
+}
+
+input[type=text] {
+    padding-right: 5px;
+}
+
+input[type=text], select {
+    min-width: 120px;
+}
+
+input[type=number] {
+    width: 40px;
 }
 
 select {
@@ -28,19 +58,7 @@ select {
     -moz-appearance: none;
     -ms-appearance: none;
     appearance: none;
-    background-color: white;
-    height: 28px;
-    border: 0;
-    cursor: pointer;
-    outline: none;
-    padding-left: 5px;
     padding-right: 30px;
-    border-radius: 3px;
-    min-width: 150px;
-}
-
-select:hover:enabled {
-    background-color: lightgray;
 }
 
 select::-ms-expand {
@@ -53,7 +71,8 @@ select:-moz-focusring {
 }
 
 .select-container {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     position: relative;
 }
 
@@ -63,25 +82,9 @@ select:-moz-focusring {
     transform: rotate(90deg);
     color: gray;
     font-size: 13.5pt;
-    right: 10px;
-    top: 0;
+    right: 12px;
+    top: 1px;
     pointer-events: none;
-}
-
-input[type=number] {
-    background-color: white;
-    height: 25px;
-    width: 40px;
-    border: 0;
-    cursor: pointer;
-    outline: none;
-    border-radius: 3px;
-    padding-left: 5px;
-    margin-right: 5px;
-}
-
-input[type=number]:hover:enabled {
-    background-color: lightgray;
 }
 
 input[type=radio], input[type=checkbox] {
@@ -93,8 +96,6 @@ input[type=radio], input[type=checkbox] {
     position: relative;
     background-color: white;
     color: dimgray;
-    height: 25px;
-    width: 25px;
     border: 0;
     cursor: pointer;
     margin-left: 10px;
@@ -104,13 +105,17 @@ input[type=radio], input[type=checkbox] {
 
 input[type=radio] {
     border-radius: 50px;
+    height: 25px;
+    width: 25px;
 }
 
 input[type=checkbox] {
     border-radius: 3px;
+    height: 20px;
+    width: 20px;
 }
 
-input[type=radio]:checked::before, input[type=checkbox]:checked::before {
+input[type=radio]:checked::before {
     position: absolute;
     content: "\02143";
     transform: rotate(40deg);
@@ -119,13 +124,17 @@ input[type=radio]:checked::before, input[type=checkbox]:checked::before {
     top: 4px;
 }
 
-input[type=radio]:hover, input[type=checkbox]:hover {
-    background-color: lightgray;
+input[type=checkbox]:checked::before {
+    position: absolute;
+    content: "\02143";
+    transform: rotate(40deg);
+    font-size: 15px;
+    left: 7px;
+    top: 1px;
 }
 
 
 /* slide checkbox */
-/* Based on: https://www.w3schools.com/howto/howto_css_switch.asp */
 
 .switch {
     position: relative;
@@ -187,43 +196,46 @@ input:checked + .slider:before {
 
 /* tooltip */
 
+.infomark {
+    color: steelblue;
+    cursor: pointer;
+    vertical-align: super;
+    font-size: smaller;
+}
+
+.infomark:before {
+    content: "\2139";
+}
+
 .tooltip {
     visibility: hidden;
     background-color: black;
-    opacity: 0.5;
     color: white;
     font-size: 9pt;
-    /* text-align: center; */
     padding: 10px 15px;
-    border-radius: 6px;
+    border-radius: 5px;
     position: absolute;
     z-index: 2;
     max-width: 300px;
     margin-top: 35px;
-    margin-left: -60px;
+    transform: translateX(-50%);
     line-height: 125%;
     transition-delay: 0.5s;
 }
 
 .tooltip a:link, .tooltip a:visited {
-    color: lightskyblue;
+    color: steelblue;
 }
 
 label:hover .tooltip {
     visibility: visible;
 }
 
-.tooltip:hover {
-    opacity: 1.0;
-    transition-delay: 0s;
-}
-
 .tooltip::after {
     content: " ";
     position: absolute;
+    left: calc(50% - 5px);
     bottom: 100%;
-    left: 0;
-    margin-left: 30px;
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent black transparent;
@@ -381,12 +393,21 @@ canvas {
 /* control panel */
 
 #side-panel {
-    background: #fff;
     position: fixed;
     top: 0vh;
-    left: calc(100vw - 450px);
+    left: 100vw;
+    transform: translateX(-100%);
     width: 450px;
     opacity: 0.5;
+}
+
+#show-ctrl {
+    position: fixed;
+    top: 0vh;
+    left: 100vw;
+    transform: translateX(-100%);
+    opacity: 0.5;
+    background-color: #777;
 }
 
 .panel-active {
@@ -421,18 +442,21 @@ p.side-header input[type=text]:hover {
     background-color: lightgray;
 }
 
-p.side-header button {
+p.side-header button, #show-ctrl {
     height: 40px;
-    width: 50px;
+    width: 40px;
+    min-width: 40px;
     border: none;
     outline: none;
-    font-size: 15pt;
     color: white;
     cursor: pointer;
+}
+
+p.side-header button {
     background-color: transparent;
 }
 
-.active, button.side-header:hover, p.side-header button:hover {
+.active, button.side-header:hover, p.side-header button:hover, #show-ctrl:hover {
     background-color: #555;
 }
 
@@ -442,19 +466,25 @@ p.side-header button {
 #quick-search {
     color: white;
     height: 36px;
-    border: none;
-    outline: none;
-    cursor: pointer;
     margin-left: 2px;
     margin-right: 2px;
     padding-left: 18px;
     padding-right: 18px;
+    border-radius: 0;
     background-color: transparent;
     font-size: 10.5pt;
 }
 
 #quick-search:hover {
     background-color: lightgray;
+}
+
+#quick-search::placeholder {
+    color: lightgray;
+}
+
+#quick-search:hover::placeholder {
+    color: dimgray;
 }
 
 
@@ -500,7 +530,7 @@ p.side-header button {
 }
 
 .control hr {
-    border-top: 1px solid lightgray;
+    border-top: 1px solid darkgray;
     border-bottom: none;
     margin-bottom: 20px;
 }
@@ -606,7 +636,7 @@ p.side-header button {
 
 #loading-text {
     position: fixed;
-    top: calc(50%-8px);
+    top: calc(50% - 8px);
     font-size: 12pt;
     color: dimgray;
 }
@@ -692,6 +722,24 @@ div.legend:hover {
     width: 15px;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+
+/* toast */
+
+#toast {
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: black;
+    opacity: 0.75;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    bottom: 50px;
 }
 
 
