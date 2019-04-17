@@ -16,7 +16,7 @@ body {
 /* general control styles */
 
 a:link, a:visited {
-    color: royalblue;
+    color: steelblue;
 }
 
 button::-moz-focus-inner {
@@ -198,43 +198,47 @@ input:checked + .slider:before {
 
 /* tooltip */
 
+.infomark {
+    color: steelblue;
+    cursor: pointer;
+    vertical-align: super;
+    font-size: smaller;
+}
+
+.infomark:before {
+    content: "\2139";
+}
+
 .tooltip {
     visibility: hidden;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.75;
     color: white;
     font-size: 9pt;
-    /* text-align: center; */
     padding: 10px 15px;
-    border-radius: 6px;
+    border-radius: 5px;
     position: absolute;
     z-index: 2;
     max-width: 300px;
     margin-top: 35px;
-    margin-left: -60px;
+    transform: translateX(-50%);
     line-height: 125%;
     transition-delay: 0.5s;
 }
 
 .tooltip a:link, .tooltip a:visited {
-    color: lightskyblue;
+    color: steelblue;
 }
 
 label:hover .tooltip {
     visibility: visible;
 }
 
-.tooltip:hover {
-    opacity: 1.0;
-    transition-delay: 0s;
-}
-
 .tooltip::after {
     content: " ";
     position: absolute;
+    left: calc(50% - 5px);
     bottom: 100%;
-    left: 0;
-    margin-left: 30px;
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent black transparent;
@@ -392,12 +396,21 @@ canvas {
 /* control panel */
 
 #side-panel {
-    background: #fff;
     position: fixed;
     top: 0vh;
-    left: calc(100vw - 450px);
+    left: 100vw;
+    transform: translateX(-100%);
     width: 450px;
     opacity: 0.5;
+}
+
+#show-ctrl {
+    position: fixed;
+    top: 0vh;
+    left: 100vw;
+    transform: translateX(-100%);
+    opacity: 0.5;
+    background-color: #777;
 }
 
 .panel-active {
@@ -432,18 +445,21 @@ p.side-header input[type=text]:hover {
     background-color: lightgray;
 }
 
-p.side-header button {
+p.side-header button, #show-ctrl {
     height: 40px;
-    width: 50px;
+    width: 40px;
+    min-width: 40px;
     border: none;
     outline: none;
-    font-size: 15pt;
     color: white;
     cursor: pointer;
+}
+
+p.side-header button {
     background-color: transparent;
 }
 
-.active, button.side-header:hover, p.side-header button:hover {
+.active, button.side-header:hover, p.side-header button:hover, #show-ctrl:hover {
     background-color: #555;
 }
 
@@ -519,7 +535,7 @@ p.side-header button {
 }
 
 .control hr {
-    border-top: 1px solid lightgray;
+    border-top: 1px solid darkgray;
     border-bottom: none;
     margin-bottom: 20px;
 }

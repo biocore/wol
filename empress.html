@@ -50,9 +50,9 @@
 
       <!-- Header bar -->
       <p class="side-header">
-        <input type="text" id="quick-search" placeholder="Search..." style="width: 100%;">
-        <button title="Help information" onclick="document.getElementById('help-modal').classList.remove('hidden');">&quest;</button>
-        <button title="WoL homepage" onclick="location.href='https://biocore.github.io/wol/';">&#8962;</button>
+        <input type="text" id="quick-search" placeholder="Search..." title="Enter a taxonomic name to search." style="width: 100%;">
+        <button title="Help information" style="font-size: 14pt;" onclick="document.getElementById('help-modal').classList.remove('hidden');">&quest;</button>
+        <button id="hide-ctrl" title="Hide control panel" style="font-size: 10pt; padding: 0 0 3px 3px;">&#9701;</button>
         <!-- <button>&#9906;</button> -->
       </p>
 
@@ -61,7 +61,7 @@
       <div class="side-content control hidden">
         <!-- toggle NCBI / GTDB -->
         <p>
-          <label>System<span class="tooltip">Choose from <a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI</a> or <a href="http://gtdb.ecogenomic.org/">GTDB</a> taxonomy system.</span></label>
+          <label>System</label>
           <input type="radio" id="ncbi" name="sys" value="n_" onclick="changeTaxSys()" checked />
           <label for="ncbi">NCBI</label>
           &nbsp;
@@ -69,7 +69,7 @@
           <label for="gtdb">GTDB</label>
         </p>
         <p>
-          <label for="curation">Curation<span class="tooltip">Choose from original (OFF) or <a href="https://github.com/biocore/tax2tree">tax2tree</a>-curated taxonomy (ON).</span></label>
+          <label for="curation">Curation <span class="infomark"></span><span class="tooltip">Choose from original (OFF) or <a href="https://github.com/biocore/tax2tree" target="_blank">tax2tree</a>-curated taxonomy (ON).</span></label>
           <label class="switch">
             <input type="checkbox" id="curation" onclick="changeTaxSys()" checked><span class="slider"></span>
           </label>
@@ -124,7 +124,7 @@
           </label>
         </p>
         <p>
-          <label for="open-file">Upload data<span class="tooltip">Upload a tab-delimited file with first column as genome/node IDs.</span></label>
+          <label for="open-file">Upload data <span class="infomark"></span><span class="tooltip">Upload a tab-delimited file with first column as genome/node IDs.</span></label>
           <button id="open-file" onclick="document.getElementById('custom-color').click();">Browse...</button>
           <input type="file" id="custom-color" class="hidden">
         </p>
@@ -201,7 +201,7 @@
       <button class="side-header collapsible">Collapse</button>
       <div class="side-content control hidden">
         <p>
-          <label for="collapse-cb">Collapse by<span class="tooltip">Collapse clades at selected rank into triangles, where the long and short edges represent the longest and shortest tips.</span></label>
+          <label for="collapse-cb">Collapse by <span class="infomark"></span><span class="tooltip">Collapse clades at selected rank into triangles, where the long and short edges represent the longest and shortest tips.</span></label>
           <input type="checkbox" id="collapse-cb" onclick="autoCollapseTree()" >
           <label class="select-container">
             <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
@@ -213,6 +213,9 @@
 
       <div class="side-header" style="height: 3px;"></div>
     </div>
+
+    <!-- show control panel button -->
+    <button id="show-ctrl" title="Show control panel" style="font-size: 10pt; padding: 0 0 3px 3px;" class="hidden">&#9699;</button>
   </div>
 
   <!-- hover box -->
@@ -229,7 +232,7 @@
   <!-- about modal -->
   <div class="modal hidden" id="help-modal">
     <div class="modal-body">
-      <div class="modal-header"><label>Help</label></div>
+      <div class="modal-header"><label>About</label></div>
       <div class="modal-content">
         <table style="border-collapse: separate;">
           <tr>
@@ -238,13 +241,13 @@
           </tr>
           <tr><td><span style="font-weight: bold; font-size: 150%">Empress</span></a>, a very fast and scalable tree viewer.</td></tr>
           <tr><td>Website: <a href="https://github.com/biocore/empress">https://github.com/biocore/empress</a></td></tr>
-          <tr><td>For questions contact the main developers: Kalen Cantrell (<a href="mailto:kcantrel@ucsd.edu">kcantrel@ucsd.edu</a>) and Yimeng Yang (<a href="mailto:yiy170@ucsd.edu">yiy170@ucsd.edu</a>)<br></td></tr>
+          <tr><td>For questions contact the main developers: <b>Kalen Cantrell</b> (<a href="mailto:kcantrel@ucsd.edu">kcantrel@ucsd.edu</a>) and <b>Yimeng Yang</b> (<a href="mailto:yiy170@ucsd.edu">yiy170@ucsd.edu</a>)<br></td></tr>
           <tr><td></td></tr>
         </table>
         <br>
-        <div style="margin: 10px; padding: 10px; border: 2px groove lightgray">
+        <div style="margin: 10px; padding: 10px 20px; border: 2px groove lightgray">
           <p>Quick tips:</p>
-          <ul style="margin-left: 10px; margin-bottom: 5px;">
+          <ul style="margin-left: 20px; margin-bottom: 5px;">
             <li>Mouse drag to move, mouse scroll to zoom.</li>
             <li>Mouse over a node to show taxonomy and download.</li>
             <li>Taxonomic annotation by NCBI and GTDB, original and curated.</li>
@@ -265,13 +268,13 @@
         <p>
           <label>Export target</label>
           <input type="radio" id="rad-ids" name="exp-content" checked />
-          <label for="rad-ids">Identifiers<span class="tooltip">Export a list of genome IDs.</span></label>
+          <label for="rad-ids">Identifiers</label>
           &nbsp;
           <input type="radio" id="rad-links" name="exp-content" />
-          <label for="rad-links">Download links<span class="tooltip">Export a list of URLs pointing to the original genome data at the NCBI FTP server, which can then be batch-downloaded using a <a href="data/genomes/batch_down.sh">script</a>.</span></label>
+          <label for="rad-links">Download links <span class="infomark"></span><span class="tooltip">URLs to genome data at NCBI FTP server, which can be batch-downloaded using this <a href="data/genomes/batch_down.sh">script</a>.</span></label>
           &nbsp;
           <input type="radio" id="rad-subtree" name="exp-content" />
-          <label for="rad-subtree">Subtree<span class="tooltip">Export a subtree under the current node in Newick format.</span></label>
+          <label for="rad-subtree">Subtree</label>
         </p>
         <p id="p-links" class="hidden">
           <label>Download target</label>
@@ -362,7 +365,7 @@
       });
     });
 
-    // control tabs
+    // activate control panel
     document.querySelectorAll(".collapsible").forEach(function(btn) {
       btn.addEventListener("click", function() {
         this.classList.toggle("active");
@@ -370,6 +373,23 @@
         document.getElementById("side-panel").classList.toggle("panel-active",
           document.querySelector(".side-content:not(.hidden)"));
       });
+    });
+    document.getElementById("quick-search").addEventListener("focus", function() {
+      document.getElementById("side-panel").classList.add("panel-active");
+    });
+    document.getElementById("quick-search").addEventListener("blur", function() {
+      document.getElementById("side-panel").classList.toggle("panel-active",
+        document.querySelector(".side-content:not(.hidden)"));
+    });
+
+    // fold control panel
+    document.getElementById("hide-ctrl").addEventListener("click", function() {
+      document.getElementById("side-panel").classList.add("hidden");
+      document.getElementById("show-ctrl").classList.remove("hidden");
+    });
+    document.getElementById("show-ctrl").addEventListener("click", function() {
+      this.classList.add("hidden");
+      document.getElementById("side-panel").classList.remove("hidden");
     });
 
     // modals
@@ -389,15 +409,15 @@
     });
 
     // export clade
-    document.getElementById("btn-export").addEventListener("click", function(){
+    document.getElementById("btn-export").addEventListener("click", function() {
       let clsID = document.getElementById("export-modal").dataset.clsID;
       if(document.getElementById("rad-ids").checked){
         downloadGenomeIds(clsID);
       }
-      else if(document.getElementById("rad-links").checked){
+      else if (document.getElementById("rad-links").checked) {
         downloadLinks(clsID);
       }
-      else if(document.getElementById("rad-subtree").checked){
+      else if (document.getElementById("rad-subtree").checked) {
         downloadSubtree(clsID);
       }
     });
