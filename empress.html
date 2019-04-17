@@ -34,7 +34,7 @@
   <!-- The tree -->
   <div class="tree-container">
     <div class="container">
-      <canvas class="tree-surface" , id="tree-surface">
+      <canvas class="tree-surface" id="tree-surface">
         Your browser does not support HTML5
       </canvas>
       <div id="tip-label-container"></div>
@@ -80,21 +80,21 @@
       <div class="side-content control hidden">
         <p>
           <label for="tips">Tip labels</label>
-          <input type="checkbox" id="tips" onclick="retrieveTaxonNodes('t')">
-          <input type="number" id="tips-number" min="1" max="100" value="10" onchange="retrieveTaxonNodes('c')" disabled="true">
+          <input type="checkbox" id="tips" title="Enable tip labels" onclick="retrieveTaxonNodes('t')">
+          <input type="number" id="tips-number" title="Number of tip labels to display" min="1" max="100" value="10" onchange="retrieveTaxonNodes('c')" disabled="true">
           <label class="select-container">
             <select id="tips-find-level" onchange="retrieveTaxonNodes('c')" disabled="true">
-              <option value="0" disabled> -- select an option -- </option>
+              <option value="0" disabled> -- select a rank -- </option>
             </select>
           </label>
         </p>
         <p>
           <label for="internal-nodes">Node labels</label>
-          <input type="checkbox" id="internal-nodes" onclick="retrieveTaxonNodes('n')">
-          <input type="number" id="internal-nodes-number" min="1" max="100" value="10" onchange="retrieveTaxonNodes('n')" disabled="=true">
+          <input type="checkbox" id="internal-nodes" title="Enable node labels" onclick="retrieveTaxonNodes('n')">
+          <input type="number" id="internal-nodes-number" title="Number of node labels to display" min="1" max="100" value="10" onchange="retrieveTaxonNodes('n')" disabled="=true">
           <label class="select-container">
             <select id="nodes-find-level" onchange="retrieveTaxonNodes('n')" disabled="true">
-              <option value="0" disabled> -- select an option -- </option>
+              <option value="0" disabled> -- select a rank -- </option>
             </select>
           </label>
         </p>
@@ -202,10 +202,10 @@
       <div class="side-content control hidden">
         <p>
           <label for="collapse-cb">Collapse by <span class="infomark"></span><span class="tooltip">Collapse clades at selected rank into triangles, where the long and short edges represent the longest and shortest tips.</span></label>
-          <input type="checkbox" id="collapse-cb" onclick="autoCollapseTree()" >
+          <input type="checkbox" id="collapse-cb" title="Enable collapsing" onclick="autoCollapseTree()" >
           <label class="select-container">
             <select id="collapse-level" disabled="true" onchange="autoCollapseTree()">
-              <option value="0" disabled> -- select an option -- </option>
+              <option value="0" disabled> -- select a rank -- </option>
             </select>
           </label>
         </p>

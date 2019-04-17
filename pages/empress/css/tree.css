@@ -23,24 +23,42 @@ button::-moz-focus-inner {
     border: 0;
 }
 
+input[type=text], input[type=number], select {
+    box-sizing: border-box;
+    background-color: white;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+    padding-left: 5px;
+    margin-right: 5px;
+}
+
+input[type=text]:hover:enabled, input[type=number]:hover:enabled,
+input[type=radio]:hover:enabled, input[type=checkbox]:hover:enabled,
+select:hover:enabled {
+    background-color: lightgray;
+}
+
+input[type=text] {
+    padding-right: 5px;
+}
+
+input[type=text], select {
+    min-width: 120px;
+}
+
+input[type=number] {
+    width: 40px;
+}
+
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
     appearance: none;
-    background-color: white;
-    height: 28px;
-    border: 0;
-    cursor: pointer;
-    outline: none;
-    padding-left: 5px;
     padding-right: 30px;
-    border-radius: 3px;
-    min-width: 150px;
-}
-
-select:hover:enabled {
-    background-color: lightgray;
 }
 
 select::-ms-expand {
@@ -53,7 +71,8 @@ select:-moz-focusring {
 }
 
 .select-container {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     position: relative;
 }
 
@@ -63,25 +82,9 @@ select:-moz-focusring {
     transform: rotate(90deg);
     color: gray;
     font-size: 13.5pt;
-    right: 10px;
-    top: 0;
+    right: 12px;
+    top: 1px;
     pointer-events: none;
-}
-
-input[type=number] {
-    background-color: white;
-    height: 25px;
-    width: 40px;
-    border: 0;
-    cursor: pointer;
-    outline: none;
-    border-radius: 3px;
-    padding-left: 5px;
-    margin-right: 5px;
-}
-
-input[type=number]:hover:enabled {
-    background-color: lightgray;
 }
 
 input[type=radio], input[type=checkbox] {
@@ -130,13 +133,8 @@ input[type=checkbox]:checked::before {
     top: 1px;
 }
 
-input[type=radio]:hover, input[type=checkbox]:hover {
-    background-color: lightgray;
-}
-
 
 /* slide checkbox */
-/* Based on: https://www.w3schools.com/howto/howto_css_switch.asp */
 
 .switch {
     position: relative;
@@ -212,7 +210,6 @@ input:checked + .slider:before {
 .tooltip {
     visibility: hidden;
     background-color: black;
-    opacity: 0.75;
     color: white;
     font-size: 9pt;
     padding: 10px 15px;
@@ -469,13 +466,11 @@ p.side-header button {
 #quick-search {
     color: white;
     height: 36px;
-    border: none;
-    outline: none;
-    cursor: pointer;
     margin-left: 2px;
     margin-right: 2px;
     padding-left: 18px;
     padding-right: 18px;
+    border-radius: 0;
     background-color: transparent;
     font-size: 10.5pt;
 }
