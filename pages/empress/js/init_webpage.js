@@ -15,7 +15,6 @@ function switchContainers() {
 }
 
 function fillDropDownMenu(headers, menuName) {
-  console.log(headers)
   // $("#highlight-menu").show();
   $(menuName).val(0);
 
