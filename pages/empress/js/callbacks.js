@@ -666,7 +666,7 @@ function parseMetadataString(metadata, fname) {
         tree.metadata[curID][headers[j]] = null;
       }
       else {
-        try {
+        if (!isNaN(parseFloat(metadata[curIndex]))) {
           number = parseFloat(metadata[curIndex]);
           col = headers[j];
           tree.metadata[curID][col] = number;
@@ -691,7 +691,7 @@ function parseMetadataString(metadata, fname) {
           }
 
         }
-        catch (err) {
+        else {
           tree.metadata[curID][headers[j]] = metadata[curIndex];
 
           // add header to approperiate drop down menu
