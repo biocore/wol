@@ -573,6 +573,169 @@ function userHighlightSelect() {
   requestAnimationFrame(loop);
 }
 
+/*
+ * Reads custom user metadata and adds it to tree.metadata. This will also color the tree using the file.
+ * param {Object} file - the metadata file
+*/
+function uploadFile(file) {
+  let reader = new FileReader();
+
+  // set file name
+  let fname = file.name.substring(0, file.name.lastIndexOf("."));
+
+  // extract metadata and color tree
+  reader.onload = function(e) {
+    parseMetadataString(e.target.result, fname);
+
+    // TODO: need to color tree using first color
+  }
+  reader.readAsText(file);
+}
+
+/*
+ * Parses metadata file text and stores it in tree.metadata
+ * @param {string} metadata string
+ * @param {string} fname name of file, will be used as header if metadata does not have one.
+ * @ returns {boolean} true if success, false if error occured.
+*/
+function parseMetadataString(metadata, fname) {
+
+  let result = {};
+  // error occured if tab was not used
+  if (metadata.indexOf("\t") === -1) {
+    toastMsg("File Error: file must be tab delimited.");
+    result["success"] = false;
+    return result;
+  }
+
+  // convert metadata string into array
+  const LINE_BREAK = "line_break";
+  metadata = metadata.replace(/\n/g,"\t" + LINE_BREAK + "\t").split("\t");
+  metadata.pop();
+
+  // check to see if metadata has header
+  let hasHeader = (metadata[0] in tree.metadata) ? false : true;
+  metadata[0] = (hasHeader) ?  "Node_id" : metadata[0];
+
+  // calculate number of columns
+  let colNum = metadata.findIndex(function(element) {
+    return element === LINE_BREAK;
+  });
+
+  // error occured if hasHeader is false and colNum > 2
+  if (!hasHeader && colNum > 2) {
+    toastMsg("File Error: too many columns, please use column headers");
+    result["success"] = false;
+    return result;
+  }
+
+  // grab headers from metadata or set headers to default value
+  let headers;
+  if (hasHeader) {
+    headers = Array.from(Array(colNum), (x, i) => metadata[i]);
+  }
+  else {
+    headers = ["Node_id", fname];
+  }
+
+  // initialize variables for loop
+  let startIndex = (hasHeader) ? headers.length + 1 : 0;
+  let numRows = metadata.length / (headers.length + 1);
+  numRows = (hasHeader) ? numRows - 1 : numRows;
+  let numCols = headers.length;
+  let curIndex = startIndex, i, j, curID;
+  let warning = false;
+  let maxes = {}, number, col;
+  // extract metadata and store it in tree.metadata
+  for(i = 0; i <  numRows; i++) {
+
+    // TODO: make warning if ID is not in tree
+    curID = metadata[curIndex];
+    if (!(curID in tree.metadata)) {
+      toastMsg("Warning: " + curID + " is not a valid ID.");
+
+      // set warning flag to true so only one warning pops up
+      // Note: flag is not being used right now
+      warning = true;
+      curIndex = curIndex + numCols + 1;
+      continue;
+    }
+    curIndex += 1;
+    for (j = 1; j < numCols; j++) {
+      if (metadata[curIndex] === "") {
+        tree.metadata[curID][headers[j]] = null;
+      }
+      else {
+        if (!isNaN(parseFloat(metadata[curIndex]))) {
+          number = parseFloat(metadata[curIndex]);
+          col = headers[j];
+          tree.metadata[curID][col] = number;
+
+          // add header to approperiate drop down menu
+          if (curID[0] === "G" && !tree.headers.tip_num.includes(col)) {
+            tree.headers.tip_num.push(col);
+          }
+          else if (curID[0] === "N" && !tree.headers.node_headers.includes(col)) {
+            tree.headers.node_headers.push(col);
+          }
+
+          // caclulate new min/max for column
+          if (!(col in maxes)) {
+            maxes[col] = {min: number, max: number}
+          }
+          else if (maxes[col]["min"] > number){
+            maxes[col]["min"] = number;
+          }
+          else if (maxes[col]["max"] < number) {
+            maxes[col]["max"] = number;
+          }
+
+        }
+        else {
+          tree.metadata[curID][headers[j]] = metadata[curIndex];
+
+          // add header to approperiate drop down menu
+          if (curID[0] === "G" && !tree.headers.tip_cat.includes(headers[j])) {
+            tree.headers.tip_cat.push(headers[j]);
+          }
+          else if (curID[0] === "N" && !tree.headers.node_headers.includes(headers[j])) {
+            tree.headers.node_headers.push(headers[j]);
+          }
+        }
+      }
+      curIndex += 1;
+    }
+
+    // error occured if number of columns is not uniformm throughout file
+    if(metadata[curIndex] !== LINE_BREAK) {
+      toastMsg("File Error: columns have different sizes.");
+      result["success"] = false;
+      return result;
+    }
+    curIndex += 1;
+  }
+
+  // add new headers to drop down menus
+  let tips = document.getElementById("tip-color-options");
+  tips.innerHTML = "";
+  fillDropDownMenu(tree.headers.tip_cat, "#tip-color-options");
+  fillDropDownMenu(tree.headers.tip_num, "#tip-color-options");
+  let nodes = document.getElementById("branch-color-options");
+  nodes.innerHTML = "";
+  fillDropDownMenu(tree.headers.node_headers, "#branch-color-options");
+
+  // add maxes to tree.maxes
+  let max;
+  for (max in maxes) {
+    tree.maxes[max] = [maxes[max]["min"], maxes[max]["max"]];
+  }
+
+  // return the newly added columns
+  result["success"] = true;
+  result["headers"] = headers;
+  return result;
+}
+
 function userCladeColor(){
   console.log('ColorClades')
   const attribute = $('#clade-options').val();
