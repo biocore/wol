@@ -456,8 +456,8 @@ function addContinuousKey(info, container) {
   // color gradient
   component = document.createElement("div");
   component.classList.add("gradient-color");
-  component.setAttribute("style", "background: linear-gradient(to right, #" +
-    info.min[1] + " 0%, #" + info.max[1] + " 100%);");
+  component.setAttribute("style", "background: linear-gradient(to right, " +
+    info.min[1] + " 0%, " + info.max[1] + " 100%);");
   div.appendChild(component);
 
   // max label
@@ -485,7 +485,7 @@ function addCategoricalKey(info, container) {
     // color gradient
     let component = document.createElement("div");
     component.classList.add("category-color");
-    component.setAttribute("style", "background: #" + info[key] + ";");
+    component.setAttribute("style", "background: " + info[key] + ";");
     div.appendChild(component);
 
     // label
@@ -510,32 +510,54 @@ function userHighlightSelect() {
   let selectElm = $("#collapse-level");
   let tipKey = document.getElementById("tip-color-key");
   let nodeKey = document.getElementById("node-color-key");
+  let presetKey = document.getElementById("preset-color-key");
   let result;
+
+  // reset color key
   tipKey.innerHTML = "";
   tipKey.classList.add("hidden");
   nodeKey.innerHTML = "";
   nodeKey.classList.add("hidden");
+  presetKey.innerHTML = "";
+  presetKey.classList.add("hidden");
+
+  // reset tree back to default color
+  // TODO: this method can be optimized to make this action unnecessary
   if (!$("#branch-color").is(":checked") || !$("#tip-color").is(":checked")) {
     $("#tip-color-options").attr("disabled", true);
     $("#branch-color-options").attr("disabled", true);
     edgeData = tree.colorBranches("default")["edgeData"];
   }
+
+  // color tree using preset
+  if ($("#preset-color").is(":checked")) {
+    result = tree.colorBranches("(preset)")
+    addColorKey("preset", result["keyInfo"], presetKey, false)
+    presetKey.classList.remove("hidden");
+    edgeData = result["edgeData"];
+  }
+  // color branches
   if ($("#branch-color").is(":checked")) {
     let cat = $("#branch-color-options").val();
     $("#branch-color-options").attr("disabled", false);
     result = tree.colorBranches(cat);
-    addColorKey(cat, result["keyInfo"], nodeKey, false);
+    addColorKey(cat, result["keyInfo"], nodeKey, result["gradient"]);
     nodeKey.classList.remove("hidden");
     edgeData = result["edgeData"];
   }
+
+  // color tips
   if ($("#tip-color").is(":checked")) {
     let cat = $("#tip-color-options").val();
     $("#tip-color-options").attr("disabled", false);
     result = tree.colorBranches(cat);
     tipKey.classList.remove("hidden");
-    addColorKey(cat, result["keyInfo"], tipKey, true);
+    console.log(result);
+    addColorKey(cat, result["keyInfo"], tipKey, result["gradient"]);
     edgeData = result["edgeData"];
   }
+
+  // update color any collapsed triangles
   if ($("#collapse-cb").is(":checked")) {
     let taxLevel = selectElm.val();
     let taxSys = $("input[name='sys']:checked").val();
@@ -545,6 +567,8 @@ function userHighlightSelect() {
     drawingData.triangles = tree.triData;
     fillBufferData(shaderProgram.triangleBuffer, drawingData.triangles);
   }
+
+  // draw tree
   fillBufferData(shaderProgram.treeVertBuffer, edgeData);
   requestAnimationFrame(loop);
 }
