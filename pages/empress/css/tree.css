@@ -16,7 +16,7 @@ body {
 /* general control styles */
 
 a:link, a:visited {
-    color: steelblue;
+    color: royalblue;
 }
 
 button::-moz-focus-inner {
@@ -76,7 +76,7 @@ select:-moz-focusring {
     position: relative;
 }
 
-.select-container:after {
+.select-container::after {
     position: absolute;
     content: "\203A";
     transform: rotate(90deg);
@@ -164,7 +164,7 @@ input[type=checkbox]:checked::before {
     background-color: darkgray;
 }
 
-.slider:before {
+.slider::before {
     position: absolute;
     content: "";
     height: 20px;
@@ -187,7 +187,7 @@ input:focus + .slider {
     box-shadow: 0 0 1px gray;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
@@ -197,13 +197,14 @@ input:checked + .slider:before {
 /* tooltip */
 
 .infomark {
-    color: steelblue;
+    color: royalblue;
     cursor: pointer;
-    vertical-align: super;
-    font-size: smaller;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
 }
 
-.infomark:before {
+.infomark::before {
     content: "\2139";
 }
 
@@ -224,7 +225,7 @@ input:checked + .slider:before {
 }
 
 .tooltip a:link, .tooltip a:visited {
-    color: steelblue;
+    color: lightskyblue;
 }
 
 label:hover .tooltip {
@@ -266,13 +267,13 @@ label:hover .tooltip {
     margin-top: -10px;
 }
 
-#hover-box:after {
+#hover-box::after {
     top: 40px;
     border-width: 10px;
     border-color: transparent white transparent transparent;
 }
 
-#hover-box:hover:before {
+#hover-box:hover::before {
     top: 39px;
     border-width: 11px;
     border-color: transparent lightgray transparent transparent;
@@ -338,7 +339,7 @@ canvas {
     height: 100vw;
 }
 
-/* referenced from  https://webglfundamentals.org/webgl/lessons/webgl-text-html.html*/
+/* referenced from https://webglfundamentals.org/webgl/lessons/webgl-text-html.html*/
 .container {
     position: absolute;
     top: 0vh;
@@ -803,7 +804,7 @@ button.close {
     height: 40px;
     border: none;
     outline: none;
-  }
+}
 
 button.close:hover {
     background-color: gray;
