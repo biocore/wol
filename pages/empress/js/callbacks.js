@@ -573,10 +573,10 @@ function userHighlightSelect() {
   requestAnimationFrame(loop);
 }
 
-/*
+/**
  * Reads custom user metadata and adds it to tree.metadata. This will also color the tree using the file.
  * param {Object} file - the metadata file
-*/
+ */
 function uploadFile(file) {
   let reader = new FileReader();
 
@@ -592,12 +592,12 @@ function uploadFile(file) {
   reader.readAsText(file);
 }
 
-/*
+/**
  * Parses metadata file text and stores it in tree.metadata
  * @param {string} metadata string
  * @param {string} fname name of file, will be used as header if metadata does not have one.
  * @ returns {boolean} true if success, false if error occured.
-*/
+ */
 function parseMetadataString(metadata, fname) {
 
   let result = {};
@@ -610,7 +610,7 @@ function parseMetadataString(metadata, fname) {
 
   // convert metadata string into array
   const LINE_BREAK = "line_break";
-  metadata = metadata.replace(/\n/g,"\t" + LINE_BREAK + "\t").split("\t");
+  metadata = metadata.replace(/\n/g, "\t" + LINE_BREAK + "\t").split("\t");
   metadata.pop();
 
   // check to see if metadata has header
@@ -647,7 +647,7 @@ function parseMetadataString(metadata, fname) {
   let warning = false;
   let maxes = {}, number, col;
   // extract metadata and store it in tree.metadata
-  for(i = 0; i <  numRows; i++) {
+  for (i = 0; i < numRows; i++) {
 
     // TODO: make warning if ID is not in tree
     curID = metadata[curIndex];
@@ -707,7 +707,7 @@ function parseMetadataString(metadata, fname) {
     }
 
     // error occured if number of columns is not uniformm throughout file
-    if(metadata[curIndex] !== LINE_BREAK) {
+    if (metadata[curIndex] !== LINE_BREAK) {
       toastMsg("File Error: columns have different sizes.");
       result["success"] = false;
       return result;

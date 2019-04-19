@@ -419,6 +419,9 @@ class Tree{
     let i, keyInfo = {}, cats = {};
     let group;
     for (i in this.metadata) {
+        if (!(category in this.metadata[i])) {
+          continue;
+        }
         group = this.metadata[i][category];
         if (group in cats) {
             cats[group] += 1;
@@ -440,7 +443,6 @@ class Tree{
     for (i in this.metadata) {
         if (this.metadata[i][category] !== null){
             group = this.metadata[i][category];
-            // console.log(groups[group])
             keyInfo[group] = interpolator(cats[group]).hex();
             this.metadata[i]['branch_color'] = interpolator(cats[group])
                                                     .rgb()

@@ -1,10 +1,10 @@
 ## Microbial community ecology
 
-- [Overview](#Overview)
-- [Core notion: gOTU](#Core-notion:-gOTU)
-- [Sequence mapping](#Sequence-mapping)
-- [gOTU table generation](#gOTU-table-generation)
-- [gOTU analysis using QIIME2](#gOTU-analysis-using-QIIME2)
+- [Overview](#overview)
+- [Core notion: gOTU](#core-notion-gotu)
+- [Sequence mapping](#sequence-mapping)
+- [gOTU table generation](#gotu-table-generation)
+- [gOTU analysis using QIIME2](#gotu-analysis-using-qiime2)
 
 
 ### Overview
