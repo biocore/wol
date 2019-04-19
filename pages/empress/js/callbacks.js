@@ -477,6 +477,8 @@ function addContinuousKey(info, container) {
  */
 function addCategoricalKey(info, container) {
   let key;
+  let category = container.innerText;
+  let i = 0;
   for (key in info) {
     // create key container
     let div = document.createElement("div");
@@ -486,6 +488,10 @@ function addCategoricalKey(info, container) {
     let component = document.createElement("div");
     component.classList.add("category-color");
     component.setAttribute("style", "background: " + info[key] + ";");
+    component.addEventListener("click", function(color, cat, val) { return function () {
+        test(color, cat, val);
+      };
+    }(info[key], category, key), false)
     div.appendChild(component);
 
     // label
@@ -499,6 +505,14 @@ function addCategoricalKey(info, container) {
   }
 }
 
+/*
+ *
+*/
+function test(color, cat, val) {
+  console.log(color);
+  console.log(cat);
+  console.log(val);
+}
 
 /**
  * Event called when user presses the select-data button.
@@ -506,6 +520,8 @@ function addCategoricalKey(info, container) {
  * This method is responsible for coordinating the highlight tip feature.
  */
 function userHighlightSelect() {
+  const RANKS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"  ];
+  const RANK_PREFIX = getTaxPrefix();
   let edgeData;
   let selectElm = $("#collapse-level");
   let tipKey = document.getElementById("tip-color-key");
@@ -539,6 +555,7 @@ function userHighlightSelect() {
   // color branches
   if ($("#branch-color").is(":checked")) {
     let cat = $("#branch-color-options").val();
+    cat = (RANKS.includes(cat)) ? RANK_PREFIX + cat : cat;
     $("#branch-color-options").attr("disabled", false);
     result = tree.colorBranches(cat, "N");
     addColorKey(cat, result["keyInfo"], nodeKey, result["gradient"]);
@@ -549,10 +566,10 @@ function userHighlightSelect() {
   // color tips
   if ($("#tip-color").is(":checked")) {
     let cat = $("#tip-color-options").val();
+    cat = (RANKS.includes(cat)) ? RANK_PREFIX + cat : cat;
     $("#tip-color-options").attr("disabled", false);
     result = tree.colorBranches(cat, "G");
     tipKey.classList.remove("hidden");
-    console.log(result);
     addColorKey(cat, result["keyInfo"], tipKey, result["gradient"]);
     edgeData = result["edgeData"];
   }
@@ -740,12 +757,10 @@ function parseMetadataString(metadata, fname) {
 }
 
 function userCladeColor(){
-  console.log('ColorClades')
   const attribute = $('#clade-options').val();
   const taxLevel = $("#tax-level").val();
   const cm = $("#color-options-tax").val();
   $.getJSON(urls.newCladeColor, {attribute: attribute, tax_level: taxLevel, cm: cm}, function(data){
-      console.log('loadColorClades');
       loadColorClades(data);
   })
 }
