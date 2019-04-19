@@ -1,13 +1,13 @@
 ## Phylogeny-based profiling
 
-- [Overview](#Overview)
-- [Phylogenetic hierarchy](#Phylogenetic-hierarchy)
-- [Fake taxonomy from tree](#Fake-taxonomy-from-tree)
+- [Overview](#overview)
+- [Phylogenetic hierarchy](#phylogenetic-hierarchy)
+- [Fake taxonomy from tree](#fake-taxonomy-from-tree)
 - Examples:
-  - [Kraken](#Kraken)
-  - [Centrifuge](#Centrifuge)
-  - [SHOGUN](#SHOGUN---UTree)
-- [Visualization](#Visualization)
+  - [Kraken](#kraken)
+  - [Centrifuge](#centrifuge)
+  - [SHOGUN](#shogun---utree)
+- [Visualization](#visualization)
 
 ### Overview
 
@@ -149,7 +149,11 @@ One can convert this file into a plain node ID to relative abundance map:
 cat S_S001.report | grep -v $'unclassified$' | awk -v OFS='\t' '{print $NF, $1}' > S_S001.txt
 ```
 
+If one wants to set a lower bound for the relative abundance (say, 0.1%), add:
 
+```bash
+... | awk '$2>=0.1' > S_S001.txt
+```
 
 ### Centrifuge
 
@@ -204,7 +208,7 @@ Or via the SHOGUN interface:
 shogun align -t 32 -d dbdir -a utree -i input.fa -o .
 ```
 
-UTree generates a mapping file, in which each query sequence is directly assigned to a taxonomic lineage (here phylogenetic clade). It is like (S_S001):
+UTree generates a mapping file, in which each query sequence is directly assigned to a taxonomic lineage (here phylogenetic clade).
 
 
 ### Visualization
@@ -215,10 +219,10 @@ In the "Colors" tab of the interface, upload the node ID-to-abundance file we di
 
 Here is a tree-shaped heatmap of your microbiota:
 
-<img src="images/tree_profiling_01.png" alt="fig1" width="50%">
+<img src="images/tree_profiling_01.png" alt="fig1" width="67%">
 
 The root of the tree has the deepest color, indicating that at this level, the relative abundance is close to 100%. Starting from the root, the color depth decreases and diversifies. Some lineages are darker than the background. They are what the microbial community is composed of.
 
 One can move the mouse cursor over those dark nodes to see their IDs and taxonomic annotations (using either NCBI or GTDB). One can collapse the tree at certain taxonomic rank in the "Collapse" tab to get a cleaner view.
 
-<img src="images/tree_profiling_02.png" alt="fig2" width="50%">
+<img src="images/tree_profiling_02.png" alt="fig2" width="67%">
