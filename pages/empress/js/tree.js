@@ -331,9 +331,10 @@ class Tree{
 
   /*
    * directs to appropriate coloring function based on category
-   * @param {string} category - default || the category from metadata to color from
+   * @ param {string} category - default || the category from metadata to color from
+   * @ param (string) nodeType - "G" == tip, "N" == nodes
   */
-  colorBranches(category) {
+  colorBranches(category, nodeType) {
     let i = 0;
     let result = {};
     let keyInfo = {};
@@ -347,12 +348,12 @@ class Tree{
         result["gradient"] = false;
     }
     else if (this.headers.tip_num.includes(category) || this.headers.node_headers.includes(category)) {
-        keyInfo = this.colorTreeGradient(category);
+        keyInfo = this.colorTreeGradient(category, nodeType);
         result["keyInfo"] = keyInfo;
         result["gradient"] = true;
     }
     else {
-        keyInfo = this.colorTreeCategorical(category);
+        keyInfo = this.colorTreeCategorical(category, nodeType);
         result["keyInfo"] = keyInfo;
         result["gradient"] = false;
     }
@@ -388,17 +389,22 @@ class Tree{
   /*
    * Colors the tree using a gradient color map
    * @ param {string} category - numerical column in this.metadata
+   * @ param (string) nodeType - "G" == tip, "N" == nodes
   */
-  colorTreeGradient(category) {
+  colorTreeGradient(category, nodeType) {
     let i, keyInfo = {};
-    let min = this.maxes[category][0];
-    let max = this.maxes[category][1];
+    let prefix = (nodeType === "G") ? "g_" : "n_";
+    let min = this.maxes[prefix + category][0];
+    let max = this.maxes[prefix + category][1];
     let interpolator = this.getColorInterp(min, max, "YlOrRd");
     keyInfo = {
         "min": [min, interpolator(min).hex()],
         "max": [max, interpolator(max).hex()]
     };
     for (i in this.metadata) {
+        if (!(category in this.metadata[i]) || this.metadata[i]["Node_id"].indexOf(nodeType) === -1) {
+          continue;
+        }
         if (this.metadata[i][category] !== null){
             this.metadata[i]['branch_color'] = interpolator(this.metadata[i][category])
                                                     .rgb()
@@ -409,17 +415,17 @@ class Tree{
   }
 
   /*
-    // TODO: need to distinguish between nodes and tips
    * colors the tree using categorical data . This will assign a unique color to
    * the 8th largest groups within the category and remaining will be colored
    * using a "others" color.
    * @ param{string} category - categorical column in this.metadata
+   * @ param (string) nodeType - "G" == tip, "N" == nodes
   */
-  colorTreeCategorical(category) {
+  colorTreeCategorical(category, nodeType) {
     let i, keyInfo = {}, cats = {};
     let group;
     for (i in this.metadata) {
-        if (!(category in this.metadata[i])) {
+        if (!(category in this.metadata[i]) || this.metadata[i]["Node_id"].indexOf(nodeType) === -1) {
           continue;
         }
         group = this.metadata[i][category];
@@ -439,8 +445,10 @@ class Tree{
     let interpolator = this.getColorInterp(min, max, "set2");
     console.log(interpolator(0).rgb())
 
-    // TODO: need to distinguish between nodes and tips
     for (i in this.metadata) {
+        if (!(category in this.metadata[i]) || this.metadata[i]["Node_id"].indexOf(nodeType) === -1) {
+          continue;
+        }
         if (this.metadata[i][category] !== null){
             group = this.metadata[i][category];
             keyInfo[group] = interpolator(cats[group]).hex();

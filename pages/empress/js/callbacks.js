@@ -540,7 +540,7 @@ function userHighlightSelect() {
   if ($("#branch-color").is(":checked")) {
     let cat = $("#branch-color-options").val();
     $("#branch-color-options").attr("disabled", false);
-    result = tree.colorBranches(cat);
+    result = tree.colorBranches(cat, "N");
     addColorKey(cat, result["keyInfo"], nodeKey, result["gradient"]);
     nodeKey.classList.remove("hidden");
     edgeData = result["edgeData"];
@@ -550,7 +550,7 @@ function userHighlightSelect() {
   if ($("#tip-color").is(":checked")) {
     let cat = $("#tip-color-options").val();
     $("#tip-color-options").attr("disabled", false);
-    result = tree.colorBranches(cat);
+    result = tree.colorBranches(cat, "G");
     tipKey.classList.remove("hidden");
     console.log(result);
     addColorKey(cat, result["keyInfo"], tipKey, result["gradient"]);
@@ -646,6 +646,7 @@ function parseMetadataString(metadata, fname) {
   let curIndex = startIndex, i, j, curID;
   let warning = false;
   let maxes = {}, number, col;
+  let prefix;
   // extract metadata and store it in tree.metadata
   for (i = 0; i < numRows; i++) {
 
@@ -670,6 +671,8 @@ function parseMetadataString(metadata, fname) {
           number = parseFloat(metadata[curIndex]);
           col = headers[j];
           tree.metadata[curID][col] = number;
+          prefix = (curID[0] === "G") ? "g_" : "n_";
+
 
           // add header to approperiate drop down menu
           if (curID[0] === "G" && !tree.headers.tip_num.includes(col)) {
@@ -680,14 +683,14 @@ function parseMetadataString(metadata, fname) {
           }
 
           // caclulate new min/max for column
-          if (!(col in maxes)) {
-            maxes[col] = {min: number, max: number}
+          if (!(prefix + col in maxes)) {
+            maxes[prefix + col] = {min: number, max: number}
           }
-          else if (maxes[col]["min"] > number){
-            maxes[col]["min"] = number;
+          else if (maxes[prefix + col]["min"] > number){
+            maxes[prefix + col]["min"] = number;
           }
-          else if (maxes[col]["max"] < number) {
-            maxes[col]["max"] = number;
+          else if (maxes[prefix + col]["max"] < number) {
+            maxes[prefix + col]["max"] = number;
           }
 
         }
