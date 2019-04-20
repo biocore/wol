@@ -521,7 +521,7 @@ function test(color, cat, val) {
  */
 function userHighlightSelect() {
   const RANKS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"  ];
-  const RANK_PREFIX = getTaxPrefix();
+  let  prefix;
   let edgeData;
   let selectElm = $("#collapse-level");
   let tipKey = document.getElementById("tip-color-key");
@@ -555,9 +555,9 @@ function userHighlightSelect() {
   // color branches
   if ($("#branch-color").is(":checked")) {
     let cat = $("#branch-color-options").val();
-    cat = (RANKS.includes(cat)) ? RANK_PREFIX + cat : cat;
+    prefix = (RANKS.includes(cat)) ? getTaxPrefix() : "";
     $("#branch-color-options").attr("disabled", false);
-    result = tree.colorBranches(cat, "N");
+    result = tree.colorBranches(prefix + cat, "N");
     addColorKey(cat, result["keyInfo"], nodeKey, result["gradient"]);
     nodeKey.classList.remove("hidden");
     edgeData = result["edgeData"];
@@ -566,9 +566,9 @@ function userHighlightSelect() {
   // color tips
   if ($("#tip-color").is(":checked")) {
     let cat = $("#tip-color-options").val();
-    cat = (RANKS.includes(cat)) ? RANK_PREFIX + cat : cat;
+    prefix = (RANKS.includes(cat)) ? getTaxPrefix() : "";
     $("#tip-color-options").attr("disabled", false);
-    result = tree.colorBranches(cat, "G");
+    result = tree.colorBranches(prefix + cat, "G");
     tipKey.classList.remove("hidden");
     addColorKey(cat, result["keyInfo"], tipKey, result["gradient"]);
     edgeData = result["edgeData"];
