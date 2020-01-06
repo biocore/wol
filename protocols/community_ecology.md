@@ -20,7 +20,7 @@ The entire analysis is **taxonomy-free**, although one can always get taxonomic 
 
 The term **OTU** (operational taxonomic unit) was conventionally used in 16S data analysis. In practice, sequences are clustered at a similarity threshold of 97%, and each cluster is considered a basic unit of the community. Recent years have seen this classical term evolving into **sOTU**, where every exact 16S sequence is treated as the basic unit (i.e., an sOTU), hence improving resolution.
 
-sOTU analysis using [Deblur](https://github.com/biocore/deblur) or [DADA2](https://benjjneb.github.io/dada2/) is well-supported in QIIME2. See [details](https://docs.qiime2.org/2019.1/tutorials/qiime2-for-experienced-microbiome-researchers/#denoising).
+sOTU analysis using [Deblur](https://github.com/biocore/deblur) or [DADA2](https://benjjneb.github.io/dada2/) is well-supported in QIIME2. See [details](https://docs.qiime2.org/2019.10/tutorials/qiime2-for-experienced-microbiome-researchers/#denoising).
 {: .notice}
 
 The notion we introduce here, gOTU, means to be an analogue to sOTU, but for WGS data analysis. Previously, diversity analyses on WGS data were typically performed at a particular taxonomic rank, such as genus or species. This limits resolution, and introduces artifacts due to the limitation of taxonomic assignment itself. In this protocol, _we do NOT assign taxonomy_, but directly consider individual sequence-genome association as the basic unit of the microbiome.
@@ -93,7 +93,7 @@ To work with BIOM format one needs the Python package [`biom-format`](https://py
 
 #### Data refining
 
-A microbiome dataset usually needs to be refined in order to obtain optimal results. Please refer to QIIME2 tutorials for data [filtering](https://docs.qiime2.org/2019.1/tutorials/filtering/) and [rarefaction](https://docs.qiime2.org/2019.1/plugins/available/feature-table/rarefy/).
+A microbiome dataset usually needs to be refined in order to obtain optimal results. Please refer to QIIME2 tutorials for data [filtering](https://docs.qiime2.org/2019.10/tutorials/filtering/) and [rarefaction](https://docs.qiime2.org/2019.10/plugins/available/feature-table/rarefy/).
 
 In addition, we provide [filter_otus_per_sample.py](../code/scripts/filter_otus_per_sample.py), which allows filtering by threshold at a per-sample base, which is useful in some cases, especially when **false positive** mapping is a concern. For example:
 
@@ -108,7 +108,7 @@ filter_otus_per_sample.py input.biom 0.0001 output.biom
 
 #### Importing data
 
-We recommend using [QIIME2](https://qiime2.org/) to analyze microbiome datasets. To do so, one needs to convert the BIOM table into a QIIME2 [artifact](https://docs.qiime2.org/2019.1/concepts/#data-files-qiime-2-artifacts):
+We recommend using [QIIME2](https://qiime2.org/) to analyze microbiome datasets. To do so, one needs to convert the BIOM table into a QIIME2 [artifact](https://docs.qiime2.org/2019.10/concepts/#data-files-qiime-2-artifacts):
 
 ```bash
 qiime tools import --type FeatureTable[Frequency] --input-path table.biom --output-path table.qza
@@ -135,11 +135,11 @@ qiime diversity core-metrics-phylogenetic \
 
 And enjoy the output!
 
-This might be overly simple (and the sampling depth 1,000 is arbitrary). We would rather you spend bit more time reading and understanding the analyses under the hood. QIIME2's [“Moving Pictures” tutorial](https://docs.qiime2.org/2019.1/tutorials/moving-pictures/) is a good starting point. We also list individual relevant analyses below.
+This might be overly simple (and the sampling depth 1,000 is arbitrary). We would rather you spend bit more time reading and understanding the analyses under the hood. QIIME2's [“Moving Pictures” tutorial](https://docs.qiime2.org/2019.10/tutorials/moving-pictures/) is a good starting point. We also list individual relevant analyses below.
 
 #### Alpha diversity analysis using Faith's PD
 
-[Alpha diversity](https://en.wikipedia.org/wiki/Alpha_diversity) describes the microbial diversity within each community. **Faith's PD** ([Faith, 1992](https://www.sciencedirect.com/science/article/abs/pii/0006320792912013)) is an alpha diversity metric that incorporates phylogenetic distances (i.e., branch lengths) in the equation. It can be calculated using QIIME2' [alpha-phylogenetic](https://docs.qiime2.org/2019.1/plugins/available/diversity/alpha-phylogenetic/) command:
+[Alpha diversity](https://en.wikipedia.org/wiki/Alpha_diversity) describes the microbial diversity within each community. **Faith's PD** ([Faith, 1992](https://www.sciencedirect.com/science/article/abs/pii/0006320792912013)) is an alpha diversity metric that incorporates phylogenetic distances (i.e., branch lengths) in the equation. It can be calculated using QIIME2' [alpha-phylogenetic](https://docs.qiime2.org/2019.10/plugins/available/diversity/alpha-phylogenetic/) command:
 
 ```bash
 qiime diversity alpha-phylogenetic \
@@ -151,7 +151,7 @@ qiime diversity alpha-phylogenetic \
 
 #### Beta diversity analysis using UniFrac
 
-[Beta diversity](https://en.wikipedia.org/wiki/Beta_diversity) describes the microbial diversity across different communities. [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) ([Lozupone and Knight, 2006](https://aem.asm.org/content/71/12/8228)) is a group of beta diversity metrics that concern the phylogenetic distances among OTUs. Recently, we improved the implementation of UniFrac ([McDonald et al., 2018](https://www.nature.com/articles/s41592-018-0187-8)), allowing efficient analysis of very large datasets (e.g., 100k+ samples). These are provided by QIIME2's [beta-phylogenetic](https://docs.qiime2.org/2019.1/plugins/available/diversity/beta-phylogenetic/) command.
+[Beta diversity](https://en.wikipedia.org/wiki/Beta_diversity) describes the microbial diversity across different communities. [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) ([Lozupone and Knight, 2006](https://aem.asm.org/content/71/12/8228)) is a group of beta diversity metrics that concern the phylogenetic distances among OTUs. Recently, we improved the implementation of UniFrac ([McDonald et al., 2018](https://www.nature.com/articles/s41592-018-0187-8)), allowing efficient analysis of very large datasets (e.g., 100k+ samples). These are provided by QIIME2's [beta-phylogenetic](https://docs.qiime2.org/2019.10/plugins/available/diversity/beta-phylogenetic/) command.
 
 ```bash
 qiime diversity alpha-phylogenetic \
@@ -163,4 +163,4 @@ qiime diversity alpha-phylogenetic \
 
 - Here we used the **weighted UniFrac** metric as an example, which considers the relative abundances of gOTUs. It is usually encouranged to test other metrics too and compare the results.
 
-The beta diversity analysis generates a distance matrix among samples, on which multiple downstream analyses can be performed. Examples are [PCoA](https://docs.qiime2.org/2019.1/plugins/available/diversity/pcoa/) and subsequent [visualization](https://docs.qiime2.org/2019.1/plugins/available/emperor/plot/), [PERMANOVA](https://docs.qiime2.org/2019.1/plugins/available/diversity/beta-group-significance/), [Mantel test](https://docs.qiime2.org/2019.1/plugins/available/diversity/mantel/), [kNN classification](https://docs.qiime2.org/2019.1/plugins/available/sample-classifier/classify-samples-from-dist/). We encourage you to explore the QIIME2 documentation and workshops to find out more!
+The beta diversity analysis generates a distance matrix among samples, on which multiple downstream analyses can be performed. Examples are [PCoA](https://docs.qiime2.org/2019.10/plugins/available/diversity/pcoa/) and subsequent [visualization](https://docs.qiime2.org/2019.10/plugins/available/emperor/plot/), [PERMANOVA](https://docs.qiime2.org/2019.10/plugins/available/diversity/beta-group-significance/), [Mantel test](https://docs.qiime2.org/2019.10/plugins/available/diversity/mantel/), [kNN classification](https://docs.qiime2.org/2019.10/plugins/available/sample-classifier/classify-samples-from-dist/). We encourage you to explore the QIIME2 documentation and workshops to find out more!

@@ -4,7 +4,7 @@
 
 @charset "utf-8";
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'air' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
 // https://github.com/mmistakes/minimal-mistakes/issues/1219
@@ -21,6 +21,11 @@ html {
     @include breakpoint($x-large) {
         font-size: 18px; // originally 22px
     }
+}
+
+h4 {
+    font-size: $type-size-5;
+    font-style: italic;
 }
 
 .page__content {
@@ -40,4 +45,28 @@ html {
 
 .sidebar li a:hover {
     color: $link-color;
+}
+
+.page__footer {
+    footer {
+        margin-top: 0;
+        padding: 1.5em 2em;
+        font-family: $global-font-family;
+        font-size: $type-size-6;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li {
+        display: inline-block;
+    }
+    li + li:before {
+        content: '';
+        padding-right: 5px;
+    }
+    a {
+        white-space: nowrap;
+    }
 }

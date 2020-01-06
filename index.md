@@ -1,5 +1,7 @@
 ---
-title: 'WoL: Reference phylogeny for microbes'
+title: >
+  <br><br><br><br><br><br><br><br>
+  WoL: Reference Phylogeny for Microbes
 layout: splash
 classes:
   - landing
@@ -7,7 +9,7 @@ classes:
 header:
   overlay_color: '#000'
   overlay_filter: 0.33
-  # overlay_image: /pages/splash.jpg
+  overlay_image: /pages/splash.jpg
   actions:
     - label: Quick-Start
       url: start
@@ -15,13 +17,11 @@ header:
       url: empress
     - label: GitHub Repo
       url: https://github.com/biocore/wol
-  # caption: Artist's impression of the 10,575-genome reference tree
+  caption: Image by <a href="https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=931706">Free-Photos</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=931706">Pixabay</a>
 excerpt: >
-    Pre-release (Apr 5, 2019)
+    Release 1 (Apr 5, 2019)
     <br>
     Built using 10,575 genomes x 381 genes
-intro: 
-  - excerpt: 'Manuscript under review.'
 ---
 
-{% include feature_row id="intro" type="center" %}
+Our manuscript is now published in [_Nature Communications_](https://www.nature.com/articles/s41467-019-13443-4) (Dec 2, 2019)!

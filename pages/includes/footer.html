@@ -1,0 +1,14 @@
+<div>
+  <div style="float: right;">
+    {% if site.footer.links %}
+      {% for link in site.footer.links %}
+        {% if link.label and link.url %}
+          <li><a href="{{ link.url }}" title="{{ link.description | default = link.title }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div>
+    &copy; 2017 - {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}.
+  </div>
+</div>
