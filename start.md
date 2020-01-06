@@ -7,7 +7,7 @@ Quick-Start Guide
 - [How to view it](#how-to-view-it)
 - [How to use it in research](#how-to-use-it-in-research)
 - [Information for users of...](#information-for-users-of)
-- [How to cite it](#how-to-cite-it)
+- [How to cite it](#citation)
 
 ***
 
@@ -102,8 +102,20 @@ The genome pool, the curated taxonomy and the phylogenetic tree itself can be co
 We will integrate the reference phylogeney with [TIPP](https://github.com/smirarab/sepp/blob/master/tutorial/tipp-tutorial.md), a phylogenetic placement-based metagenomic sequence classifier. Please stay tuned.
 
 
-## How to cite it
+## Citation
 
-If you use the data, code or protocols developed in this work, please directly cite our website: [https://biocore.github.io/wol/](https://biocore.github.io/wol/). A manuscript detailing this work is current under peer review. Please stay tuned.
+If you use the data, code or protocols developed in this work, please cite:
+
+> Zhu Q\*, Mai U\*, Pfeiffer W, Janssen S, Asnicar F, Sanders JG, Belda-Ferre P, Al-Ghalith GA, Kopylova E, McDonald D, Kosciolek T, Yin JB, Huang S, Salam N, Jiao J, Wu Z, Xu ZZ, Sayyari E, Morton JT, Podell S, Knights D, Li W, Huttenhower C, Segata N, Smarr L, Mirarab S, Knight R. [Phylogenomics of 10,575 genomes reveals evolutionary proximity between domains Bacteria and Archaea](https://www.nature.com/articles/s41467-019-13443-4). _Nature Communications_. 2019. **10**(1):5477. doi: 10.1038/s41467-019-13443-4.
+
+
+## Grants
+
+- National Science Foundation (NSF) grant 1565057
+- Alfred P. Sloan Foundation grant G-2017-9838
+- NSF Extreme Science and Engineering Discovery Environment (XSEDE) allocation BIO150043
+
+
+## Contact
 
 Please forward any questions to the project leader: **Dr. Qiyun Zhu** ([qiz173@ucsd.edu](mailto:qiz173@ucsd.edu)) or the senior PI: **Dr. Rob Knight** ([robknight@ucsd.edu](mailto:robknight@ucsd.edu)).
