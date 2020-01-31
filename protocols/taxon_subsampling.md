@@ -1,4 +1,6 @@
-## Taxon subsampling
+---
+title: Taxon subsampling
+---
 
 ### Goal
 

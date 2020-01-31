@@ -1,4 +1,6 @@
-## Genome database
+---
+title: Genome database
+---
 
 ### Goal
 

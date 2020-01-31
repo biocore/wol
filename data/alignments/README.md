@@ -17,4 +17,4 @@ Notes:
 
 - These MSA files are already de-duplicated, i.e., if there are multiple identical sequences in the dataset, only one is retained. In addition, we provide mapping files (`*.map`) from the kept ones to their likes, and a Python script [append_taxa.py](../../code/scripts/append_taxa.py) to append those additional taxa to a phylogenetic tree.
 
-MSAs are also available from our [Globus endpoint](https://www.globus.org/app/transfer?origin_id=23fd07dc-b6c8-11e8-8bf8-0a1d4c5c824a&origin_path=%2F).
+MSAs are also available from our [Globus](https://www.globus.org/) endpoint: [**WebOfLife**](https://app.globus.org/file-manager/collections/e416e632-4399-11ea-ab4d-0a7959ea6081).

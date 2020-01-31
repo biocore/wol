@@ -1,4 +1,6 @@
-## Tree manipulation
+---
+title: Tree manipulation
+---
 
 We wrote and made publicly available multiple [Python scripts](../code/scripts) that facilitates tree manipulation. They depend on the `TreeNode` object in [scikit-bio](http://scikit-bio.org/). Here we describe some of them.
 

@@ -1,5 +1,6 @@
-Quick-Start Guide
-=================
+---
+title: Quick-Start Guide
+---
 
 - [What it is(n't)](#what-it-is-and-isnt)
 - [How it was made](#how-it-was-made)
@@ -32,7 +33,7 @@ We recommend using this [**tree**](data/trees/astral/branch_length/cons/collapse
 
 Multiple trees, built using different input data and methodology, together with the corresponding metadata, curated taxonomy and other information, are provided in this repository. Please browse the [**data**](data) directory for details.
 
-The genome and protein sequences, multiple sequence alignments and other large data files are available at [Globus](https://www.globus.org/), with endpoint name [**WebOfLife**](https://www.globus.org/app/transfer?origin_id=23fd07dc-b6c8-11e8-8bf8-0a1d4c5c824a&origin_path=%2F) (owner: jdereus@globusid.org). For instruction on how to transfer files via Globus, please read this [guide](https://docs.globus.org/how-to/get-started/).
+The genome and protein sequences, multiple sequence alignments and other large data files are available at [Globus](https://www.globus.org/), with endpoint name [**WebOfLife**](https://app.globus.org/file-manager/collections/e416e632-4399-11ea-ab4d-0a7959ea6081) (owner: jdereus@globusid.org). For instruction on how to transfer files via Globus, please read this [guide](https://docs.globus.org/how-to/get-started/).
 
 
 ## How to view it
@@ -80,6 +81,11 @@ Mappings to IMG genome/taxon IDs. are provided in the genome metadata. In the cu
 The reference tree can be used for the diversity analysis of shotgun metagenomes, using phylogeny-aware algorithms such as [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [**Faith's PD**](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity. See this [protocol](protocols/community_ecology).
 
 A derivative for 16S rRNA-based analysis is under development. Please stay tuned.
+
+### Qiita
+
+The WoL database is now available from [**Qiita**](https://qiita.ucsd.edu/). Users can analyze shotgun metagenomic data by select `SHOGUN 1.0.7` and proper aligner from the graphic interface.
+
 
 ### PhyloPhlAn
 
