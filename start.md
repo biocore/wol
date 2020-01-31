@@ -1,6 +1,5 @@
----
-title: Quick-Start Guide
----
+Quick-Start Guide
+=================
 
 - [What it is(n't)](#what-it-is-and-isnt)
 - [How it was made](#how-it-was-made)
@@ -85,7 +84,6 @@ A derivative for 16S rRNA-based analysis is under development. Please stay tuned
 ### Qiita
 
 The WoL database is now available from [**Qiita**](https://qiita.ucsd.edu/). Users can analyze shotgun metagenomic data by select `SHOGUN 1.0.7` and proper aligner from the graphic interface.
-
 
 ### PhyloPhlAn
 

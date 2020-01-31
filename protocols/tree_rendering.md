@@ -1,6 +1,4 @@
----
-title: Tree rendering
----
+## Tree rendering
 
 ### What they are
 

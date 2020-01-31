@@ -1,6 +1,4 @@
----
-title: Phylogeny-based profiling
----
+## Phylogeny-based profiling
 
 - [Overview](#overview)
 - [Phylogenetic hierarchy](#phylogenetic-hierarchy)
