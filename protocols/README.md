@@ -33,7 +33,7 @@ Analysis
 
 - [**Shared clades**](../code/notebooks/shared_clades.ipynb): Collapse two very large trees to a shared set of large clades to enable back-to-back comparison via tanglegram.
 
-- [**Gene tree discordance**](gene_tree_discordance): Analyze evolutionary discrepancy reflected by individual gene trees.
+- [**Gene tree discordance**](../code/notebooks/gene_tree_discordance.ipynb): Analyze evolutionary discrepancy reflected by individual gene trees.
 
 - [**Saturation test**](../code/notebooks/saturation.ipynb): Analyze potential amino acid substitution saturation and how it impacts estimated phylogenetic distances.
 

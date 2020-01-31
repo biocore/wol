@@ -1,6 +1,5 @@
----
-title: Microbial community ecology
----
+
+## Microbial community ecology
 
 - [Overview](#overview)
 - [Core notion: gOTU](#core-notion-gotu)

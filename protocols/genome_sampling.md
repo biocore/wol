@@ -1,6 +1,4 @@
----
-title: Genome sampling
----
+## Genome sampling
 
 ### Summary
 
