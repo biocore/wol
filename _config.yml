@@ -34,7 +34,7 @@ defaults:
       type: pages
     values:
       title: ''
-      author_profile: true
+      # author_profile: true
       layout: single
       # toc: true
       # toc_sticky: true

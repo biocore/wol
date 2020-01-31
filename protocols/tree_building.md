@@ -1,4 +1,6 @@
-## Tree building
+---
+title: Tree building
+---
 
 Core protocol of this project. Phylogentic reconstruction of evolutionary relationships of individual gene families and whole genomes.
 

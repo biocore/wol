@@ -1,4 +1,6 @@
-## Taxonomy curation
+---
+title: Taxonomy curation
+---
 
 ### Goals
 

@@ -1,5 +1,6 @@
-Quick-Start Guide
-=================
+---
+title: Quick-Start Guide
+---
 
 - [What it is(n't)](#what-it-is-and-isnt)
 - [How it was made](#how-it-was-made)
@@ -80,6 +81,11 @@ Mappings to IMG genome/taxon IDs. are provided in the genome metadata. In the cu
 The reference tree can be used for the diversity analysis of shotgun metagenomes, using phylogeny-aware algorithms such as [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [**Faith's PD**](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity. See this [protocol](protocols/community_ecology).
 
 A derivative for 16S rRNA-based analysis is under development. Please stay tuned.
+
+### Qiita
+
+The WoL database is now available from [**Qiita**](https://qiita.ucsd.edu/). Users can analyze shotgun metagenomic data by select `SHOGUN 1.0.7` and proper aligner from the graphic interface.
+
 
 ### PhyloPhlAn
 
