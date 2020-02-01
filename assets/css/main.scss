@@ -7,7 +7,9 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'air' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+// make default font size smaller
 // https://github.com/mmistakes/minimal-mistakes/issues/1219
+
 html {
     font-size: 12px; // originally 16px
     @include breakpoint($medium) {
@@ -34,20 +36,54 @@ h4 {
     }
 }
 
+
+// make notice text larger
+
+@mixin notice($notice-color) {
+    font-size: 1em !important;
+}
+
+
+// make feature row text larger
+
+.feature__item {
+    .archive__item-excerpt {
+        font-size: 0.9em;
+    }
+    &--left, &--right {
+        .archive__item-excerpt {
+            font-size: 0.9em;
+        }
+    }
+}
+
+// sidebar
+
+.sidebar ul {
+    padding-left: 1em;
+}
+
 .sidebar ul > li {
     font-size: 0.85em;
-    padding-left: 10px;
+    padding-left: 1em;
 }
 
 .sidebar ul > li > ul > li {
     list-style-type: '-';
+    line-height: 1.75;
 }
 
 .sidebar li a:hover {
     color: $link-color;
 }
 
+
+// custom footer
+
 .page__footer {
+    background-color: mix(#000, $info-color, 50%);
+    color: white;
+
     footer {
         margin-top: 0;
         padding: 1.5em 2em;

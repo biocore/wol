@@ -8,7 +8,7 @@ We wrote and made publicly available multiple [Python scripts](../code/scripts) 
 We removed identical sequences from an alignment were removed prior to tree-building, and added them back as **polytomies** to the resulting tree.
 
 Note: Different tree-building programs treat sequence duplicates in different ways. For example, **FastTree** places them as multifurcating branches (which is good); whereas **RAxML** and **IQ-TREE** force them into bifurcating branches, with branch length = 1e-6 (RAxML) or 0.0 (IQ-TREE). That's why we wanted to override them in a constant behavior.
-{: .notice}
+{: .notice--warning}
 
 De-duplication can be done using RAxML:
 

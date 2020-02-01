@@ -5,7 +5,7 @@
 Generate a custom refernce genome database, with **curated taxonomy**, for downstream applications such as metagenome profiling. This protocols involves no new tool, but utilizes existing tools and pipelines of your choice, and plug in the new database.
 
 Note: This "normal" protocol utilizes the curated taxonomy--a side product from our reference phylogeny--but not the phylogeny itself. For the true powers of phylogeny please refer to other protocols, such as [community ecology](community_ecology) and [tree profiling](tree_profiling).
-{: .notice}
+{: .notice--warning}
 
 
 ### Getting genomes

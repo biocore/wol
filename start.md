@@ -83,7 +83,7 @@ A derivative for 16S rRNA-based analysis is under development. Please stay tuned
 
 ### Qiita
 
-The WoL database is now available from [**Qiita**](https://qiita.ucsd.edu/). Users can analyze shotgun metagenomic data by select `SHOGUN 1.0.7` and proper aligner from the graphic interface.
+The WoL database has been implemented in [**Qiita**](https://qiita.ucsd.edu/). Users can analyze shotgun metagenomic data using WoL from the graphic user interface: Start from FASTQ files, choose command: "Shogun 1.0.7", then choose optional parameter "wol_xxx" (xxx is the aligner of choice).
 
 ### PhyloPhlAn
 
