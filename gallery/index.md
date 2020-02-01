@@ -1,27 +1,31 @@
 ---
-title: "Gallery"
+title: Gallery
 row1:
-  - title: "Interactive visualization"
-    url: empress.html
+  - title: Interactive visualization
+    url: empress
     image_path: gallery/headers/empress.png
-    excerpt: "Zoom, color, collapse and export in one window. Powered by our new massive tree renderer: **Empress**."
-    btn_label: " "
+    excerpt: Zoom, color, collapse and export in one window. Powered by our new massive tree renderer [**Empress**](https://github.com/biocore/empress).
+    btn_label: Launch viewer
+    btn_class: btn--success
 row2:
-  - title: "PDF images"
+  - title: PDF images
     url: gallery/static
     image_path: gallery/headers/pdf.png
-    excerpt: "Pre-rendered high-resolution vector images in multiple layouts and collapsing schemes."
-    btn_label: " "
-  - title: "iTOL pack"
+    excerpt: Pre-rendered high-resolution vector images in multiple layouts and collapsing schemes.
+    btn_label: Browse
+    btn_class: btn--info
+  - title: iTOL pack
     url: gallery/itol_pack.tar.bz2
     image_path: gallery/headers/itol.png
-    excerpt: "Tree and data files ready for iTOL."
-    btn_label: " "
-  - title: "FigTree pack"
+    excerpt: Tree and data files ready for iTOL.
+    btn_label: Download
+    btn_class: btn--primary
+  - title: FigTree pack
     url: gallery/figtree.tre.bz2
     image_path: gallery/headers/figtree.png
-    excerpt: "Pre-formatted FigTree Nexus file."
-    btn_label: " "
+    excerpt: Pre-formatted FigTree Nexus file.
+    btn_label: Download
+    btn_class: btn--primary
 ---
 
 
@@ -43,4 +47,3 @@ Rendering packages (iTOL and FigTree) for [alternative trees](alter) are provide
 
 We provide the [protocol](../protocols/tree_rendering.md) and [source code](../code/notebooks/render_tree.ipynb) for generating and using the rendering packages.
 
-Also check out [Empress](https://github.com/biocore/empress), currently under development.

@@ -1,6 +1,6 @@
 # theme: Minimal Mistakes
-remote_theme: mmistakes/minimal-mistakes@4.15.1
-minimal_mistakes_skin: air
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: default
 plugins:
   - jekyll-include-cache
   - jekyll-optional-front-matter
@@ -20,7 +20,7 @@ name: WoL development team
 description: A Reference Phylogeny for 10,575 Bacterial and Archaeal Genomes
 url: https://biocore.github.io/wol/
 repository: biocore/wol
-logo: gallery/logo/logo_s_b.png
+logo: gallery/logo/logo_s.png
 locale: en-US
 
 # features:
