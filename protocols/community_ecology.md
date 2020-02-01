@@ -22,7 +22,7 @@ The entire analysis is **taxonomy-free**, although one can always get taxonomic 
 The term **OTU** (operational taxonomic unit) was conventionally used in 16S data analysis. In practice, sequences are clustered at a similarity threshold of 97%, and each cluster is considered a basic unit of the community. Recent years have seen this classical term evolving into **sOTU**, where every exact 16S sequence is treated as the basic unit (i.e., an sOTU), hence improving resolution.
 
 sOTU analysis using [Deblur](https://github.com/biocore/deblur) or [DADA2](https://benjjneb.github.io/dada2/) is well-supported in QIIME2. See [details](https://docs.qiime2.org/2019.10/tutorials/qiime2-for-experienced-microbiome-researchers/#denoising).
-{: .notice}
+{: .notice--warning}
 
 The notion we introduce here, gOTU, means to be an analogue to sOTU, but for WGS data analysis. Previously, diversity analyses on WGS data were typically performed at a particular taxonomic rank, such as genus or species. This limits resolution, and introduces artifacts due to the limitation of taxonomic assignment itself. In this protocol, _we do NOT assign taxonomy_, but directly consider individual sequence-genome association as the basic unit of the microbiome.
 
@@ -90,7 +90,7 @@ biom convert -i table.tsv -o table.biom --table-type="OTU table" --to-hdf5
 ```
 
 To work with BIOM format one needs the Python package [`biom-format`](https://pypi.org/project/biom-format/). Multiple bioinformatics packages such as QIIME2 already include it. 
-{: .notice}
+{: .notice--warning}
 
 #### Data refining
 
