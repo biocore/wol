@@ -14,16 +14,16 @@ Click to download the [**tree**](data/trees/astral/branch_length/cons/collapsed/
 Also check out the [quick-start](start) guide for (bit) more details.
 
 
-## Genome sequences
-
-Genome sequences are hosted at our Globus endpoint. We also provide protocols for directly downloading genome data from NCBI. See [instruction](data/genomes).
-
-
 ## Pre-built databases
 
 Our Globus endpoint hosts pre-built databases which work out-of-the-box with popular bioinformatics tools:
 
 - QIIME2, BLAST, Bowtie2, SHOGUN, Kraken, Centrifuge, etc.
+
+
+## Genome sequences
+
+Genome sequences are hosted at our Globus endpoint. We also provide protocols for directly downloading genome data from NCBI. See [instruction](data/genomes).
 
 
 ## Interactive download

@@ -1,6 +1,6 @@
 ---
 title: >
-  <br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br>
   WoL: Reference Phylogeny for Microbes
 layout: splash
 classes:
@@ -22,6 +22,13 @@ excerpt: >
     Release 1 (Apr 5, 2019)
     <br>
     Built using 10,575 genomes x 381 genes
+feature_row:
+  - title: <small>Feb 1, 2020</small>
+    excerpt: Pre-built databases for QIIME2, SHOGUN, BLAST, Bowtie2, etc. are available for [download](download).
+  - title: <small>Jan 27, 2020</small>
+    excerpt: The WoL database is now available from [Qiita](https://qiita.ucsd.edu/).
+  - title: <small>Dec 2, 2019</small>
+    excerpt: Our manuscript is now published in [_Nature Communications_](https://www.nature.com/articles/s41467-019-13443-4)!
 ---
 
-Our manuscript is now published in [_Nature Communications_](https://www.nature.com/articles/s41467-019-13443-4) (Dec 2, 2019)!
+{% include feature_row %}
