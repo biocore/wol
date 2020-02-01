@@ -15,8 +15,8 @@ header:
       url: start
     - label: Interactive Tree
       url: empress
-    - label: GitHub Repo
-      url: https://github.com/biocore/wol
+    - label: Download
+      url: download
   caption: Image by <a href="https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=931706">Free-Photos</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=931706">Pixabay</a>
 excerpt: >
     Release 1 (Apr 5, 2019)

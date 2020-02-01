@@ -7,7 +7,7 @@ The bacterial and archaeal genomes analyzed in this project. This GitHub directo
 
 There are several ways one can obtain the genome sequences (*.fna).
 
-**Recommended**: We host all genome sequences at our [Globus](https://www.globus.org/) endpoint: [**WebOfLife**](https://app.globus.org/file-manager/collections/e416e632-4399-11ea-ab4d-0a7959ea6081) (owner: [jdereus@globusid.org](mailto:jdereus@globusid.org)). Downloading bulk data using Globus is free, fast and secure. To find out how please see this [guide](https://docs.globus.org/how-to/get-started/).
+**Recommended**: We host all genome sequences at our [Globus](https://www.globus.org/) endpoint: [**WebOfLife**](https://app.globus.org/file-manager/collections/e416e632-4399-11ea-ab4d-0a7959ea6081). Downloading bulk data using Globus is free, fast and secure. To find out how please see this [guide](https://docs.globus.org/how-to/get-started/).
 
 **Alternative**: The genome data were directly pulled from NCBI. Therefore, one may also choose to download the original data from the [NCBI FTP server](ftp://ftp.ncbi.nlm.nih.gov/genomes/all).
 
@@ -28,7 +28,7 @@ bash batch_down.sh download.list
 
 ## Lineage-specific download
 
-In the [interactive tree browser](../../empress), one can mouse over a clade of interest to display the taxonomic annotation and an "**Export**" button, which leads to choices of genome IDs, download links and subtree. The interface further allows choice of download data types (e.g., genomes, proteins, RNAs).
+In the [interactive tree viewer](../../empress), one can mouse over a clade of interest to display the taxonomic annotation and an "**Export**" button, which leads to choices of genome IDs, download links and subtree. The interface further allows choice of download data types (e.g., genomes, proteins, RNAs).
 
 Then one can use [batch_down.sh](batch_down.sh) to batch-download them (see above).
 
