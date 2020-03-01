@@ -3,6 +3,12 @@ Trees
 
 Phylogenetic trees of the 10,575 genomes.
 
+## Quick start
+
+- [**tree.nwk**](tree.nwk) is the recommended reference phylogeny. It is identical to [astral](astral) - [branch_length](astral/branch_length) - [cons](astral/branch_length/cons) - [collapsed](astral/branch_length/cons/collapsed) - [astral.cons.nid.e5p50.nwk](astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk). See below for details.
+- [**tree.qza**](tree.qza) is a pre-compiled [QIIME 2](https://qiime2.org/) reference phylogeny, which can be directly feed into phylogeny-aware analyses such as [UniFrac](https://docs.qiime2.org/2020.2/plugins/available/diversity/beta-phylogenetic/) and [Faith's PD](https://docs.qiime2.org/2020.2/plugins/available/diversity/alpha-phylogenetic/).
+
+
 ## Tree-building strategies
 
 The species trees were reconstructed using two alternate strategies:
