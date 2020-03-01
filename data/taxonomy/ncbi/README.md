@@ -8,6 +8,7 @@ The original **NCBI** taxonomy of the sampled genomes.
 - [rank_tids.tsv](rank_tids.tsv.bz2): NCBI taxonomy IDs at ranks.
 - [lineages.txt](lineages.txt.bz2): Greengenes-style lineage strings.
 - [taxdump](taxdump): NCBI taxonomy database.
+- [taxonomy.qza](taxonomy.qza): Pre-compiled [QIIME 2](https://qiime2.org/) reference taxonomy.
 - [metadata.tsv](metadata.tsv.bz2): Properties and metrics of taxonomic units.
 
 And:
