@@ -23,7 +23,7 @@ We also provide a Bash script [batch_down.sh](batch_down.sh) to batch-download a
 bash batch_down.sh download.list
 ```
 
-**Moreover**, in the [metadata](../data/genomes/metadata.tsv.bz2), column `ftp_path` indicates the original path of each genome on the NCBI FTP server.
+**Moreover**, in the [metadata](metadata.tsv.bz2), column `ftp_path` indicates the original path of each genome on the NCBI FTP server.
 
 
 ## Lineage-specific download
