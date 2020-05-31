@@ -23,6 +23,12 @@ excerpt: >
     <br>
     Built using 10,575 genomes x 381 genes
 feature_row:
+  - title: '<small>May 6, 2020</small>'
+    excerpt: '[Woltka](https://github.com/qiyunzhu/woltka), a bioinformatics package for meta'omics data analysis with WoL, is now in alpha release.'
+  - title: '<small>Mar 16, 2020</small>'
+    excerpt: 'Our paper is ranked the [#17 most read](https://www.nature.com/collections/acdgdeedhi) life and biological sciences articles from 2019 in _Nature Communications_.'
+  - title: '<small>Mar 11, 2020</small>'
+    excerpt: 'First paper which uses WoL for data analysis is published in [_Nature_](https://www.nature.com/articles/s41586-020-2095-1). It decodes the role of microbiome in cancer.'
   - title: '<small>Feb 1, 2020</small>'
     excerpt: 'Pre-built databases for QIIME2, SHOGUN, BLAST, Bowtie2, etc. are available for [download](download).'
   - title: '<small>Jan 27, 2020</small>'
