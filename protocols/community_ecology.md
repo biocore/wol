@@ -155,7 +155,7 @@ qiime diversity alpha-phylogenetic \
 [Beta diversity](https://en.wikipedia.org/wiki/Beta_diversity) describes the microbial diversity across different communities. [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) ([Lozupone and Knight, 2006](https://aem.asm.org/content/71/12/8228)) is a group of beta diversity metrics that concern the phylogenetic distances among OTUs. Recently, we improved the implementation of UniFrac ([McDonald et al., 2018](https://www.nature.com/articles/s41592-018-0187-8)), allowing efficient analysis of very large datasets (e.g., 100k+ samples). These are provided by QIIME2's [beta-phylogenetic](https://docs.qiime2.org/2020.2/plugins/available/diversity/beta-phylogenetic/) command.
 
 ```bash
-qiime diversity alpha-phylogenetic \
+qiime diversity beta-phylogenetic \
   --i-phylogeny tree.qza \
   --i-table table.qza \
   --p-metric weighted_unifrac \
