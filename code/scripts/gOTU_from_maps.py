@@ -128,7 +128,7 @@ def parse_map(f, method=None, sbj2g=None):
     dict of
         `all`, `norm`, `uniq`
     """
-    m_ = method.lower()
+    m_ = method and method.lower()
     if m_ == 'centrifuge':
         return parse_centrifuge(f, sbj2g)
     elif m_ == 'bowtie2':
