@@ -477,6 +477,8 @@ function addContinuousKey(info, container) {
  */
 function addCategoricalKey(info, container) {
   let key;
+  let category = container.innerText;
+  let i = 0;
   for (key in info) {
     // create key container
     let div = document.createElement("div");
@@ -486,6 +488,10 @@ function addCategoricalKey(info, container) {
     let component = document.createElement("div");
     component.classList.add("category-color");
     component.setAttribute("style", "background: " + info[key] + ";");
+    component.addEventListener("click", function(color, cat, val) { return function () {
+        test(color, cat, val);
+      };
+    }(info[key], category, key), false)
     div.appendChild(component);
 
     // label
@@ -499,6 +505,14 @@ function addCategoricalKey(info, container) {
   }
 }
 
+/*
+ *
+*/
+function test(color, cat, val) {
+  console.log(color);
+  console.log(cat);
+  console.log(val);
+}
 
 /**
  * Event called when user presses the select-data button.
@@ -506,6 +520,8 @@ function addCategoricalKey(info, container) {
  * This method is responsible for coordinating the highlight tip feature.
  */
 function userHighlightSelect() {
+  const RANKS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"  ];
+  let  prefix;
   let edgeData;
   let selectElm = $("#collapse-level");
   let tipKey = document.getElementById("tip-color-key");
@@ -539,8 +555,9 @@ function userHighlightSelect() {
   // color branches
   if ($("#branch-color").is(":checked")) {
     let cat = $("#branch-color-options").val();
+    prefix = (RANKS.includes(cat)) ? getTaxPrefix() : "";
     $("#branch-color-options").attr("disabled", false);
-    result = tree.colorBranches(cat);
+    result = tree.colorBranches(prefix + cat, "N");
     addColorKey(cat, result["keyInfo"], nodeKey, result["gradient"]);
     nodeKey.classList.remove("hidden");
     edgeData = result["edgeData"];
@@ -549,10 +566,10 @@ function userHighlightSelect() {
   // color tips
   if ($("#tip-color").is(":checked")) {
     let cat = $("#tip-color-options").val();
+    prefix = (RANKS.includes(cat)) ? getTaxPrefix() : "";
     $("#tip-color-options").attr("disabled", false);
-    result = tree.colorBranches(cat);
+    result = tree.colorBranches(prefix + cat, "G");
     tipKey.classList.remove("hidden");
-    console.log(result);
     addColorKey(cat, result["keyInfo"], tipKey, result["gradient"]);
     edgeData = result["edgeData"];
   }
@@ -646,6 +663,7 @@ function parseMetadataString(metadata, fname) {
   let curIndex = startIndex, i, j, curID;
   let warning = false;
   let maxes = {}, number, col;
+  let prefix;
   // extract metadata and store it in tree.metadata
   for (i = 0; i < numRows; i++) {
 
@@ -670,6 +688,8 @@ function parseMetadataString(metadata, fname) {
           number = parseFloat(metadata[curIndex]);
           col = headers[j];
           tree.metadata[curID][col] = number;
+          prefix = (curID[0] === "G") ? "g_" : "n_";
+
 
           // add header to approperiate drop down menu
           if (curID[0] === "G" && !tree.headers.tip_num.includes(col)) {
@@ -680,14 +700,14 @@ function parseMetadataString(metadata, fname) {
           }
 
           // caclulate new min/max for column
-          if (!(col in maxes)) {
-            maxes[col] = {min: number, max: number}
+          if (!(prefix + col in maxes)) {
+            maxes[prefix + col] = {min: number, max: number}
           }
-          else if (maxes[col]["min"] > number){
-            maxes[col]["min"] = number;
+          else if (maxes[prefix + col]["min"] > number){
+            maxes[prefix + col]["min"] = number;
           }
-          else if (maxes[col]["max"] < number) {
-            maxes[col]["max"] = number;
+          else if (maxes[prefix + col]["max"] < number) {
+            maxes[prefix + col]["max"] = number;
           }
 
         }
@@ -737,12 +757,10 @@ function parseMetadataString(metadata, fname) {
 }
 
 function userCladeColor(){
-  console.log('ColorClades')
   const attribute = $('#clade-options').val();
   const taxLevel = $("#tax-level").val();
   const cm = $("#color-options-tax").val();
   $.getJSON(urls.newCladeColor, {attribute: attribute, tax_level: taxLevel, cm: cm}, function(data){
-      console.log('loadColorClades');
       loadColorClades(data);
   })
 }

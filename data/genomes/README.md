@@ -7,7 +7,7 @@ The bacterial and archaeal genomes analyzed in this project. This GitHub directo
 
 There are several ways one can obtain the genome sequences (*.fna).
 
-**Recommended**: We host all genome sequences at our [Globus](https://www.globus.org/) endpoint: [**WebOfLife**](https://app.globus.org/file-manager/collections/e416e632-4399-11ea-ab4d-0a7959ea6081). Downloading bulk data using Globus is free, fast and secure. To find out how please see this [guide](https://docs.globus.org/how-to/get-started/).
+**Recommended**: We host all genome sequences at our [Globus](https://www.globus.org/) endpoint: [**WebOfLife**](https://app.globus.org/file-manager/collections/31acbeb8-c62f-11ea-bef9-0e716405a293). Downloading bulk data using Globus is free, fast and secure. To find out how please see this [guide](https://docs.globus.org/how-to/get-started/).
 
 **Alternative**: The genome data were directly pulled from NCBI. Therefore, one may also choose to download the original data from the [NCBI FTP server](ftp://ftp.ncbi.nlm.nih.gov/genomes/all).
 

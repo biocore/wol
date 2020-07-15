@@ -331,13 +331,13 @@ class Tree{
 
   /*
    * directs to appropriate coloring function based on category
-   * @param {string} category - default || the category from metadata to color from
+   * @ param {string} category - default || the category from metadata to color from
+   * @ param (string) nodeType - "G" == tip, "N" == nodes
   */
-  colorBranches(category) {
+  colorBranches(category, nodeType) {
     let i = 0;
     let result = {};
     let keyInfo = {};
-    console.log(category)
     if (category === "default") {
         this.colorTreeDefault();
     }
@@ -347,12 +347,12 @@ class Tree{
         result["gradient"] = false;
     }
     else if (this.headers.tip_num.includes(category) || this.headers.node_headers.includes(category)) {
-        keyInfo = this.colorTreeGradient(category);
+        keyInfo = this.colorTreeGradient(category, nodeType);
         result["keyInfo"] = keyInfo;
         result["gradient"] = true;
     }
     else {
-        keyInfo = this.colorTreeCategorical(category);
+        keyInfo = this.colorTreeCategorical(category, nodeType);
         result["keyInfo"] = keyInfo;
         result["gradient"] = false;
     }
@@ -388,17 +388,22 @@ class Tree{
   /*
    * Colors the tree using a gradient color map
    * @ param {string} category - numerical column in this.metadata
+   * @ param (string) nodeType - "G" == tip, "N" == nodes
   */
-  colorTreeGradient(category) {
+  colorTreeGradient(category, nodeType) {
     let i, keyInfo = {};
-    let min = this.maxes[category][0];
-    let max = this.maxes[category][1];
+    let prefix = (nodeType === "G") ? "g_" : "n_";
+    let min = this.maxes[prefix + category][0];
+    let max = this.maxes[prefix + category][1];
     let interpolator = this.getColorInterp(min, max, "YlOrRd");
     keyInfo = {
         "min": [min, interpolator(min).hex()],
         "max": [max, interpolator(max).hex()]
     };
     for (i in this.metadata) {
+        if (!(category in this.metadata[i]) || this.metadata[i]["Node_id"].indexOf(nodeType) === -1) {
+          continue;
+        }
         if (this.metadata[i][category] !== null){
             this.metadata[i]['branch_color'] = interpolator(this.metadata[i][category])
                                                     .rgb()
@@ -409,17 +414,19 @@ class Tree{
   }
 
   /*
-    // TODO: need to distinguish between nodes and tips
    * colors the tree using categorical data . This will assign a unique color to
    * the 8th largest groups within the category and remaining will be colored
    * using a "others" color.
    * @ param{string} category - categorical column in this.metadata
+   * @ param (string) nodeType - "G" == tip, "N" == nodes
   */
-  colorTreeCategorical(category) {
+  colorTreeCategorical(category, nodeType) {
     let i, keyInfo = {}, cats = {};
     let group;
+
+    // extract unique groups within the category and count number of time each group appears
     for (i in this.metadata) {
-        if (!(category in this.metadata[i])) {
+        if (!(category in this.metadata[i]) || this.metadata[i]["Node_id"].indexOf(nodeType) === -1) {
           continue;
         }
         group = this.metadata[i][category];
@@ -430,25 +437,50 @@ class Tree{
             cats[group] = 0;
         }
     }
-    let groups = Object.keys(cats);
-    for (i in groups) {
-        cats[groups[i]] = parseInt(i);
 
+    // sort groups by decreasing order
+    let groups = Object.keys(cats)
+                       .map( x => [x, cats[x]])
+                       .sort(function (a, b) {return a[1] < b[1]});
+
+    // assign largest 8 groups unique color and make the reset a single color
+    for (i = 0; i < groups.length; i++) {
+      if (i < 9) {
+        cats[groups[i][0]] = i;
+      }
+      else {
+        cats[groups[i][0]] = 9;
+      }
     }
-    let min = 0, max = groups.length;
-    let interpolator = this.getColorInterp(min, max, "set2");
-    console.log(interpolator(0).rgb())
 
-    // TODO: need to distinguish between nodes and tips
+    // color each group
+    let min = 0, max = (groups.length  < 9) ? groups.length : 9;
+    let interpolator = this.getColorInterp(min, max, "set2");
     for (i in this.metadata) {
+        if (!(category in this.metadata[i]) || this.metadata[i]["Node_id"].indexOf(nodeType) === -1) {
+          continue;
+        }
         if (this.metadata[i][category] !== null){
             group = this.metadata[i][category];
             keyInfo[group] = interpolator(cats[group]).hex();
-            this.metadata[i]['branch_color'] = interpolator(cats[group])
-                                                    .rgb()
-                                                    .map(x => x / 256);
+            this.metadata[i]['branch_color'] = (cats[group] < 9) ? interpolator(cats[group])
+                                                                      .rgb()
+                                                                      .map(x => x / 256)
+                                                                  : this.getDefaultColor();
         }
     }
+
+    // mark smaller groups as "other"
+    let key;
+    if (groups.length > 8 ) {
+      for (key in cats) {
+        if (cats[key] > 8) {
+          delete keyInfo[key];
+        }
+      }
+      keyInfo["other"] = this.getColorHexCode(this.getDefaultColor());
+    }
+
     return keyInfo;
   }
 
@@ -469,7 +501,7 @@ class Tree{
    * Returns the rgb array of the default color for the tree
   */
   getDefaultColor() {
-    return [0.7, 0.7, 0.7];
+    return [0.69921875, 0.69921875, 0.69921875];
   }
 
     /**

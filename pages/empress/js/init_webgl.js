@@ -102,12 +102,7 @@ function initWebGl(edgeData) {
   shaderProgram.boundingTrans = mat4.create();
   shaderProgram.boundingScale = mat4.create();
 
-  // calculate where the virtual camera is
-  camera.pos = [0, 0, drawingData.initZoom];
-  camera.lookDir = [0, 0, 0];
-  camera.upDir = [0, 1, 0];
-  shaderProgram.viewMat  = mat4.create();
-  mat4.lookAt(shaderProgram.viewMat, camera.pos, camera.lookDir, camera.upDir);
+  placeCamera(drawingData.initZoom);
 }
 
 function setCanvasSize(canvas) {
@@ -156,4 +151,17 @@ function createShaderProgram(vShader, fShader) {
   }
 
   return sProgram
+}
+
+/**
+ * Places the camera at (0, 0, z) where z represents the zoom level
+ * @param {number} z - the zoom level
+*/
+function placeCamera(z) {
+  // calculate where the virtual camera is
+  camera.pos = [0, 0, z];
+  camera.lookDir = [0, 0, 0];
+  camera.upDir = [0, 1, 0];
+  shaderProgram.viewMat  = mat4.create();
+  mat4.lookAt(shaderProgram.viewMat, camera.pos, camera.lookDir, camera.upDir);
 }
