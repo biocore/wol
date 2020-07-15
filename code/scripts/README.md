@@ -97,9 +97,13 @@ Taxonomy utilities
 
 [**ranks_to_tree.py**](ranks_to_tree.py): Convert a genome-to-ranks table into a tree.
 
+**New** [**gtdb_to_taxdump.py**](gtdb_to_taxdump.py): Convert [GTDB](https://gtdb.ecogenomic.org/) taxonomy into NCBI taxdump style.
+
 
 Community analysis utilities
 ----------------------------
+
+**New** [**genomes_for_db.py**](genomes_for_db.py): Linearize, filter and concatenate multiple genome sequences into a single Fasta file for subsequent database building.
 
 [**gOTU_from_maps.py**](gOTU_from_maps.py): Generate a "gOTU table" from WGS sequence alignment results.
 
