@@ -122,4 +122,4 @@ If you use the data, code or protocols developed in this work, please cite:
 
 ## Contact
 
-Please forward any questions to the project leader: **Dr. Qiyun Zhu** ([qiz173@ucsd.edu](mailto:qiz173@ucsd.edu)) or the senior PI: **Dr. Rob Knight** ([robknight@ucsd.edu](mailto:robknight@ucsd.edu)).
+Please forward any questions to the project leader: **Dr. Qiyun Zhu** ([Qiyun.Zhu@asu.edu](mailto:Qiyun.Zhu@asu.edu)) or the senior PI: **Dr. Rob Knight** ([robknight@ucsd.edu](mailto:robknight@ucsd.edu)).
