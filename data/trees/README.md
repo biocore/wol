@@ -19,6 +19,7 @@ The species trees were reconstructed using two alternate strategies:
 In addition, there is:
 
 - [**genes**](genes): Individual gene trees used for building the ASTRAL species tree.
+- [**ranks**](ranks): Species trees collapsed to individual taxonomic ranks.
 
 
 ## General rules
