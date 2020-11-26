@@ -16,3 +16,5 @@ You are welcome to use them in your research. For instructions / inspirations on
     If you want recommendation for which tree to use, please check out this one: [astral/branch_length/cons/collapsed/astral.cons.e5p50.nwk](trees/astral/branch_length/cons/collapsed/astral.cons.e5p50.nwk).
 
 - [**taxonomy**](taxonomy): Taxonomic annotation and curation results based on trees.
+
+- [**rrnas**](rrnas): Ribosomal RNA sequences (5S, 16S and 23S) identified from the genomes.
