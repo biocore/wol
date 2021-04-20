@@ -28,7 +28,7 @@ For comparative purpose, we also generated multiple trees using the conventional
 
 ## How to get it
 
-We recommend using this [**tree**](data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk) as the reference phylogeny for observations and downstream applications, together with the genome [**metadata**](data/genomes/metadata.tsv.bz2).
+We recommend using this [**tree**](data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk) as the reference phylogeny for observations and downstream applications, together with the genome [**metadata**](data/genomes/metadata.tsv.xz).
 
 Multiple trees, built using different input data and methodology, together with the corresponding metadata, curated taxonomy and other information, are provided in this repository. Please browse the [**data**](data) directory for details.
 
@@ -75,7 +75,7 @@ Mappings to GTDB genomes IDs are provided in the genome metadata. In the current
 
 Mappings to IMG genome/taxon IDs. are provided in the genome metadata. In the current release, 6,758 (63.91%) of the 10,575 genomes have corresponding IMG IDs.
 
-### QIIME
+### QIIME 2
 
 The reference tree can be used for the diversity analysis of shotgun metagenomes, using phylogeny-aware algorithms such as [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [**Faith's PD**](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity. See this [protocol](protocols/community_ecology).
 
@@ -83,13 +83,11 @@ A derivative for 16S rRNA-based analysis is under development. Please stay tuned
 
 ### Qiita
 
-The WoL database has been implemented in [**Qiita**](https://qiita.ucsd.edu/). Users can analyze shotgun metagenomic data using WoL from the graphic user interface: Start from FASTQ files, choose command: "Shogun 1.0.7", then choose optional parameter "wol_xxx" (xxx is the aligner of choice).
+The WoL database has been implemented in [**Qiita**](https://qiita.ucsd.edu/). Users can analyze shotgun metagenomic data using WoL from the graphic user interface. See [details](doc/qiita.md).
 
 ### PhyloPhlAn
 
-The 381 marker genes used to build the tree are a curated subsample of the 400 marker genes originally implemented in [PhyloPhlAn](https://bitbucket.org/nsegata/phylophlan/wiki/Home). For each marker gene, we provide functional annotation, gene tree and its degree of congruence with the species evolution. Please see [data/markers](data/markers) and [data/trees/genes](data/trees/genes).
-
-Please also check out [PhyloPhlAn2](https://bitbucket.org/nsegata/phylophlan/wiki/phylophlan2).
+The 381 marker genes used to build the tree are a curated subsample of the 400 marker genes originally implemented in [PhyloPhlAn](https://huttenhower.sph.harvard.edu/phylophlan). For each marker gene, we provide functional annotation, gene tree and its degree of congruence with the species evolution. Please see [data/markers](data/markers) and [data/trees/genes](data/trees/genes).
 
 ### Kraken / Centrifuge
 

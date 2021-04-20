@@ -53,7 +53,7 @@ One may also want to generate a nucleotide accession to fake TaxID map. This can
 join -12 -21 nucl2g.txt g2tid.txt -o1.1,2.2 -t$'\t' > nucl2tid.txt
 ```
 
-- The file [nucl2g.txt](../data/genomes/nucl2g.txt.bz2) is provided in this repository.
+- The file [nucl2g.txt](../data/genomes/nucl2g.txt.xz) is provided in this repository.
 
 Now let us see some example usages.
 

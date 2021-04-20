@@ -3,10 +3,10 @@ GTDB taxonomy
 
 The [**GTDB**](http://gtdb.ecogenomic.org/) taxonomy (release 86.1) of the sampled genomes. Of all 10,575 genomes analyzed in this project, 9,732 have corresponding GTDB assignments, in which 8,042 are present in the two GTDB trees.
 
-- [translate.txt](translate.txt): Genome ID translation table (also available in [genomes/metadata.tsv](../../genomes/metadata.tsv.bz2)).
-- [ranks.tsv](ranks.tsv.bz2): GTDB taxonomy names at ranks.
-- [lineages.txt](lineages.txt.bz2): Greengenes-style lineage strings.
-- [metadata.tsv](metadata.tsv.bz2): Properties and metrics of taxonomic units.
+- [translate.txt](translate.txt): Genome ID translation table (also available in [genomes/metadata.tsv](../../genomes/metadata.tsv.xz)).
+- [ranks.tsv](ranks.tsv.xz): GTDB taxonomy names at ranks.
+- [lineages.txt](lineages.txt.xz): Greengenes-style lineage strings.
+- [metadata.tsv](metadata.tsv.xz): Properties and metrics of taxonomic units.
 - [trees](trees): GTDB trees with translated genome IDs.
 
 And:

@@ -7,5 +7,7 @@ Phylogenetic [tree](../tree.nwk) collapsed to taxa at given taxonomic ranks. For
 
 Both NCBI and GTDB taxonomies are provided. Because of the incongruence between taxonomy and phylogeny, taxonomy was curated using **tax2tree** to match phylogeny. Some taxon names have an "underscore index" suffix compared with the original names. See [taxonomy](../../taxonomy) for details.
 
-- [**NCBI**](ncbi.tar.bz2)
-- [**GTDB**](gtdb.tar.bz2)
+- [**NCBI**](ncbi.tar.xz)
+- [**GTDB**](gtdb.tar.xz)
+
+See [taxonomy](../../taxonomy) for details of the two curated taxonomy systems.

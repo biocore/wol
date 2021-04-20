@@ -9,7 +9,7 @@ Data release of the WoL project is hosted at two locations:
 
 ## Quickest start
 
-Click to download the [**tree**](data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk) and the [**metadata**](data/genomes/metadata.tsv.bz2) and it is good to go!
+Click to download the [**tree**](data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk) and the [**metadata**](data/genomes/metadata.tsv.xz) and it is good to go!
 
 [QIIME 2](https://qiime2.org/) users may download the pre-compiled [**tree.qza**](data/trees/tree.qza) and [**taxonomy.qza**](data/taxonomy/ncbi/taxonomy.qza).
 

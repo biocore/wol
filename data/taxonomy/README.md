@@ -38,6 +38,7 @@ Curation
 
 Phylogeny-based annotation and curation were performed using [**tax2tree**](https://github.com/biocore/tax2tree) ([McDonald et al., 2012](https://www.nature.com/articles/ismej2011139)). (The same tool was used to curate Greengenes and GTDB.)
 
-The reference phylogeny is [**astral.e5p50**](../trees/astral/collapsed/astral.nid.e5p50.nwk) (built using ASTRAL, with low-support branches collapsed). We also provide curations using alternative trees.
+The reference phylogeny is [**astral.e5p50**](../trees/astral/collapsed/astral.nid.e5p50.nwk) (built using ASTRAL, with low-support branches collapsed). The curated lineage strings and rank tables cover both **tips** (genomes) and **internal nodes** of the tree.
+We also provide curations using alternative trees.
 
-Note that tax2tree does NOT create new taxonomic units. Instead, it modifies the assignments of genomes to existing taxonomic units. If a taxonomic unit is strongly polyphyletic, the program will append a numeric suffix to it for each clade, sorted by size from large to small (e.g., `Firmicutes_1`, `Firmicutes_2`...).
+Note that tax2tree does NOT create new taxonomic units. Instead, it modifies the assignments of genomes to existing taxonomic units. If a taxonomic unit is strongly polyphyletic, the program will append a numeric suffix to it for each clade, sorted by size from large to small (e.g., `Firmicutes_1`, `Firmicutes_2`...). We also provide curation results without this suffix (thus taxon names strictly match the original) in the **noidx** directories.
