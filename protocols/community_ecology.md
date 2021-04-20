@@ -2,36 +2,36 @@
 ## Microbial community ecology
 
 - [Overview](#overview)
-- [Core notion: gOTU](#core-notion-gotu)
+- [Core notion: OGU](#core-notion-ogu)
 - [Sequence mapping](#sequence-mapping)
-- [gOTU table generation](#gotu-table-generation)
-- [gOTU analysis using QIIME2](#gotu-analysis-using-qiime2)
+- [OGU table generation](#ogu-table-generation)
+- [OGU analysis using QIIME2](#ogu-analysis-using-qiime2)
 
 
 ### Overview
 
 Here we introduce that, by using the current genome catalog and reference phylogeny, one can analyze whole-genome shotgun (WGS) sequencing data (a.k.a., metagenomic data) using classical bioinformatic methods designed for amplicon (e.g., 16S rRNA) sequencing data, such as [UniFrac](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [Faith's PD](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity, and more.
 
-With an existing sequence aligner (e.g., [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) or [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi)), and a [**Python script**](../code/scripts/gOTU_from_maps.py) developed by us, one can generate a [BIOM](http://biom-format.org/) table, in which every row is an individual genome (here we refer to it as "**gOTU**"), and every column is a sample (microbiome). This BIOM table can be analyzed using a familiar bioinformatic pipeline (e.g., [QIIME2](https://qiime2.org/)) and familiar functions.
+With an existing sequence aligner (e.g., [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) or [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi)), and a [**Python script**](../code/scripts/ogu_from_maps.py) developed by us, one can generate a [BIOM](http://biom-format.org/) table, in which every row is an individual genome (here we refer to it as "**OGU**"), and every column is a sample (microbiome). This BIOM table can be analyzed using a familiar bioinformatic pipeline (e.g., [QIIME2](https://qiime2.org/)) and familiar functions.
 
 The entire analysis is **taxonomy-free**, although one can always get taxonomic information in parallel (see [genome database](genome_database)).
 
 
-### Core notion: gOTU
+### Core notion: OGU
 
 The term **OTU** (operational taxonomic unit) was conventionally used in 16S data analysis. In practice, sequences are clustered at a similarity threshold of 97%, and each cluster is considered a basic unit of the community. Recent years have seen this classical term evolving into **sOTU**, where every exact 16S sequence is treated as the basic unit (i.e., an sOTU), hence improving resolution.
 
 sOTU analysis using [Deblur](https://github.com/biocore/deblur) or [DADA2](https://benjjneb.github.io/dada2/) is well-supported in QIIME2. See [details](https://docs.qiime2.org/2020.2/tutorials/qiime2-for-experienced-microbiome-researchers/#denoising).
 {: .notice--warning}
 
-The notion we introduce here, gOTU, means to be an analogue to sOTU, but for WGS data analysis. Previously, diversity analyses on WGS data were typically performed at a particular taxonomic rank, such as genus or species. This limits resolution, and introduces artifacts due to the limitation of taxonomic assignment itself. In this protocol, _we do NOT assign taxonomy_, but directly consider individual sequence-genome association as the basic unit of the microbiome.
+The notion we introduce here, OGU, means to be an analogue to sOTU, but for WGS data analysis. Previously, diversity analyses on WGS data were typically performed at a particular taxonomic rank, such as genus or species. This limits resolution, and introduces artifacts due to the limitation of taxonomic assignment itself. In this protocol, _we do NOT assign taxonomy_, but directly consider individual sequence-genome association as the basic unit of the microbiome.
 
 
 ### Sequence mapping
 
 Any sequence aligner, such as Bowtie2 or BLAST, or more complicated metagenome classifier, such as [SHOGUN](https://github.com/knights-lab/SHOGUN) or [Centrifuge](https://ccb.jhu.edu/software/centrifuge/), as long as it directly associates query sequences with reference genome sequences, can be used for this analysis. For the later, this process does not block the original analysis (i.e., taxonomic classication). It just makes use of the intermediate files (read maps)
 
-(Evaluation of individual aligners in the context of gOTU analysis is currently ongoing.)
+(Evaluation of individual aligners in the context of OGU analysis is currently ongoing.)
 
 Example 1: Taxonomic profiling using SHOGUN, with Bowtie2 as aligner:
 
@@ -46,11 +46,11 @@ centrifuge -p 32 -x /path/to/db -1 input.R1.fq.gz -2 input.R2.fq.gz -S output.ma
 ```
 
 
-### gOTU table generation
+### OGU table generation
 
-#### gOTU from maps
+#### OGU from maps
 
-We provide a Python script [**gOTU_from_maps.py**](../code/scripts/gOTU_from_maps.py) to convert mapping files of multiple samples into a BIOM table (i.e., the gOTU table). This script supports multiple mapping file formats, including:
+We provide a Python script [**ogu_from_maps.py**](../code/scripts/ogu_from_maps.py) to convert mapping files of multiple samples into a BIOM table (i.e., the OGU table). This script supports multiple mapping file formats, including:
 - [SAM format](https://en.wikipedia.org/wiki/SAM_(file_format)) (used by Bowtie2, BWA, etc.),
 - [BLAST tabular output](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6) (a.k.a., `m8`, used by BLAST, USEARCH, BURST, etc.),
 - Centrifuge mapping file, and
@@ -61,7 +61,7 @@ Place all mapping files in one directory. The stem filenames represent sample ID
 Example 1: SHOGUN by Bowtie2 maps:
 
 ```bash
-gOTU_from_maps.py bowtie2_result_dir output -m bowtie2 -e .sam.bz2 -t nucl2g.txt
+ogu_from_maps.py bowtie2_result_dir output -m bowtie2 -e .sam.bz2 -t nucl2g.txt
 ```
 
 - The `nucl2g.txt` is a map of genome sequences (nucleotide) to genome IDs. We provide [**this file**](../data/genomes/nucl2g.txt.xz) in this repository. One may also customize it.
@@ -70,10 +70,10 @@ gOTU_from_maps.py bowtie2_result_dir output -m bowtie2 -e .sam.bz2 -t nucl2g.txt
 Example 2: Centrifuge maps:
 
 ```bash
-gOTU_from_maps.py centrifuge_result_dir output -m centrifuge -e .map.xz -t nucl2g.txt
+ogu_from_maps.py centrifuge_result_dir output -m centrifuge -e .map.xz -t nucl2g.txt
 ```
 
-The script generates three gOTU tables. They differ by the way _non-unique_ hits are treated:
+The script generates three OGU tables. They differ by the way _non-unique_ hits are treated:
 
 - `all.tsv`: Includes all hits to each genome, regardless of ambiguity.
 - `uniq.tsv`: Only considers unique hits per genome (i.e., query sequences simultaneously mapped to multiple genomes are not considered).
@@ -102,10 +102,10 @@ In addition, we provide [filter_otus_per_sample.py](../code/scripts/filter_otus_
 filter_otus_per_sample.py input.biom 0.0001 output.biom
 ```
 
-- This command filters out gOTUs with less than 0.01% assignments per sample.
+- This command filters out OGU with less than 0.01% assignments per sample.
 
 
-### gOTU analysis using QIIME2
+### OGU analysis using QIIME2
 
 #### Importing data
 
@@ -162,6 +162,6 @@ qiime diversity beta-phylogenetic \
   --output-dir .
 ```
 
-- Here we used the **weighted UniFrac** metric as an example, which considers the relative abundances of gOTUs. It is usually encouranged to test other metrics too and compare the results.
+- Here we used the **weighted UniFrac** metric as an example, which considers the relative abundances of OGUs. It is usually encouranged to test other metrics too and compare the results.
 
 The beta diversity analysis generates a distance matrix among samples, on which multiple downstream analyses can be performed. Examples are [PCoA](https://docs.qiime2.org/2020.2/plugins/available/diversity/pcoa/) and subsequent [visualization](https://docs.qiime2.org/2020.2/plugins/available/emperor/plot/), [PERMANOVA](https://docs.qiime2.org/2020.2/plugins/available/diversity/beta-group-significance/), [Mantel test](https://docs.qiime2.org/2020.2/plugins/available/diversity/mantel/), [kNN classification](https://docs.qiime2.org/2020.2/plugins/available/sample-classifier/classify-samples-from-dist/). We encourage you to explore the QIIME2 documentation and workshops to find out more!

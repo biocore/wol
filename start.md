@@ -54,7 +54,7 @@ The 10,575-genome catalog, with its _curated_ taxonomy, can be compiled into a r
 
 ### Microbial community ecology
 
-This reference phylogeny enables classical diversity analyses designed during the 16S rRNA era, such as [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [**Faith's PD**](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity, on WGS datasets. Finer-grained output is enabled at per-genome level resolution (we call it  "**gOTU**"). See this [protocol](protocols/community_ecology) and corresponding source code.
+This reference phylogeny enables classical diversity analyses designed during the 16S rRNA era, such as [**UniFrac**](https://en.wikipedia.org/wiki/UniFrac) for beta diversity, and [**Faith's PD**](https://en.wikipedia.org/wiki/Phylogenetic_diversity) for alpha diversity, on WGS datasets. Finer-grained output is enabled at per-genome level resolution (we call it  "**OGU**"). See this [protocol](protocols/community_ecology) and corresponding source code.
 
 ### Phylogeny-based profiling
 

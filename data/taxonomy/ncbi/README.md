@@ -3,7 +3,7 @@ Taxonomy
 
 The original **NCBI** taxonomy of the sampled genomes.
 
-- [taxid.map](taxids.txt): Genome ID to NCBI taxonomy ID map.
+- [taxid.map](taxid.map): Genome ID to NCBI taxonomy ID map.
 - [ranks.tsv](ranks.tsv.xz): NCBI taxonomy names at ranks.
 - [ranks.tid.tsv](ranks.tid.tsv.xz): NCBI taxonomy IDs at ranks.
 - [lineages.txt](lineages.txt.xz): Greengenes-style lineage strings.
