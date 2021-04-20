@@ -1,0 +1,1981 @@
+rank	name	taxid	count	mono_strict	mono_relaxed	consistency	quartet	markers
+kingdom	Archaea	2157	669	yes	yes	1	1	185.0
+kingdom	Bacteria	2	9906	yes	yes	1	1	293.0
+phylum	Acidobacteria	57723	56	no	no	0.965	0.97	296.4
+phylum	Actinobacteria	201174	1097	no	no	0.994	0.998	326.2
+phylum	Aquificae	200783	17	no	no	0.941	1	308.9
+phylum	Armatimonadetes	67819	9	no	no	0.889	1	304.6
+phylum	Bacteroidetes	976	834	no	no	0.993	0.997	322.9
+phylum	Balneolaeota	1936987	4	no	no	0.75	1	340.3
+phylum	Caldiserica	67814	2	yes	yes	1	1	240.0
+phylum	Calditrichaeota	1930617	2	yes	yes	1	1	327.5
+phylum	Candidatus Acetothermia	67810	7	yes	yes	1	1	241.7
+phylum	Candidatus Adlerbacteria	1752736	5	yes	yes	1	1	133.4
+phylum	Candidatus Aerophobetes	1052815	3	yes	yes	1	1	228.0
+phylum	Candidatus Amesbacteria	1752730	30	no	yes	1	1	128.8
+phylum	Candidatus Aminicenantes	67817	8	yes	yes	1	1	204.0
+phylum	Candidatus Andersenbacteria	1817901	8	no	yes	1	1	151.0
+phylum	Candidatus Atribacteria	67818	4	no	no	0.75	0.68	206.0
+phylum	Candidatus Azambacteria	1752741	23	no	no	0.783	0.971	128.8
+phylum	Candidatus Bathyarchaeota	928852	14	no	no	0.778	0.999	145.6
+phylum	Candidatus Beckwithbacteria	1752726	14	yes	yes	1	1	155.7
+phylum	Candidatus Berkelbacteria	1618330	8	yes	yes	1	1	132.5
+phylum	Candidatus Blackburnbacteria	1817898	7	yes	yes	1	1	127.4
+phylum	Candidatus Buchananbacteria	1817903	10	no	no	0.8	0.999	137.9
+phylum	Candidatus Calescamantes	1052197	7	no	yes	1	1	243.4
+phylum	Candidatus Chisholmbacteria	1817900	4	yes	yes	1	1	156.5
+phylum	Candidatus Cloacimonetes	456828	10	yes	yes	1	1	199.1
+phylum	Candidatus Collierbacteria	1752725	30	no	no	0.968	0.999	135.6
+phylum	Candidatus Colwellbacteria	1817904	7	no	yes	1	1	128.7
+phylum	Candidatus Curtissbacteria	1752717	17	no	no	0.944	1	139.8
+phylum	Candidatus Dadabacteria	1752716	2	yes	yes	1	1	270.5
+phylum	Candidatus Daviesbacteria	1752718	36	yes	yes	1	1	143.6
+phylum	Candidatus Doudnabacteria	1817799	19	yes	yes	1	1	154.8
+phylum	Candidatus Falkowbacteria	1752728	23	no	no	0.739	0.997	161.2
+phylum	Candidatus Fervidibacteria	1383058	3	yes	yes	1	1	155.7
+phylum	Candidatus Giovannonibacteria	1752738	46	no	no	0.958	0.999	140.2
+phylum	Candidatus Glassbacteria	1817805	3	yes	yes	1	1	251.0
+phylum	Candidatus Gottesmanbacteria	1752720	23	no	no	0.957	0.998	170.5
+phylum	Candidatus Harrisonbacteria	1817905	9	no	no	0.778	1	131.3
+phylum	Candidatus Hydrogenedentes	142187	5	yes	yes	1	1	217.0
+phylum	Candidatus Jacksonbacteria	1817906	8	no	yes	1	0.999	176.6
+phylum	Candidatus Jorgensenbacteria	1752739	8	yes	yes	1	1	124.6
+phylum	Candidatus Kaiserbacteria	1752734	48	no	no	0.81	0.997	144.4
+phylum	Candidatus Kerfeldbacteria	1817907	4	yes	yes	1	1	172.0
+phylum	Candidatus Komeilibacteria	1817908	8	no	no	0.875	0.991	154.6
+phylum	Candidatus Kryptonia	1855361	21	yes	yes	1	1	276.8
+phylum	Candidatus Kuenenbacteria	1752740	6	yes	yes	1	1	130.3
+phylum	Candidatus Latescibacteria	74015	2	yes	yes	1	1	200.0
+phylum	Candidatus Levybacteria	1752719	37	yes	yes	1	1	141.3
+phylum	Candidatus Liptonbacteria	1817909	10	no	no	0.727	0.999	127.5
+phylum	Candidatus Llyodbacteria	1817910	12	no	no	0.833	0.999	163.3
+phylum	Candidatus Magasanikbacteria	1752731	45	no	no	0.978	1	163.8
+phylum	Candidatus Marinimicrobia	62680	18	no	no	0.944	0.929	219.6
+phylum	Candidatus Micrarchaeota	1801631	2	yes	yes	1	1	125.0
+phylum	Candidatus Microgenomates	67820	5	no	no	0.2	0.948	135.2
+phylum	Candidatus Moranbacteria	1752737	41	no	yes	1	0.999	150.4
+phylum	Candidatus Nealsonbacteria	1817911	7	no	no	0.636	0.999	128.4
+phylum	Candidatus Nomurabacteria	1752729	63	no	no	0.937	0.995	140.6
+phylum	Candidatus Omnitrophica	67812	37	no	no	0.973	0.956	240.1
+phylum	Candidatus Pacebacteria	1752724	11	no	no	0.917	0.999	146.9
+phylum	Candidatus Parcubacteria	221216	10	no	no	0.4	0.925	141.5
+phylum	Candidatus Peregrinibacteria	1619053	60	yes	yes	1	1	174.8
+phylum	Candidatus Poribacteria	265317	3	yes	yes	1	1	225.0
+phylum	Candidatus Portnoybacteria	1817913	4	no	yes	1	0.999	126.5
+phylum	Candidatus Roizmanbacteria	1752723	69	no	no	0.958	1	157.7
+phylum	Candidatus Ryanbacteria	1817914	11	no	no	0.909	0.986	144.1
+phylum	Candidatus Saccharibacteria	95818	18	yes	yes	1	1	150.1
+phylum	Candidatus Schekmanbacteria	1817811	8	no	no	0.875	0.985	297.9
+phylum	Candidatus Shapirobacteria	1752721	6	yes	yes	1	1	135.7
+phylum	Candidatus Spechtbacteria	1817915	6	yes	yes	1	1	137.7
+phylum	Candidatus Staskawiczbacteria	1817916	24	no	yes	1	1	137.7
+phylum	Candidatus Sungbacteria	1817917	19	no	yes	1	0.999	148.7
+phylum	Candidatus Tagabacteria	1817918	2	no	no	0.5	0.991	122.0
+phylum	Candidatus Taylorbacteria	1817919	37	no	no	0.974	0.999	139.9
+phylum	Candidatus Tectomicrobia	1802339	2	yes	yes	1	1	356.0
+phylum	Candidatus Terrybacteria	1817920	6	no	yes	1	1	152.7
+phylum	Candidatus Thorarchaeota	1706441	3	yes	yes	1	1	170.7
+phylum	Candidatus Uhrbacteria	1752732	57	no	no	0.81	0.995	153.7
+phylum	Candidatus Veblenbacteria	1817921	3	no	yes	1	0.999	145.0
+phylum	Candidatus Verstraetearchaeota	1915410	4	yes	yes	1	1	157.8
+phylum	Candidatus Vogelbacteria	1817922	2	no	yes	1	0.999	133.5
+phylum	Candidatus Wildermuthbacteria	1817923	11	no	no	0.545	0.998	131.4
+phylum	Candidatus Woesebacteria	1752722	82	no	yes	1	0.999	135.1
+phylum	Candidatus Wolfebacteria	1752735	20	no	no	0.95	0.999	145.4
+phylum	Candidatus Woykebacteria	1817899	10	yes	yes	1	1	148.3
+phylum	Candidatus Yanofskybacteria	1752733	42	yes	yes	1	1	133.1
+phylum	Candidatus Yonathbacteria	1817924	6	no	no	0.545	0.999	140.3
+phylum	Candidatus Zambryskibacteria	1817925	31	no	yes	1	0.999	123.2
+phylum	Chlamydiae	204428	106	yes	yes	1	1	228.6
+phylum	Chlorobi	1090	16	no	no	0.812	0.949	329.6
+phylum	Chloroflexi	200795	147	no	no	0.98	0.988	251.5
+phylum	Chrysiogenetes	200938	2	yes	yes	1	1	349.0
+phylum	Crenarchaeota	28889	167	no	no	0.976	0.999	171.8
+phylum	Cyanobacteria	1117	295	yes	yes	1	1	333.1
+phylum	Deferribacteres	200930	8	no	no	0.875	0.855	339.4
+phylum	Deinococcus-Thermus	1297	41	yes	yes	1	1	350.4
+phylum	Dictyoglomi	68297	2	yes	yes	1	1	304.5
+phylum	Elusimicrobia	74152	29	yes	yes	1	1	278.4
+phylum	Euryarchaeota	28890	407	no	no	0.88	0.989	196.1
+phylum	Fibrobacteres	65842	25	no	no	0.962	1	308.0
+phylum	Firmicutes	1239	1948	no	no	0.961	0.984	321.1
+phylum	Fusobacteria	32066	36	yes	yes	1	1	300.6
+phylum	Gemmatimonadetes	142182	8	yes	yes	1	1	262.4
+phylum	Ignavibacteriae	1134404	26	no	no	0.808	0.998	319.1
+phylum	Lentisphaerae	256845	9	no	no	0.9	1	309.2
+phylum	Nitrospinae	1293497	16	yes	yes	1	1	274.7
+phylum	Nitrospirae	40117	55	no	no	0.818	0.97	285.3
+phylum	Planctomycetes	203682	63	yes	yes	1	1	307.0
+phylum	Proteobacteria	1224	2975	no	no	0.937	0.984	332.7
+phylum	Spirochaetes	203691	135	no	no	0.993	0.99	264.2
+phylum	Synergistetes	508458	30	no	no	0.967	0.95	302.7
+phylum	Tenericutes	544448	66	no	no	0.6	0.993	197.8
+phylum	Thaumarchaeota	651137	49	no	no	0.959	0.997	163.8
+phylum	Thermodesulfobacteria	200940	10	yes	yes	1	1	303.7
+phylum	Thermotogae	200918	35	yes	yes	1	1	299.5
+phylum	Verrucomicrobia	74201	55	yes	yes	1	1	291.5
+phylum	candidate division CPR2	1618339	6	no	yes	1	1	171.8
+phylum	candidate division CPR3	1618340	3	yes	yes	1	1	141.7
+phylum	candidate division NC10	640293	3	yes	yes	1	1	278.0
+phylum	candidate division WOR-3	1703755	2	yes	yes	1	1	226.5
+phylum	candidate division WWE3	422282	62	no	yes	1	1	137.9
+phylum	candidate division Zixibacteria	1379697	8	yes	yes	1	1	232.6
+class	Acidimicrobiia	84992	13	no	no	0.619	0.999	310.3
+class	Acidithiobacillia	1807140	19	no	no	0.95	1	346.4
+class	Acidobacteriia	204432	21	no	no	0.952	1	336.4
+class	Actinobacteria	1760	998	no	no	0.989	0.998	329.8
+class	Alphaproteobacteria	28211	890	no	no	0.998	0.999	330.6
+class	Anaerolineae	292625	20	no	no	0.87	0.998	272.5
+class	Aquificae	187857	17	no	yes	1	1	308.9
+class	Archaeoglobi	183980	21	yes	yes	1	1	178.1
+class	Bacilli	91061	1035	no	no	0.901	0.991	327.4
+class	Bacteroidia	200643	261	no	no	0.989	0.992	307.9
+class	Balneolia	1853221	4	no	no	0.75	1	340.3
+class	Betaproteobacteria	28216	331	no	no	0.994	1	349.2
+class	Blastocatellia	1562566	2	no	yes	1	0.999	351.5
+class	Caldisericia	693071	2	yes	yes	1	1	240.0
+class	Calditrichae	1962850	2	yes	yes	1	1	327.5
+class	Candidatus Methanomethylia	1915413	4	yes	yes	1	1	157.8
+class	Candidatus Peribacteria	1801911	34	no	yes	1	1	168.8
+class	Chitinophagia	1853228	44	no	no	0.796	0.992	330.7
+class	Chlamydiia	204429	91	no	yes	1	0.999	229.2
+class	Chlorobia	191410	13	yes	yes	1	1	334.5
+class	Chloroflexia	32061	10	no	yes	1	1	350.2
+class	Chrysiogenetes	118001	2	yes	yes	1	1	349.0
+class	Chthonomonadetes	1077257	4	yes	yes	1	1	341.5
+class	Clostridia	186801	716	no	no	0.776	0.911	316.7
+class	Coriobacteriia	84998	63	no	yes	1	1	285.3
+class	Cytophagia	768503	105	no	yes	1	1	343.7
+class	Deferribacteres	68337	8	no	no	0.875	0.855	339.4
+class	Dehalococcoidia	301297	42	no	yes	1	0.998	244.3
+class	Deinococci	188787	41	yes	yes	1	1	350.4
+class	Deltaproteobacteria	28221	317	no	no	0.827	0.93	313.3
+class	Dictyoglomia	203486	2	yes	yes	1	1	304.5
+class	Epsilonproteobacteria	29547	110	yes	yes	1	1	305.8
+class	Erysipelotrichia	526524	50	no	no	0.705	0.983	300.1
+class	Fibrobacteria	204430	22	no	no	0.955	1	308.9
+class	Flavobacteriia	117743	291	yes	yes	1	1	322.7
+class	Fusobacteriia	203490	36	yes	yes	1	1	300.6
+class	Gammaproteobacteria	1236	1293	no	no	0.993	0.994	337.2
+class	Gemmatimonadetes	219685	4	no	yes	1	1	316.3
+class	Gloeobacteria	307596	2	yes	yes	1	1	349.5
+class	Hadesarchaea	1775750	2	yes	yes	1	1	150.0
+class	Halobacteria	183963	99	no	no	0.99	0.999	224.0
+class	Holophagae	533205	2	yes	yes	1	1	349.0
+class	Ignavibacteria	795747	26	no	yes	1	0.998	319.1
+class	Ktedonobacteria	388447	8	yes	yes	1	1	255.0
+class	Lentisphaeria	1313211	2	no	yes	1	0.999	326.0
+class	Methanobacteria	183925	34	yes	yes	1	1	183.4
+class	Methanococci	183939	19	yes	yes	1	1	171.8
+class	Methanomicrobia	224756	132	no	no	0.917	0.987	205.7
+class	Methylacidiphilae	1955630	3	yes	yes	1	1	324.0
+class	Mollicutes	31969	48	no	no	0.471	0.99	179.8
+class	Negativicutes	909932	73	yes	yes	1	1	331.0
+class	Nitrososphaeria	1643678	5	no	yes	1	1	188.8
+class	Nitrospinia	1293498	6	no	yes	1	1	245.7
+class	Nitrospira	203693	19	no	no	0.474	0.925	307.0
+class	Opitutae	414999	9	no	no	0.9	0.999	340.3
+class	Phycisphaerae	666505	8	no	yes	1	0.999	293.9
+class	Planctomycetia	203683	34	no	no	0.882	0.999	345.1
+class	Rubrobacteria	84995	3	yes	yes	1	1	334.3
+class	Saprospiria	1937959	9	no	yes	1	1	334.8
+class	Solibacteres	332159	2	no	no	0.667	1	366.0
+class	Spartobacteria	134549	3	no	yes	1	0.999	315.3
+class	Sphingobacteriia	117747	78	no	no	0.846	0.989	347.6
+class	Spirochaetia	203692	127	no	no	0.992	0.989	262.6
+class	Synergistia	649775	29	no	no	0.966	0.949	306.8
+class	Thermococci	183968	38	yes	yes	1	1	175.5
+class	Thermodesulfobacteria	67799	10	yes	yes	1	1	303.7
+class	Thermoleophilia	1497346	9	yes	yes	1	1	346.1
+class	Thermomicrobia	189775	4	yes	yes	1	1	333.0
+class	Thermoplasmata	183967	25	no	no	0.893	0.998	184.3
+class	Thermoprotei	183924	156	yes	yes	1	1	174.0
+class	Thermotogae	188708	35	yes	yes	1	1	299.5
+class	Tissierellia	1737404	39	no	no	0.696	0.972	283.3
+class	Verrucomicrobiae	203494	22	no	no	0.75	0.998	317.3
+class	Zetaproteobacteria	580370	7	yes	yes	1	1	283.1
+order	Acholeplasmatales	186329	24	no	no	0.852	0.996	180.1
+order	Acidaminococcales	1843488	12	yes	yes	1	1	322.1
+order	Acidilobales	871006	6	yes	yes	1	1	147.8
+order	Acidimicrobiales	84993	13	no	yes	1	0.999	310.3
+order	Acidithiobacillales	225057	19	no	no	0.95	1	346.4
+order	Acidobacteriales	204433	21	no	no	0.952	1	336.4
+order	Actinomycetales	2037	70	no	no	0.959	1	295.6
+order	Actinopolysporales	622450	3	yes	yes	1	1	341.3
+order	Aeromonadales	135624	22	no	no	0.5	0.966	344.3
+order	Alteromonadales	135622	155	no	no	0.588	0.951	358.6
+order	Anaerolineales	292629	16	no	no	0.889	0.998	282.5
+order	Aquificales	32069	13	no	no	0.923	1	310.0
+order	Archaeoglobales	2231	20	yes	yes	1	1	178.5
+order	Bacillales	1385	542	no	no	0.518	0.929	365.3
+order	Bacteroidales	171549	260	no	no	0.992	0.992	307.8
+order	Bacteroidetes Order II. Incertae sedis	1100069	3	yes	yes	1	1	340.0
+order	Balneolales	1853223	4	no	no	0.75	1	340.3
+order	Bdellovibrionales	213481	37	yes	yes	1	1	301.4
+order	Bifidobacteriales	85004	43	yes	yes	1	1	272.7
+order	Brachyspirales	1643686	5	no	no	0.8	0.73	302.4
+order	Burkholderiales	80840	187	no	no	0.979	0.998	357.6
+order	Caldisericales	693072	2	yes	yes	1	1	240.0
+order	Calditrichales	1962852	2	yes	yes	1	1	327.5
+order	Campylobacterales	213849	101	no	yes	1	0.999	306.5
+order	Candidatus Altiarchaeales	1803511	5	yes	yes	1	1	150.6
+order	Candidatus Brocadiales	1127829	4	no	yes	1	0.999	340.8
+order	Candidatus Methanomethyliales	1915414	4	yes	yes	1	1	157.8
+order	Candidatus Peribacterales	1803398	5	yes	yes	1	1	178.0
+order	Cardiobacteriales	135615	5	yes	yes	1	1	315.8
+order	Catenulisporales	414714	2	yes	yes	1	1	354.5
+order	Caulobacterales	204458	24	no	no	0.958	1	345.4
+order	Cellvibrionales	1706369	46	no	no	0.939	0.999	344.3
+order	Chitinophagales	1853229	44	no	no	0.843	0.992	330.7
+order	Chlamydiales	51291	81	no	no	0.951	1	222.0
+order	Chlorobiales	191411	13	yes	yes	1	1	334.5
+order	Chloroflexales	32064	8	no	yes	1	1	347.9
+order	Chromatiales	135613	57	no	no	0.413	0.927	356.4
+order	Chroococcales	1118	39	no	no	0.644	0.996	345.2
+order	Chroococcidiopsidales	1890505	2	no	no	0.5	0.999	356.5
+order	Chrysiogenales	189769	2	yes	yes	1	1	349.0
+order	Chthonomonadales	1077263	4	yes	yes	1	1	341.5
+order	Clostridiales	186802	638	no	no	0.815	0.93	316.2
+order	Coriobacteriales	84999	46	no	no	0.913	0.999	278.7
+order	Corynebacteriales	85007	271	no	no	0.989	0.998	332.6
+order	Cytophagales	768507	105	no	yes	1	1	343.7
+order	Deferribacterales	191393	7	yes	yes	1	1	344.0
+order	Dehalococcoidales	1202465	30	no	yes	1	0.999	256.0
+order	Deinococcales	118964	22	yes	yes	1	1	355.5
+order	Desulfarculales	453227	5	no	no	0.6	0.981	271.8
+order	Desulfobacterales	213118	47	no	no	0.712	0.997	331.4
+order	Desulfovibrionales	213115	60	yes	yes	1	1	344.6
+order	Desulfurellales	213113	5	yes	yes	1	1	324.6
+order	Desulfurobacteriales	1485951	4	yes	yes	1	1	305.3
+order	Desulfurococcales	114380	19	no	no	0.731	0.999	143.1
+order	Desulfuromonadales	69541	27	no	no	0.963	0.955	343.1
+order	Dictyoglomales	203487	2	yes	yes	1	1	304.5
+order	Eggerthellales	1643822	17	no	no	0.85	1	303.1
+order	Enterobacterales	91347	172	no	no	0.983	0.997	337.8
+order	Entomoplasmatales	186328	17	no	no	0.889	0.998	177.2
+order	Erysipelotrichales	526525	50	no	no	0.717	0.983	300.1
+order	Ferrovales	1442155	2	yes	yes	1	1	335.5
+order	Fibrobacterales	218872	15	no	yes	1	1	314.5
+order	Flavobacteriales	200644	287	no	yes	1	1	323.1
+order	Frankiales	85013	12	no	no	0.667	0.947	343.5
+order	Fusobacteriales	203491	36	yes	yes	1	1	300.6
+order	Gallionellales	713636	9	yes	yes	1	1	273.1
+order	Gemmatimonadales	219686	4	no	yes	1	1	316.3
+order	Geodermatophilales	1643682	10	yes	yes	1	1	345.2
+order	Gloeobacterales	307595	2	yes	yes	1	1	349.5
+order	Glycomycetales	85014	5	yes	yes	1	1	340.2
+order	Halanaerobiales	53433	17	yes	yes	1	1	335.7
+order	Halobacteriales	2235	34	no	no	0.676	0.994	223.1
+order	Haloferacales	1644055	35	no	no	0.946	0.999	222.9
+order	Herpetosiphonales	189772	2	yes	yes	1	1	359.5
+order	Holophagales	574975	2	yes	yes	1	1	349.0
+order	Holosporales	1921002	7	no	no	0.571	0.897	238.6
+order	Hydrogenophilales	119069	5	no	no	0.6	0.964	355.2
+order	Ignavibacteriales	795748	4	no	yes	1	0.998	332.3
+order	Jiangellales	1217098	3	yes	yes	1	1	348.0
+order	Kiloniellales	597358	3	yes	yes	1	1	361.7
+order	Kineosporiales	622452	4	no	no	0.75	0.996	342.3
+order	Kosmotogales	1643946	3	no	no	0.75	1	286.0
+order	Ktedonobacterales	388448	6	yes	yes	1	1	225.3
+order	Lactobacillales	186826	493	no	no	0.992	0.998	285.8
+order	Legionellales	118969	92	no	yes	1	0.999	329.3
+order	Methanobacteriales	2158	34	yes	yes	1	1	183.4
+order	Methanocellales	570264	3	yes	yes	1	1	199.7
+order	Methanococcales	2182	19	yes	yes	1	1	171.8
+order	Methanomassiliicoccales	1235850	7	no	no	0.7	0.999	190.7
+order	Methanomicrobiales	2191	34	no	no	0.941	0.994	192.9
+order	Methanosarcinales	94695	85	no	no	0.976	1	214.9
+order	Methylacidiphilales	717963	3	yes	yes	1	1	324.0
+order	Methylococcales	135618	22	no	yes	1	1	359.3
+order	Methylophilales	206350	15	no	yes	1	1	332.1
+order	Micrococcales	85006	229	no	no	0.654	0.987	333.0
+order	Micromonosporales	85008	23	no	no	0.913	0.919	358.4
+order	Mycoplasmatales	2085	6	no	no	0.667	0.986	178.5
+order	Myxococcales	29	23	no	yes	1	1	359.2
+order	Nakamurellales	1643684	2	yes	yes	1	1	353.0
+order	Natrialbales	1644060	29	no	no	0.967	1	226.8
+order	Nautiliales	235899	3	yes	yes	1	1	309.3
+order	Neisseriales	206351	50	no	no	0.962	1	347.0
+order	Nevskiales	1775403	9	no	no	0.889	0.997	356.6
+order	Nitrosomonadales	32003	27	yes	yes	1	1	349.6
+order	Nitrosopumilales	31932	14	no	yes	1	0.999	176.4
+order	Nitrososphaerales	1033996	5	no	yes	1	1	188.8
+order	Nitrospinales	1293499	6	no	yes	1	1	245.7
+order	Nitrospirales	189778	18	no	no	0.5	0.922	309.9
+order	Nostocales	1161	53	no	yes	1	1	350.4
+order	Oceanospirillales	135619	95	no	no	0.721	0.981	349.7
+order	Opitutales	415000	6	no	no	0.833	0.999	343.8
+order	Orbales	1240482	19	yes	yes	1	1	316.3
+order	Oscillatoriales	1150	48	no	no	0.479	0.984	355.4
+order	Parachlamydiales	1963360	10	no	no	0.714	0.999	287.5
+order	Parvularculales	255473	2	yes	yes	1	1	336.0
+order	Pasteurellales	135625	53	yes	yes	1	1	314.8
+order	Pelagibacterales	54526	17	no	yes	1	1	239.6
+order	Petrotogales	1643947	6	no	no	0.857	1	308.2
+order	Phycisphaerales	666506	2	no	yes	1	0.998	337.5
+order	Planctomycetales	112	30	no	yes	1	1	345.7
+order	Pleurocapsales	52604	6	no	no	0.667	0.995	360.7
+order	Propionibacteriales	85009	56	no	yes	1	1	336.8
+order	Pseudomonadales	72274	157	no	no	0.684	0.95	342.9
+order	Pseudonocardiales	85010	54	no	no	0.93	0.994	351.6
+order	Puniceicoccales	415001	3	no	no	0.75	0.999	333.3
+order	Rhizobiales	356	298	no	no	0.925	0.995	340.7
+order	Rhodobacterales	204455	216	no	no	0.819	0.98	357.9
+order	Rhodocyclales	206389	22	no	no	0.917	1	354.1
+order	Rhodospirillales	204441	92	no	no	0.867	0.975	347.1
+order	Rickettsiales	766	81	no	no	0.976	0.996	215.9
+order	Rubrobacterales	84996	3	yes	yes	1	1	334.3
+order	Salinisphaerales	742030	2	yes	yes	1	1	361.5
+order	Saprospirales	1936988	9	no	yes	1	1	334.8
+order	Selenomonadales	909929	36	yes	yes	1	1	348.3
+order	Solibacterales	332160	2	no	no	0.667	1	366.0
+order	Solirubrobacterales	588673	8	yes	yes	1	1	350.5
+order	Sphaerobacterales	85001	2	yes	yes	1	1	334.5
+order	Sphingobacteriales	200666	76	no	no	0.868	0.99	348.0
+order	Sphingomonadales	204457	113	no	yes	1	1	347.5
+order	Spirochaetales	136	94	no	yes	1	1	238.7
+order	Spirulinales	1890443	2	yes	yes	1	1	358.0
+order	Streptomycetales	85011	127	no	no	0.977	0.998	355.1
+order	Streptosporangiales	85012	39	no	no	0.974	0.999	354.0
+order	Sulfolobales	2281	95	yes	yes	1	1	185.2
+order	Synechococcales	1890424	140	no	no	0.6	0.982	313.5
+order	Synergistales	649776	29	no	no	0.966	0.949	306.8
+order	Syntrophobacterales	213462	20	no	no	0.6	0.981	297.5
+order	Thermales	68933	19	yes	yes	1	1	344.6
+order	Thermoanaerobacterales	68295	47	no	no	0.462	0.765	319.7
+order	Thermococcales	2258	38	yes	yes	1	1	175.5
+order	Thermodesulfobacteriales	188710	10	yes	yes	1	1	303.7
+order	Thermogemmatisporales	768667	2	yes	yes	1	1	344.0
+order	Thermoplasmatales	2301	17	no	no	0.824	0.999	181.1
+order	Thermoproteales	2266	35	no	no	0.886	0.995	166.2
+order	Thermotogales	2419	25	no	no	0.92	1	299.6
+order	Thiotrichales	72273	123	no	no	0.65	0.903	321.8
+order	Tissierellales	1737405	31	no	no	0.737	0.965	279.8
+order	Veillonellales	1843489	25	yes	yes	1	1	310.4
+order	Verrucomicrobiales	48461	22	no	no	0.808	0.998	317.3
+order	Vibrionales	135623	66	yes	yes	1	1	359.3
+order	Xanthomonadales	135614	67	no	no	0.985	1	350.9
+family	Acaryochloridaceae	1890429	2	yes	yes	1	1	359.5
+family	Acetobacteraceae	433	46	no	no	0.935	0.984	343.2
+family	Acholeplasmataceae	2146	20	no	no	0.95	0.997	172.6
+family	Acidaminococcaceae	909930	12	yes	yes	1	1	322.1
+family	Acidilobaceae	871007	5	yes	yes	1	1	144.6
+family	Acidimicrobiaceae	84994	12	no	no	0.923	0.999	308.8
+family	Acidithiobacillaceae	225058	18	no	no	0.947	1	346.8
+family	Acidobacteriaceae	204434	19	no	no	0.947	1	345.0
+family	Actinomycetaceae	2049	70	no	no	0.959	1	295.6
+family	Actinopolysporaceae	622451	3	yes	yes	1	1	341.3
+family	Aerococcaceae	186827	14	yes	yes	1	1	284.7
+family	Aeromonadaceae	84642	11	yes	yes	1	1	371.0
+family	Akkermansiaceae	1647988	12	yes	yes	1	1	322.0
+family	Alcaligenaceae	506	31	no	no	0.935	0.996	354.9
+family	Alcanivoracaceae	224372	7	no	no	0.857	0.937	351.7
+family	Alicyclobacillaceae	186823	14	no	yes	1	1	355.6
+family	Alteromonadaceae	72275	61	no	no	0.619	0.939	363.2
+family	Amoebophilaceae	1501348	3	yes	yes	1	1	191.3
+family	Anaerolineaceae	292628	11	no	yes	1	0.999	306.8
+family	Anaeromyxobacteraceae	1524215	2	yes	yes	1	1	369.5
+family	Anaplasmataceae	942	47	yes	yes	1	1	222.1
+family	Aphanizomenonaceae	1892259	11	no	no	0.667	0.999	345.5
+family	Aphanothecaceae	1890450	10	no	no	0.615	0.996	330.7
+family	Aquificaceae	64898	7	yes	yes	1	1	308.1
+family	Archaeoglobaceae	2232	20	yes	yes	1	1	178.5
+family	Archangiaceae	39	4	no	no	0.5	0.999	377.3
+family	Atopobiaceae	1643824	30	no	no	0.968	1	267.7
+family	Aurantimonadaceae	255475	11	no	no	0.727	0.987	361.1
+family	Bacillaceae	186817	256	no	no	0.846	0.98	370.6
+family	Bacteriovoracaceae	263369	5	yes	yes	1	1	302.6
+family	Bacteroidaceae	815	54	no	no	0.815	0.958	319.5
+family	Balneolaceae	1813606	4	no	no	0.8	1	340.3
+family	Bartonellaceae	772	60	yes	yes	1	1	290.8
+family	Bdellovibrionaceae	213483	9	no	yes	1	1	315.3
+family	Beijerinckiaceae	45404	7	no	no	0.857	0.998	356.1
+family	Bernardetiaceae	1937968	2	yes	yes	1	1	321.5
+family	Bifidobacteriaceae	31953	42	yes	yes	1	1	273.7
+family	Blattabacteriaceae	39782	8	yes	yes	1	1	224.8
+family	Borreliaceae	1643685	43	yes	yes	1	1	178.9
+family	Brachyspiraceae	143786	5	no	no	0.8	0.73	302.4
+family	Bradyrhizobiaceae	41294	46	no	no	0.804	0.997	365.2
+family	Brevibacteriaceae	85019	7	yes	yes	1	1	326.0
+family	Brucellaceae	118882	6	yes	yes	1	1	358.0
+family	Budviciaceae	1903416	4	yes	yes	1	1	370.5
+family	Burkholderiaceae	119060	37	no	no	0.919	0.994	360.5
+family	Caldisericaceae	693073	2	yes	yes	1	1	240.0
+family	Calditrichaceae	1962854	2	yes	yes	1	1	327.5
+family	Campylobacteraceae	72294	37	no	no	0.784	0.997	317.1
+family	Candidatus Brocadiaceae	1127830	4	no	yes	1	0.999	340.8
+family	Candidatus Methanomethyliaceae	1915415	4	yes	yes	1	1	157.8
+family	Candidatus Methanoperedenaceae	1392996	2	yes	yes	1	1	219.0
+family	Candidatus Midichloriaceae	1328881	2	no	no	0.667	1	235.0
+family	Candidatus Paracaedibacteraceae	1777752	3	yes	yes	1	1	270.3
+family	Cardiobacteriaceae	868	5	yes	yes	1	1	315.8
+family	Carnobacteriaceae	186828	31	no	no	0.71	0.999	307.0
+family	Caulobacteraceae	76892	24	no	no	0.958	1	345.4
+family	Cellulomonadaceae	85016	17	no	no	0.824	0.997	336.9
+family	Cellvibrionaceae	1706371	21	no	no	0.955	1	350.8
+family	Chitinophagaceae	563835	44	no	no	0.977	0.992	330.7
+family	Chlamydiaceae	809	80	no	no	0.963	1	221.2
+family	Chlorobiaceae	191412	13	yes	yes	1	1	334.5
+family	Chloroflexaceae	1106	5	yes	yes	1	1	348.6
+family	Chlorogloeopsidaceae	1892261	2	yes	yes	1	1	360.5
+family	Christensenellaceae	990719	4	no	no	0.429	0.998	267.3
+family	Chromatiaceae	1046	25	no	no	0.48	0.893	364.0
+family	Chromobacteriaceae	1499392	22	no	no	0.522	0.997	366.4
+family	Chroococcaceae	1890464	5	no	no	0.4	0.98	352.8
+family	Chroococcidiopsidaceae	1890528	2	no	no	0.5	0.999	356.5
+family	Chrysiogenaceae	189770	2	yes	yes	1	1	349.0
+family	Chthonomonadaceae	1077264	4	yes	yes	1	1	341.5
+family	Clostridiaceae	31979	170	no	no	0.471	0.89	309.3
+family	Clostridiales Family XII. Incertae Sedis	543313	2	no	yes	1	1	357.5
+family	Clostridiales Family XIII. Incertae Sedis	543314	10	no	no	0.692	0.995	284.5
+family	Clostridiales Family XVII. Incertae Sedis	539000	3	no	no	0.75	1	347.7
+family	Coleofasciculaceae	1892251	7	no	no	0.375	0.976	357.4
+family	Colwelliaceae	267889	10	yes	yes	1	1	357.9
+family	Comamonadaceae	80864	53	no	no	0.981	0.999	360.7
+family	Competibacteraceae	1400857	2	yes	yes	1	1	359.5
+family	Conexibacteraceae	320583	2	no	no	0.5	0.999	351.5
+family	Coriobacteriaceae	84107	15	no	no	0.733	0.996	300.9
+family	Corynebacteriaceae	1653	132	no	no	0.985	0.995	320.6
+family	Coxiellaceae	118968	11	no	no	0.909	0.994	271.0
+family	Crocinitomicaceae	1853230	8	no	yes	1	1	305.3
+family	Cryomorphaceae	246874	11	no	no	0.333	0.958	283.7
+family	Cyanobacteriaceae	1890452	3	no	no	0.667	1	347.0
+family	Cyanothecaceae	1892249	7	no	no	0.429	0.988	357.1
+family	Cyclobacteriaceae	563798	21	no	no	0.84	1	346.3
+family	Cytophagaceae	89373	34	no	no	0.735	0.996	352.5
+family	Deferribacteraceae	191394	6	no	yes	1	1	342.7
+family	Dehalococcoidaceae	1202464	30	no	yes	1	0.999	256.0
+family	Deinococcaceae	183710	21	yes	yes	1	1	355.6
+family	Demequinaceae	1042322	2	yes	yes	1	1	337.5
+family	Dermabacteraceae	85020	8	yes	yes	1	1	322.8
+family	Dermacoccaceae	145357	7	no	no	0.857	0.998	341.1
+family	Dermatophilaceae	85018	6	yes	yes	1	1	347.5
+family	Desulfarculaceae	453228	5	no	no	0.6	0.981	271.8
+family	Desulfobacteraceae	213119	24	no	yes	1	0.999	342.3
+family	Desulfobulbaceae	213121	16	no	yes	1	1	325.6
+family	Desulfohalobiaceae	213117	9	no	no	0.667	0.998	333.7
+family	Desulfomicrobiaceae	213116	3	yes	yes	1	1	357.7
+family	Desulfonatronaceae	224380	3	yes	yes	1	1	352.7
+family	Desulfovibrionaceae	194924	45	yes	yes	1	1	345.4
+family	Desulfurellaceae	117942	5	yes	yes	1	1	324.6
+family	Desulfurobacteriaceae	558314	4	yes	yes	1	1	305.3
+family	Desulfurococcaceae	2272	15	no	no	0.6	0.999	138.5
+family	Desulfuromonadaceae	213421	10	no	no	0.538	0.878	345.6
+family	Dictyoglomaceae	203488	2	yes	yes	1	1	304.5
+family	Dietziaceae	85029	3	yes	yes	1	1	335.3
+family	Ectothiorhodospiraceae	72276	26	no	no	0.75	0.996	351.0
+family	Eggerthellaceae	1643826	17	no	no	0.895	1	303.1
+family	Enterobacteriaceae	543	62	no	no	0.613	0.985	316.5
+family	Enterococcaceae	81852	33	no	no	0.939	0.994	315.9
+family	Entomoplasmataceae	33925	2	yes	yes	1	1	166.5
+family	Erwiniaceae	1903409	30	no	no	0.606	0.989	307.3
+family	Erysipelotrichaceae	128827	50	no	no	0.729	0.983	300.1
+family	Erythrobacteraceae	335929	22	no	no	0.88	1	343.6
+family	Eubacteriaceae	186806	35	no	no	0.229	0.905	321.1
+family	Ferrimonadaceae	267892	4	yes	yes	1	1	369.3
+family	Ferroplasmaceae	90142	6	yes	yes	1	1	186.8
+family	Ferrovaceae	1442156	2	yes	yes	1	1	335.5
+family	Fervidobacteriaceae	1643950	5	yes	yes	1	1	294.2
+family	Fibrobacteraceae	204431	12	no	yes	1	0.999	315.6
+family	Flammeovirgaceae	200667	18	no	no	0.556	0.997	346.2
+family	Flavobacteriaceae	49546	257	no	no	0.955	0.999	329.3
+family	Francisellaceae	34064	54	yes	yes	1	1	310.4
+family	Frankiaceae	74712	10	no	no	0.8	0.976	341.1
+family	Fusobacteriaceae	203492	21	yes	yes	1	1	316.1
+family	Gallionellaceae	90627	5	no	yes	1	1	289.6
+family	Gemmataceae	1914233	2	yes	yes	1	1	346.5
+family	Gemmatimonadaceae	219687	4	no	yes	1	1	316.3
+family	Geobacteraceae	213422	14	no	no	0.688	0.999	349.1
+family	Geodermatophilaceae	85030	10	yes	yes	1	1	345.2
+family	Gloeobacteraceae	1890422	2	yes	yes	1	1	349.5
+family	Glycomycetaceae	85034	5	yes	yes	1	1	340.2
+family	Gordoniaceae	85026	21	no	no	0.857	0.998	344.2
+family	Hafniaceae	1903412	3	yes	yes	1	1	375.3
+family	Hahellaceae	224379	7	no	no	0.714	0.988	371.0
+family	Halanaerobiaceae	972	10	yes	yes	1	1	329.1
+family	Halieaceae	1706372	9	no	yes	1	1	350.3
+family	Haliscomenobacteraceae	1937961	2	yes	yes	1	1	354.0
+family	Haloarculaceae	1963268	12	no	no	0.857	1	232.0
+family	Halobacteriaceae	2236	10	no	no	0.4	0.988	219.7
+family	Halobacteroidaceae	53434	7	yes	yes	1	1	345.1
+family	Halococcaceae	1963270	7	yes	yes	1	1	226.3
+family	Haloferacaceae	1644056	19	no	no	0.895	0.999	226.5
+family	Halomonadaceae	28256	34	no	yes	1	1	338.6
+family	Halorubraceae	1963271	16	no	no	0.889	0.999	218.7
+family	Halothiobacillaceae	255526	2	yes	yes	1	1	348.5
+family	Hapalosiphonaceae	1892263	10	yes	yes	1	1	356.4
+family	Helicobacteraceae	72293	61	no	no	0.622	0.996	298.9
+family	Heliobacteriaceae	31984	2	no	no	0.5	0.473	313.0
+family	Herpetosiphonaceae	189773	2	yes	yes	1	1	359.5
+family	Holophagaceae	574976	2	yes	yes	1	1	349.0
+family	Holosporaceae	44746	3	no	no	0.667	0.896	203.7
+family	Hydrogenophilaceae	206349	5	no	no	0.6	0.964	355.2
+family	Hydrogenothermaceae	224027	5	yes	yes	1	1	310.4
+family	Hyellaceae	1890500	3	no	no	0.667	0.993	361.7
+family	Hymenobacteraceae	1853232	19	no	yes	1	1	347.5
+family	Hyphomicrobiaceae	45401	24	no	no	0.583	0.969	351.1
+family	Hyphomonadaceae	69657	20	no	no	0.952	1	348.0
+family	Idiomarinaceae	267893	17	yes	yes	1	1	338.2
+family	Intrasporangiaceae	85021	30	no	no	0.806	0.999	340.7
+family	Isosphaeraceae	1763524	3	no	no	0.75	1	350.3
+family	Jiangellaceae	1217100	3	yes	yes	1	1	348.0
+family	Jonesiaceae	85022	2	yes	yes	1	1	331.5
+family	Kangiellaceae	1920240	2	yes	yes	1	1	333.0
+family	Kiloniellaceae	597359	3	yes	yes	1	1	361.7
+family	Kineosporiaceae	83778	4	no	no	0.75	0.996	342.3
+family	Kosmotogaceae	1643948	3	no	yes	1	1	286.0
+family	Ktedonobacteraceae	388449	6	yes	yes	1	1	225.3
+family	Lachnospiraceae	186803	177	no	no	0.76	0.993	329.7
+family	Lactobacillaceae	33958	258	no	no	0.726	0.986	280.5
+family	Legionellaceae	444	81	yes	yes	1	1	337.2
+family	Leptolyngbyaceae	1890438	14	no	no	0.5	0.98	358.3
+family	Leptospiraceae	170	27	yes	yes	1	1	339.5
+family	Leptotrichiaceae	1129771	15	yes	yes	1	1	278.7
+family	Leuconostocaceae	81850	92	yes	yes	1	1	273.5
+family	Lewinellaceae	1937960	4	yes	yes	1	1	342.5
+family	Listeriaceae	186820	23	yes	yes	1	1	349.3
+family	Marinilabiliaceae	558415	10	yes	yes	1	1	348.0
+family	Melioribacteraceae	1334117	3	no	yes	1	0.999	330.0
+family	Merismopediaceae	1890428	9	no	no	0.889	0.993	347.8
+family	Methanobacteriaceae	2159	33	yes	yes	1	1	184.1
+family	Methanocaldococcaceae	196117	10	no	no	0.8	0.999	167.6
+family	Methanocellaceae	570265	3	yes	yes	1	1	199.7
+family	Methanococcaceae	2183	9	yes	yes	1	1	176.4
+family	Methanocorpusculaceae	88404	3	no	yes	1	1	181.0
+family	Methanomassiliicoccaceae	1577788	5	no	no	0.833	0.999	191.0
+family	Methanomicrobiaceae	2194	22	no	no	0.808	0.995	194.6
+family	Methanoregulaceae	1198451	4	yes	yes	1	1	203.0
+family	Methanosaetaceae	143067	5	no	yes	1	1	192.2
+family	Methanosarcinaceae	2206	71	yes	yes	1	1	219.5
+family	Methylacidiphilaceae	717964	3	yes	yes	1	1	324.0
+family	Methylobacteriaceae	119045	19	no	no	0.85	0.989	364.6
+family	Methylococcaceae	403	19	no	no	0.905	1	361.8
+family	Methylocystaceae	31993	11	no	no	0.455	0.938	355.8
+family	Methylophilaceae	32011	12	no	yes	1	1	339.8
+family	Methylothermaceae	1486721	2	yes	yes	1	1	353.5
+family	Microbacteriaceae	85023	85	no	no	0.977	0.999	330.9
+family	Microbulbiferaceae	1706373	2	yes	yes	1	1	361.5
+family	Micrococcaceae	1268	53	no	no	0.981	1	330.9
+family	Microcoleaceae	1892252	18	no	no	0.8	0.998	352.1
+family	Microcystaceae	1890449	21	yes	yes	1	1	350.0
+family	Micromonosporaceae	28056	23	no	no	0.913	0.919	358.4
+family	Microscillaceae	1937962	2	no	no	0.667	1	347.0
+family	Moraxellaceae	468	110	no	no	0.973	0.965	331.8
+family	Morganellaceae	1903414	17	yes	yes	1	1	354.5
+family	Moritellaceae	267891	2	yes	yes	1	1	366.0
+family	Mycobacteriaceae	1762	62	no	no	0.984	1	341.0
+family	Mycoplasmataceae	2092	6	no	no	0.667	0.986	178.5
+family	Myxococcaceae	31	4	yes	yes	1	1	370.3
+family	Nakamurellaceae	85031	2	yes	yes	1	1	353.0
+family	Nannocystaceae	224463	2	no	yes	1	1	349.5
+family	Natrialbaceae	1644061	29	no	no	0.967	1	226.8
+family	Nautiliaceae	224467	3	yes	yes	1	1	309.3
+family	Neisseriaceae	481	28	no	no	0.929	1	331.8
+family	Nitrosomonadaceae	206379	26	no	yes	1	1	350.9
+family	Nitrosopumilaceae	338190	14	no	yes	1	0.999	176.4
+family	Nitrososphaeraceae	1033997	5	no	yes	1	1	188.8
+family	Nitrospinaceae	407032	6	no	yes	1	1	245.7
+family	Nitrospiraceae	189779	18	no	no	0.5	0.922	309.9
+family	Nocardiaceae	85025	44	no	no	0.935	1	351.3
+family	Nocardioidaceae	85015	33	no	no	0.909	0.999	342.4
+family	Nocardiopsaceae	83676	18	yes	yes	1	1	349.6
+family	Nostocaceae	1162	17	no	no	0.452	0.997	346.0
+family	Oceanospirillaceae	135620	40	no	no	0.767	0.997	357.1
+family	Odoribacteraceae	1853231	11	no	no	0.786	1	325.0
+family	Opitutaceae	134623	6	no	no	0.833	0.999	343.8
+family	Orbaceae	1240483	19	yes	yes	1	1	316.3
+family	Oscillatoriaceae	1892254	9	no	no	0.333	0.985	359.3
+family	Oscillospiraceae	216572	7	no	no	0.857	0.994	302.3
+family	Oxalobacteraceae	75682	30	no	no	0.935	0.996	365.5
+family	Paenibacillaceae	186822	125	no	no	0.969	1	375.7
+family	Parachlamydiaceae	92713	6	no	no	0.667	0.999	284.0
+family	Parvularculaceae	255474	2	yes	yes	1	1	336.0
+family	Pasteurellaceae	712	53	yes	yes	1	1	314.8
+family	Patulibacteraceae	361606	3	yes	yes	1	1	344.3
+family	Pectobacteriaceae	1903410	8	no	no	0.667	0.988	368.0
+family	Pelagibacteraceae	1655514	17	no	yes	1	1	239.6
+family	Peptococcaceae	186807	44	no	no	0.808	0.984	337.1
+family	Peptoniphilaceae	1570339	28	no	no	0.903	0.999	276.5
+family	Peptostreptococcaceae	186804	25	no	no	0.92	0.974	320.2
+family	Phyllobacteriaceae	69277	30	no	no	0.8	0.993	362.0
+family	Piscirickettsiaceae	135616	52	no	no	0.481	0.881	328.8
+family	Planctomycetaceae	126	25	no	no	0.96	1	345.1
+family	Planococcaceae	186818	27	no	no	0.548	0.991	353.7
+family	Polyangiaceae	49	5	no	no	0.833	1	332.2
+family	Porphyromonadaceae	171551	47	no	no	0.75	0.987	306.4
+family	Porticoccaceae	1706374	6	no	yes	1	1	330.5
+family	Prevotellaceae	171552	90	no	no	0.957	0.999	301.9
+family	Prochloraceae	1213	54	no	no	0.944	0.995	276.6
+family	Prolixibacteraceae	1471398	7	no	yes	1	1	351.9
+family	Promicromonosporaceae	85017	6	no	no	0.75	1	340.3
+family	Propionibacteriaceae	31957	23	no	no	0.92	1	328.6
+family	Pseudanabaenaceae	1890436	8	no	no	0.444	0.973	346.1
+family	Pseudoalteromonadaceae	267888	29	no	no	0.931	0.998	364.2
+family	Pseudomonadaceae	135621	44	no	no	0.956	0.987	374.5
+family	Pseudonocardiaceae	2070	54	no	no	0.93	0.994	351.6
+family	Psychromonadaceae	267894	6	yes	yes	1	1	319.5
+family	Puniceicoccaceae	415002	2	no	no	0.667	0.999	331.5
+family	Pyrodictiaceae	2307	4	yes	yes	1	1	160.0
+family	Rhizobiaceae	82115	60	no	no	0.967	0.998	333.1
+family	Rhodanobacteraceae	1775411	17	no	no	0.889	0.999	355.7
+family	Rhodobacteraceae	31989	195	no	no	0.903	0.987	359.0
+family	Rhodobiaceae	119043	7	no	no	0.429	0.929	355.9
+family	Rhodocyclaceae	75787	22	no	no	0.917	1	354.1
+family	Rhodospirillaceae	41295	42	no	no	0.792	0.981	350.1
+family	Rhodothermaceae	563843	3	yes	yes	1	1	340.0
+family	Rickettsiaceae	775	29	yes	yes	1	1	205.6
+family	Rikenellaceae	171550	17	no	no	0.8	0.993	295.4
+family	Rivulariaceae	1185	5	no	no	0.6	0.996	357.2
+family	Roseiflexaceae	1508635	2	yes	yes	1	1	348.0
+family	Ruaniaceae	1331736	2	yes	yes	1	1	341.5
+family	Rubritaleaceae	1648490	2	yes	yes	1	1	343.5
+family	Rubrobacteraceae	84997	3	yes	yes	1	1	334.3
+family	Ruminococcaceae	541000	82	no	no	0.597	0.98	313.5
+family	Saccharospirillaceae	255527	3	yes	yes	1	1	369.3
+family	Salinisphaeraceae	742031	2	yes	yes	1	1	361.5
+family	Saprospiraceae	89374	3	yes	yes	1	1	311.7
+family	Scytonemataceae	1182	3	no	no	0.5	0.999	340.3
+family	Segniliparaceae	316606	2	yes	yes	1	1	324.0
+family	Selenomonadaceae	1843491	25	yes	yes	1	1	342.7
+family	Shewanellaceae	267890	24	yes	yes	1	1	363.4
+family	Sinobacteraceae	568386	8	no	no	0.875	0.996	357.9
+family	Solirubrobacteraceae	320599	2	yes	yes	1	1	358.5
+family	Sphaerobacteraceae	85002	2	yes	yes	1	1	334.5
+family	Sphingobacteriaceae	84566	66	no	yes	1	1	350.8
+family	Sphingomonadaceae	41297	91	no	no	0.805	0.997	348.4
+family	Spirochaetaceae	137	42	no	yes	1	0.999	292.6
+family	Spiroplasmataceae	2131	14	no	no	0.824	1	178.3
+family	Spirulinaceae	1890448	2	yes	yes	1	1	358.0
+family	Spongiibacteraceae	1706375	7	yes	yes	1	1	350.9
+family	Sporolactobacillaceae	186821	8	no	no	0.625	0.973	362.5
+family	Sporomusaceae	1843490	11	yes	yes	1	1	361.1
+family	Staphylococcaceae	90964	52	no	no	0.981	0.993	340.1
+family	Streptococcaceae	1300	65	yes	yes	1	1	298.7
+family	Streptomycetaceae	2062	127	no	no	0.977	0.998	355.1
+family	Streptosporangiaceae	2004	14	no	no	0.929	0.996	359.6
+family	Succinivibrionaceae	83763	11	yes	yes	1	1	317.6
+family	Sulfolobaceae	118883	92	no	yes	1	1	185.5
+family	Sutterellaceae	995019	9	no	no	0.9	1	302.9
+family	Synechococcaceae	1890426	52	no	no	0.327	0.972	326.1
+family	Synergistaceae	649777	23	no	no	0.957	0.935	313.5
+family	Syntrophaceae	213468	13	no	no	0.769	0.987	288.8
+family	Syntrophobacteraceae	213465	4	no	no	0.75	0.993	318.8
+family	Syntrophomonadaceae	68298	9	no	no	0.889	0.929	324.3
+family	Thermaceae	188786	19	yes	yes	1	1	344.6
+family	Thermoactinomycetaceae	186824	18	no	no	0.947	1	356.2
+family	Thermoanaerobacteraceae	186814	25	no	no	0.444	0.832	321.3
+family	Thermoanaerobacterales Family III. Incertae Sedis	543371	15	no	no	0.6	0.921	326.5
+family	Thermococcaceae	2259	37	no	yes	1	1	175.7
+family	Thermodesulfobacteriaceae	188711	10	yes	yes	1	1	303.7
+family	Thermodesulfobiaceae	227387	4	no	no	0.75	0.996	282.0
+family	Thermofilaceae	114378	4	yes	yes	1	1	136.5
+family	Thermogemmatisporaceae	768668	2	yes	yes	1	1	344.0
+family	Thermomonosporaceae	2012	7	yes	yes	1	1	354.1
+family	Thermoplasmataceae	46659	2	yes	yes	1	1	180.5
+family	Thermoproteaceae	2267	31	yes	yes	1	1	170.0
+family	Thermotogaceae	188709	19	no	no	0.947	1	302.7
+family	Thiotrichaceae	135617	16	no	no	0.375	0.984	336.1
+family	Tissierellaceae	1737406	2	no	no	0.5	0.488	311.0
+family	Tolypothrichaceae	119859	3	no	no	0.333	0.993	363.3
+family	Tsukamurellaceae	85028	2	yes	yes	1	1	344.5
+family	Veillonellaceae	31977	25	yes	yes	1	1	310.4
+family	Verrucomicrobia subdivision 3	134621	3	no	yes	1	1	243.3
+family	Verrucomicrobiaceae	203557	3	no	no	0.333	0.995	345.7
+family	Vibrionaceae	641	66	yes	yes	1	1	359.3
+family	Waddliaceae	92714	2	yes	yes	1	1	297.0
+family	Williamsiaceae	182102	2	no	no	0.667	1	344.5
+family	Xanthobacteraceae	335928	10	no	no	0.636	0.985	362.5
+family	Xanthomonadaceae	32033	50	yes	yes	1	1	349.2
+family	Yersiniaceae	1903411	46	no	no	0.938	0.999	368.9
+genus	Acaryochloris	155977	2	yes	yes	1	1	359.5
+genus	Acetivibrio	35829	2	no	no	0.5	0.927	333.5
+genus	Acetobacter	434	14	no	no	0.786	0.951	328.9
+genus	Acetobacterium	33951	3	yes	yes	1	1	342.7
+genus	Acetomicrobium	49894	4	yes	yes	1	1	319.5
+genus	Acholeplasma	2147	10	no	no	0.5	0.993	222.7
+genus	Achromatium	44937	4	yes	yes	1	1	282.5
+genus	Achromobacter	222	2	yes	yes	1	1	372.0
+genus	Acidaminococcus	904	6	yes	yes	1	1	320.5
+genus	Acidianus	12914	2	yes	yes	1	1	180.0
+genus	Acidilobus	105850	5	yes	yes	1	1	144.6
+genus	Acidimicrobium	53634	4	no	no	0.75	0.998	297.8
+genus	Acidiphilium	522	2	yes	yes	1	1	369.5
+genus	Acidiplasma	507753	5	yes	yes	1	1	185.2
+genus	Acidipropionibacterium	1912215	3	yes	yes	1	1	330.0
+genus	Acidithiobacillus	119977	18	no	no	0.947	1	346.8
+genus	Acidobacterium	33973	2	no	no	0.667	1	355.0
+genus	Acidocella	50709	2	yes	yes	1	1	360.5
+genus	Acidovorax	12916	7	no	no	0.556	0.998	365.1
+genus	Aciduliprofundum	379546	3	yes	yes	1	1	160.3
+genus	Acinetobacter	469	42	no	no	0.929	0.91	343.9
+genus	Actibacterium	1433986	2	yes	yes	1	1	352.0
+genus	Actinobacillus	713	2	no	no	0.5	0.992	326.0
+genus	Actinobaculum	76833	6	no	no	0.833	1	283.5
+genus	Actinokineospora	39845	3	yes	yes	1	1	354.7
+genus	Actinomadura	1988	5	no	no	0.833	1	355.0
+genus	Actinomyces	1654	41	no	no	0.69	0.998	301.1
+genus	Actinoplanes	1865	7	no	no	0.875	1	363.4
+genus	Actinopolyspora	1849	3	yes	yes	1	1	341.3
+genus	Actinotignum	1653174	4	yes	yes	1	1	266.5
+genus	Aequorivita	153265	2	yes	yes	1	1	317.5
+genus	Aerococcus	1375	5	yes	yes	1	1	298.6
+genus	Aeromicrobium	2040	6	no	yes	1	1	331.0
+genus	Aeromonas	642	8	yes	yes	1	1	376.5
+genus	Aeropyrum	56635	3	yes	yes	1	1	160.0
+genus	Aestuariibacter	249523	2	no	no	0.5	0.996	361.5
+genus	Aestuariivita	1608457	2	no	no	0.5	0.985	358.0
+genus	Afipia	1033	6	no	no	0.714	0.998	357.5
+genus	Agarivorans	261825	2	yes	yes	1	1	361.0
+genus	Aggregatibacter	416916	2	yes	yes	1	1	316.0
+genus	Agrobacterium	357	9	no	no	0.4	0.998	364.7
+genus	Agromyces	33877	4	yes	yes	1	1	338.3
+genus	Ahrensia	152180	4	no	no	0.75	0.985	349.5
+genus	Akkermansia	239934	12	yes	yes	1	1	322.0
+genus	Alcanivorax	59753	6	yes	yes	1	1	353.5
+genus	Algibacter	261827	2	no	no	0.5	0.999	339.5
+genus	Algoriphagus	246875	10	yes	yes	1	1	345.4
+genus	Alicyclobacillus	29330	11	yes	yes	1	1	353.9
+genus	Aliivibrio	511678	3	yes	yes	1	1	360.0
+genus	Alishewanella	111142	2	yes	yes	1	1	367.5
+genus	Alistipes	239759	13	no	no	0.714	0.999	301.3
+genus	Alkaliphilus	114627	4	no	no	0.667	1	341.0
+genus	Alloprevotella	1283313	3	no	no	0.667	1	280.7
+genus	Alloscardovia	419014	2	yes	yes	1	1	271.0
+genus	Altererythrobacter	361177	4	no	no	0.5	0.997	344.5
+genus	Alteribacillus	1433300	3	no	no	0.667	1	370.7
+genus	Alteromonas	226	15	no	no	0.938	1	360.9
+genus	Aminobacter	31988	2	no	no	0.5	0.997	360.0
+genus	Aminobacterium	81466	3	yes	yes	1	1	309.7
+genus	Amphibacillus	29331	2	yes	yes	1	1	337.5
+genus	Amphritea	515417	2	yes	yes	1	1	359.0
+genus	Amycolatopsis	1813	8	no	no	0.875	0.999	354.4
+genus	Anabaena	1163	4	no	no	0.5	0.997	355.5
+genus	Anaerococcus	165779	8	no	no	0.889	1	277.5
+genus	Anaerocolumna	1843210	2	no	no	0.667	1	349.5
+genus	Anaeromyxobacter	161492	2	yes	yes	1	1	369.5
+genus	Anaerophaga	177399	2	yes	yes	1	1	344.5
+genus	Anaerostipes	207244	3	no	yes	1	1	341.3
+genus	Anaerotruncus	244127	4	no	no	0.5	0.989	302.5
+genus	Anaerovibrio	82373	2	yes	yes	1	1	339.5
+genus	Anaplasma	768	25	yes	yes	1	1	225.0
+genus	Aneurinibacillus	55079	11	yes	yes	1	1	380.7
+genus	Anoxybacillus	150247	2	no	no	0.5	0.997	374.0
+genus	Aquabacterium	92793	2	yes	yes	1	1	360.5
+genus	Aquimarina	290174	6	yes	yes	1	1	343.3
+genus	Arcanobacterium	28263	4	no	no	0.6	0.993	276.5
+genus	Archaeoglobus	2233	17	no	no	0.85	1	177.4
+genus	Arcobacter	28196	8	yes	yes	1	1	332.4
+genus	Arcticibacter	1288026	2	yes	yes	1	1	353.5
+genus	Arenibacter	178469	6	yes	yes	1	1	342.2
+genus	Arenimonas	490567	5	yes	yes	1	1	336.8
+genus	Arsenicicoccus	267408	2	yes	yes	1	1	345.0
+genus	Arsenophonus	637	3	yes	yes	1	1	311.0
+genus	Arsukibacterium	336830	2	no	no	0.667	1	370.0
+genus	Arthrobacter	1663	19	no	no	0.667	0.999	338.2
+genus	Arthrospira	35823	8	yes	yes	1	1	360.1
+genus	Asaia	91914	2	yes	yes	1	1	349.5
+genus	Asticcacaulis	76890	5	yes	yes	1	1	352.0
+genus	Atopobium	1380	19	no	no	0.655	0.998	253.4
+genus	Aurantimonas	182269	2	no	no	0.667	1	361.5
+genus	Aureimonas	414371	5	yes	yes	1	1	360.4
+genus	Avibacterium	292486	4	yes	yes	1	1	321.8
+genus	Azoarcus	12960	3	no	no	0.667	0.999	371.0
+genus	Azorhizobium	6	2	yes	yes	1	1	359.0
+genus	Azospirillum	191	6	no	no	0.667	0.927	331.3
+genus	Bacillus	1386	150	no	no	0.653	0.979	375.1
+genus	Bacteriovorax	146784	5	yes	yes	1	1	302.6
+genus	Bacteroides	816	53	no	no	0.782	0.957	319.4
+genus	Balneola	455358	2	yes	yes	1	1	334.0
+genus	Barnesiella	397864	2	yes	yes	1	1	314.5
+genus	Bartonella	773	60	yes	yes	1	1	290.8
+genus	Basfia	697331	2	yes	yes	1	1	327.0
+genus	Bdellovibrio	958	9	no	yes	1	1	315.3
+genus	Beggiatoa	1021	3	no	no	0.667	1	350.3
+genus	Beijerinckia	532	2	yes	yes	1	1	352.0
+genus	Bellilinea	475960	2	yes	yes	1	1	320.0
+genus	Bhargavaea	941338	2	no	no	0.667	1	348.5
+genus	Bibersteinia	476528	3	yes	yes	1	1	324.0
+genus	Bifidobacterium	1678	32	no	no	0.865	1	282.7
+genus	Blastococcus	38501	3	no	no	0.75	1	342.3
+genus	Blastomonas	150203	2	yes	yes	1	1	351.0
+genus	Blattabacterium	34098	8	yes	yes	1	1	224.8
+genus	Blautia	572511	13	no	no	0.579	0.997	330.2
+genus	Bordetella	517	9	no	no	0.818	1	363.2
+genus	Borrelia	138	18	yes	yes	1	1	182.0
+genus	Borreliella	64895	25	yes	yes	1	1	176.7
+genus	Bosea	85413	8	no	no	0.778	0.996	365.0
+genus	Brachybacterium	43668	5	yes	yes	1	1	331.2
+genus	Brachyspira	29521	5	no	no	0.8	0.73	302.4
+genus	Bradyrhizobium	374	19	yes	yes	1	1	370.1
+genus	Brevibacillus	55080	24	no	no	0.923	1	377.1
+genus	Brevibacterium	1696	7	yes	yes	1	1	326.0
+genus	Brevundimonas	41275	10	yes	yes	1	1	336.8
+genus	Brochothrix	2755	2	yes	yes	1	1	335.5
+genus	Buchnera	32199	8	yes	yes	1	1	191.8
+genus	Burkholderia	32008	7	no	no	0.714	0.999	368.6
+genus	Butyricicoccus	580596	3	no	yes	1	1	309.7
+genus	Butyricimonas	574697	4	yes	yes	1	1	318.5
+genus	Butyrivibrio	830	37	no	no	0.892	0.996	329.7
+genus	Caballeronia	1827195	3	no	no	0.75	1	375.0
+genus	Caldanaerobacter	249529	5	no	no	0.8	1	307.2
+genus	Caldanaerobius	862261	2	yes	yes	1	1	330.0
+genus	Caldicellulosiruptor	44000	9	no	yes	1	1	329.3
+genus	Caldisericum	693074	2	yes	yes	1	1	240.0
+genus	Caldithrix	187144	2	yes	yes	1	1	327.5
+genus	Caldivirga	76886	3	yes	yes	1	1	165.3
+genus	Caloramator	44258	3	no	no	0.75	1	318.3
+genus	Caloranaerobacter	171003	2	yes	yes	1	1	301.0
+genus	Calothrix	1186	4	no	no	0.75	0.995	356.5
+genus	Campylobacter	194	21	yes	yes	1	1	302.8
+genus	Candidatus Arthromitus	49082	12	yes	yes	1	1	239.0
+genus	Candidatus Atelocyanobacterium	1453359	2	yes	yes	1	1	257.5
+genus	Candidatus Blochmannia	203804	5	yes	yes	1	1	207.0
+genus	Candidatus Cardinium	273135	2	yes	yes	1	1	181.5
+genus	Candidatus Cloacimonas	456826	2	no	yes	1	0.999	291.0
+genus	Candidatus Endolissoclinum	1263978	2	yes	yes	1	1	246.0
+genus	Candidatus Entotheonella	93171	2	yes	yes	1	1	356.0
+genus	Candidatus Izimaplasma	1912503	2	yes	yes	1	1	269.5
+genus	Candidatus Kryptobacter	1855364	3	yes	yes	1	1	251.0
+genus	Candidatus Kryptonium	1855365	16	yes	yes	1	1	278.9
+genus	Candidatus Liberibacter	34019	19	yes	yes	1	1	259.5
+genus	Candidatus Methanomethylicus	1915411	3	yes	yes	1	1	162.0
+genus	Candidatus Methanomethylophilus	1291539	2	no	no	0.667	1	184.0
+genus	Candidatus Methanoperedens	1392997	2	yes	yes	1	1	219.0
+genus	Candidatus Methylomirabilis	1170227	2	yes	yes	1	1	294.5
+genus	Candidatus Methylopumilus	1679002	2	no	no	0.5	0.997	312.5
+genus	Candidatus Nitrosoarchaeum	1007082	3	yes	yes	1	1	185.0
+genus	Candidatus Nitrosocosmicus	1826864	2	yes	yes	1	1	188.5
+genus	Candidatus Nitrosopelagicus	1593364	5	no	yes	1	1	155.2
+genus	Candidatus Nitrosotenuis	1825023	2	no	yes	1	1	182.0
+genus	Candidatus Paracaedibacter	1521255	2	no	no	0.667	1	268.0
+genus	Candidatus Pelagibacter	198251	11	no	yes	1	1	241.2
+genus	Candidatus Peribacter	1803399	5	yes	yes	1	1	178.0
+genus	Candidatus Photodesmus	1076727	2	yes	yes	1	1	245.0
+genus	Candidatus Phytoplasma	33926	10	yes	yes	1	1	122.4
+genus	Candidatus Portiera	235572	3	yes	yes	1	1	121.7
+genus	Candidatus Protochlamydia	282132	2	no	no	0.667	1	285.5
+genus	Candidatus Riesia	401618	2	yes	yes	1	1	177.0
+genus	Candidatus Syntrophoarchaeum	1912923	2	yes	yes	1	1	169.0
+genus	Candidatus Thiodiazotropha	1913444	5	yes	yes	1	1	355.8
+genus	Capnocytophaga	1016	17	yes	yes	1	1	293.2
+genus	Carboxydothermus	129957	2	yes	yes	1	1	334.0
+genus	Cardiobacterium	2717	2	yes	yes	1	1	327.0
+genus	Carnobacterium	2747	11	no	no	0.786	1	315.8
+genus	Catenibacterium	135858	2	yes	yes	1	1	309.0
+genus	Catenovulum	1172191	3	no	no	0.75	1	355.7
+genus	Caulobacter	75	4	yes	yes	1	1	354.8
+genus	Celeribacter	875170	2	yes	yes	1	1	368.5
+genus	Cellulomonas	1707	14	no	no	0.867	0.996	336.1
+genus	Cellulophaga	104264	4	no	no	0.75	0.998	342.0
+genus	Cellulosilyticum	698776	2	yes	yes	1	1	351.0
+genus	Cellvibrio	10	4	yes	yes	1	1	352.3
+genus	Chelativorans	449972	2	yes	yes	1	1	363.0
+genus	Chitinilyticum	551208	2	yes	yes	1	1	366.0
+genus	Chitinophaga	79328	12	yes	yes	1	1	363.6
+genus	Chlamydia	810	79	no	no	0.975	1	220.4
+genus	Chlorobaculum	256319	2	yes	yes	1	1	332.0
+genus	Chlorobium	1091	7	no	no	0.667	1	333.6
+genus	Chloroflexus	1107	5	yes	yes	1	1	348.6
+genus	Chlorogloeopsis	1123	2	yes	yes	1	1	360.5
+genus	Chondromyces	50	2	yes	yes	1	1	360.0
+genus	Chromobacterium	535	4	yes	yes	1	1	371.5
+genus	Chromohalobacter	42054	2	yes	yes	1	1	363.5
+genus	Chryseobacterium	59732	33	no	no	0.971	1	336.9
+genus	Chthonomonas	1077265	4	yes	yes	1	1	341.5
+genus	Citreicella	282682	2	no	no	0.5	1	370.5
+genus	Citrobacter	544	2	yes	yes	1	1	380.5
+genus	Citromicrobium	72173	2	yes	yes	1	1	345.0
+genus	Cloacibacillus	508459	2	no	no	0.667	1	338.0
+genus	Clostridioides	1870884	4	no	no	0.75	0.846	336.3
+genus	Clostridium	1485	118	no	no	0.462	0.862	310.2
+genus	Cohnella	329857	4	yes	yes	1	1	373.3
+genus	Collinsella	102106	8	yes	yes	1	1	302.1
+genus	Colwellia	28228	5	yes	yes	1	1	360.8
+genus	Comamonas	283	7	no	no	0.625	0.999	359.9
+genus	Commensalibacter	1079922	2	yes	yes	1	1	334.5
+genus	Conchiformibius	334107	2	yes	yes	1	1	328.5
+genus	Conexibacter	191494	2	no	no	0.5	0.999	351.5
+genus	Coprobacillus	100883	3	no	no	0.333	0.979	242.7
+genus	Coprococcus	33042	7	no	no	0.571	0.975	302.7
+genus	Coprothermobacter	68335	3	yes	yes	1	1	269.0
+genus	Coraliomargarita	442430	2	no	yes	1	0.999	331.5
+genus	Corynebacterium	1716	130	no	no	0.985	0.998	320.6
+genus	Coxiella	776	5	no	yes	1	0.999	262.0
+genus	Crocinitomix	246873	3	yes	yes	1	1	272.3
+genus	Crocosphaera	263510	6	yes	yes	1	1	348.5
+genus	Cryptobacterium	84162	2	no	no	0.5	0.999	288.0
+genus	Cupriavidus	106589	4	yes	yes	1	1	372.8
+genus	Curtobacterium	2034	4	yes	yes	1	1	328.8
+genus	Curvibacter	281915	2	no	no	0.5	0.992	360.0
+genus	Cutibacterium	1912216	7	no	no	0.875	1	318.4
+genus	Cyanobacterium	102234	3	no	no	0.667	1	347.0
+genus	Cyanobium	167375	2	no	no	0.667	1	336.0
+genus	Cyanothece	43988	7	no	no	0.429	0.988	357.1
+genus	Cyclobacterium	68288	3	yes	yes	1	1	345.7
+genus	Cycloclasticus	34067	2	yes	yes	1	1	279.0
+genus	Cylindrospermopsis	77021	6	no	no	0.857	1	343.3
+genus	Cytophaga	978	2	yes	yes	1	1	348.5
+genus	Dechloromonas	73029	2	yes	yes	1	1	364.5
+genus	Dehalococcoides	61434	30	no	no	0.9	0.999	256.0
+genus	Dehalogenimonas	670486	4	yes	yes	1	1	274.0
+genus	Deinococcus	1298	21	yes	yes	1	1	355.6
+genus	Denitrobacterium	79603	2	yes	yes	1	1	306.5
+genus	Dermacoccus	57495	2	yes	yes	1	1	341.5
+genus	Desulfatibacillum	218207	2	yes	yes	1	1	350.5
+genus	Desulfitibacter	293136	2	yes	yes	1	1	361.5
+genus	Desulfitobacterium	36853	6	yes	yes	1	1	366.7
+genus	Desulfobacca	60892	2	no	yes	1	1	253.0
+genus	Desulfobacter	2289	3	yes	yes	1	1	350.7
+genus	Desulfobacula	28222	4	no	yes	1	1	303.3
+genus	Desulfobulbus	893	6	yes	yes	1	1	288.5
+genus	Desulfococcus	896	2	no	no	0.5	0.995	343.5
+genus	Desulfomicrobium	898	2	yes	yes	1	1	360.5
+genus	Desulfonatronovibrio	53244	2	yes	yes	1	1	342.5
+genus	Desulfonatronum	66848	3	yes	yes	1	1	352.7
+genus	Desulfonauticus	206664	3	yes	yes	1	1	321.0
+genus	Desulfosarcina	2299	2	no	no	0.5	0.998	350.5
+genus	Desulfosporosinus	79206	8	no	yes	1	1	368.3
+genus	Desulfotomaculum	1562	11	no	no	0.786	0.999	332.9
+genus	Desulfovibrio	872	36	no	no	0.8	0.999	349.8
+genus	Desulfurobacterium	64159	3	no	no	0.75	1	304.3
+genus	Desulfurococcus	2273	5	yes	yes	1	1	126.4
+genus	Desulfuromonas	890	4	no	no	0.5	0.698	342.3
+genus	Devosia	46913	11	yes	yes	1	1	352.4
+genus	Dialister	39948	7	no	no	0.875	1	290.1
+genus	Dickeya	204037	3	yes	yes	1	1	372.7
+genus	Dictyoglomus	13	2	yes	yes	1	1	304.5
+genus	Dietzia	37914	3	yes	yes	1	1	335.3
+genus	Dokdonia	326319	2	yes	yes	1	1	329.5
+genus	Domibacillus	1433999	3	yes	yes	1	1	375.0
+genus	Dorea	189330	5	no	no	0.8	1	324.2
+genus	Draconibacterium	1471399	3	yes	yes	1	1	350.7
+genus	Dyadobacter	120831	4	yes	yes	1	1	357.3
+genus	Dyella	231454	3	no	no	0.667	0.999	360.0
+genus	Dysgonomonas	156973	5	no	no	0.833	1	334.0
+genus	Echinicola	390846	2	yes	yes	1	1	350.5
+genus	Ectothiorhodospira	1051	2	yes	yes	1	1	356.5
+genus	Eggerthella	84111	5	no	no	0.5	0.999	307.8
+genus	Ehrlichia	943	6	yes	yes	1	1	220.8
+genus	Endozoicomonas	305899	4	yes	yes	1	1	370.5
+genus	Enorma	1472762	2	yes	yes	1	1	311.5
+genus	Ensifer	106591	3	no	no	0.667	0.999	371.0
+genus	Enterobacter	547	3	no	no	0.4	0.997	376.3
+genus	Enterococcus	1350	27	no	no	0.9	1	323.1
+genus	Enterorhabdus	580024	2	yes	yes	1	1	307.0
+genus	Enterovibrio	188143	2	yes	yes	1	1	362.0
+genus	Entomoplasma	46238	2	yes	yes	1	1	166.5
+genus	Epulopiscium	2383	5	yes	yes	1	1	268.4
+genus	Erwinia	551	10	no	no	0.909	1	370.5
+genus	Erysipelatoclostridium	1505663	6	no	no	0.5	0.994	335.2
+genus	Erysipelothrix	1647	3	yes	yes	1	1	257.3
+genus	Erythrobacter	1041	12	no	no	0.55	0.999	342.2
+genus	Escherichia	561	7	no	no	0.667	0.999	338.0
+genus	Eubacterium	1730	29	no	no	0.171	0.904	318.2
+genus	Exiguobacterium	33986	9	yes	yes	1	1	354.9
+genus	Fabibacter	446458	3	no	no	0.75	1	342.7
+genus	Facklamia	66831	4	no	no	0.667	1	276.3
+genus	Faecalibacterium	216851	3	no	no	0.667	0.95	275.0
+genus	Faecalibaculum	1729679	2	yes	yes	1	1	309.5
+genus	Faecalitalea	1573534	2	no	yes	1	1	281.5
+genus	Ferrimicrobium	121038	2	yes	yes	1	1	324.0
+genus	Ferrimonas	44011	4	yes	yes	1	1	369.3
+genus	Ferrovum	416212	2	yes	yes	1	1	335.5
+genus	Fervidobacterium	2422	3	yes	yes	1	1	292.3
+genus	Fibrobacter	832	12	no	yes	1	0.999	315.6
+genus	Fictibacillus	1329200	2	no	no	0.667	1	374.5
+genus	Fischerella	1190	8	no	no	0.8	1	359.0
+genus	Flammeovirga	59739	2	yes	yes	1	1	357.0
+genus	Flavihumibacter	1004301	4	yes	yes	1	1	356.5
+genus	Flavisolibacter	398041	2	yes	yes	1	1	352.5
+genus	Flavobacterium	237	38	no	no	0.947	0.995	325.4
+genus	Fluoribacter	461	2	yes	yes	1	1	334.5
+genus	Fluviicola	332102	4	yes	yes	1	1	327.8
+genus	Formosa	225842	2	yes	yes	1	1	343.0
+genus	Francisella	262	52	no	no	0.981	1	311.2
+genus	Frankia	1854	9	no	no	0.889	0.985	340.6
+genus	Frateuria	70411	2	no	no	0.5	0.998	355.0
+genus	Fructobacillus	559173	7	yes	yes	1	1	255.7
+genus	Fuchsiella	1242734	3	yes	yes	1	1	347.3
+genus	Fusobacterium	848	18	no	no	0.947	1	312.1
+genus	Gallibacterium	155493	10	yes	yes	1	1	331.6
+genus	Gardnerella	2701	5	yes	yes	1	1	239.8
+genus	Geitlerinema	63132	4	no	no	0.6	0.984	354.3
+genus	Gemella	1378	3	yes	yes	1	1	280.7
+genus	Geminocystis	669357	2	yes	yes	1	1	343.5
+genus	Gemmatimonas	173479	3	no	no	0.75	1	298.7
+genus	Gemmobacter	204456	2	no	no	0.5	0.998	367.0
+genus	Geoalkalibacter	392332	2	yes	yes	1	1	365.0
+genus	Geobacillus	129337	7	yes	yes	1	1	376.0
+genus	Geobacter	28231	8	no	no	0.889	1	362.9
+genus	Geodermatophilus	1860	2	no	no	0.5	0.998	345.0
+genus	Geoglobus	190818	2	yes	yes	1	1	183.5
+genus	Gilliamella	1193503	17	yes	yes	1	1	316.2
+genus	Gillisia	244698	3	yes	yes	1	1	329.7
+genus	Gilvimarinus	940550	3	yes	yes	1	1	347.0
+genus	Glaciecola	89404	7	no	no	0.857	0.998	358.3
+genus	Gloeobacter	33071	2	yes	yes	1	1	349.5
+genus	Gloeocapsa	102231	2	no	no	0.5	0.969	356.5
+genus	Gluconobacter	441	3	yes	yes	1	1	345.3
+genus	Glutamicibacter	1742989	2	yes	yes	1	1	332.0
+genus	Glycomyces	58113	3	yes	yes	1	1	340.7
+genus	Gordonia	2053	19	no	no	0.947	1	344.3
+genus	Gorillibacterium	1689250	2	yes	yes	1	1	375.0
+genus	Gottschalkia	1505664	2	yes	yes	1	1	331.0
+genus	Gracilibacillus	74385	5	yes	yes	1	1	366.2
+genus	Gramella	292691	4	yes	yes	1	1	333.3
+genus	Granulicatella	117563	2	yes	yes	1	1	264.0
+genus	Granulicella	940557	3	no	no	0.75	0.999	286.7
+genus	Grimontia	246861	2	yes	yes	1	1	363.0
+genus	Haemophilus	724	22	no	no	0.545	0.998	298.2
+genus	Hahella	158481	2	yes	yes	1	1	374.5
+genus	Haladaptatus	367188	2	yes	yes	1	1	237.5
+genus	Halanaerobium	2330	7	yes	yes	1	1	331.1
+genus	Haloarcula	2237	4	yes	yes	1	1	238.8
+genus	Halobacillus	45667	5	no	no	0.833	1	375.0
+genus	Halobacterium	2239	3	yes	yes	1	1	216.3
+genus	Halobiforma	203193	2	yes	yes	1	1	234.0
+genus	Halococcus	2249	7	yes	yes	1	1	226.3
+genus	Halocynthiibacter	1579315	2	yes	yes	1	1	356.0
+genus	Halodesulfovibrio	1912771	4	no	no	0.8	1	355.0
+genus	Haloferax	2251	5	yes	yes	1	1	241.4
+genus	Halogeometricum	60846	2	yes	yes	1	1	241.5
+genus	Halolamina	1075397	2	yes	yes	1	1	221.5
+genus	Halomonas	2745	21	no	no	0.955	1	368.8
+genus	Halopiger	387342	4	no	no	0.429	0.999	232.0
+genus	Haloquadratum	293431	5	yes	yes	1	1	216.2
+genus	Halorhabdus	146825	2	yes	yes	1	1	223.5
+genus	Halorubrum	56688	10	no	no	0.909	1	216.3
+genus	Halostagnicola	353799	2	yes	yes	1	1	217.5
+genus	Haloterrigena	121871	2	no	no	0.5	0.998	240.0
+genus	Halothermothrix	32636	2	yes	yes	1	1	317.0
+genus	Halothiobacillus	109262	2	yes	yes	1	1	348.5
+genus	Helcococcus	31983	2	yes	yes	1	1	260.0
+genus	Helicobacter	209	31	no	no	0.969	1	288.8
+genus	Heliobacterium	2697	2	no	no	0.5	0.473	313.0
+genus	Herbaspirillum	963	7	no	no	0.857	1	364.1
+genus	Herminiimonas	303379	2	no	no	0.5	0.997	352.0
+genus	Herpetosiphon	64	2	yes	yes	1	1	359.5
+genus	Hippea	84404	4	yes	yes	1	1	322.8
+genus	Hirschia	2723	2	yes	yes	1	1	345.0
+genus	Hoeflea	274591	4	no	no	0.75	0.986	364.3
+genus	Holdemania	61170	3	yes	yes	1	1	302.3
+genus	Holospora	44747	2	yes	yes	1	1	184.0
+genus	Hungatella	1649459	2	no	no	0.5	0.999	345.0
+genus	Hydrogenobacter	939	2	yes	yes	1	1	310.0
+genus	Hydrogenophaga	47420	2	yes	yes	1	1	367.0
+genus	Hydrogenovibrio	28884	2	yes	yes	1	1	339.5
+genus	Hydrotalea	1004300	6	yes	yes	1	1	218.3
+genus	Hymenobacter	89966	8	yes	yes	1	1	347.1
+genus	Hyphomicrobium	81	5	yes	yes	1	1	346.8
+genus	Hyphomonas	85	9	yes	yes	1	1	353.1
+genus	Ideonella	36862	2	no	no	0.5	0.997	370.5
+genus	Idiomarina	135575	15	no	yes	1	1	338.0
+genus	Ignicoccus	54258	2	yes	yes	1	1	155.0
+genus	Ilumatobacter	682522	2	yes	yes	1	1	343.0
+genus	Intestinimonas	1392389	2	yes	yes	1	1	332.5
+genus	Intrasporangium	53357	3	no	no	0.375	0.999	349.3
+genus	Janibacter	53457	3	no	no	0.667	0.998	340.0
+genus	Jannaschia	188905	5	no	no	0.8	1	355.0
+genus	Janthinobacterium	29580	5	no	no	0.4	0.974	370.2
+genus	Jeotgalibacillus	157226	3	yes	yes	1	1	377.0
+genus	Jeotgalicoccus	227979	4	yes	yes	1	1	335.0
+genus	Jiangella	281472	3	yes	yes	1	1	348.0
+genus	Jonesia	43673	2	yes	yes	1	1	331.5
+genus	Jonquetella	428711	2	yes	yes	1	1	283.5
+genus	Kaistia	166953	2	yes	yes	1	1	362.5
+genus	Kallipyga	1472763	2	yes	yes	1	1	268.0
+genus	Kamptonema	1501433	2	yes	yes	1	1	356.5
+genus	Kandleria	1279388	5	yes	yes	1	1	318.4
+genus	Kangiella	261963	2	yes	yes	1	1	333.0
+genus	Kiloniella	454159	3	yes	yes	1	1	361.7
+genus	Kinetoplastibacterium	33055	5	yes	yes	1	1	252.4
+genus	Kingella	32257	3	no	no	0.6	1	318.0
+genus	Kitasatospora	2063	6	no	no	0.545	0.999	356.3
+genus	Klebsiella	570	5	no	no	0.5	0.91	373.0
+genus	Kluyvera	579	3	no	no	0.667	0.997	375.0
+genus	Knoellia	136099	5	no	no	0.833	1	338.8
+genus	Kocuria	57493	9	no	no	0.889	1	327.6
+genus	Komagataeibacter	1434011	3	yes	yes	1	1	350.0
+genus	Kordia	221065	3	yes	yes	1	1	333.7
+genus	Kosmotoga	651456	2	yes	yes	1	1	286.5
+genus	Kribbella	182639	2	yes	yes	1	1	359.0
+genus	Ktedonobacter	363276	6	yes	yes	1	1	225.3
+genus	Kurthia	1649	4	yes	yes	1	1	311.8
+genus	Kutzneria	43356	2	yes	yes	1	1	355.5
+genus	Labilibacter	1849718	2	no	no	0.5	1	349.5
+genus	Labrenzia	478070	4	yes	yes	1	1	361.5
+genus	Lachnoanaerobaculum	1164882	2	no	yes	1	1	325.0
+genus	Lachnoclostridium	1506553	22	no	no	0.452	0.981	344.2
+genus	Lacinutrix	291183	5	no	no	0.8	1	335.4
+genus	Lactobacillus	1578	245	no	no	0.71	0.988	280.3
+genus	Lactococcus	1357	3	yes	yes	1	1	303.0
+genus	Lawsonella	1847725	2	yes	yes	1	1	301.0
+genus	Lawsonia	41707	3	yes	yes	1	1	275.3
+genus	Leadbetterella	319458	2	yes	yes	1	1	343.0
+genus	Leeuwenhoekiella	283735	4	yes	yes	1	1	341.0
+genus	Legionella	445	78	no	no	0.963	1	337.3
+genus	Leifsonia	110932	9	no	no	0.5	0.992	332.3
+genus	Leisingera	191028	3	yes	yes	1	1	363.3
+genus	Lentibacillus	175304	2	yes	yes	1	1	361.5
+genus	Lentzea	165301	2	no	no	0.667	1	355.0
+genus	Leptolinea	475966	2	yes	yes	1	1	324.0
+genus	Leptolyngbya	47251	9	no	no	0.364	0.978	359.8
+genus	Leptonema	32205	2	yes	yes	1	1	347.0
+genus	Leptospira	171	24	yes	yes	1	1	338.8
+genus	Leptospirillum	179	10	no	no	0.9	0.909	320.1
+genus	Leptotrichia	32067	6	yes	yes	1	1	314.8
+genus	Leucobacter	55968	8	yes	yes	1	1	325.3
+genus	Leuconostoc	1243	16	yes	yes	1	1	292.3
+genus	Lewinella	70994	4	yes	yes	1	1	342.5
+genus	Limnohabitans	665874	2	yes	yes	1	1	348.5
+genus	Limnothrix	132605	3	no	no	0.667	0.977	346.0
+genus	Listeria	1637	21	yes	yes	1	1	350.6
+genus	Loktanella	245186	7	no	no	0.625	0.999	357.3
+genus	Luteibacter	242605	2	no	no	0.667	1	358.5
+genus	Luteimonas	83614	5	no	no	0.833	1	352.0
+genus	Luteipulveratus	745364	2	yes	yes	1	1	347.5
+genus	Lysinibacillus	400634	9	no	no	0.643	0.999	366.0
+genus	Lysobacter	68	12	yes	yes	1	1	347.8
+genus	Magnetospirillum	13134	3	no	no	0.75	1	359.7
+genus	Mangrovimonas	1211036	4	no	no	0.5	0.996	335.0
+genus	Maribacter	252356	9	no	no	0.889	1	341.1
+genus	Marinimicrobium	359337	2	yes	yes	1	1	354.5
+genus	Marinitoga	160798	2	yes	yes	1	1	301.0
+genus	Marinobacter	2742	16	yes	yes	1	1	367.3
+genus	Marinobacterium	48075	5	no	no	0.6	0.998	365.2
+genus	Marinococcus	1370	2	yes	yes	1	1	362.5
+genus	Marinomonas	28253	7	yes	yes	1	1	362.1
+genus	Marinospirillum	64968	3	yes	yes	1	1	349.0
+genus	Marivirga	869806	2	no	no	0.5	0.992	333.0
+genus	Marmoricola	86795	3	yes	yes	1	1	343.7
+genus	Martelella	293088	3	yes	yes	1	1	364.7
+genus	Massilia	149698	8	no	no	0.875	1	374.4
+genus	Megamonas	158846	2	yes	yes	1	1	341.0
+genus	Megasphaera	906	7	no	no	0.875	1	323.4
+genus	Meiothermus	65551	6	yes	yes	1	1	354.5
+genus	Melioribacter	1134403	3	no	yes	1	0.999	330.0
+genus	Mesoflavibacter	444051	2	no	no	0.5	0.976	330.5
+genus	Mesorhizobium	68287	12	no	no	0.769	1	364.8
+genus	Metallosphaera	41980	10	yes	yes	1	1	181.5
+genus	Methanobacterium	2160	13	yes	yes	1	1	189.4
+genus	Methanobrevibacter	2172	13	yes	yes	1	1	183.5
+genus	Methanocaldococcus	196118	8	yes	yes	1	1	166.8
+genus	Methanocella	570266	3	yes	yes	1	1	199.7
+genus	Methanococcoides	2225	5	no	no	0.8	0.999	207.0
+genus	Methanococcus	2184	6	no	no	0.833	1	178.2
+genus	Methanocorpusculum	2192	2	no	yes	1	1	181.5
+genus	Methanoculleus	45989	15	no	no	0.867	0.993	193.8
+genus	Methanofollis	81416	2	yes	yes	1	1	204.0
+genus	Methanohalophilus	2175	7	yes	yes	1	1	196.9
+genus	Methanolacinia	230355	2	yes	yes	1	1	205.0
+genus	Methanolobus	2220	5	yes	yes	1	1	218.2
+genus	Methanomassiliicoccus	1080709	2	no	yes	1	1	208.0
+genus	Methanoregula	395331	2	yes	yes	1	1	207.0
+genus	Methanosaeta	2222	5	no	yes	1	1	192.2
+genus	Methanosarcina	2207	51	yes	yes	1	1	225.0
+genus	Methanosphaera	2316	2	yes	yes	1	1	170.5
+genus	Methanothermobacter	145260	4	yes	yes	1	1	179.8
+genus	Methanothermococcus	155862	3	no	no	0.667	0.999	173.0
+genus	Methanotorris	196119	2	yes	yes	1	1	171.0
+genus	Methylacidiphilum	511745	3	yes	yes	1	1	324.0
+genus	Methylibium	316612	2	no	no	0.5	0.999	363.5
+genus	Methylobacillus	404	2	yes	yes	1	1	350.0
+genus	Methylobacter	429	3	yes	yes	1	1	369.7
+genus	Methylobacterium	407	14	no	no	0.867	0.999	364.6
+genus	Methylocapsa	184923	2	yes	yes	1	1	357.0
+genus	Methylocystis	133	3	yes	yes	1	1	352.3
+genus	Methylomicrobium	39773	3	no	no	0.667	0.999	362.0
+genus	Methylomonas	416	3	yes	yes	1	1	362.0
+genus	Methylophaga	40222	7	yes	yes	1	1	348.6
+genus	Methylophilus	16	3	yes	yes	1	1	344.7
+genus	Methylopila	61653	2	yes	yes	1	1	360.0
+genus	Methylosarcina	160800	2	no	no	0.667	1	364.0
+genus	Methylosinus	425	2	yes	yes	1	1	352.5
+genus	Methylotenera	359407	4	no	no	0.571	0.999	342.0
+genus	Methyloversatilis	378210	3	yes	yes	1	1	359.7
+genus	Microbacterium	33882	34	yes	yes	1	1	337.4
+genus	Microbispora	2005	2	yes	yes	1	1	357.5
+genus	Microbulbifer	48073	2	yes	yes	1	1	361.5
+genus	Microcoleus	44471	2	no	no	0.5	0.983	359.0
+genus	Microcystis	1125	21	yes	yes	1	1	350.0
+genus	Micromonospora	1873	3	yes	yes	1	1	356.7
+genus	Microvirga	186650	4	yes	yes	1	1	366.3
+genus	Mitsuokella	52225	2	yes	yes	1	1	338.5
+genus	Mobilicoccus	984996	2	yes	yes	1	1	351.5
+genus	Mobiluncus	2050	8	yes	yes	1	1	295.6
+genus	Modestobacter	88138	3	no	no	0.75	1	347.7
+genus	Moorea	1155738	3	yes	yes	1	1	360.0
+genus	Moorella	44260	2	yes	yes	1	1	343.5
+genus	Moraxella	475	54	no	no	0.926	1	321.0
+genus	Morganella	581	3	yes	yes	1	1	366.7
+genus	Moritella	58050	2	yes	yes	1	1	366.0
+genus	Mucilaginibacter	423349	12	no	yes	1	1	354.6
+genus	Muricauda	111500	6	no	no	0.833	1	336.3
+genus	Mycobacterium	1763	61	yes	yes	1	1	340.9
+genus	Mycoplasma	2093	6	no	no	0.667	0.986	178.5
+genus	Myroides	76831	18	yes	yes	1	1	331.6
+genus	Myxococcus	32	3	yes	yes	1	1	370.7
+genus	Nakamurella	53460	2	yes	yes	1	1	353.0
+genus	Natrialba	63742	3	yes	yes	1	1	233.7
+genus	Natrinema	88723	3	yes	yes	1	1	231.3
+genus	Natronococcus	29287	3	yes	yes	1	1	241.0
+genus	Natronomonas	63743	2	yes	yes	1	1	220.5
+genus	Natronorubrum	134813	3	yes	yes	1	1	237.3
+genus	Neisseria	482	12	no	no	0.786	0.999	330.0
+genus	Neorickettsia	33993	4	yes	yes	1	1	208.8
+genus	Neptuniibacter	459520	2	yes	yes	1	1	336.0
+genus	Neptunomonas	75687	5	yes	yes	1	1	361.0
+genus	Nesiotobacter	500577	2	yes	yes	1	1	360.0
+genus	Nesterenkonia	57494	4	yes	yes	1	1	318.3
+genus	Nevskia	64001	2	yes	yes	1	1	362.5
+genus	Niabella	379899	5	no	yes	1	1	304.6
+genus	Niastella	354354	2	yes	yes	1	1	358.5
+genus	Nitratireductor	245876	4	no	no	0.75	1	354.8
+genus	Nitrincola	267849	3	yes	yes	1	1	366.0
+genus	Nitrobacter	911	2	yes	yes	1	1	356.5
+genus	Nitrosococcus	1227	3	yes	yes	1	1	357.7
+genus	Nitrosomonas	914	19	no	yes	1	1	351.6
+genus	Nitrosopumilus	338191	11	no	yes	1	0.999	174.1
+genus	Nitrososphaera	497726	3	no	yes	1	1	189.0
+genus	Nitrosospira	35798	6	no	no	0.857	1	349.0
+genus	Nitrospina	35800	6	no	yes	1	1	245.7
+genus	Nitrospira	1234	4	yes	yes	1	1	313.8
+genus	Nocardia	1817	30	no	no	0.935	0.999	351.6
+genus	Nocardioides	1839	18	no	no	0.947	1	343.8
+genus	Nocardiopsis	2013	15	no	no	0.882	1	350.7
+genus	Nonlabens	363408	6	no	yes	1	1	316.3
+genus	Nonomuraea	83681	3	yes	yes	1	1	362.3
+genus	Nostoc	1177	7	no	no	0.556	0.998	356.9
+genus	Noviherbaspirillum	1344552	2	no	no	0.667	1	365.5
+genus	Novosphingobium	165696	17	no	no	0.941	0.999	355.6
+genus	Oceanicaulis	153232	3	yes	yes	1	1	343.7
+genus	Oceanicola	252301	4	no	no	0.25	0.98	358.5
+genus	Oceanobacillus	182709	6	no	no	0.833	1	368.5
+genus	Oceanospirillum	965	3	yes	yes	1	1	359.3
+genus	Ochrobactrum	528	4	no	no	0.8	1	358.8
+genus	Octadecabacter	53945	3	yes	yes	1	1	353.7
+genus	Odoribacter	283168	6	no	no	0.857	1	328.0
+genus	Oenococcus	46254	51	yes	yes	1	1	275.3
+genus	Oligella	90243	4	yes	yes	1	1	344.3
+genus	Olsenella	133925	10	no	no	0.9	0.999	292.2
+genus	Oribacterium	265975	8	yes	yes	1	1	319.4
+genus	Orientia	69474	9	yes	yes	1	1	181.2
+genus	Ornithinibacillus	484508	3	no	no	0.75	1	344.3
+genus	Oscillatoria	1158	3	no	no	0.5	0.997	360.3
+genus	Oscillibacter	459786	6	no	yes	1	1	306.0
+genus	Ottowia	219181	2	yes	yes	1	1	352.0
+genus	Oxalobacter	846	2	yes	yes	1	1	330.0
+genus	Paenibacillus	44249	80	no	no	0.87	0.999	375.1
+genus	Paenisporosarcina	651660	3	no	no	0.75	1	363.0
+genus	Palaeococcus	83867	2	no	no	0.5	0.993	173.0
+genus	Paludibacter	346096	3	no	yes	1	1	275.3
+genus	Pantoea	53335	8	no	no	0.75	0.999	357.8
+genus	Parabacteroides	375288	5	yes	yes	1	1	339.4
+genus	Paraburkholderia	1822464	8	no	no	0.75	0.999	371.8
+genus	Parachlamydia	83551	2	no	no	0.5	0.999	302.5
+genus	Paracoccus	265	12	yes	yes	1	1	369.2
+genus	Parageobacillus	1906945	7	yes	yes	1	1	377.6
+genus	Paraglaciecola	1621534	8	no	no	0.727	1	370.0
+genus	Paraprevotella	577309	2	yes	yes	1	1	317.0
+genus	Parasutterella	577310	2	yes	yes	1	1	304.5
+genus	Parvularcula	208215	2	yes	yes	1	1	336.0
+genus	Pasteurella	745	2	no	no	0.5	0.996	327.0
+genus	Patulibacter	361607	3	yes	yes	1	1	344.3
+genus	Pediococcus	1253	9	yes	yes	1	1	272.3
+genus	Pedobacter	84567	31	no	no	0.806	0.999	350.5
+genus	Pelobacter	18	3	no	no	0.333	0.996	367.0
+genus	Pelodictyon	1099	2	no	no	0.5	0.999	332.5
+genus	Pelosinus	365348	2	yes	yes	1	1	375.5
+genus	Peptoanaerobacter	1913599	2	yes	yes	1	1	310.0
+genus	Peptoclostridium	1481960	2	yes	yes	1	1	346.5
+genus	Peptoniphilus	162289	13	no	no	0.929	1	276.6
+genus	Peptostreptococcus	1257	3	yes	yes	1	1	300.3
+genus	Persephonella	182899	2	yes	yes	1	1	317.5
+genus	Petrotoga	28236	2	yes	yes	1	1	316.5
+genus	Phaeobacter	302485	3	no	no	0.333	0.995	364.0
+genus	Phascolarctobacterium	33024	4	yes	yes	1	1	322.5
+genus	Phenylobacterium	20	3	yes	yes	1	1	355.3
+genus	Phormidesmis	1005722	3	no	no	0.667	0.977	353.7
+genus	Phormidium	1198	2	no	no	0.5	0.969	356.0
+genus	Photobacterium	657	14	no	no	0.929	0.999	365.6
+genus	Phycicoccus	367298	4	no	no	0.75	0.999	341.3
+genus	Phyllobacterium	28100	2	yes	yes	1	1	359.5
+genus	Pirellula	123	2	no	no	0.5	0.997	340.0
+genus	Piscirickettsia	1237	25	yes	yes	1	1	322.4
+genus	Planctopirus	1649480	2	yes	yes	1	1	348.0
+genus	Planktothrix	54304	3	no	yes	1	1	357.0
+genus	Planococcus	1372	3	no	no	0.75	1	361.3
+genus	Pleomorphomonas	261933	2	yes	yes	1	1	362.0
+genus	Pleurocapsa	44474	2	no	no	0.5	0.99	360.5
+genus	Polaribacter	52959	7	no	no	0.571	0.978	318.0
+genus	Polaromonas	52972	3	yes	yes	1	1	367.7
+genus	Polynucleobacter	44013	4	yes	yes	1	1	323.8
+genus	Pontibacillus	289201	6	yes	yes	1	1	369.7
+genus	Pontibacter	323449	7	yes	yes	1	1	348.0
+genus	Porphyrobacter	1111	5	no	no	0.8	0.999	344.8
+genus	Porphyromonas	836	16	yes	yes	1	1	275.2
+genus	Pragia	82984	2	yes	yes	1	1	371.0
+genus	Prevotella	838	84	no	no	0.952	0.999	302.3
+genus	Prochlorococcus	1218	51	yes	yes	1	1	272.7
+genus	Prochloron	1214	3	yes	yes	1	1	342.7
+genus	Propionibacterium	1743	3	no	no	0.5	0.999	323.3
+genus	Proteiniclasticum	1155385	2	yes	yes	1	1	317.0
+genus	Proteiniphilum	294702	3	no	no	0.667	0.999	332.7
+genus	Providencia	586	3	yes	yes	1	1	364.0
+genus	Pseudanabaena	1152	4	no	no	0.8	1	346.5
+genus	Pseudarthrobacter	1742993	4	no	no	0.8	1	345.0
+genus	Pseudoalteromonas	53246	28	no	no	0.929	0.998	364.4
+genus	Pseudobacteroides	1486726	2	yes	yes	1	1	347.5
+genus	Pseudobutyrivibrio	46205	8	no	no	0.889	1	333.0
+genus	Pseudoclavibacter	255204	2	no	no	0.5	0.984	323.5
+genus	Pseudomonas	286	41	no	no	0.932	1	375.1
+genus	Pseudonocardia	1847	7	yes	yes	1	1	349.9
+genus	Pseudooceanicola	1679449	3	yes	yes	1	1	360.7
+genus	Pseudorhodobacter	238783	5	no	no	0.8	1	363.4
+genus	Pseudorhodoferax	747294	2	yes	yes	1	1	370.5
+genus	Pseudothermotoga	1643951	4	no	no	0.6	1	301.0
+genus	Pseudovibrio	258255	4	yes	yes	1	1	360.0
+genus	Pseudoxanthomonas	83618	6	no	no	0.5	0.997	352.5
+genus	Psychrobacter	497	9	yes	yes	1	1	348.3
+genus	Psychroflexus	83612	4	yes	yes	1	1	330.8
+genus	Psychromonas	67572	6	yes	yes	1	1	319.5
+genus	Psychroserpens	49277	5	yes	yes	1	1	330.8
+genus	Pusillimonas	305976	2	no	no	0.667	1	363.5
+genus	Pyrobaculum	2276	8	yes	yes	1	1	180.3
+genus	Pyrococcus	2260	8	no	no	0.889	1	179.8
+genus	Pyrodictium	2308	2	yes	yes	1	1	167.5
+genus	Ralstonia	48736	5	no	no	0.8	1	367.6
+genus	Ramlibacter	174951	2	no	yes	1	1	357.0
+genus	Rathayibacter	33886	3	yes	yes	1	1	323.3
+genus	Rheinheimera	67575	7	no	no	0.636	0.999	367.1
+genus	Rhizobacter	212743	3	no	no	0.75	1	367.7
+genus	Rhizobium	379	19	no	no	0.533	0.998	366.8
+genus	Rhodanobacter	75309	4	no	no	0.8	1	355.3
+genus	Rhodobacter	1060	8	no	no	0.444	0.991	353.3
+genus	Rhodococcus	1827	13	yes	yes	1	1	350.6
+genus	Rhodoferax	28065	2	no	yes	1	1	366.0
+genus	Rhodonellum	336827	3	yes	yes	1	1	346.3
+genus	Rhodopirellula	265488	10	no	no	0.909	1	343.0
+genus	Rhodopseudomonas	1073	8	yes	yes	1	1	363.9
+genus	Rhodospirillum	1081	3	no	no	0.333	0.906	325.7
+genus	Rhodovulum	34008	2	no	no	0.5	0.899	364.0
+genus	Richelia	98443	3	yes	yes	1	1	302.3
+genus	Rickettsia	780	19	yes	yes	1	1	216.4
+genus	Rickettsiella	59195	3	yes	yes	1	1	266.7
+genus	Riemerella	34084	2	yes	yes	1	1	306.5
+genus	Robiginitalea	252306	2	yes	yes	1	1	336.5
+genus	Roseburia	841	7	no	no	0.625	0.981	329.6
+genus	Roseiflexus	120961	2	yes	yes	1	1	348.0
+genus	Roseivirga	290180	5	no	no	0.8	1	340.6
+genus	Roseivivax	93682	3	yes	yes	1	1	365.3
+genus	Roseobacter	2433	6	no	no	0.333	0.99	362.3
+genus	Roseomonas	125216	3	no	yes	1	1	367.7
+genus	Roseovarius	74030	5	no	no	0.833	1	359.6
+genus	Rothia	32207	3	yes	yes	1	1	295.3
+genus	Rubellimicrobium	295418	2	yes	yes	1	1	354.5
+genus	Rubritalea	361050	2	yes	yes	1	1	343.5
+genus	Rubrobacter	42255	3	yes	yes	1	1	334.3
+genus	Ruegeria	97050	5	no	no	0.8	0.999	359.4
+genus	Rufibacter	1379908	3	yes	yes	1	1	346.3
+genus	Ruminiclostridium	1508657	16	no	no	0.526	0.986	334.2
+genus	Ruminobacter	866	2	yes	yes	1	1	322.5
+genus	Ruminococcus	1263	34	no	no	0.618	0.975	307.7
+genus	Runella	105	3	yes	yes	1	1	355.3
+genus	Saccharibacillus	456492	2	yes	yes	1	1	375.0
+genus	Saccharibacter	231052	2	no	no	0.667	1	313.0
+genus	Saccharicrinis	1618113	2	yes	yes	1	1	351.5
+genus	Saccharomonospora	1851	9	yes	yes	1	1	346.8
+genus	Saccharopolyspora	1835	3	yes	yes	1	1	349.7
+genus	Saccharothrix	2071	4	no	no	0.75	0.915	355.5
+genus	Salibacterium	1884429	2	yes	yes	1	1	363.5
+genus	Salimicrobium	351195	2	yes	yes	1	1	361.0
+genus	Salinicoccus	45669	6	yes	yes	1	1	354.2
+genus	Salinimicrobium	561367	3	yes	yes	1	1	336.0
+genus	Salinisphaera	180541	2	yes	yes	1	1	361.5
+genus	Salinispora	168694	2	yes	yes	1	1	348.5
+genus	Salinivibrio	51366	10	yes	yes	1	1	358.2
+genus	Sandarakinorhabdus	362865	2	yes	yes	1	1	345.0
+genus	Sanguibacteroides	1635148	2	yes	yes	1	1	320.0
+genus	Saprospira	1007	2	yes	yes	1	1	304.5
+genus	Scardovia	196081	2	yes	yes	1	1	238.5
+genus	Scytonema	1203	3	no	no	0.5	0.999	340.3
+genus	Sedimenticola	349742	2	yes	yes	1	1	363.5
+genus	Sediminibacterium	504481	2	yes	yes	1	1	335.0
+genus	Segniliparus	286801	2	yes	yes	1	1	324.0
+genus	Selenomonas	970	16	no	no	0.842	1	342.6
+genus	Serinicoccus	265976	2	yes	yes	1	1	339.0
+genus	Serratia	613	7	no	no	0.75	0.994	367.3
+genus	Sharpea	519427	4	yes	yes	1	1	312.8
+genus	Shewanella	22	24	yes	yes	1	1	363.4
+genus	Shigella	620	2	no	no	0.5	0.999	370.0
+genus	Shimia	573139	2	yes	yes	1	1	358.0
+genus	Sideroxydans	314343	2	no	yes	1	1	292.5
+genus	Simiduia	447467	2	yes	yes	1	1	351.0
+genus	Sinorhizobium	28105	4	no	no	0.8	1	373.3
+genus	Skermanella	204447	2	yes	yes	1	1	379.5
+genus	Slackia	84108	3	yes	yes	1	1	299.7
+genus	Smithella	182623	5	yes	yes	1	1	283.4
+genus	Sodalis	84565	2	no	no	0.667	1	362.5
+genus	Solimonas	413435	2	yes	yes	1	1	364.5
+genus	Solirubrobacter	207599	2	yes	yes	1	1	358.5
+genus	Solobacterium	123375	2	yes	yes	1	1	263.5
+genus	Sphaerochaeta	399320	4	no	yes	1	0.999	293.8
+genus	Sphingobacterium	28453	15	no	no	0.933	1	348.6
+genus	Sphingobium	165695	13	yes	yes	1	1	356.2
+genus	Sphingomonas	13687	34	no	no	0.912	0.998	349.3
+genus	Sphingopyxis	165697	10	no	no	0.8	0.997	347.3
+genus	Spiribacter	1335745	2	no	yes	1	1	336.0
+genus	Spirochaeta	146	7	no	no	0.7	1	325.9
+genus	Spiroplasma	2132	14	no	no	0.824	1	178.3
+genus	Spirosoma	107	7	yes	yes	1	1	358.4
+genus	Spirulina	1154	2	yes	yes	1	1	358.0
+genus	Spongiibacter	630749	3	no	no	0.75	1	350.7
+genus	Sporolactobacillus	2077	3	yes	yes	1	1	358.7
+genus	Sporosarcina	1569	5	no	no	0.8	0.998	353.8
+genus	Staphylococcus	1279	39	no	no	0.974	0.991	340.1
+genus	Staphylothermus	2279	2	yes	yes	1	1	124.5
+genus	Stenotrophomonas	40323	10	no	no	0.9	1	354.0
+genus	Streptacidiphilus	228398	5	yes	yes	1	1	355.0
+genus	Streptobacillus	34104	5	yes	yes	1	1	244.6
+genus	Streptococcus	1301	61	yes	yes	1	1	298.2
+genus	Streptomyces	1883	115	no	no	0.931	0.998	355.0
+genus	Streptosporangium	2000	2	yes	yes	1	1	361.5
+genus	Subdoligranulum	292632	2	no	no	0.5	0.925	286.5
+genus	Succinatimonas	674963	2	no	no	0.5	0.999	318.0
+genus	Succinivibrio	83770	4	no	no	0.8	1	314.3
+genus	Sulfitobacter	60136	9	no	no	0.727	1	357.9
+genus	Sulfolobus	2284	80	no	no	0.87	0.999	186.1
+genus	Sulfuricurvum	286130	11	no	no	0.909	0.999	302.8
+genus	Sulfurihydrogenibium	212790	3	yes	yes	1	1	305.7
+genus	Sulfurimonas	202746	15	no	yes	1	1	312.4
+genus	Sulfurospirillum	57665	8	no	yes	1	1	339.4
+genus	Sulfurovum	265570	5	yes	yes	1	1	286.2
+genus	Sutterella	40544	6	no	yes	1	1	300.3
+genus	Synechococcus	1129	47	no	no	0.362	0.973	324.9
+genus	Synechocystis	1142	9	no	no	0.889	0.993	347.8
+genus	Synergistes	2753	3	no	no	0.4	0.504	318.7
+genus	Syntrophobacter	29526	2	no	no	0.5	0.985	290.0
+genus	Syntrophomonas	862	6	yes	yes	1	1	320.5
+genus	Syntrophus	43773	3	no	yes	1	0.999	291.3
+genus	Taylorella	29574	2	yes	yes	1	1	308.0
+genus	Tenacibaculum	104267	4	yes	yes	1	1	328.8
+genus	Tepidanaerobacter	499228	4	yes	yes	1	1	308.8
+genus	Tepidiphilus	203470	2	yes	yes	1	1	350.5
+genus	Terasakiella	196080	2	yes	yes	1	1	354.0
+genus	Teredinibacter	2425	7	no	no	0.875	1	351.9
+genus	Terribacillus	459532	2	yes	yes	1	1	359.0
+genus	Terriglobus	392733	4	yes	yes	1	1	350.3
+genus	Tetragenococcus	51668	2	yes	yes	1	1	301.0
+genus	Tetrasphaera	99479	5	no	no	0.4	0.999	336.8
+genus	Thalassobacillus	331971	2	no	no	0.5	0.949	376.5
+genus	Thalassobius	335927	3	no	no	0.667	0.993	355.3
+genus	Thalassospira	168934	4	yes	yes	1	1	365.0
+genus	Thalassotalea	1518149	4	no	no	0.75	0.999	352.0
+genus	Thauera	33057	4	yes	yes	1	1	368.0
+genus	Thermacetogenium	140458	2	yes	yes	1	1	308.0
+genus	Thermaerobacter	73918	2	yes	yes	1	1	345.5
+genus	Thermanaerovibrio	81461	2	yes	yes	1	1	316.5
+genus	Thermoactinomyces	2023	6	no	no	0.667	0.999	348.3
+genus	Thermoanaerobacter	1754	5	no	no	0.833	1	335.8
+genus	Thermoanaerobacterium	28895	2	yes	yes	1	1	337.0
+genus	Thermococcus	2263	27	no	no	0.73	0.999	174.7
+genus	Thermocrinis	75905	3	yes	yes	1	1	305.0
+genus	Thermocrispum	37924	2	yes	yes	1	1	342.5
+genus	Thermodesulfatator	241192	2	yes	yes	1	1	315.0
+genus	Thermodesulfobacterium	1740	6	yes	yes	1	1	299.7
+genus	Thermodesulfovibrio	28261	3	no	no	0.75	0.997	272.3
+genus	Thermofilum	2268	4	yes	yes	1	1	136.5
+genus	Thermogemmatispora	768669	2	yes	yes	1	1	344.0
+genus	Thermoplasma	2302	2	yes	yes	1	1	180.5
+genus	Thermoproteus	2270	5	yes	yes	1	1	168.2
+genus	Thermosipho	2420	2	yes	yes	1	1	297.0
+genus	Thermosynechococcus	146785	2	yes	yes	1	1	336.0
+genus	Thermotoga	2335	14	no	no	0.786	1	304.3
+genus	Thermovirga	336260	2	yes	yes	1	1	275.5
+genus	Thermus	270	11	yes	yes	1	1	340.1
+genus	Thioalkalimicrobium	92244	4	no	no	0.8	1	331.3
+genus	Thioalkalivibrio	106633	11	no	no	0.727	0.995	348.3
+genus	Thiobacillus	919	3	yes	yes	1	1	358.3
+genus	Thioclava	285107	4	yes	yes	1	1	368.3
+genus	Thiohalocapsa	85079	2	yes	yes	1	1	364.0
+genus	Thiomicrospira	933	11	no	no	0.769	1	338.0
+genus	Thiomonas	32012	4	yes	yes	1	1	366.3
+genus	Thiorhodococcus	57488	2	yes	yes	1	1	366.0
+genus	Thiothrix	1030	5	yes	yes	1	1	365.2
+genus	Tolypothrix	111782	3	no	no	0.333	0.993	363.3
+genus	Treponema	157	28	no	yes	1	0.999	279.1
+genus	Trichococcus	82802	5	yes	yes	1	1	346.6
+genus	Trichodesmium	1205	2	yes	yes	1	1	299.0
+genus	Trichormus	264688	2	no	no	0.5	0.998	348.5
+genus	Tropicibacter	599653	2	no	no	0.5	0.985	359.5
+genus	Trueperella	1069494	2	no	no	0.5	0.987	291.5
+genus	Tsukamurella	2060	2	yes	yes	1	1	344.5
+genus	Turicibacter	191303	4	yes	yes	1	1	296.8
+genus	Tyzzerella	1506577	2	no	no	0.5	0.953	327.5
+genus	Varibaculum	184869	4	yes	yes	1	1	301.5
+genus	Variovorax	34072	2	yes	yes	1	1	371.0
+genus	Veillonella	29465	8	yes	yes	1	1	325.1
+genus	Verminephrobacter	364316	2	yes	yes	1	1	359.0
+genus	Verrucomicrobium	2735	2	no	no	0.5	0.994	341.0
+genus	Vibrio	662	33	no	no	0.943	1	363.4
+genus	Virgibacillus	84406	5	no	no	0.429	0.983	365.0
+genus	Vitreoscilla	59	2	yes	yes	1	1	349.0
+genus	Vulcanisaeta	164450	14	yes	yes	1	1	166.6
+genus	Waddlia	71666	2	yes	yes	1	1	297.0
+genus	Weissella	46255	17	yes	yes	1	1	257.2
+genus	Wigglesworthia	51228	2	yes	yes	1	1	208.5
+genus	Williamsia	85043	2	no	no	0.667	1	344.5
+genus	Winogradskyella	286104	2	no	yes	1	1	336.5
+genus	Wohlfahrtiimonas	582472	5	yes	yes	1	1	340.4
+genus	Wolbachia	953	10	yes	yes	1	1	222.4
+genus	Xanthobacter	279	2	yes	yes	1	1	361.5
+genus	Xanthomonas	338	8	no	no	0.636	0.998	356.0
+genus	Xenorhabdus	626	4	yes	yes	1	1	362.5
+genus	Xylella	2370	2	yes	yes	1	1	325.0
+genus	Yersinia	629	33	yes	yes	1	1	370.5
+genus	Zhouia	561555	2	yes	yes	1	1	345.0
+genus	Zobellia	112040	2	yes	yes	1	1	341.0
+genus	Zymomonas	541	8	yes	yes	1	1	320.6
+species	Acholeplasmatales bacterium DTU067	1671634	2	yes	yes	1	1	245.0
+species	Acidaminococcus fermentans	905	3	yes	yes	1	1	323.3
+species	Acidiplasma aeolicum	507754	2	yes	yes	1	1	186.0
+species	Acidiplasma cupricumulans	312540	2	no	no	0.5	0.999	184.5
+species	Acidithiobacillus ferrivorans	160808	2	yes	yes	1	1	341.0
+species	Acidithiobacillus ferrooxidans	920	3	no	no	0.75	1	346.7
+species	Acidithiobacillus thiooxidans	930	10	no	no	0.909	1	348.7
+species	Acinetobacter bohemicus	1435036	2	yes	yes	1	1	348.0
+species	Acinetobacter indicus	756892	2	yes	yes	1	1	352.0
+species	Acinetobacter lwoffii	28090	3	no	no	0.5	0.999	342.0
+species	Acinetobacter pittii	48296	2	yes	yes	1	1	354.0
+species	Acinetobacter venetianus	52133	4	no	no	0.75	1	346.3
+species	Actinobaculum suis	1657	4	yes	yes	1	1	284.0
+species	Actinomyces neuii	33007	3	no	no	0.375	0.999	307.3
+species	Actinotignum schaalii	59505	3	yes	yes	1	1	266.3
+species	Aerococcus urinae	1376	3	no	no	0.75	1	294.7
+species	Aeropyrum camini	229980	2	yes	yes	1	1	159.0
+species	Agrobacterium rhizogenes	359	3	no	no	0.75	1	369.0
+species	Akkermansia glycaniphila	1679444	2	yes	yes	1	1	318.5
+species	Akkermansia muciniphila	239935	2	yes	yes	1	1	326.5
+species	Algoriphagus marincola	264027	2	yes	yes	1	1	340.0
+species	Alicyclobacillus hesperidum	89784	2	yes	yes	1	1	342.5
+species	Alteromonas macleodii	28108	4	no	no	0.8	1	346.0
+species	Alteromonas mediterranea	314275	4	yes	yes	1	1	367.8
+species	Anaerococcus prevotii	33034	2	no	no	0.667	1	273.5
+species	Anaerophaga thermohalophila	177400	2	yes	yes	1	1	344.5
+species	Anaplasma marginale	770	12	yes	yes	1	1	234.3
+species	Anaplasma phagocytophilum	948	12	yes	yes	1	1	214.8
+species	Aneurinibacillus migulanus	47500	7	yes	yes	1	1	383.0
+species	Arcanobacterium haemolyticum	28264	2	no	no	0.5	0.987	289.0
+species	Archaeoglobus fulgidus	2234	4	yes	yes	1	1	178.8
+species	Arthrospira platensis	118562	4	no	no	0.75	1	360.3
+species	Arthrospira sp. PCC 8005	376219	2	yes	yes	1	1	362.0
+species	Atopobium minutum	1381	3	no	no	0.75	1	254.7
+species	Atopobium parvulum	1382	2	no	no	0.5	1	251.0
+species	Atopobium rimae	1383	2	yes	yes	1	1	255.0
+species	Atopobium vaginae	82135	5	yes	yes	1	1	254.8
+species	Aureimonas ureilytica	401562	2	yes	yes	1	1	361.5
+species	Avibacterium paragallinarum	728	4	yes	yes	1	1	321.8
+species	Bacillus amyloliquefaciens	1390	4	no	no	0.333	0.999	375.3
+species	Bacillus anthracis	1392	2	yes	yes	1	1	381.0
+species	Bacillus badius	1455	2	yes	yes	1	1	373.5
+species	Bacillus cereus	1396	2	no	no	0.5	0.999	381.5
+species	Bacillus clausii	79880	2	no	no	0.667	1	375.0
+species	Bacillus coagulans	1398	5	yes	yes	1	1	368.4
+species	Bacillus coahuilensis	408580	2	yes	yes	1	1	357.5
+species	Bacillus enclensis	1402860	2	yes	yes	1	1	376.0
+species	Bacillus endophyticus	135735	2	yes	yes	1	1	375.5
+species	Bacillus flexus	86664	2	no	no	0.5	0.999	381.0
+species	Bacillus megaterium	1404	4	no	no	0.75	0.979	380.3
+species	Bacillus pumilus	1408	2	no	no	0.667	1	374.5
+species	Bacillus subtilis	1423	5	no	no	0.667	0.999	377.4
+species	Bacillus thuringiensis	1428	2	no	no	0.5	0.999	381.0
+species	Bacillus velezensis	492670	5	no	no	0.5	0.999	376.0
+species	Bacteroides fragilis	817	4	yes	yes	1	1	343.8
+species	Bacteroides thetaiotaomicron	818	2	yes	yes	1	1	347.5
+species	Bartonella apis	1686310	6	yes	yes	1	1	343.7
+species	Bartonella bacilliformis	774	16	yes	yes	1	1	275.1
+species	Bartonella bovis	155194	2	yes	yes	1	1	285.0
+species	Bartonella clarridgeiae	56426	2	yes	yes	1	1	280.5
+species	Bartonella henselae	38323	7	yes	yes	1	1	285.6
+species	Bartonella rattimassiliensis	270250	2	yes	yes	1	1	285.5
+species	Bartonella tamiae	373638	2	yes	yes	1	1	337.0
+species	Bartonella tribocorum	85701	2	yes	yes	1	1	288.5
+species	Bartonella vinsonii	33047	3	yes	yes	1	1	289.7
+species	Bartonella washoensis	186739	2	yes	yes	1	1	292.5
+species	Bdellovibrio bacteriovorus	959	7	no	no	0.875	1	316.9
+species	Bellilinea caldifistulae	360411	2	yes	yes	1	1	320.0
+species	Bhargavaea cecembensis	394098	2	no	no	0.667	1	348.5
+species	Bibersteinia trehalosi	47735	3	yes	yes	1	1	324.0
+species	Blautia obeum	40520	2	no	no	0.5	0.999	332.0
+species	Borrelia duttonii	40834	2	no	no	0.667	1	183.5
+species	Borrelia hermsii	140	7	yes	yes	1	1	181.6
+species	Borreliella burgdorferi	139	2	yes	yes	1	1	176.0
+species	Borreliella garinii	29519	19	yes	yes	1	1	177.0
+species	Bradyrhizobium elkanii	29448	2	no	no	0.667	1	372.0
+species	Bradyrhizobium lablabi	722472	2	no	no	0.5	1	370.0
+species	Brevibacillus borstelensis	45462	3	yes	yes	1	1	377.7
+species	Brevibacillus brevis	1393	6	no	no	0.6	0.999	381.0
+species	Brevibacillus laterosporus	1465	4	no	no	0.8	1	367.3
+species	Brevibacterium linens	1703	2	yes	yes	1	1	331.0
+species	Buchnera aphidicola	9	8	yes	yes	1	1	191.8
+species	Butyricimonas synergistica	544644	2	no	no	0.5	1	311.5
+species	Butyrivibrio crossotus	45851	2	yes	yes	1	1	316.5
+species	Butyrivibrio fibrisolvens	831	2	no	no	0.5	0.974	332.5
+species	Butyrivibrio hungatei	185008	2	no	no	0.5	0.999	330.0
+species	Butyrivibrio proteoclasticus	43305	4	no	no	0.5	0.999	329.0
+species	Caldanaerobacter subterraneus	911092	5	no	no	0.8	1	307.2
+species	Campylobacter coli	195	5	yes	yes	1	1	309.0
+species	Candidatus Arthromitus sp. SFB-mouse	49118	3	no	no	0.667	1	255.3
+species	Candidatus Atelocyanobacterium thalassa	713887	2	yes	yes	1	1	257.5
+species	Candidatus Baumannia cicadellinicola	186490	3	yes	yes	1	1	216.3
+species	Candidatus Endolissoclinum faulkneri	1263979	2	yes	yes	1	1	246.0
+species	Candidatus Kryptobacter tengchongensis	1643429	3	yes	yes	1	1	251.0
+species	Candidatus Kryptonium thompsoni	1633631	16	yes	yes	1	1	278.9
+species	Candidatus Liberibacter asiaticus	34021	9	yes	yes	1	1	256.7
+species	Candidatus Liberibacter solanacearum	556287	7	yes	yes	1	1	259.3
+species	Candidatus Methanomethylicus mesodigestum	1867258	2	yes	yes	1	1	165.5
+species	Candidatus Nitrosoarchaeum limnia	1007084	2	yes	yes	1	1	188.0
+species	Candidatus Pelagibacter ubique	198252	9	no	no	0.692	1	230.2
+species	Candidatus Peribacter riflensis	1735162	5	yes	yes	1	1	178.0
+species	Candidatus Portiera aleyrodidarum	91844	3	yes	yes	1	1	121.7
+species	Candidatus Synechococcus spongiarum	431041	8	yes	yes	1	1	269.5
+species	Candidatus Thiodiazotropha endoloripes	1818881	5	yes	yes	1	1	355.8
+species	Capnocytophaga granulosa	45242	2	yes	yes	1	1	292.0
+species	Capnocytophaga haemolytica	45243	2	yes	yes	1	1	295.5
+species	Catenovulum agarivorans	1172192	2	yes	yes	1	1	357.0
+species	Caulobacter henricii	69395	2	yes	yes	1	1	355.5
+species	Caulobacter vibrioides	155892	2	yes	yes	1	1	354.0
+species	Cellulomonas flavigena	1711	2	no	no	0.5	0.973	318.5
+species	Chlamydia gallinacea	1457153	2	yes	yes	1	1	214.0
+species	Chlamydia muridarum	83560	7	yes	yes	1	1	216.7
+species	Chlamydia pecorum	85991	11	yes	yes	1	1	222.1
+species	Chlamydia pneumoniae	83558	13	yes	yes	1	1	218.5
+species	Chlamydia psittaci	83554	37	no	no	0.973	1	218.9
+species	Chlamydia trachomatis	813	2	yes	yes	1	1	215.0
+species	Chlorobium phaeobacteroides	1096	2	no	no	0.5	0.998	338.0
+species	Chloroflexi bacterium oral taxon 439	712934	2	yes	yes	1	1	165.5
+species	Chlorogloeopsis fritschii	1124	2	yes	yes	1	1	360.5
+species	Chryseobacterium formosense	236814	2	yes	yes	1	1	331.5
+species	Chryseobacterium indologenes	253	2	no	no	0.5	1	346.5
+species	Chthonomonas calidirosea	454171	4	yes	yes	1	1	341.5
+species	Clostridioides difficile	1496	3	no	no	0.667	0.795	340.0
+species	Clostridium botulinum	1491	6	no	no	0.5	0.995	318.3
+species	Clostridium magnum	33954	2	yes	yes	1	1	363.5
+species	Clostridium pasteurianum	1501	2	yes	yes	1	1	353.5
+species	Collinsella aerofaciens	74426	3	no	no	0.75	1	307.3
+species	Colwellia psychrerythraea	28229	2	no	no	0.5	1	361.5
+species	Conexibacter woesei	191495	2	no	no	0.5	0.999	351.5
+species	Corynebacterium aurimucosum	169292	2	no	no	0.5	0.999	327.0
+species	Corynebacterium callunae	1721	2	yes	yes	1	1	327.5
+species	Corynebacterium diphtheriae	1717	13	yes	yes	1	1	318.2
+species	Corynebacterium falsenii	108486	2	no	no	0.5	0.999	319.0
+species	Corynebacterium halotolerans	225326	2	no	no	0.5	0.976	336.5
+species	Corynebacterium pseudodiphtheriticum	37637	2	no	no	0.5	0.999	312.5
+species	Corynebacterium pseudotuberculosis	1719	44	yes	yes	1	1	317.4
+species	Corynebacterium variabile	1727	2	no	no	0.5	0.828	339.0
+species	Coxiella burnetii	777	2	yes	yes	1	1	307.0
+species	Crocosphaera watsonii	263511	6	yes	yes	1	1	348.5
+species	Cutibacterium acnes	1747	4	yes	yes	1	1	320.0
+species	Cylindrospermopsis raciborskii	77022	5	no	no	0.714	1	343.6
+species	Dehalococcoides mccartyi	61435	26	no	no	0.963	1	259.2
+species	Denitrobacterium detoxificans	79604	2	yes	yes	1	1	306.5
+species	Desulfitobacterium hafniense	49338	3	yes	yes	1	1	370.7
+species	Desulfovibrio alaskensis	58180	2	yes	yes	1	1	353.5
+species	Desulfovibrio desulfuricans	876	5	no	no	0.6	0.996	345.0
+species	Desulfovibrio magneticus	184917	2	yes	yes	1	1	354.0
+species	Desulfovibrio vulgaris	881	2	yes	yes	1	1	354.0
+species	Dokdonia donghaensis	326320	2	yes	yes	1	1	329.5
+species	Draconibacterium orientale	1168034	2	yes	yes	1	1	350.0
+species	Endozoicomonas elysicola	305900	2	yes	yes	1	1	372.0
+species	Enterococcus asini	57732	2	yes	yes	1	1	328.0
+species	Enterococcus faecalis	1351	7	no	no	0.714	0.998	309.9
+species	Enterovibrio calviensis	91359	2	yes	yes	1	1	362.0
+species	Erythrobacter litoralis	39960	2	no	no	0.5	0.998	342.0
+species	Escherichia coli	562	6	no	no	0.75	1	332.2
+species	Eubacterium pyruvativorans	155865	2	yes	yes	1	1	321.0
+species	Exiguobacterium aurantiacum	33987	2	no	no	0.667	1	356.5
+species	Exiguobacterium enclense	1017277	2	yes	yes	1	1	355.0
+species	Faecalibaculum rodentium	1702221	2	yes	yes	1	1	309.5
+species	Faecalitalea cylindroides	39483	2	no	no	0.667	1	281.5
+species	Ferrimicrobium acidiphilum	121039	2	yes	yes	1	1	324.0
+species	Fibrobacter succinogenes	833	2	yes	yes	1	1	319.0
+species	Fischerella muscicola	92938	2	no	no	0.5	0.999	360.5
+species	Flavobacterium akiainvivens	1202724	2	yes	yes	1	1	332.5
+species	Flavobacterium johnsoniae	986	2	yes	yes	1	1	350.0
+species	Flavobacterium rivuli	498301	2	yes	yes	1	1	337.5
+species	Flavobacterium subsaxonicum	426226	2	yes	yes	1	1	346.0
+species	Fluoribacter dumoffii	463	2	yes	yes	1	1	334.5
+species	Francisella noatunensis	657445	4	yes	yes	1	1	320.3
+species	Francisella tularensis	263	43	yes	yes	1	1	310.1
+species	Fructobacillus fructosus	1631	3	yes	yes	1	1	246.3
+species	Fructobacillus pseudoficulneus	220714	2	yes	yes	1	1	266.0
+species	Fuchsiella alkaliacetigena	957042	3	yes	yes	1	1	347.3
+species	Fusobacterium necrophorum	859	10	yes	yes	1	1	313.7
+species	Fusobacterium nucleatum	851	3	yes	yes	1	1	300.0
+species	Gallibacterium anatis	750	10	yes	yes	1	1	331.6
+species	Gardnerella vaginalis	2702	5	yes	yes	1	1	239.8
+species	Geobacillus subterraneus	129338	2	no	no	0.5	0.999	376.5
+species	Gilliamella apicola	1196095	17	yes	yes	1	1	316.2
+species	Glaciecola pallidula	56807	2	yes	yes	1	1	366.5
+species	Glaciecola punicea	56804	2	yes	yes	1	1	358.0
+species	Gluconobacter oxydans	442	2	no	no	0.667	1	349.5
+species	Glutamicibacter arilaitensis	256701	2	yes	yes	1	1	332.0
+species	Haemophilus influenzae	727	4	yes	yes	1	1	305.8
+species	Haemophilus parainfluenzae	729	4	yes	yes	1	1	322.5
+species	Halodesulfovibrio aestuarii	126333	2	no	no	0.667	1	354.5
+species	Halomonas sp. HL-93	1666906	2	yes	yes	1	1	361.0
+species	Haloquadratum walsbyi	293091	4	yes	yes	1	1	219.0
+species	Helicobacter cetorum	138563	2	yes	yes	1	1	273.0
+species	Helicobacter pylori	210	5	yes	yes	1	1	275.2
+species	Herbaspirillum chlorophenolicum	211589	2	yes	yes	1	1	360.5
+species	Hungatella hathewayi	154046	2	no	no	0.5	0.999	345.0
+species	Hydrogenobacter thermophilus	940	2	yes	yes	1	1	310.0
+species	Hydrogenovibrio marinus	28885	2	yes	yes	1	1	339.5
+species	Hydrotalea flava	714549	6	yes	yes	1	1	218.3
+species	Idiomarina abyssalis	86102	2	yes	yes	1	1	341.0
+species	Idiomarina loihiensis	135577	2	yes	yes	1	1	344.0
+species	Idiomarinaceae bacterium HL-53	1298881	2	yes	yes	1	1	340.0
+species	Jonquetella anthropi	428712	2	yes	yes	1	1	283.5
+species	Kandleria vitulina	1630	5	yes	yes	1	1	318.4
+species	Labrenzia alba	311410	2	yes	yes	1	1	361.5
+species	Lactobacillus acetotolerans	1600	3	yes	yes	1	1	244.7
+species	Lactobacillus acidophilus	1579	3	yes	yes	1	1	236.3
+species	Lactobacillus antri	227943	2	yes	yes	1	1	283.0
+species	Lactobacillus apis	303541	2	yes	yes	1	1	235.5
+species	Lactobacillus brevis	1580	2	no	no	0.5	0.936	273.0
+species	Lactobacillus casei	1582	10	no	no	0.438	0.998	306.0
+species	Lactobacillus curvatus	28038	8	yes	yes	1	1	261.3
+species	Lactobacillus fermentum	1613	18	no	no	0.947	1	286.4
+species	Lactobacillus florum	640331	4	yes	yes	1	1	239.5
+species	Lactobacillus fuchuensis	164393	2	yes	yes	1	1	272.5
+species	Lactobacillus gigeriorum	1203069	2	yes	yes	1	1	241.5
+species	Lactobacillus harbinensis	304207	3	no	no	0.75	1	289.7
+species	Lactobacillus hominis	1203033	2	yes	yes	1	1	241.5
+species	Lactobacillus ingluviei	148604	2	yes	yes	1	1	288.5
+species	Lactobacillus jensenii	109790	13	yes	yes	1	1	239.0
+species	Lactobacillus kimchicus	528209	2	yes	yes	1	1	314.0
+species	Lactobacillus lindneri	53444	2	yes	yes	1	1	263.0
+species	Lactobacillus nasuensis	944671	2	yes	yes	1	1	275.5
+species	Lactobacillus odoratitofui	480930	2	yes	yes	1	1	309.0
+species	Lactobacillus pantheris	171523	3	yes	yes	1	1	285.0
+species	Lactobacillus paracasei	1597	13	no	no	0.591	0.999	307.5
+species	Lactobacillus parafarraginis	390842	2	yes	yes	1	1	315.0
+species	Lactobacillus pasteurii	872327	2	yes	yes	1	1	247.5
+species	Lactobacillus plantarum	1590	3	no	no	0.75	1	323.7
+species	Lactobacillus psittaci	116089	2	yes	yes	1	1	237.5
+species	Lactobacillus rhamnosus	47715	2	yes	yes	1	1	301.0
+species	Lactobacillus ruminis	1623	6	no	no	0.857	1	303.7
+species	Lactobacillus sakei	1599	5	yes	yes	1	1	269.4
+species	Lactobacillus similis	414682	2	yes	yes	1	1	322.5
+species	Lactobacillus sucicola	519050	2	yes	yes	1	1	325.0
+species	Lactobacillus thailandensis	381741	2	yes	yes	1	1	273.5
+species	Lactobacillus versmoldensis	194326	2	yes	yes	1	1	319.0
+species	Lawsonella clevelandensis	1528099	2	yes	yes	1	1	301.0
+species	Lawsonia intracellularis	29546	3	yes	yes	1	1	275.3
+species	Legionella jordanis	456	2	yes	yes	1	1	331.5
+species	Legionella longbeachae	450	2	yes	yes	1	1	341.0
+species	Legionella pneumophila	446	43	yes	yes	1	1	338.5
+species	Leifsonia xyli	1575	2	no	no	0.5	0.972	320.0
+species	Leptolinea tardivitalis	229920	2	yes	yes	1	1	324.0
+species	Leptonema illini	183	2	yes	yes	1	1	347.0
+species	Leptospira interrogans	173	4	yes	yes	1	1	338.5
+species	Leptospira kirschneri	29507	3	yes	yes	1	1	336.0
+species	Leptospira noguchii	28182	3	yes	yes	1	1	335.7
+species	Leptospira santarosai	28183	2	yes	yes	1	1	333.0
+species	Leptospira weilii	28184	2	yes	yes	1	1	336.0
+species	Leptospirillum ferriphilum	178606	6	no	no	0.833	1	316.7
+species	Leptotrichia goodfellowii	157692	2	yes	yes	1	1	306.5
+species	Leucobacter chromiiresistens	1079994	2	yes	yes	1	1	322.0
+species	Leuconostoc mesenteroides	1245	8	yes	yes	1	1	296.4
+species	Listeria innocua	1642	2	yes	yes	1	1	349.5
+species	Listeria monocytogenes	1639	10	yes	yes	1	1	353.4
+species	Maribacter dokdonensis	320912	2	no	no	0.667	1	343.5
+species	Mesoflavibacter zeaxanthinifaciens	393060	2	no	no	0.5	0.976	330.5
+species	Metallosphaera sedula	43687	7	yes	yes	1	1	182.0
+species	Methanobacterium formicicum	2162	5	no	no	0.667	1	186.6
+species	Methanobrevibacter smithii	2173	5	no	no	0.833	1	182.8
+species	Methanocaldococcus villosus	667126	2	yes	yes	1	1	167.0
+species	Methanococcoides methylutens	2226	2	no	no	0.667	1	207.0
+species	Methanococcus maripaludis	39152	3	yes	yes	1	1	182.3
+species	Methanoculleus bourgensis	83986	2	yes	yes	1	1	201.0
+species	Methanoculleus marisnigri	2198	3	no	no	0.667	1	181.0
+species	Methanohalophilus halophilus	2177	2	yes	yes	1	1	200.0
+species	Methanosaeta harundinacea	301375	3	no	no	0.75	1	190.0
+species	Methanosarcina barkeri	2208	7	no	no	0.75	1	232.7
+species	Methanosarcina mazei	2209	25	yes	yes	1	1	222.5
+species	Methanosarcina siciliae	38027	3	yes	yes	1	1	229.3
+species	Methanosarcina thermophila	2210	2	no	no	0.667	1	223.0
+species	Methylobacterium aquaticum	270351	2	yes	yes	1	1	369.5
+species	Methylobacterium populi	223967	2	yes	yes	1	1	365.5
+species	Methylophaga thiooxydans	392484	2	yes	yes	1	1	342.0
+species	Methylotenera versatilis	1055487	2	no	no	0.5	0.999	341.0
+species	Microbacterium hydrocarbonoxydans	273678	2	no	no	0.5	1	341.5
+species	Microbacterium testaceum	2033	2	yes	yes	1	1	336.5
+species	Microcystis aeruginosa	1126	19	no	no	0.905	1	349.8
+species	Mobiluncus curtisii	2051	4	yes	yes	1	1	297.8
+species	Mobiluncus mulieris	2052	4	yes	yes	1	1	293.5
+species	Moorea producens	1155739	2	no	no	0.667	1	360.0
+species	Moraxella catarrhalis	480	44	no	no	0.978	1	319.7
+species	Moraxella nonliquefaciens	478	2	yes	yes	1	1	319.0
+species	Moraxella osloensis	34062	2	no	no	0.667	1	343.0
+species	Morganella psychrotolerans	368603	2	yes	yes	1	1	367.5
+species	Muricauda antarctica	1055723	2	yes	yes	1	1	336.0
+species	Mycobacterium avium	1764	2	no	no	0.5	0.996	333.0
+species	Mycobacterium heraklionense	512402	2	yes	yes	1	1	337.0
+species	Mycobacterium rhodesiae	36814	2	no	no	0.5	0.994	346.5
+species	Myroides odoratimimus	76832	8	no	no	0.727	1	335.1
+species	Myroides odoratus	256	3	yes	yes	1	1	319.7
+species	Myroides profundi	480520	2	yes	yes	1	1	337.5
+species	Neptunomonas antarctica	619304	2	yes	yes	1	1	363.5
+species	Neptunomonas phycophila	1572645	2	yes	yes	1	1	356.5
+species	Nesiotobacter exalbescens	197461	2	yes	yes	1	1	360.0
+species	Nitrosomonas communis	44574	3	no	no	0.75	1	356.3
+species	Nitrosomonas marina	917	2	yes	yes	1	1	354.0
+species	Nitrosomonas ureae	44577	3	yes	yes	1	1	347.3
+species	Nonlabens ulvanivorans	906888	2	yes	yes	1	1	311.0
+species	Novosphingobium barchaimii	1420591	2	no	no	0.5	0.999	352.5
+species	Ochrobactrum anthropi	529	2	no	no	0.5	0.999	358.0
+species	Octadecabacter temperatus	1458307	2	yes	yes	1	1	350.0
+species	Oenococcus oeni	1247	50	yes	yes	1	1	275.3
+species	Oligella urethralis	90245	2	no	no	0.667	1	343.0
+species	Olsenella uli	133926	3	yes	yes	1	1	286.0
+species	Olsenella umbonata	604330	2	yes	yes	1	1	291.5
+species	Orientia tsutsugamushi	784	8	yes	yes	1	1	181.8
+species	Oxalobacter formigenes	847	2	yes	yes	1	1	330.0
+species	Paenibacillus durus	44251	2	yes	yes	1	1	379.0
+species	Paenibacillus larvae	1464	2	yes	yes	1	1	372.5
+species	Paenibacillus polymyxa	1406	4	no	no	0.667	1	376.3
+species	Parageobacillus caldoxylosilyticus	81408	3	yes	yes	1	1	379.7
+species	Paraglaciecola psychrophila	326544	2	yes	yes	1	1	374.5
+species	Pedobacter antarcticus	34086	3	yes	yes	1	1	349.3
+species	Pedobacter glucosidilyticus	1122941	2	yes	yes	1	1	340.0
+species	Pedobacter heparinus	984	2	yes	yes	1	1	348.5
+species	Pedobacter steynii	430522	2	no	no	0.667	1	359.5
+species	Peptococcaceae bacterium SCADC1_2_3	1487582	4	yes	yes	1	1	242.8
+species	Petrotoga mobilis	69499	2	yes	yes	1	1	316.5
+species	Phascolarctobacterium succinatutens	626940	2	yes	yes	1	1	325.5
+species	Phormidesmis priestleyi	268141	3	no	no	0.667	0.977	353.7
+species	Piscirickettsia salmonis	1238	24	yes	yes	1	1	321.8
+species	Pontibacillus halophilus	516704	2	yes	yes	1	1	365.5
+species	Pontibacter akesuensis	388950	2	yes	yes	1	1	347.0
+species	Porphyromonas somerae	322095	2	no	no	0.5	0.997	277.0
+species	Pragia fontium	82985	2	yes	yes	1	1	371.0
+species	Prevotella bryantii	77095	3	yes	yes	1	1	320.3
+species	Prevotella intermedia	28131	3	yes	yes	1	1	286.0
+species	Prevotella ruminicola	839	4	no	no	0.667	1	317.8
+species	Prochlorococcus marinus	1219	27	no	no	0.529	0.996	311.1
+species	Prochloron didemni	1216	3	yes	yes	1	1	342.7
+species	Proteiniclasticum ruminis	398199	2	yes	yes	1	1	317.0
+species	Pseudarthrobacter phenanthrenivorans	361575	2	no	no	0.667	1	344.0
+species	Pseudoalteromonas luteoviolacea	43657	3	no	no	0.667	0.999	365.3
+species	Pseudoalteromonas ruthenica	151081	3	yes	yes	1	1	359.7
+species	Pseudobacteroides cellulosolvens	35825	2	yes	yes	1	1	347.5
+species	Pseudobutyrivibrio ruminis	46206	2	no	no	0.667	1	325.5
+species	Pseudomonas alcaligenes	43263	2	no	no	0.5	0.999	374.0
+species	Pseudomonas fluorescens	294	2	no	no	0.667	1	383.5
+species	Pseudomonas putida	303	2	no	no	0.5	1	380.0
+species	Pseudomonas stutzeri	316	2	no	no	0.5	0.999	371.5
+species	Pseudonocardia autotrophica	2074	2	no	no	0.667	1	351.0
+species	Pseudothermotoga lettingae	177758	2	yes	yes	1	1	297.0
+species	Pseudoxanthomonas suwonensis	314722	3	yes	yes	1	1	353.3
+species	Pyrococcus furiosus	2261	2	yes	yes	1	1	194.0
+species	Ralstonia mannitolilytica	105219	2	yes	yes	1	1	366.5
+species	Rhizobium leguminosarum	384	2	no	no	0.5	0.999	368.5
+species	Rhodobacter sphaeroides	1063	2	yes	yes	1	1	369.5
+species	Rhodococcus fascians	1828	2	yes	yes	1	1	350.0
+species	Rhodonellum psychrophilum	336828	2	no	no	0.667	1	346.5
+species	Rhodopirellula baltica	265606	4	yes	yes	1	1	341.0
+species	Rhodopirellula europaea	1263866	2	yes	yes	1	1	342.0
+species	Rhodopseudomonas palustris	1076	6	no	no	0.75	1	363.8
+species	Richelia intracellularis	1164990	3	yes	yes	1	1	302.3
+species	Rickettsia bellii	33990	3	yes	yes	1	1	218.7
+species	Rickettsia canadensis	788	2	yes	yes	1	1	211.0
+species	Rickettsiella grylli	59196	2	yes	yes	1	1	263.0
+species	Roseivirga seohaensis	1914963	2	yes	yes	1	1	338.0
+species	Rothia dentocariosa	2047	2	yes	yes	1	1	296.5
+species	Ruminococcus bicirculans	1160721	2	yes	yes	1	1	314.5
+species	Ruminococcus flavefaciens	1265	5	no	no	0.833	1	320.2
+species	Saccharicrinis fermentans	982	2	yes	yes	1	1	351.5
+species	Salinivibrio socompensis	1510206	3	yes	yes	1	1	357.3
+species	Sanguibacteroides justesenii	1547597	2	yes	yes	1	1	320.0
+species	Saprospira grandis	1008	2	yes	yes	1	1	304.5
+species	Selenomonas artemidis	671224	2	yes	yes	1	1	334.5
+species	Selenomonas ruminantium	971	7	no	no	0.667	1	347.9
+species	Sharpea azabuensis	322505	4	yes	yes	1	1	312.8
+species	Shewanella baltica	62322	2	yes	yes	1	1	366.0
+species	Simiduia agarivorans	447471	2	yes	yes	1	1	351.0
+species	Solemya velum gill symbiont	2340	27	yes	yes	1	1	335.6
+species	Solobacterium moorei	102148	2	yes	yes	1	1	263.5
+species	Sphingobium herbicidovorans	76947	2	yes	yes	1	1	353.0
+species	Sphingomonas wittichii	160791	2	no	no	0.667	1	359.0
+species	Spirochaeta thermophila	154	2	yes	yes	1	1	319.0
+species	Staphylococcus capitis	29388	2	yes	yes	1	1	345.5
+species	Staphylococcus epidermidis	1282	9	no	no	0.818	1	342.2
+species	Staphylococcus saprophyticus	29385	2	no	no	0.5	0.999	348.5
+species	Stenotrophomonas maltophilia	40324	2	yes	yes	1	1	356.0
+species	Streptobacillus notomytis	1712031	3	yes	yes	1	1	250.0
+species	Streptococcus mutans	1309	10	yes	yes	1	1	306.3
+species	Streptococcus pyogenes	1314	2	yes	yes	1	1	264.5
+species	Streptococcus ratti	1341	2	yes	yes	1	1	315.5
+species	Streptococcus sobrinus	1310	5	yes	yes	1	1	307.4
+species	Streptococcus suis	1307	2	yes	yes	1	1	300.0
+species	Streptococcus thermophilus	1308	2	yes	yes	1	1	302.5
+species	Streptomyces albulus	68570	2	no	no	0.5	0.985	359.0
+species	Streptomyces avermitilis	33903	2	yes	yes	1	1	357.5
+species	Streptomyces cattleya	29303	2	no	no	0.5	0.893	315.5
+species	Streptomyces clavuligerus	1901	2	yes	yes	1	1	356.0
+species	Streptomyces lydicus	47763	2	yes	yes	1	1	358.0
+species	Streptomyces sp. WMMB 714	1286822	2	yes	yes	1	1	352.0
+species	Succinivibrio dextrinosolvens	83771	3	yes	yes	1	1	318.7
+species	Sulfitobacter donghicola	421000	2	yes	yes	1	1	354.0
+species	Sulfolobales archaeon AZ1	1326980	2	yes	yes	1	1	182.0
+species	Sulfolobus acidocaldarius	2285	49	yes	yes	1	1	183.2
+species	Sulfolobus islandicus	43080	20	yes	yes	1	1	191.7
+species	Sulfolobus solfataricus	2287	7	yes	yes	1	1	193.6
+species	Sutterella wadsworthensis	40545	2	no	no	0.5	1	309.0
+species	Synechococcus elongatus	32046	2	no	no	0.667	1	342.0
+species	Synechocystis sp. PCC 6803	1148	7	yes	yes	1	1	347.6
+species	Syntrophomonas wolfei	863	2	yes	yes	1	1	319.5
+species	Teredinibacter turnerae	2426	6	yes	yes	1	1	351.7
+species	Terriglobus roseus	392734	2	no	no	0.667	1	349.5
+species	Thalassotalea sp. LPB0090	1763536	2	yes	yes	1	1	347.5
+species	Thermacetogenium phaeum	85874	2	yes	yes	1	1	308.0
+species	Thermococcus barophilus	55802	2	yes	yes	1	1	174.0
+species	Thermococcus sibiricus	172049	2	no	no	0.667	1	173.0
+species	Thermococcus thioreducens	277988	2	yes	yes	1	1	170.0
+species	Thermodesulfobacterium commune	1741	2	yes	yes	1	1	301.0
+species	Thermotoga maritima	2336	4	yes	yes	1	1	312.3
+species	Thermotoga neapolitana	2337	2	yes	yes	1	1	317.5
+species	Thermovirga lienii	336261	2	yes	yes	1	1	275.5
+species	Thiobacillus denitrificans	36861	2	no	no	0.667	1	357.5
+species	Treponema bryantii	163	3	yes	yes	1	1	296.0
+species	Treponema endosymbiont of Eucomonympha sp.	1580831	4	yes	yes	1	1	204.3
+species	Treponema primitia	88058	2	yes	yes	1	1	325.5
+species	Treponema socranskii	53419	3	yes	yes	1	1	297.3
+species	Trichococcus flocculiformis	82803	2	yes	yes	1	1	343.5
+species	Trueperella pyogenes	1661	2	no	no	0.5	0.987	291.5
+species	Turicibacter sanguinis	154288	3	no	no	0.75	1	297.3
+species	Varibaculum cambriense	184870	3	yes	yes	1	1	301.0
+species	Veillonella parvula	29466	2	yes	yes	1	1	326.5
+species	Vibrio alginolyticus	663	3	no	no	0.667	0.997	366.7
+species	Vibrio parahaemolyticus	670	2	yes	yes	1	1	366.0
+species	Vibrio sp. JCM 18905	1298600	2	yes	yes	1	1	365.0
+species	Vulcanisaeta distributa	164451	5	no	no	0.833	1	170.6
+species	Waddlia chondrophila	71667	2	yes	yes	1	1	297.0
+species	Weissella ceti	759620	4	yes	yes	1	1	245.8
+species	Weissella confusa	1583	3	yes	yes	1	1	269.7
+species	Weissella halotolerans	1615	2	yes	yes	1	1	256.5
+species	Wigglesworthia glossinidia	51229	2	yes	yes	1	1	208.5
+species	Wohlfahrtiimonas chitiniclastica	400946	4	yes	yes	1	1	337.3
+species	Yersinia enterocolitica	630	2	yes	yes	1	1	372.5
+species	Yersinia pestis	632	29	yes	yes	1	1	370.3
+species	Zhouia amylolytica	376730	2	yes	yes	1	1	345.0
+species	Zymomonas mobilis	542	8	yes	yes	1	1	320.6
+species	[Clostridium] aminophilum	1526	3	yes	yes	1	1	336.7
+species	[Clostridium] citroniae	358743	2	yes	yes	1	1	355.0
+species	[Clostridium] clostridioforme	1531	3	yes	yes	1	1	351.0
+species	[Clostridium] innocuum	1522	3	no	no	0.667	0.999	340.3
+species	[Clostridium] papyrosolvens	29362	2	yes	yes	1	1	346.0
+species	[Haemophilus] parasuis	738	12	yes	yes	1	1	287.5
+species	bacteria symbiont BFo2 of Frankliniella occidentalis	1628856	2	yes	yes		1	325.5
+species	uncultured Clostridia bacterium	244328	3	no	no		0.999	280.3

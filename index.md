@@ -23,6 +23,8 @@ excerpt: >
     <br>
     Built using 10,575 genomes x 381 genes
 news:
+  - title: '<small>Apr 6, 2021</small>'
+    excerpt: 'Manuscript describing WoL + Woltka analysis of metagenomic data using **OGU** (operational genomic unit) is [preprinted](https://www.biorxiv.org/content/10.1101/2021.04.04.438427v1).'
   - title: '<small>May 6, 2020</small>'
     excerpt: '[Woltka](https://github.com/qiyunzhu/woltka), a bioinformatics package for meta''omics data analysis with WoL, is now in alpha release. Welcome to try!'
   - title: '<small>Mar 16, 2020</small>'

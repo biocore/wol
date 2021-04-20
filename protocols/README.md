@@ -7,11 +7,11 @@ Protocols for building, analyzing, and using the trees and other resources in th
 Building
 --------
 
-- [**Genome retrieval**](https://bitbucket.org/nsegata/repophlan): Download all bacterial and archaeal genomes available from NCBI GenBank and RefSeq, using RepoPhlAn.
+- [**Genome retrieval**](https://github.com/SegataLab/repophlan): Download all bacterial and archaeal genomes available from NCBI GenBank and RefSeq, using RepoPhlAn.
 
 - [**Genome sampling**](genome_sampling): Select _n_ genomes form a genome pool such that they maximize included biodiversity as measured by the _k_-mer signatures of genomes.
 
-- [**Marker identification**](https://bitbucket.org/nsegata/phylophlan/wiki/Home): Identify and extract amino acid sequences of 400 global marker genes from genomes, using PhyloPhlAn.
+- [**Marker identification**](https://huttenhower.sph.harvard.edu/phylophlan): Identify and extract amino acid sequences of 400 global marker genes from genomes, using PhyloPhlAn.
 
 - [**Tree building**](tree_building): Build phylogenetic trees of genes and species using various approaches.
 

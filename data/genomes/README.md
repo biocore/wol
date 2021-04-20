@@ -1,7 +1,7 @@
 Genomes
 =======
 
-The bacterial and archaeal genomes analyzed in this project. This GitHub directory hosts the metadata of the **10,575** genomes included in the reference phylogeny ([metadata.tsv](metadata.tsv.bz2)), and that of all **86,200** genomes ([metadata.ext.tsv](metadata.ext.tsv.bz2)) from which the genomes were sampled.
+The bacterial and archaeal genomes analyzed in this project. This GitHub directory hosts the metadata of the **10,575** genomes included in the reference phylogeny ([metadata.tsv](metadata.tsv.xz)), and that of all **86,200** genomes ([metadata.ext.tsv](metadata.ext.tsv.xz)) from which the genomes were sampled.
 
 ## Download
 
@@ -23,7 +23,7 @@ We also provide a Bash script [batch_down.sh](batch_down.sh) to batch-download a
 bash batch_down.sh download.list
 ```
 
-**Moreover**, in the [metadata](metadata.tsv.bz2), column `ftp_path` indicates the original path of each genome on the NCBI FTP server.
+**Moreover**, in the [metadata](metadata.tsv.xz), column `ftp_path` indicates the original path of each genome on the NCBI FTP server.
 
 
 ## Lineage-specific download
@@ -35,12 +35,12 @@ Then one can use [batch_down.sh](batch_down.sh) to batch-download them (see abov
 
 ## Mapping
 
-[**nucl2g.txt**](nucl2g.txt.bz2) is a nucleotide accession to genome ID mapping file. It is useful in some downstream applications (e.g., check out our [community ecology](../../protocols/community_ecology) protocol). Although it isn't hard to generate one from the genome sequences.
+[**nucl2g.txt**](nucl2g.txt.xz) is a nucleotide accession to genome ID mapping file. It is useful in some downstream applications (e.g., check out our [community ecology](../../protocols/community_ecology) protocol). Although it isn't hard to generate one from the genome sequences.
 
 
 ## Metadata
 
-[**metadata.tsv**](metadata.tsv.bz2) contains metadata of the **10,575** genomes selected for phylogenetic reconstruction. Definition of columns:
+[**metadata.tsv**](metadata.tsv.xz) contains metadata of the **10,575** genomes selected for phylogenetic reconstruction. Definition of columns:
 - **Identifier**
   - `genome`: Genome ID, which is translated from the NCBI assembly accession. For example, `GCF_000123456.1` was translated into `G000123456`.
   - `asm_name`, `assembly_accession`, `bioproject`, `biosample`, `wgs_master`: Corresponding NCBI accessions.
@@ -63,7 +63,7 @@ Then one can use [batch_down.sh](batch_down.sh) to batch-download them (see abov
   - `lv1_group`: Top level groups defined in this work. They are referred as "major clades" in the manuscript. Options are `Archaea`, `CPR` and `Eubacteria`.
   - `lv2_group`: Next level groups defined in this work. They are given color codes in the figures.
 - **Quality**
-  - `score_faa`, `score_fna`, `score_rrna`, `score_trna`: Quality scores for proteins, DNAs, rRNAs and tRNAs. Computed using [RepoPhlAn](https://bitbucket.org/nsegata/repophlan)'s built-in script `screen.py`, following [Land et al. (2014)](https://standardsingenomics.biomedcentral.com/articles/10.1186/1944-3277-9-20).
+  - `score_faa`, `score_fna`, `score_rrna`, `score_trna`: Quality scores for proteins, DNAs, rRNAs and tRNAs. Computed using [RepoPhlAn](https://github.com/SegataLab/repophlan)'s built-in script `screen.py`, following [Land et al. (2014)](https://standardsingenomics.biomedcentral.com/articles/10.1186/1944-3277-9-20).
   - `total_length`: Total length of DNA sequences (bp).
   - `gc`: Proportion of **G** and **C** in the DNA sequences.
   - `non_atcgs`: Total number of non-A, T, C or G characters.
@@ -83,7 +83,7 @@ Then one can use [batch_down.sh](batch_down.sh) to batch-download them (see abov
   - Note that in addition to these criteria, the original standard requires reference-guided review of metagenome assemblies and bins, which does not apply here. Therefore, please treat this information with caution.
   - Also note that we do not attempt to judge whether a genome is *finished*. Please refer to column `assembly_level` for this information.
 
-[**metadata.ext.tsv**](metadata.ext.tsv.bz2) contains metadata of all **86,200** non-duplicate bacterial and archaeal genomes. The table has two extra columns in the end:
+[**metadata.ext.tsv**](metadata.ext.tsv.xz) contains metadata of all **86,200** non-duplicate bacterial and archaeal genomes. The table has two extra columns in the end:
 - `selected`: Whether the genome was selected for phylogenetic reconstruction.
 - `neighbor`: The closest neighbor among the selected genomes, as defined by the MinHash sketch. This allows the user to map extended genomes to the reference phylogeny. Note that this is not an ideal solution. Please stay tuned for our advanced phylogenomic solution.
 

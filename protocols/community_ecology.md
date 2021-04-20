@@ -64,7 +64,7 @@ Example 1: SHOGUN by Bowtie2 maps:
 gOTU_from_maps.py bowtie2_result_dir output -m bowtie2 -e .sam.bz2 -t nucl2g.txt
 ```
 
-- The `nucl2g.txt` is a map of genome sequences (nucleotide) to genome IDs. We provide [**this file**](../data/genomes/nucl2g.txt.bz2) in this repository. One may also customize it.
+- The `nucl2g.txt` is a map of genome sequences (nucleotide) to genome IDs. We provide [**this file**](../data/genomes/nucl2g.txt.xz) in this repository. One may also customize it.
 - `.sam.bz2` is the extension filename of each mapping file (SAM format). We assume that it was already compressed using `bzip2`.
 
 Example 2: Centrifuge maps:

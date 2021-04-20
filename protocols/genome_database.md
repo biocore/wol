@@ -22,13 +22,13 @@ For programs (e.g., Kraken, Centrifuge) that prefer taxonomy in the format of [N
 
 - Note: taxdump is only available for NCBI, but not GTDB.
 
-Then one will need a genome ID to TaxID map (`g2tid.txt`). This exists in the [genome metadata](../data/genome/metadata.tsv.bz2) under column `taxid` (original NCBI TaxIDs), or in the curated taxonomy file: [rank_tids.tips.tsv](../data/taxonomy/ncbi/curation/rank_tids.tips.tsv.bz2). For the latter case, one may extract the lowest classified rank for each genome:
+Then one will need a genome ID to TaxID map (`g2tid.txt`). This exists in the [genome metadata](../data/genome/metadata.tsv.xz) under column `taxid` (original NCBI TaxIDs), or in the curated taxonomy file: [ranks.tsv](../data/taxonomy/ncbi/curation/taxid/ranks.tsv.xz). For the latter case, one may extract the lowest classified rank for each genome:
 
 ```bash
-cat rank_tids.tips.tsv | tail -n+2 | awk -v OFS='\t' '{print $1, $NF}' > g2tid.txt
+cat ranks.tsv | grep ^G | awk -v OFS='\t' '{print $1, $NF}' > g2tid.txt
 ```
 
-In many cases one will need a nucleotide accession to TaxID map (`nucl2tid.txt`). This file can be generate using `g2tid.txt` generated above, and a nucleotide to genome map ([nucl2g.txt](../data/genomes/nucl2g.txt.bz2)) which we provide: 
+In many cases one will need a nucleotide accession to TaxID map (`nucl2tid.txt`). This file can be generate using `g2tid.txt` generated above, and a nucleotide to genome map ([nucl2g.txt](../data/genomes/nucl2g.txt.xz)) which we provide: 
 
 ```bash
 join -12 -21 nucl2g.txt g2tid.txt -o1.1,2.2 -t$'\t' > nucl2tid.txt
@@ -44,7 +44,7 @@ G000006965      k__Bacteria; p__Proteobacteria; c__Alphaproteobacteria; o__Rhizo
 
 We provide lineage string files:
 
-- [original NCBI](../data/taxonomy/ncbi/lineages.txt.bz2), [curated NCBI](../data/taxonomy/ncbi/curation/lineages.txt.bz2), [original GTDB](../data/taxonomy/gtdb/lineages.txt.bz2), [curated GTDB](../data/taxonomy/gtdb/curation/lineages.txt.bz2).
+- [original NCBI](../data/taxonomy/ncbi/lineages.txt.xz), [curated NCBI](../data/taxonomy/ncbi/curation/lineages.txt.xz), [original GTDB](../data/taxonomy/gtdb/lineages.txt.xz), [curated GTDB](../data/taxonomy/gtdb/curation/lineages.txt.xz).
 
 Similarily, one can generate a nucleotide to lineage map:
 

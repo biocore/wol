@@ -41,15 +41,15 @@ In addition, there is:
 
 Node metrics are provided in separate files, in the format of node ID to metric(s) mappings.
 
-- **supports** ([example](astral/astral.supports.tsv.bz2)): Branch support values. Different types of branch support statistics are used by different methods.
+- **supports** ([example](astral/astral.supports.tsv.xz)): Branch support values. Different types of branch support statistics are used by different methods.
 
-- **splits** ([example](astral/astral.splits.tsv.bz2)): Metrics of branch splits (unrelated to branch lengths), including:
+- **splits** ([example](astral/astral.splits.tsv.xz)): Metrics of branch splits (unrelated to branch lengths), including:
   - `taxa`: Number of descendants (tips) under current node.
   - `prelevels`: Number of splits from root to current node.
   - `lmin`, `lmax`, `lmean`, `lmedian`, and `lstdev`: Statistics of number of splits from all descendants (tips) to current node (i.e., postlevels).
   - `splits`: Total number of splits from all tips to current node.
 
-- **lengths** ([example](astral/branch_length/cons/astral.cons.lengths.tsv.bz2)): Metrics of branch lengths, including:
+- **lengths** ([example](astral/branch_length/cons/astral.cons.lengths.tsv.xz)): Metrics of branch lengths, including:
 
   - `length`: Length of branch connecting current node and its parent.
   - `height`: Sum of branch lengths from root to current node.

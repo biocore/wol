@@ -23,6 +23,8 @@ top:
         url: /data/trees
       - title: Taxonomy
         url: /data/taxonomy
+      - title: rRNAs
+        url: /data/rrnas
   - title: Gallery
     url: /gallery
   - title: Code

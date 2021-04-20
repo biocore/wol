@@ -2,7 +2,7 @@
 """Generate a list of download links to genome sequences.
 
 Usage:
-    bzcat metadata.tsv.bz2 | make_down_list.py > downlist.txt
+    bzcat metadata.tsv.xz | make_down_list.py > downlist.txt
 """
 
 import fileinput
