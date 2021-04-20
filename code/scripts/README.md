@@ -105,7 +105,7 @@ Community analysis utilities
 
 **New** [**genomes_for_db.py**](genomes_for_db.py): Linearize, filter and concatenate multiple genome sequences into a single Fasta file for subsequent database building.
 
-[**gOTU_from_maps.py**](gOTU_from_maps.py): Generate a "gOTU table" from WGS sequence alignment results.
+[**ogu_from_maps.py**](ogu_from_maps.py): Generate an "OGU table" from WGS sequence alignment results.
 
 [**normalize_to_cpm.py**](normalize_to_cpm.py): Normalize a BIOM table to copies per million sequences (cpm).
 

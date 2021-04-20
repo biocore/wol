@@ -6,7 +6,7 @@ The [**GTDB**](http://gtdb.ecogenomic.org/) taxonomy (release 86.1) of the sampl
 - [translate.txt](translate.txt): Genome ID translation table (also available in [genomes/metadata.tsv](../../genomes/metadata.tsv.xz)).
 - [ranks.tsv](ranks.tsv.xz): GTDB taxonomy names at ranks.
 - [lineages.txt](lineages.txt.xz): Greengenes-style lineage strings.
-- [metadata.tsv](metadata.tsv.xz): Properties and metrics of taxonomic units.
+- [stats.tsv](stats.tsv): Properties and metrics of taxonomic units.
 - [trees](trees): GTDB trees with translated genome IDs.
 
 And:

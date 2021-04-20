@@ -51,6 +51,6 @@ Application
 
 - [**Genome database**](genome_database): Build a reference genome database with phylogeny-curated taxonomy to improve an existing metagenomic sequence classification workflow.
 
-- [**Community ecology**](community_ecology): Convert WGS sequence alignments into a "gOTU table" and perform microbial community ecology analyses with the reference phylogeny.
+- [**Community ecology**](community_ecology): Convert WGS sequence alignments into an "OGU table" and perform microbial community ecology analyses with the reference phylogeny.
 
 - [**Tree profiling**](tree_profiling): Modify an existing metagenomic profiling workflow to allow sequences to be directly assigned to tips and internal nodes of the reference phylogeny.

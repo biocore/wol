@@ -1,0 +1,3467 @@
+rank	name	count	mono_strict	mono_relaxed	t2t_consistency	quartet	markers
+kingdom	Archaea	645	no	yes	1	0.997	186.0
+kingdom	Bacteria	9087	no	yes	1	0.61	304.2
+phylum	Acidobacteriota	39	no	yes	1	0.998	339.5
+phylum	Actinobacteriota	1076	no	yes	1	0.999	328.6
+phylum	Aerophobetota	2	no	yes	1	1	251.0
+phylum	Altiarchaeota	5	yes	yes	1	1	150.6
+phylum	Aquificota	16	yes	yes	1	1	308.1
+phylum	Armatimonadota	7	no	yes	1	1	329.6
+phylum	Asgardarchaeota	8	no	no	0.875	0.987	175.8
+phylum	Bacteroidota	887	no	yes	1	0.997	324.4
+phylum	Bdellovibrionota	39	no	no	0.974	1	305.7
+phylum	Bipolaricaulota	8	yes	yes	1	1	244.3
+phylum	Caldisericota	2	yes	yes	1	1	240.0
+phylum	Calditrichota	2	yes	yes	1	1	327.5
+phylum	Calescibacterota	3	no	yes	1	1	271.7
+phylum	Campylobacterota	112	no	yes	1	1	309.6
+phylum	Chloroflexota	90	no	yes	1	0.993	286.2
+phylum	Chrysiogenetota	2	yes	yes	1	1	349.0
+phylum	Cloacimonadota	6	no	yes	1	1	247.3
+phylum	Coprothermobacterota	2	no	yes	1	1	268.5
+phylum	Crenarchaeota	233	no	no	0.996	0.999	168.2
+phylum	Cyanobacteriota	311	no	yes	1	0.999	333.5
+phylum	Deferribacterota	7	yes	yes	1	1	344.0
+phylum	Deinococcota	41	yes	yes	1	1	350.4
+phylum	Dependentiae	18	no	yes	1	1	162.1
+phylum	Desulfobacterota	146	no	no	0.877	0.996	334.2
+phylum	Desulfuromonadota	24	no	yes	1	1	351.9
+phylum	Dictyoglomota	2	yes	yes	1	1	304.5
+phylum	Elusimicrobiota	27	no	yes	1	1	283.0
+phylum	Euryarchaeota	100	no	no	0.535	0.948	177.0
+phylum	Fibrobacterota	26	yes	yes	1	1	309.0
+phylum	Firmicutes	1168	no	yes	1	0.999	318.5
+phylum	Firmicutes_A	641	no	yes	1	0.998	315.4
+phylum	Firmicutes_B	66	no	yes	1	1	337.0
+phylum	Firmicutes_C	73	yes	yes	1	1	331.0
+phylum	Firmicutes_D	4	yes	yes	1	1	320.3
+phylum	Firmicutes_E	4	yes	yes	1	1	347.5
+phylum	Firmicutes_F	17	yes	yes	1	1	335.7
+phylum	Firmicutes_G	9	yes	yes	1	1	293.3
+phylum	Fusobacteriota	36	yes	yes	1	1	300.6
+phylum	GWC2-55-46	16	no	yes	1	1	302.0
+phylum	Gemmatimonadota	5	no	yes	1	0.999	332.4
+phylum	Halobacterota	241	no	yes	1	0.999	212.7
+phylum	Hydrogenedentota	3	yes	yes	1	1	257.0
+phylum	KSB1	2	no	yes	1	1	308.5
+phylum	Margulisbacteria	26	no	yes	1	1	284.8
+phylum	Marinisomatota	12	no	yes	1	0.999	240.9
+phylum	Methylomirabilota	2	no	yes	1	1	288.5
+phylum	Micrarchaeota	4	no	no	0.5	0.92	124.3
+phylum	Moduliflexota	2	yes	yes	1	1	346.5
+phylum	Myxococcota	24	no	yes	1	1	359.8
+phylum	Nanoarchaeota	2	yes	yes	1	1	135.0
+phylum	Nitrospinota	10	no	yes	1	1	299.9
+phylum	Nitrospirota	34	no	yes	1	0.999	294.7
+phylum	Nitrospirota_A	9	yes	yes	1	1	317.3
+phylum	O2-12-FULL-43-9	6	yes	yes	1	1	278.0
+phylum	Omnitrophota	29	no	yes	1	0.999	252.4
+phylum	Patescibacteria	1033	no	yes	1	0.945	149.2
+phylum	Planctomycetota	53	no	yes	1	0.999	321.8
+phylum	Proteobacteria	2492	no	yes	1	0.991	339.4
+phylum	SAR324	14	no	yes	1	0.999	308.8
+phylum	Schekmanbacteria	6	no	yes	1	1	306.2
+phylum	Spirochaetota	128	no	yes	1	0.999	266.6
+phylum	Synergistota	29	no	yes	1	1	308.2
+phylum	TA06	4	no	no	0.75	0.913	270.0
+phylum	Thermoplasmatota	50	no	yes	1	0.999	170.7
+phylum	Thermotogota	35	yes	yes	1	1	299.5
+phylum	UBA10199	8	no	yes	1	1	284.0
+phylum	Verrucomicrobiota	158	no	yes	1	0.999	258.6
+phylum	WOR-3	7	no	yes	1	0.999	273.3
+phylum	Zixibacteria	4	no	yes	1	1	247.8
+class	32-111	2	yes	yes	1	1	273.5
+class	AB16	3	yes	yes	1	1	254.3
+class	ABY1	154	no	yes	1	0.995	162.5
+class	Acidimicrobiia	19	no	yes	1	1	299.9
+class	Acidobacteriae	28	no	yes	1	0.999	344.1
+class	Actinobacteria	977	no	yes	1	1	332.1
+class	Aerophobia	2	no	yes	1	1	251.0
+class	Alicyclobacillia	15	yes	yes	1	1	355.6
+class	Alphaproteobacteria	877	no	yes	1	0.999	332.9
+class	Altiarchaeia	5	yes	yes	1	1	150.6
+class	Aminicenantia	2	no	yes	1	0.999	269.0
+class	Anaerolineae	28	no	yes	1	0.998	293.0
+class	Andersenbacteria	9	yes	yes	1	1	153.2
+class	Aquificae	12	yes	yes	1	1	309.1
+class	Archaeoglobi	23	yes	yes	1	1	177.0
+class	BSN033	5	no	yes	1	0.999	303.2
+class	Babeliae	18	no	yes	1	1	162.1
+class	Bacilli	996	no	yes	1	0.999	309.4
+class	Bacilli_A	156	no	no	0.994	0.998	372.8
+class	Bacteriovoracia	23	no	yes	1	1	297.6
+class	Bacteroidia	815	no	yes	1	0.997	325.3
+class	Bathyarchaeia	20	no	yes	1	1	143.9
+class	Bdellovibrionia	13	yes	yes	1	1	315.1
+class	Berkelbacteria	5	no	yes	1	1	136.4
+class	Bipolaricaulia	8	yes	yes	1	1	244.3
+class	Blastocatellia	5	no	yes	1	1	344.4
+class	Brachyspirae	4	yes	yes	1	1	308.5
+class	Brevinematia	3	yes	yes	1	1	276.7
+class	Brocadiae	12	no	yes	1	0.999	284.8
+class	CPR2	7	yes	yes	1	1	168.4
+class	Caldisericia	2	yes	yes	1	1	240.0
+class	Calditrichia	2	yes	yes	1	1	327.5
+class	Calescibacteriia	3	no	yes	1	1	271.7
+class	Campylobacteria	107	no	yes	1	1	308.9
+class	Chitinivibrionia	3	yes	yes	1	1	300.7
+class	Chlamydiia	106	yes	yes	1	1	228.6
+class	Chlorobia	13	yes	yes	1	1	334.5
+class	Chloroflexia	18	yes	yes	1	1	345.2
+class	Chrysiogenetes	2	yes	yes	1	1	349.0
+class	Chthonomonadetes	4	yes	yes	1	1	341.5
+class	Cloacimonadia	6	no	yes	1	1	247.3
+class	Clostridia	603	no	yes	1	0.998	315.1
+class	Coprothermobacteria	2	no	yes	1	1	268.5
+class	Coriobacteriia	64	yes	yes	1	1	285.5
+class	Cyanobacteriia	284	no	yes	1	0.999	337.8
+class	DG-26	4	no	no	0.75	0.913	270.0
+class	Deferribacteres	7	yes	yes	1	1	344.0
+class	Dehalococcoidia	40	no	yes	1	0.999	255.1
+class	Deinococci	41	yes	yes	1	1	350.4
+class	Desulfarculia	4	yes	yes	1	1	337.0
+class	Desulfitobacteriia	21	yes	yes	1	1	360.0
+class	Desulfobaccia	2	no	no	0.5	0.992	307.0
+class	Desulfobacteria	30	no	no	0.968	0.999	341.0
+class	Desulfobulbia	17	no	yes	1	1	345.8
+class	Desulfofervidia	2	yes	yes	1	1	267.5
+class	Desulfotomaculia	21	no	no	0.955	1	327.5
+class	Desulfovibrionia	59	yes	yes	1	1	344.9
+class	Desulfurellia	5	yes	yes	1	1	324.6
+class	Desulfurobacteriia	4	yes	yes	1	1	305.3
+class	Desulfuromonadia	24	no	yes	1	1	351.9
+class	Dethiobacteria	2	yes	yes	1	1	321.0
+class	Dictyoglomia	2	yes	yes	1	1	304.5
+class	Dojkabacteria	12	no	yes	1	1	135.8
+class	Doudnabacteria	19	yes	yes	1	1	154.8
+class	EM3	2	yes	yes	1	1	273.0
+class	Elusimicrobia	14	no	no	0.714	0.999	283.6
+class	Endomicrobia	11	no	yes	1	1	284.3
+class	Fibrobacteria	22	yes	yes	1	1	309.0
+class	Fimbriimonadia	2	yes	yes	1	1	343.5
+class	Fusobacteriia	36	yes	yes	1	1	300.6
+class	GBS-1	2	yes	yes	1	1	289.5
+class	GWA2-38-11	6	no	yes	1	1	306.2
+class	GWC2-55-46	16	no	yes	1	1	302.0
+class	Gammaproteobacteria	1609	no	yes	1	0.995	343.0
+class	Gemmatimonadetes	3	yes	yes	1	1	358.3
+class	Glassbacteria	2	yes	yes	1	1	293.5
+class	Gracilibacteria	54	no	yes	1	0.999	177.3
+class	Halanaerobiia	17	yes	yes	1	1	335.7
+class	Halobacteria	101	no	yes	1	0.999	225.3
+class	Heimdallarchaeia	3	yes	yes	1	1	182.7
+class	Holophagae	2	yes	yes	1	1	349.0
+class	Hydrogenedentia	3	yes	yes	1	1	257.0
+class	Iainarchaeia	2	yes	yes	1	1	123.5
+class	Ignavibacteria	22	no	yes	1	1	329.2
+class	Kapabacteria	4	yes	yes	1	1	306.0
+class	Kazan	8	yes	yes	1	1	125.5
+class	Kiritimatiellae	5	yes	yes	1	1	290.8
+class	Kryptonia	21	yes	yes	1	1	276.8
+class	Ktedonobacteria	4	no	yes	1	0.999	285.3
+class	Lentisphaeria	5	yes	yes	1	1	328.8
+class	Leptospirae	27	yes	yes	1	1	339.5
+class	Leptospirillia	9	yes	yes	1	1	317.3
+class	Limnochordia	5	yes	yes	1	1	299.6
+class	Lokiarchaeia	5	no	no	0.8	0.978	171.6
+class	MGII	13	no	yes	1	1	143.5
+class	MSB-5A5	4	no	yes	1	1	247.8
+class	Mahellia	5	yes	yes	1	1	310.4
+class	Marinisomatia	8	no	yes	1	0.999	228.0
+class	Methanobacteria	34	yes	yes	1	1	183.4
+class	Methanococci	19	yes	yes	1	1	171.8
+class	Methanomethylicia	4	yes	yes	1	1	157.8
+class	Methanomicrobia	28	no	yes	1	1	196.0
+class	Methanosarcinia	88	no	yes	1	1	213.4
+class	Methylomirabilia	2	no	yes	1	1	288.5
+class	Micrarchaeia	2	yes	yes	1	1	125.0
+class	Microgenomatia	242	no	yes	1	0.978	151.5
+class	Moduliflexia	2	yes	yes	1	1	346.5
+class	Moorellia	6	no	no	0.667	0.995	334.3
+class	Myxococcia	11	yes	yes	1	1	370.7
+class	Negativicutes	73	yes	yes	1	1	331.0
+class	Nitrososphaeria	47	no	no	0.936	0.995	163.9
+class	Nitrospinia	2	no	yes	1	0.999	308.5
+class	Nitrospiria	10	no	yes	1	1	283.3
+class	O2-12-FULL-43-9	6	yes	yes	1	1	278.0
+class	Oligoflexia	2	yes	yes	1	1	346.0
+class	Omnitrophia	6	no	yes	1	1	282.0
+class	Paceibacteria	455	no	yes	1	0.978	141.1
+class	Peptococcia	4	no	no	0.75	0.994	332.0
+class	Phycisphaerae	10	no	yes	1	0.999	298.7
+class	Planctomycetes	31	yes	yes	1	1	343.6
+class	Polyangia	11	no	yes	1	1	353.0
+class	RBG-13-55-18	3	yes	yes	1	1	259.0
+class	Rhodothermia	10	yes	yes	1	1	339.2
+class	Rubrobacteria	3	yes	yes	1	1	334.3
+class	SAR324	14	no	yes	1	0.999	308.8
+class	SHA-98	2	yes	yes	1	1	274.0
+class	Saccharimonadia	15	no	yes	1	1	155.1
+class	Spirochaetia	91	no	yes	1	0.999	241.4
+class	Synergistia	27	no	yes	1	1	309.6
+class	Syntrophia	12	no	yes	1	1	297.5
+class	Syntrophobacteria	3	yes	yes	1	1	350.7
+class	Syntrophomonadia	13	yes	yes	1	1	317.9
+class	Thermaerobacteria	2	yes	yes	1	1	345.5
+class	Thermoanaerobacteria	24	no	no	0.828	1	326.5
+class	Thermococci	46	yes	yes	1	1	175.0
+class	Thermodesulfobacteria	10	yes	yes	1	1	303.7
+class	Thermodesulfovibrionia	21	no	yes	1	0.999	298.1
+class	Thermoleophilia	9	yes	yes	1	1	346.1
+class	Thermoplasmata	18	yes	yes	1	1	181.7
+class	Thermoplasmata_A	18	no	yes	1	1	180.3
+class	Thermoprotei	161	no	yes	1	1	172.9
+class	Thermotogae	35	yes	yes	1	1	299.5
+class	Thermovenabulia	9	yes	yes	1	1	311.8
+class	UBA10030	2	yes	yes	1	1	322.0
+class	UBA10199	8	no	yes	1	1	284.0
+class	UBA2214	2	no	yes	1	1	308.5
+class	UBA8919	2	yes	yes	1	1	272.0
+class	UBA9217	3	yes	yes	1	1	309.0
+class	UBA9942	7	no	yes	1	1	296.9
+class	Vampirovibrionia	27	no	yes	1	1	287.6
+class	Verrucomicrobiae	42	no	yes	1	0.998	322.3
+class	WOR-1	25	no	yes	1	1	283.4
+class	WOR-3	2	no	yes	1	1	266.0
+class	WWE3	51	no	yes	1	0.999	139.9
+class	Woesearchaeia	2	yes	yes	1	1	135.0
+class	XYA12-FULL-58-9	2	yes	yes	1	1	337.5
+class	Zetaproteobacteria	5	no	yes	1	1	336.6
+class	koll11	21	no	yes	1	1	245.2
+order	2-02-FULL-39-32	4	yes	yes	1	1	283.0
+order	2-02-FULL-40-11	5	yes	yes	1	1	281.0
+order	2-02-FULL-44-16	2	yes	yes	1	1	280.0
+order	2-02-FULL-50-16	4	yes	yes	1	1	286.3
+order	2-12-FULL-50-11	3	yes	yes	1	1	138.0
+order	20CM-2-55-15	2	yes	yes	1	1	303.0
+order	32-111	2	yes	yes	1	1	273.5
+order	40CM-2-53-6	9	no	yes	1	1	142.3
+order	4C28d-15	8	yes	yes	1	1	243.3
+order	AB16	3	yes	yes	1	1	254.3
+order	Acetivibrionales	18	no	yes	1	1	336.3
+order	Acetobacterales	44	yes	yes	1	1	350.4
+order	Acholeplasmatales	34	no	yes	1	1	211.6
+order	Acidaminococcales	12	yes	yes	1	1	322.1
+order	Acidiferrobacterales	3	yes	yes	1	1	330.0
+order	Acidimicrobiales	6	yes	yes	1	1	321.0
+order	Acidiprofundales	3	yes	yes	1	1	160.3
+order	Acidithiobacillales	20	yes	yes	1	1	346.4
+order	Acidobacteriales	18	no	yes	1	1	352.2
+order	Actinomycetales	353	yes	yes	1	1	317.5
+order	Aerophobales	2	no	yes	1	1	251.0
+order	Alicyclobacillales	12	yes	yes	1	1	354.1
+order	Ammonifexales	3	yes	yes	1	1	309.3
+order	Anaerolineales	26	no	yes	1	0.998	289.1
+order	Anaeromusales	2	yes	yes	1	1	353.5
+order	Aneurinibacillales	11	yes	yes	1	1	380.7
+order	Aquificales	7	yes	yes	1	1	308.1
+order	Archaeoglobales	21	yes	yes	1	1	178.1
+order	Azambacterales	21	no	no	0.619	0.961	134.3
+order	Azospirillales	12	yes	yes	1	1	373.9
+order	B142	2	yes	yes	1	1	170.0
+order	B25	2	yes	yes	1	1	165.0
+order	B26-1	5	yes	yes	1	1	143.8
+order	BSN033	3	no	yes	1	1	295.7
+order	Babeliales	18	no	yes	1	1	162.1
+order	Bacillales	242	no	no	0.867	0.995	373.0
+order	Bacillales_A	37	no	yes	1	1	360.6
+order	Bacteriovoracales	16	no	yes	1	1	297.7
+order	Bacteroidales	288	no	yes	1	0.999	309.7
+order	Balneolales	7	yes	yes	1	1	338.9
+order	Bdellovibrionales	13	yes	yes	1	1	315.1
+order	Beggiatoales	4	no	yes	1	1	344.8
+order	Berkiellales	2	yes	yes	1	1	334.0
+order	Betaproteobacteriales	328	no	yes	1	0.999	351.3
+order	Bipolaricaulales	7	yes	yes	1	1	241.7
+order	Borreliales	43	yes	yes	1	1	178.9
+order	Brachyspirales	4	yes	yes	1	1	308.5
+order	Brevibacillales	26	yes	yes	1	1	377.2
+order	Brevinematales	3	yes	yes	1	1	276.7
+order	Brocadiales	11	no	yes	1	0.999	286.5
+order	Buchananbacterales	4	no	yes	1	0.999	156.0
+order	C00003060	3	yes	yes	1	1	307.0
+order	CAG-41	2	yes	yes	1	1	298.0
+order	CG1-02-37-114	2	no	yes	1	1	273.0
+order	CPR2	7	yes	yes	1	1	168.4
+order	Caenarcaniphilales	4	yes	yes	1	1	300.3
+order	Caldalkalibacillales	2	yes	yes	1	1	370.5
+order	Caldanaerobiales	2	yes	yes	1	1	330.0
+order	Caldiarchaeales	2	yes	yes	1	1	141.5
+order	Caldicellulosiruptorales	10	yes	yes	1	1	328.8
+order	Caldicoprobacterales	4	yes	yes	1	1	304.0
+order	Caldisericales	2	yes	yes	1	1	240.0
+order	Calescibacteriales	3	no	yes	1	1	271.7
+order	Campylobacterales	104	no	yes	1	1	308.9
+order	Carboxydothermales	2	yes	yes	1	1	334.0
+order	Cardiobacteriales	11	yes	yes	1	1	329.1
+order	Caulobacterales	46	yes	yes	1	1	346.1
+order	Chitinivibrionales	3	yes	yes	1	1	300.7
+order	Chitinophagales	63	no	yes	1	0.999	343.3
+order	Chlamydiales	77	yes	yes	1	1	218.7
+order	Chlorobiales	13	yes	yes	1	1	334.5
+order	Chloroflexales	12	yes	yes	1	1	350.3
+order	Christensenellales	8	yes	yes	1	1	285.5
+order	Chromatiales	53	no	yes	1	1	344.8
+order	Chrysiogenales	2	yes	yes	1	1	349.0
+order	Chthoniobacterales	4	no	yes	1	1	304.5
+order	Chthonomonadales	4	yes	yes	1	1	341.5
+order	Cloacimonadales	5	no	yes	1	1	254.4
+order	Clostridiales	80	yes	yes	1	1	321.0
+order	Competibacterales	2	yes	yes	1	1	359.5
+order	Coprothermobacterales	2	no	yes	1	1	268.5
+order	Coriobacteriales	63	yes	yes	1	1	285.1
+order	Corynebacteriales	367	yes	yes	1	1	337.6
+order	Coxiellales	13	no	yes	1	1	276.0
+order	Curtissbacterales	8	no	yes	1	0.998	152.8
+order	Cyanobacteriales	166	no	yes	1	0.999	351.7
+order	Cytophagales	107	yes	yes	1	1	343.4
+order	DRI-13	2	yes	yes	1	1	325.5
+order	DTU010	2	yes	yes	1	1	274.0
+order	DTU086	2	yes	yes	1	1	298.0
+order	Daviesbacterales	17	no	yes	1	0.998	150.0
+order	Deferribacterales	7	yes	yes	1	1	344.0
+order	Dehalococcoidales	34	no	yes	1	1	260.5
+order	Deinococcales	41	yes	yes	1	1	350.4
+order	Desulfarculales	3	yes	yes	1	1	349.7
+order	Desulfatiglanales	3	yes	yes	1	1	347.3
+order	Desulfitibacterales	2	yes	yes	1	1	361.5
+order	Desulfitobacteriales	20	yes	yes	1	1	360.9
+order	Desulfobacterales	24	no	yes	1	0.999	344.4
+order	Desulfobulbales	17	no	yes	1	1	345.8
+order	Desulfofervidales	2	yes	yes	1	1	267.5
+order	Desulfotomaculales	16	no	yes	1	1	330.1
+order	Desulfovibrionales	59	yes	yes	1	1	344.9
+order	Desulfurellales	5	yes	yes	1	1	324.6
+order	Desulfurobacteriales	4	yes	yes	1	1	305.3
+order	Desulfurococcales	26	yes	yes	1	1	143.9
+order	Desulfuromonadales	12	yes	yes	1	1	355.5
+order	Dethiobacterales	2	yes	yes	1	1	321.0
+order	Dictyoglomales	2	yes	yes	1	1	304.5
+order	Diplorickettsiales	4	yes	yes	1	1	266.3
+order	Ectothiorhodospirales	15	yes	yes	1	1	350.5
+order	Elsterales	2	no	no	0.5	0.998	362.5
+order	Elusimicrobiales	9	no	yes	1	1	282.3
+order	Endomicrobiales	9	yes	yes	1	1	286.8
+order	Enterobacterales	482	no	yes	1	0.999	344.3
+order	Erysipelotrichales	60	yes	yes	1	1	307.9
+order	Eubacteriales	8	yes	yes	1	1	335.5
+order	Eurycoccales	3	yes	yes	1	1	340.7
+order	Exiguobacterales	9	yes	yes	1	1	354.9
+order	Falkowbacterales	18	no	yes	1	1	168.2
+order	Fibrobacterales	22	yes	yes	1	1	309.0
+order	Fimbriimonadales	2	yes	yes	1	1	343.5
+order	Flavobacteriales	288	no	yes	1	1	324.3
+order	Francisellales	55	yes	yes	1	1	310.9
+order	Frankiales	8	yes	yes	1	1	340.1
+order	Fusobacteriales	36	yes	yes	1	1	300.6
+order	GBS-1	2	yes	yes	1	1	289.5
+order	GIF10	8	no	yes	1	1	222.8
+order	GIF9	4	no	yes	1	0.999	221.5
+order	GWA2-38-11	6	no	yes	1	1	306.2
+order	GWA2-44-7	61	no	yes	1	0.991	140.0
+order	GWA2-46-9	6	yes	yes	1	1	163.5
+order	GWA2-58-10	2	yes	yes	1	1	293.5
+order	GWC2-55-46	16	no	yes	1	1	302.0
+order	Gastranaerophilales	20	no	yes	1	1	277.8
+order	Gemmatales	2	yes	yes	1	1	346.5
+order	Gemmatimonadales	3	yes	yes	1	1	358.3
+order	Geoarchaeales	7	yes	yes	1	1	137.7
+order	Geobacterales	12	no	yes	1	1	348.3
+order	Gloeobacterales	2	yes	yes	1	1	349.5
+order	Gottesmanbacterales	10	no	yes	1	1	190.6
+order	HDB-SIOI813	5	yes	yes	1	1	266.2
+order	Halanaerobiales	10	yes	yes	1	1	329.1
+order	Halobacteriales	101	no	yes	1	0.999	225.3
+order	Halobacteroidales	7	yes	yes	1	1	345.1
+order	Haloplasmatales	4	yes	yes	1	1	296.8
+order	Halothiobacillales	2	yes	yes	1	1	348.5
+order	Holophagales	2	yes	yes	1	1	349.0
+order	Holosporales	3	no	no	0.667	0.896	194.7
+order	Hydrogenedentiales	3	yes	yes	1	1	257.0
+order	Hydrogenothermales	5	yes	yes	1	1	310.4
+order	IMC4	4	yes	yes	1	1	152.5
+order	Iainarchaeales	2	yes	yes	1	1	123.5
+order	Ignavibacteriales	21	no	yes	1	1	330.2
+order	Isosphaerales	4	yes	yes	1	1	350.8
+order	Izimaplasmatales	2	yes	yes	1	1	269.5
+order	Jacksonbacterales	4	yes	yes	1	1	158.8
+order	JdFR-21	2	yes	yes	1	1	164.5
+order	JdFR-72	2	yes	yes	1	1	273.0
+order	Jiangellales	3	yes	yes	1	1	348.0
+order	Kapabacteriales	4	yes	yes	1	1	306.0
+order	Kazan-3B-28	8	yes	yes	1	1	125.5
+order	Kerfeldbacterales	4	yes	yes	1	1	172.0
+order	Kiloniellales	6	yes	yes	1	1	358.5
+order	Komeilibacterales	12	yes	yes	1	1	155.8
+order	Kryptoniales	21	yes	yes	1	1	276.8
+order	Ktedonobacterales	4	no	yes	1	0.999	285.3
+order	Kuenenbacterales	5	yes	yes	1	1	131.2
+order	Lachnospirales	249	no	yes	1	1	327.5
+order	Lactobacillales	511	no	yes	1	1	288.6
+order	Legionellales	81	yes	yes	1	1	337.2
+order	Leptolyngbyales	6	yes	yes	1	1	357.8
+order	Leptospirales	26	yes	yes	1	1	339.4
+order	Leptospirillales	9	yes	yes	1	1	317.3
+order	Levybacterales	23	no	yes	1	0.998	149.6
+order	Limnotrichales	2	yes	yes	1	1	346.0
+order	Lutisporales	3	yes	yes	1	1	329.7
+order	MGII	11	no	yes	1	1	145.1
+order	MGIII	2	yes	yes	1	1	135.0
+order	ML615J-28	7	yes	yes	1	1	226.6
+order	MSB-5A5	4	no	yes	1	1	247.8
+order	Magasanikibacterales	36	no	yes	1	0.999	169.2
+order	Marinisomatales	7	no	yes	1	0.999	227.4
+order	Mariprofundales	5	no	yes	1	1	336.6
+order	Methanobacteriales	34	yes	yes	1	1	183.4
+order	Methanocellales	3	yes	yes	1	1	199.7
+order	Methanococcales	19	yes	yes	1	1	171.8
+order	Methanofastidiosales	8	yes	yes	1	1	172.6
+order	Methanomassiliicoccales	12	yes	yes	1	1	189.8
+order	Methanomethyliales	4	yes	yes	1	1	157.8
+order	Methanomicrobiales	28	no	yes	1	1	196.0
+order	Methanosarcinales	73	yes	yes	1	1	219.5
+order	Methanotrichales	6	no	yes	1	1	193.7
+order	Methanotrichales_A	4	yes	yes	1	1	164.3
+order	Methylacidiphilales	6	yes	yes	1	1	322.5
+order	Methylococcales	23	no	yes	1	1	358.5
+order	Methylomirabilales	2	no	yes	1	1	288.5
+order	Microtrichales	12	no	yes	1	1	289.2
+order	Moduliflexales	2	yes	yes	1	1	346.5
+order	Moorellales	2	yes	yes	1	1	343.5
+order	Moranbacterales	39	no	yes	1	0.999	152.9
+order	Mycoplasmatales	21	yes	yes	1	1	176.2
+order	Myxococcales	11	yes	yes	1	1	370.7
+order	Nannocystales	3	yes	yes	1	1	350.3
+order	Nanopelagicales	16	no	yes	1	0.999	258.8
+order	Nautiliales	3	yes	yes	1	1	309.3
+order	Neosynechococcales	2	no	no	0.5	0.999	356.0
+order	Nevskiales	10	yes	yes	1	1	358.1
+order	Nitrococcales	7	no	yes	1	1	352.7
+order	Nitrosococcales	10	yes	yes	1	1	351.3
+order	Nitrososphaerales	44	no	yes	1	1	165.1
+order	Nitrospinales	2	no	yes	1	0.999	308.5
+order	Nitrospirales	4	no	yes	1	1	315.8
+order	O2-12-FULL-45-9	15	yes	yes	1	1	284.6
+order	Obscuribacterales	2	yes	yes	1	1	339.5
+order	Omnitrophales	6	no	yes	1	1	282.0
+order	Opitutales	13	no	yes	1	1	326.5
+order	Oscillospirales	103	no	yes	1	1	304.4
+order	Paceibacterales	41	no	yes	1	0.998	136.4
+order	Paenibacillales	91	no	yes	1	1	375.9
+order	Paracaedibacterales	3	yes	yes	1	1	270.3
+order	Parachlamydiales	28	yes	yes	1	1	256.5
+order	Parvibaculales	6	yes	yes	1	1	342.5
+order	Pedosphaerales	2	no	yes	1	1	321.5
+order	Pelagibacterales	12	no	yes	1	0.999	269.0
+order	Peptococcales	2	no	no	0.5	0.988	338.5
+order	Peptostreptococcales	54	no	yes	1	1	317.7
+order	Peregrinibacterales	20	no	yes	1	1	189.5
+order	Peribacterales	33	no	yes	1	1	170.4
+order	Petrotogales	11	yes	yes	1	1	296.5
+order	Phormidesmiales	7	yes	yes	1	1	360.0
+order	Pirellulales	18	yes	yes	1	1	339.1
+order	Piscirickettsiales	25	yes	yes	1	1	322.4
+order	Planctomycetales	7	yes	yes	1	1	350.4
+order	Polyangiales	7	no	yes	1	1	352.0
+order	Portnoybacterales	6	no	yes	1	0.999	126.5
+order	Propionibacteriales	58	yes	yes	1	1	336.6
+order	Propionisporales	3	no	no	0.75	1	373.7
+order	Pseudanabaenales	6	yes	yes	1	1	344.7
+order	Pseudomonadales	310	no	no	0.997	0.999	351.3
+order	Puniceispirillales	4	no	yes	1	1	318.5
+order	Pyrinomonadales	4	no	yes	1	1	344.3
+order	RBG-13-55-18	3	yes	yes	1	1	259.0
+order	RBG-16-68-12	2	no	yes	1	1	166.0
+order	RF32	7	yes	yes	1	1	240.6
+order	RF39	10	yes	yes	1	1	180.1
+order	RFN20	4	no	yes	1	1	220.3
+order	Rhizobiales	315	yes	yes	1	1	341.7
+order	Rhodobacterales	179	no	yes	1	0.999	359.4
+order	Rhodospirillales	21	yes	yes	1	1	357.3
+order	Rhodothermales	3	yes	yes	1	1	340.0
+order	Rickettsiales	86	no	yes	1	1	222.0
+order	Roizmanbacterales	51	no	yes	1	0.998	161.0
+order	Rubrobacterales	3	yes	yes	1	1	334.3
+order	Ryanbacterales	5	no	yes	1	0.999	149.6
+order	SAR324	13	no	yes	1	0.999	312.6
+order	SAR86	11	no	yes	1	1	262.1
+order	SC72	10	no	yes	1	1	129.0
+order	SG8-4	9	no	yes	1	0.999	294.9
+order	SM1-40	3	yes	yes	1	1	263.0
+order	SM23-42	2	no	yes	1	1	266.0
+order	SPLOWO2-01-44-7	2	yes	yes	1	1	283.5
+order	Saccharimonadales	15	no	yes	1	1	155.1
+order	Saccharofermentanales	9	no	yes	1	1	282.9
+order	Selenomonadales	26	no	no	0.962	1	343.6
+order	Shapirobacterales	5	no	yes	1	1	139.0
+order	Solibacterales	3	yes	yes	1	1	361.7
+order	Solirubrobacterales	9	yes	yes	1	1	346.1
+order	Spechtbacterales	3	no	yes	1	1	153.7
+order	Sphaerochaetales	9	no	yes	1	1	279.3
+order	Sphingobacteriales	68	yes	yes	1	1	350.5
+order	Sphingomonadales	116	yes	yes	1	1	347.6
+order	Spirochaetales	10	yes	yes	1	1	329.7
+order	Sporomusales	5	yes	yes	1	1	355.6
+order	Staphylococcales	54	yes	yes	1	1	338.4
+order	Streptomycetales	131	yes	yes	1	1	355.8
+order	Streptosporangiales	38	no	yes	1	1	353.2
+order	Sulfolobales	95	yes	yes	1	1	185.2
+order	Sungbacterales	16	no	yes	1	1	158.1
+order	Synechococcales	3	yes	yes	1	1	342.3
+order	Synechococcales_A	77	no	yes	1	0.999	301.0
+order	Synergistales	27	no	yes	1	1	309.6
+order	Syntrophales	12	no	yes	1	1	297.5
+order	Syntrophoarchaeales	2	yes	yes	1	1	169.0
+order	Syntrophobacterales	3	yes	yes	1	1	350.7
+order	Syntrophomonadales	8	yes	yes	1	1	321.6
+order	TANB77	5	yes	yes	1	1	208.0
+order	TCS64	3	no	yes	1	1	133.3
+order	Tepidibacillales	2	yes	yes	1	1	345.0
+order	Terrybacterales	6	no	yes	1	1	157.2
+order	Thalassobaculales	4	yes	yes	1	1	305.8
+order	Thermacetogeniales	5	yes	yes	1	1	312.0
+order	Thermaerobacterales	2	yes	yes	1	1	345.5
+order	Thermicanales	2	no	no	0.5	0.799	362.5
+order	Thermoactinomycetales	19	yes	yes	1	1	356.5
+order	Thermoanaerobacterales	12	yes	yes	1	1	324.1
+order	Thermococcales	38	yes	yes	1	1	175.5
+order	Thermodesulfobacteriales	10	yes	yes	1	1	303.7
+order	Thermodesulfovibrionales	20	no	yes	1	0.999	297.5
+order	Thermofilales	4	yes	yes	1	1	136.5
+order	Thermomicrobiales	4	yes	yes	1	1	333.0
+order	Thermoplasmatales	15	yes	yes	1	1	185.9
+order	Thermoproteales	29	no	yes	1	1	172.3
+order	Thermosynechococcales	6	yes	yes	1	1	348.3
+order	Thermotogales	23	yes	yes	1	1	301.5
+order	Thermovenabulales	8	yes	yes	1	1	309.6
+order	Thiohalospirales	2	no	no	0.5	0.998	354.5
+order	Thiomicrospirales	23	no	yes	1	1	327.4
+order	Thiotrichales	6	yes	yes	1	1	366.3
+order	Thorarchaeales	3	yes	yes	1	1	170.7
+order	Tissierellales	56	yes	yes	1	1	287.6
+order	Treponematales	29	no	yes	1	0.999	291.9
+order	Tumebacillales	2	yes	yes	1	1	365.5
+order	UBA10015	3	no	yes	1	1	284.3
+order	UBA10030	2	yes	yes	1	1	322.0
+order	UBA10105	4	no	yes	1	0.999	162.3
+order	UBA101185	48	no	yes	1	0.999	140.8
+order	UBA1018	7	yes	yes	1	1	297.4
+order	UBA10183	2	yes	yes	1	1	215.5
+order	UBA10190	9	yes	yes	1	1	153.2
+order	UBA10214	2	yes	yes	1	1	125.0
+order	UBA10353	7	no	yes	1	1	298.7
+order	UBA10834	3	yes	yes	1	1	171.3
+order	UBA11654	2	yes	yes	1	1	230.0
+order	UBA11705	5	no	yes	1	1	160.4
+order	UBA12402	5	yes	yes	1	1	236.2
+order	UBA1400	57	no	yes	1	0.997	149.7
+order	UBA1560	6	yes	yes	1	1	262.8
+order	UBA1784	3	yes	yes	1	1	330.7
+order	UBA2169	3	yes	yes	1	1	159.3
+order	UBA4486	3	no	yes	1	0.999	288.7
+order	UBA5158	7	yes	yes	1	1	259.6
+order	UBA6257	45	no	yes	1	0.997	135.3
+order	UBA7541	4	no	yes	1	0.999	319.8
+order	UBA8416	4	yes	yes	1	1	284.8
+order	UBA8919	2	yes	yes	1	1	272.0
+order	UBA920	19	yes	yes	1	1	154.8
+order	UBA9217	3	yes	yes	1	1	309.0
+order	UBA9339	2	yes	yes	1	1	199.0
+order	UBA9629	7	no	yes	1	1	189.9
+order	UBA9942	7	no	yes	1	1	296.9
+order	UBA9983	189	no	yes	1	0.991	141.6
+order	Uhrbacterales	42	no	yes	1	0.999	157.3
+order	Veblenbacterales	3	yes	yes	1	1	148.0
+order	Veillonellales	25	yes	yes	1	1	310.4
+order	Verrucomicrobiales	17	no	yes	1	1	323.4
+order	WO2-41-13	44	no	yes	1	0.999	141.1
+order	Woykebacterales	4	no	yes	1	0.999	151.5
+order	XYA12-FULL-58-9	2	yes	yes	1	1	337.5
+order	XYC2-FULL-46-14	10	no	yes	1	1	281.6
+order	Xanthomonadales	70	yes	yes	1	1	350.6
+order	Yanofskybacterales	38	no	yes	1	0.999	131.8
+family	01-FULL-39-12b	2	yes	yes	1	1	201.5
+family	01-FULL-45-10b	4	no	yes	1	1	290.8
+family	2-01-FULL-41-18	2	yes	yes	1	1	141.0
+family	2-01-FULL-43-14	2	no	yes	1	1	150.0
+family	2-01-FULL-45-10	5	yes	yes	1	1	261.4
+family	2-01-FULL-46-14	3	yes	yes	1	1	170.7
+family	2-01-FULL-52-15	2	yes	yes	1	1	141.0
+family	2-01-FULL-60-11	3	yes	yes	1	1	285.0
+family	2-02-FULL-35-15	3	yes	yes	1	1	314.3
+family	2-02-FULL-40-11	5	yes	yes	1	1	281.0
+family	2-02-FULL-40-12	3	yes	yes	1	1	113.7
+family	2-02-FULL-44-16	2	yes	yes	1	1	280.0
+family	2-02-FULL-48-12	2	no	yes	1	0.999	151.5
+family	2-02-FULL-48-14	2	yes	yes	1	1	148.5
+family	2-02-FULL-50-16	4	yes	yes	1	1	286.3
+family	2-02-FULL-50-9b	2	yes	yes	1	1	134.0
+family	2-12-FULL-40-10	2	yes	yes	1	1	131.0
+family	2-12-FULL-50-11	3	yes	yes	1	1	138.0
+family	2-12-FULL-60-25	2	yes	yes	1	1	144.5
+family	2013Ark19i	2	yes	yes	1	1	253.5
+family	20CM-2-55-15	2	yes	yes	1	1	303.0
+family	32-111	2	yes	yes	1	1	273.5
+family	40CM-2-53-6	7	yes	yes	1	1	140.7
+family	46-47	2	yes	yes	1	1	277.0
+family	AAA536-G10	2	yes	yes	1	1	294.5
+family	AB-539-J10	3	no	yes	1	1	240.0
+family	Acetivibrionaceae	14	no	yes	1	1	341.1
+family	Acetobacteraceae	44	yes	yes	1	1	350.4
+family	Acetohalobiaceae	4	yes	yes	1	1	346.0
+family	Acetomicrobiaceae	4	yes	yes	1	1	319.5
+family	Acetonemaceae	2	yes	yes	1	1	362.0
+family	Acholeplasmataceae	31	no	yes	1	1	207.1
+family	Acidaminococcaceae	11	yes	yes	1	1	321.9
+family	Acidilobaceae	9	yes	yes	1	1	151.9
+family	Acidimicrobiaceae	6	yes	yes	1	1	321.0
+family	Acidithiobacillaceae	20	yes	yes	1	1	346.4
+family	Acidobacteriaceae	16	no	yes	1	1	355.6
+family	Aciduliprofundaceae	2	yes	yes	1	1	169.5
+family	Actinomycetaceae	73	yes	yes	1	1	295.4
+family	Aerococcaceae	24	yes	yes	1	1	297.3
+family	Aeromonadaceae	11	yes	yes	1	1	371.0
+family	Afifellaceae	2	yes	yes	1	1	356.0
+family	Akkermansiaceae	16	no	yes	1	1	321.3
+family	Alcanivoracaceae	6	yes	yes	1	1	353.5
+family	Alicyclobacillaceae	11	yes	yes	1	1	353.9
+family	Alkalibacillaceae	5	yes	yes	1	1	345.2
+family	Alkalispirochaetaceae	3	yes	yes	1	1	326.7
+family	Alteromonadaceae	108	yes	yes	1	1	358.8
+family	Amesbacteraceae	15	no	yes	1	0.998	135.6
+family	Aminobacteriaceae	5	no	yes	1	1	308.6
+family	Amoebophilaceae	3	yes	yes	1	1	191.3
+family	Amorphaceae	2	no	no	0.5	0.964	355.5
+family	Amphibacillaceae	32	yes	yes	1	1	359.6
+family	Anaerolineaceae	15	no	yes	1	1	293.3
+family	Anaeromusaceae	2	yes	yes	1	1	353.5
+family	Anaeromyxobacteraceae	2	yes	yes	1	1	369.5
+family	Anaerotignaceae	5	yes	yes	1	1	316.0
+family	Anaerovoracaceae	15	no	yes	1	1	289.8
+family	Anaplasmataceae	47	yes	yes	1	1	222.1
+family	Aneurinibacillaceae	11	yes	yes	1	1	380.7
+family	Anoxybacillaceae	16	yes	yes	1	1	376.4
+family	Aquaspirillaceae	3	yes	yes	1	1	358.7
+family	Aquificaceae	6	yes	yes	1	1	308.7
+family	Archaeoglobaceae	20	yes	yes	1	1	178.5
+family	Arcobacteraceae	8	yes	yes	1	1	332.4
+family	Atopobiaceae	32	yes	yes	1	1	268.9
+family	Azospirillaceae	11	yes	yes	1	1	373.9
+family	B25	2	yes	yes	1	1	165.0
+family	B26-1	2	yes	yes	1	1	155.5
+family	BA1	2	yes	yes	1	1	128.5
+family	BACL11	3	yes	yes	1	1	260.7
+family	BACL12	2	yes	yes	1	1	287.5
+family	Babeliaceae	4	yes	yes	1	1	138.0
+family	Bacillaceae	32	yes	yes	1	1	375.8
+family	Bacillaceae_A	32	yes	yes	1	1	383.8
+family	Bacillaceae_B	4	yes	yes	1	1	377.8
+family	Bacillaceae_C	11	yes	yes	1	1	370.5
+family	Bacillaceae_D	15	yes	yes	1	1	377.6
+family	Bacillaceae_G	13	no	yes	1	1	380.3
+family	Bacillaceae_H	10	yes	yes	1	1	382.3
+family	Bacillaceae_J	2	yes	yes	1	1	372.5
+family	Bacillaceae_K	2	yes	yes	1	1	357.5
+family	Bacillaceae_L	2	yes	yes	1	1	382.0
+family	Bacteriovoracaceae	16	no	yes	1	1	297.7
+family	Bacteroidaceae	136	yes	yes	1	1	310.2
+family	Balneolaceae	6	yes	yes	1	1	338.0
+family	Barnesiellaceae	2	yes	yes	1	1	314.5
+family	Bdellovibrionaceae	13	yes	yes	1	1	315.1
+family	Beckwithbacteraceae	10	no	yes	1	1	164.5
+family	Beggiatoaceae	4	no	yes	1	1	344.8
+family	Beijerinckiaceae	40	yes	yes	1	1	361.7
+family	Berkiellaceae	2	yes	yes	1	1	334.0
+family	Bernardetiaceae	3	yes	yes	1	1	329.3
+family	Beutenbergiaceae	3	yes	yes	1	1	341.3
+family	Bifidobacteriaceae	43	yes	yes	1	1	272.7
+family	Bipolaricaulaceae	7	yes	yes	1	1	241.7
+family	Blackburnbacteraceae	4	no	yes	1	1	132.5
+family	Blattabacteriaceae	9	yes	yes	1	1	212.7
+family	Borreliaceae	43	yes	yes	1	1	178.9
+family	Brachyspiraceae	4	yes	yes	1	1	308.5
+family	Brennerbacteraceae	4	yes	yes	1	1	121.0
+family	Brevibacillaceae	26	yes	yes	1	1	377.2
+family	Brevibacteriaceae	7	yes	yes	1	1	326.0
+family	Brocadiaceae	8	no	yes	1	1	292.6
+family	Brochotrichaceae	2	yes	yes	1	1	335.5
+family	BuS5	2	no	yes	1	1	324.0
+family	Burkholderiaceae	197	no	yes	1	1	354.0
+family	Butyricicoccaceae	5	yes	yes	1	1	306.0
+family	CAG-138	4	yes	yes	1	1	266.8
+family	CAG-239	6	yes	yes	1	1	234.3
+family	CAG-272	7	no	yes	1	1	267.6
+family	CAG-288	2	yes	yes	1	1	213.5
+family	CAG-307	2	yes	yes	1	1	262.5
+family	CAG-313	2	yes	yes	1	1	245.0
+family	CAG-382	2	yes	yes	1	1	287.5
+family	CAG-508	4	yes	yes	1	1	210.5
+family	CAG-698	5	yes	yes	1	1	219.2
+family	CAG-74	2	yes	yes	1	1	270.0
+family	CAG-917	4	yes	yes	1	1	234.5
+family	CG1-02-41-26	2	yes	yes	1	1	132.0
+family	COMBO-62-14	2	yes	yes	1	1	307.0
+family	CPR2	7	yes	yes	1	1	168.4
+family	Caldalkalibacillaceae	2	yes	yes	1	1	370.5
+family	Caldanaerobiaceae	2	yes	yes	1	1	330.0
+family	Caldibacillaceae	3	yes	yes	1	1	361.0
+family	Caldicellulosiruptoraceae	10	yes	yes	1	1	328.8
+family	Caldicoprobacteraceae	4	yes	yes	1	1	304.0
+family	Caldisericaceae	2	yes	yes	1	1	240.0
+family	Calescibacteriaceae	3	no	yes	1	1	271.7
+family	Caloramatoraceae	6	yes	yes	1	1	319.2
+family	Caloranaerobacteraceae	2	yes	yes	1	1	301.0
+family	Caminicellaceae	2	yes	yes	1	1	334.5
+family	Campylobacteraceae	21	yes	yes	1	1	302.8
+family	Carboxydothermaceae	2	yes	yes	1	1	334.0
+family	Cardiobacteriaceae	5	yes	yes	1	1	315.8
+family	Carnobacteriaceae	22	yes	yes	1	1	302.7
+family	Catalimonadaceae	2	yes	yes	1	1	344.5
+family	Catenulisporaceae	2	yes	yes	1	1	354.5
+family	Caulobacteraceae	23	yes	yes	1	1	345.6
+family	Cellulomonadaceae	26	yes	yes	1	1	338.9
+family	Cellulosilyticaceae	7	no	yes	1	1	315.1
+family	Cellvibrionaceae	26	yes	yes	1	1	351.2
+family	Chisholmbacteraceae	3	yes	yes	1	1	161.7
+family	Chitinibacteraceae	10	no	yes	1	1	366.3
+family	Chitinispirillaceae	2	yes	yes	1	1	291.0
+family	Chitinophagaceae	50	no	yes	1	0.999	348.3
+family	Chlamydiaceae	77	yes	yes	1	1	218.7
+family	Chlorobiaceae	12	yes	yes	1	1	333.8
+family	Chloroflexaceae	6	yes	yes	1	1	347.8
+family	Christensenellaceae	2	yes	yes	1	1	338.5
+family	Chromatiaceae	14	no	yes	1	1	356.1
+family	Chromobacteriaceae	11	yes	yes	1	1	369.5
+family	Chroococcidiopsidaceae	5	yes	yes	1	1	357.8
+family	Chrysiogenaceae	2	yes	yes	1	1	349.0
+family	Chthonomonadaceae	4	yes	yes	1	1	341.5
+family	Cloacimonadaceae	2	yes	yes	1	1	266.5
+family	Clostridiaceae	61	yes	yes	1	1	336.7
+family	Coleofasciculaceae	5	yes	yes	1	1	361.6
+family	Collierbacteraceae	22	no	yes	1	0.999	141.8
+family	Colwellbacteraceae	5	no	yes	1	1	130.4
+family	Competibacteraceae	2	yes	yes	1	1	359.5
+family	Coprobacteraceae	2	yes	yes	1	1	325.0
+family	Coprothermobacteraceae	2	no	yes	1	1	268.5
+family	Coriobacteriaceae	11	yes	yes	1	1	301.0
+family	Corynebacteriaceae	270	yes	yes	1	1	332.6
+family	Coxiellaceae	13	no	yes	1	1	276.0
+family	Crocinitomicaceae	8	no	yes	1	1	322.6
+family	Cryomorphaceae	5	yes	yes	1	1	291.6
+family	Cyanobacteriaceae	14	no	no	0.643	0.995	345.3
+family	Cyanobiaceae	77	no	yes	1	0.999	301.0
+family	Cyclobacteriaceae	43	yes	yes	1	1	345.6
+family	Cytophagaceae	3	yes	yes	1	1	348.3
+family	D2472	11	no	yes	1	1	262.1
+family	DTU010	2	yes	yes	1	1	274.0
+family	DTU023	2	yes	yes	1	1	253.0
+family	DTU049	3	yes	yes	1	1	266.3
+family	DTU072	2	yes	yes	1	1	253.5
+family	DTU086	2	yes	yes	1	1	298.0
+family	DTU089	24	yes	yes	1	1	297.7
+family	Dehalococcoidaceae	31	yes	yes	1	1	261.1
+family	Deinococcaceae	21	yes	yes	1	1	355.6
+family	Demequinaceae	2	yes	yes	1	1	337.5
+family	Denitrovibrionaceae	3	yes	yes	1	1	350.7
+family	Dermabacteraceae	8	yes	yes	1	1	322.8
+family	Dermatophilaceae	44	yes	yes	1	1	341.8
+family	Desertifilaceae	2	yes	yes	1	1	360.0
+family	Desulfarculaceae	3	yes	yes	1	1	349.7
+family	Desulfatibacillaceae	2	yes	yes	1	1	350.5
+family	Desulfatirhabdiaceae	2	yes	yes	1	1	350.0
+family	Desulfitibacteraceae	2	yes	yes	1	1	361.5
+family	Desulfitobacteriaceae	16	yes	yes	1	1	367.5
+family	Desulfobacteraceae	12	no	yes	1	1	345.8
+family	Desulfobulbaceae	4	yes	yes	1	1	362.5
+family	Desulfocapsaceae	8	yes	yes	1	1	349.0
+family	Desulfohalobiaceae	2	yes	yes	1	1	345.0
+family	Desulfomicrobiaceae	2	yes	yes	1	1	360.5
+family	Desulfonatronaceae	3	yes	yes	1	1	352.7
+family	Desulfonatronospiraceae	3	yes	yes	1	1	341.7
+family	Desulfonauticaceae	3	yes	yes	1	1	321.0
+family	Desulforudaceae	2	yes	yes	1	1	311.5
+family	Desulfosarcinaceae	2	yes	yes	1	1	364.0
+family	Desulfotomaculaceae	4	yes	yes	1	1	353.5
+family	Desulfotomaculaceae_A	3	yes	yes	1	1	355.3
+family	Desulfovibrionaceae	45	yes	yes	1	1	345.4
+family	Desulfovirgulaceae	2	yes	yes	1	1	335.0
+family	Desulfurivibrionaceae	5	yes	yes	1	1	327.4
+family	Desulfurobacteriaceae	4	yes	yes	1	1	305.3
+family	Desulfurococcaceae	9	yes	yes	1	1	125.7
+family	Desulfuromonadaceae	2	yes	yes	1	1	335.5
+family	Dethiobacteraceae	2	yes	yes	1	1	321.0
+family	Dethiosulfatibacteraceae	2	yes	yes	1	1	331.5
+family	Dethiosulfovibrionaceae	4	yes	yes	1	1	304.0
+family	Devosiaceae	14	yes	yes	1	1	351.4
+family	Dialisteraceae	8	yes	yes	1	1	288.9
+family	Dictyoglomaceae	2	yes	yes	1	1	304.5
+family	Diplorickettsiaceae	4	yes	yes	1	1	266.3
+family	Domibacillaceae	8	yes	yes	1	1	373.9
+family	Dysgonomonadaceae	17	no	yes	1	1	326.5
+family	Ectothiorhodospiraceae	6	yes	yes	1	1	350.0
+family	Eggerthellaceae	20	yes	yes	1	1	302.2
+family	Elsteraceae	2	no	no	0.5	0.998	362.5
+family	Endozoicomonadaceae	4	yes	yes	1	1	370.5
+family	Enterobacteriaceae	194	no	yes	1	1	334.7
+family	Enterococcaceae	31	yes	yes	1	1	319.0
+family	Erysipelatoclostridiaceae	19	yes	yes	1	1	317.8
+family	Erysipelotrichaceae	41	yes	yes	1	1	303.2
+family	Ethanoligenenaceae	2	yes	yes	1	1	323.0
+family	Eubacteriaceae	6	yes	yes	1	1	338.7
+family	Exiguobacteraceae	9	yes	yes	1	1	354.9
+family	Ezakiellaceae	3	yes	yes	1	1	261.3
+family	F082	3	yes	yes	1	1	211.7
+family	Ferrovaceae	2	yes	yes	1	1	335.5
+family	Fervidobacteriaceae	5	yes	yes	1	1	294.2
+family	Fibrobacteraceae	22	yes	yes	1	1	309.0
+family	Fictibacillaceae	3	yes	yes	1	1	376.0
+family	Filifactoraceae	6	yes	yes	1	1	308.2
+family	Fimbriimonadaceae	2	yes	yes	1	1	343.5
+family	Flammeovirgaceae	3	yes	yes	1	1	360.3
+family	Flavobacteriaceae	214	no	yes	1	1	329.0
+family	Fodinicurvataceae	3	yes	yes	1	1	355.3
+family	Francisellaceae	55	yes	yes	1	1	310.9
+family	Frankiaceae	8	yes	yes	1	1	340.1
+family	Fusibacteraceae	2	yes	yes	1	1	357.0
+family	Fusobacteriaceae	21	yes	yes	1	1	316.1
+family	GBS-1	2	yes	yes	1	1	289.5
+family	GWA1-39-11	2	no	yes	1	1	138.0
+family	GWA2-36-10	3	yes	yes	1	1	162.7
+family	GWA2-37-8	6	no	yes	1	1	164.2
+family	GWA2-38-11	6	no	yes	1	1	306.2
+family	GWA2-41-24	8	no	yes	1	0.998	152.8
+family	GWA2-42-14	11	yes	yes	1	1	164.9
+family	GWA2-42-15	5	yes	yes	1	1	131.2
+family	GWA2-43-13	4	yes	yes	1	1	158.8
+family	GWA2-43-14	7	no	no	0.857	1	185.6
+family	GWA2-44-9	33	no	yes	1	0.999	134.3
+family	GWA2-46-9	6	yes	yes	1	1	163.5
+family	GWA2-47-10b	3	no	yes	1	0.999	148.3
+family	GWA2-47-26	7	no	yes	1	1	160.9
+family	GWA2-58-10	2	yes	yes	1	1	293.5
+family	GWB1-40-14	6	no	yes	1	1	157.2
+family	GWB1-42-6	4	no	yes	1	1	130.5
+family	GWC2-33-13	3	yes	yes	1	1	199.0
+family	GWC2-36-17	8	no	yes	1	1	147.0
+family	GWC2-37-13	31	no	yes	1	0.999	167.1
+family	GWC2-37-73	13	no	yes	1	1	144.3
+family	GWC2-42-12	2	no	yes	1	1	166.5
+family	GWC2-55-46	6	no	yes	1	1	320.8
+family	GWF1-51-8	2	yes	yes	1	1	296.0
+family	GWF2-33-10	2	yes	yes	1	1	221.0
+family	GWF2-33-38	4	yes	yes	1	1	284.8
+family	GWF2-38-335	2	yes	yes	1	1	311.0
+family	GWF2-40-263	16	no	yes	1	1	163.8
+family	GWF2-45-14	2	yes	yes	1	1	326.0
+family	Ga0074140	8	yes	yes	1	1	209.5
+family	Gallionellaceae	5	no	yes	1	0.999	332.4
+family	Gastranaerophilaceae	16	yes	yes	1	1	272.0
+family	Geitlerinemaceae	4	yes	yes	1	1	352.3
+family	Gemellaceae	3	yes	yes	1	1	280.7
+family	Gemmataceae	2	yes	yes	1	1	346.5
+family	Gemmatimonadaceae	3	yes	yes	1	1	358.3
+family	Geoalkalibacteraceae	2	yes	yes	1	1	365.0
+family	Geoarchaeaceae	7	yes	yes	1	1	137.7
+family	Geobacteraceae	7	yes	yes	1	1	363.6
+family	Geodermatophilaceae	10	yes	yes	1	1	345.2
+family	Geopsychrobacteraceae	4	yes	yes	1	1	367.3
+family	Giovannonibacteraceae	27	no	yes	1	1	143.7
+family	Giovannonibacteraceae_A	16	yes	yes	1	1	135.9
+family	Gloeobacteraceae	2	yes	yes	1	1	349.5
+family	Gottschalkiaceae	2	yes	yes	1	1	331.0
+family	H02-43-30	2	yes	yes	1	1	162.0
+family	HDB-SIOI813	5	yes	yes	1	1	266.2
+family	HO2-37-13b	13	no	yes	1	0.999	153.0
+family	HO2-48-17	4	yes	yes	1	1	172.0
+family	HO2-52-23	5	no	yes	1	1	143.2
+family	Hahellaceae	18	yes	yes	1	1	368.1
+family	Halanaerobiaceae	7	yes	yes	1	1	331.1
+family	Halieaceae	10	yes	yes	1	1	351.2
+family	Haloadaptaceae	2	yes	yes	1	1	237.5
+family	Haloarculaceae	15	no	yes	1	1	226.8
+family	Halobacillaceae	15	yes	yes	1	1	371.1
+family	Halobacteriaceae	6	yes	yes	1	1	213.3
+family	Halobacteroidaceae	3	yes	yes	1	1	344.0
+family	Halococcaceae	8	no	no	0.875	0.998	226.3
+family	Haloferacaceae	70	no	no	0.737	0.997	225.5
+family	Halomonadaceae	39	no	no	0.975	1	364.0
+family	Halorhodospiraceae	2	yes	yes	1	1	355.0
+family	Halothiobacillaceae	2	yes	yes	1	1	348.5
+family	Harrisonbacteraceae	7	no	yes	1	1	133.3
+family	Helcococcaceae	21	yes	yes	1	1	273.4
+family	Helicobacteraceae	32	yes	yes	1	1	290.0
+family	Herpetosiphonaceae	3	yes	yes	1	1	355.3
+family	Hippeaceae	4	yes	yes	1	1	322.8
+family	Holophagaceae	2	yes	yes	1	1	349.0
+family	Holosporaceae	2	yes	yes	1	1	184.0
+family	Hydrogenedensaceae	3	yes	yes	1	1	257.0
+family	Hydrogenophilaceae	3	yes	yes	1	1	358.3
+family	Hydrogenothermaceae	5	yes	yes	1	1	310.4
+family	Hymenobacteraceae	20	yes	yes	1	1	347.2
+family	Hyphomicrobiaceae	6	yes	yes	1	1	345.5
+family	Hyphomonadaceae	13	yes	yes	1	1	350.9
+family	Ignavibacteriaceae	10	no	yes	1	1	322.8
+family	Ignicoccaceae	2	yes	yes	1	1	155.0
+family	Ilumatobacteraceae	6	no	yes	1	1	298.5
+family	Isosphaeraceae	4	yes	yes	1	1	350.8
+family	Izimaplasmataceae	2	yes	yes	1	1	269.5
+family	Jatrophihabitantaceae	2	yes	yes	1	1	345.0
+family	JdFR-21	2	yes	yes	1	1	164.5
+family	JdFR-72	2	yes	yes	1	1	273.0
+family	JdFR-88	2	yes	yes	1	1	307.5
+family	Jeotgalibacillaceae	3	yes	yes	1	1	377.0
+family	Jiangellaceae	3	yes	yes	1	1	348.0
+family	Jorgensenbacteraceae	6	no	yes	1	1	126.0
+family	Kaiserbacteraceae	42	no	yes	1	0.997	147.1
+family	Kaistiaceae	3	yes	yes	1	1	360.7
+family	Kangiellaceae	2	yes	yes	1	1	333.0
+family	Kapabacteriaceae	2	yes	yes	1	1	307.5
+family	Kazan-3B-28	5	yes	yes	1	1	124.0
+family	Kiloniellaceae	3	yes	yes	1	1	361.7
+family	Kordiimonadaceae	2	yes	yes	1	1	357.0
+family	Koribacteraceae	2	no	yes	1	0.999	325.0
+family	Kosmotogaceae	4	yes	yes	1	1	281.5
+family	Kribbellaceae	2	yes	yes	1	1	359.0
+family	Kryptoniaceae	21	yes	yes	1	1	276.8
+family	Ktedonobacteraceae	4	no	yes	1	0.999	285.3
+family	LS-SOB	7	no	yes	1	1	298.7
+family	Lachnospiraceae	233	no	yes	1	1	329.2
+family	Lactobacillaceae	345	no	yes	1	1	278.5
+family	Legionellaceae	81	yes	yes	1	1	337.2
+family	Lentimicrobiaceae	2	yes	yes	1	1	311.5
+family	Leptococcaceae	2	yes	yes	1	1	335.5
+family	Leptolyngbyaceae	6	yes	yes	1	1	357.8
+family	Leptonemataceae	2	yes	yes	1	1	347.0
+family	Leptospiraceae	24	yes	yes	1	1	338.8
+family	Leptospirillaceae	9	yes	yes	1	1	317.3
+family	Leptotrichiaceae	15	yes	yes	1	1	278.7
+family	Limnotrichaceae	2	yes	yes	1	1	346.0
+family	Liptonbacteraceae	3	yes	yes	1	1	124.0
+family	Listeriaceae	21	yes	yes	1	1	350.6
+family	Lloydbacteraceae	6	no	yes	1	0.999	172.2
+family	Lutisporaceae	3	yes	yes	1	1	329.7
+family	MGIIB	10	no	yes	1	1	141.9
+family	Magnetospirillaceae	4	yes	yes	1	1	359.0
+family	Maricaulaceae	8	yes	yes	1	1	342.3
+family	Marinifilaceae	15	yes	yes	1	1	325.8
+family	Marinilabiliaceae	10	yes	yes	1	1	348.0
+family	Marinisomataceae	2	yes	yes	1	1	200.0
+family	Marinithermaceae	2	yes	yes	1	1	339.5
+family	Marinococcaceae	15	yes	yes	1	1	367.4
+family	Marinomonadaceae	7	yes	yes	1	1	362.1
+family	Mariprofundaceae	5	no	yes	1	1	336.6
+family	MedAcidi-G1	2	yes	yes	1	1	269.0
+family	Megasphaeraceae	8	yes	yes	1	1	321.3
+family	Melioribacteraceae	11	yes	yes	1	1	337.0
+family	Methanobacteriaceae	28	yes	yes	1	1	185.3
+family	Methanocaldococcaceae	8	yes	yes	1	1	166.8
+family	Methanocellaceae	3	yes	yes	1	1	199.7
+family	Methanococcaceae	11	yes	yes	1	1	175.5
+family	Methanocorpusculaceae	4	no	yes	1	1	181.0
+family	Methanocullaceae	12	no	yes	1	1	195.6
+family	Methanofastidiosaceae	8	yes	yes	1	1	172.6
+family	Methanofollaceae	2	yes	yes	1	1	204.0
+family	Methanomassiliicoccaceae	4	yes	yes	1	1	206.0
+family	Methanomethyliaceae	4	yes	yes	1	1	157.8
+family	Methanomethylophilaceae	8	yes	yes	1	1	181.8
+family	Methanomicrobiaceae	5	no	yes	1	1	196.8
+family	Methanoperedenaceae	2	yes	yes	1	1	219.0
+family	Methanoregulaceae	4	yes	yes	1	1	203.0
+family	Methanosarcinaceae	71	yes	yes	1	1	219.5
+family	Methanothermobacteraceae	4	yes	yes	1	1	179.8
+family	Methanotrichaceae	6	no	yes	1	1	193.7
+family	Methermicoccaceae	4	yes	yes	1	1	164.3
+family	Methylacidiphilaceae	5	yes	yes	1	1	325.0
+family	Methylococcaceae	4	yes	yes	1	1	358.5
+family	Methyloligellaceae	2	yes	yes	1	1	340.0
+family	Methylomonadaceae	16	no	yes	1	1	360.2
+family	Methylophagaceae	7	yes	yes	1	1	348.6
+family	Methylophilaceae	16	yes	yes	1	1	331.3
+family	Methylopilaceae	2	yes	yes	1	1	360.0
+family	Methylothermaceae	2	yes	yes	1	1	353.5
+family	Microbacteriaceae	89	yes	yes	1	1	327.3
+family	Micrococcaceae	54	yes	yes	1	1	330.7
+family	Microcystaceae	46	yes	yes	1	1	346.2
+family	Micromonosporaceae	26	yes	yes	1	1	354.7
+family	Microscillaceae	3	yes	yes	1	1	349.0
+family	Microtrichaceae	2	yes	yes	1	1	325.0
+family	Midichloriaceae	3	yes	yes	1	1	237.7
+family	Moduliflexaceae	2	yes	yes	1	1	346.5
+family	Moorellaceae	2	yes	yes	1	1	343.5
+family	Moraxellaceae	109	yes	yes	1	1	333.5
+family	Muribaculaceae	8	yes	yes	1	1	300.4
+family	Mycoplasmataceae	17	yes	yes	1	1	176.0
+family	Myxococcaceae	8	yes	yes	1	1	373.8
+family	NAC60-12	13	no	yes	1	0.999	312.6
+family	Nakamurellaceae	2	yes	yes	1	1	353.0
+family	Nannocystaceae	3	yes	yes	1	1	350.3
+family	Nanopelagicaceae	16	no	yes	1	0.999	258.8
+family	Nap2-2B	3	yes	yes	1	1	259.0
+family	Natronincolaceae	6	yes	yes	1	1	348.3
+family	Nautiliaceae	3	yes	yes	1	1	309.3
+family	Nealsonbacteraceae	3	no	yes	1	1	134.7
+family	Neisseriaceae	26	yes	yes	1	1	329.4
+family	Neosynechococcaceae	2	no	no	0.5	0.999	356.0
+family	Nevskiaceae	7	yes	yes	1	1	358.9
+family	Nitrincolaceae	21	yes	yes	1	1	357.8
+family	Nitrococcaceae	4	no	yes	1	1	349.3
+family	Nitrosococcaceae	3	yes	yes	1	1	357.7
+family	Nitrosomonadaceae	26	no	yes	1	1	350.9
+family	Nitrosopumilaceae	38	no	yes	1	1	162.9
+family	Nitrososphaeraceae	6	no	yes	1	1	179.3
+family	Nitrospinaceae	2	no	yes	1	0.999	308.5
+family	Nitrospiraceae	3	no	yes	1	1	344.0
+family	Nocardioidaceae	29	yes	yes	1	1	340.4
+family	Nomurabacteraceae	53	no	yes	1	0.998	143.9
+family	Nostocaceae	51	no	yes	1	1	353.2
+family	Novibacillaceae	2	yes	yes	1	1	362.0
+family	O2-02-FULL-48-8	14	yes	yes	1	1	150.1
+family	O2-12-FULL-45-9	7	yes	yes	1	1	280.1
+family	OLB20	2	yes	yes	1	1	170.0
+family	Obscuribacteraceae	2	yes	yes	1	1	339.5
+family	Opitutaceae	7	yes	yes	1	1	345.3
+family	Oscillatoriaceae	3	yes	yes	1	1	361.3
+family	Oscillospiraceae	21	no	yes	1	1	306.8
+family	Pacebacteraceae	9	no	yes	1	1	153.4
+family	Paceibacteraceae	2	yes	yes	1	1	138.5
+family	Paenibacillaceae	91	no	yes	1	1	375.9
+family	Paludibacteraceae	4	no	yes	1	1	304.8
+family	Paracaedibacteraceae	3	yes	yes	1	1	270.3
+family	Parachlamydiaceae	10	yes	yes	1	1	284.6
+family	Parvibaculaceae	3	yes	yes	1	1	352.0
+family	Parvularculaceae	2	yes	yes	1	1	336.0
+family	Pasteurellaceae	52	no	yes	1	1	316.4
+family	Pelagibacteraceae	11	no	yes	1	0.999	266.5
+family	Pelobacteraceae	5	no	yes	1	1	326.8
+family	Pelobacteraceae_A	2	yes	yes	1	1	331.0
+family	Pelosinaceae	2	yes	yes	1	1	375.5
+family	Peptoclostridiaceae	2	yes	yes	1	1	346.5
+family	Peptoniphilaceae	16	yes	yes	1	1	278.7
+family	Peptostreptococcaceae	15	yes	yes	1	1	322.7
+family	Peribacteraceae	33	no	yes	1	1	170.4
+family	Petrotogaceae	7	yes	yes	1	1	305.1
+family	Phormidesmiaceae	7	yes	yes	1	1	360.0
+family	Phormidiaceae	19	no	yes	1	1	357.4
+family	Pirellulaceae	16	yes	yes	1	1	343.1
+family	Piscirickettsiaceae	25	yes	yes	1	1	322.4
+family	Planctomycetaceae	7	yes	yes	1	1	350.4
+family	Planococcaceae	37	no	yes	1	1	360.6
+family	Pleomorphomonadaceae	4	no	no	0.8	1	362.0
+family	Polyangiaceae	6	no	yes	1	1	348.5
+family	Porphyromonadaceae	16	yes	yes	1	1	275.2
+family	Porticoccaceae	7	no	yes	1	1	319.1
+family	Prochloraceae	3	yes	yes	1	1	342.7
+family	Prolixibacteraceae	11	yes	yes	1	1	350.5
+family	Propionibacteriaceae	26	yes	yes	1	1	329.9
+family	Pseudanabaenaceae	6	yes	yes	1	1	344.7
+family	Pseudomonadaceae	44	yes	yes	1	1	373.9
+family	Pseudonocardiaceae	56	yes	yes	1	1	350.9
+family	Psychromonadaceae	10	no	yes	1	1	360.3
+family	Puniceicoccaceae	2	yes	yes	1	1	341.0
+family	Puniceispirillaceae	2	yes	yes	1	1	342.5
+family	Pyrinomonadaceae	4	no	yes	1	1	344.3
+family	Pyrodictiaceae	4	yes	yes	1	1	160.0
+family	RBG-1	2	yes	yes	1	1	243.5
+family	RBG-13-55-18	3	yes	yes	1	1	259.0
+family	RBG-16-39-9b	2	no	yes	1	0.999	153.0
+family	RBG-16-54-18	2	yes	yes	1	1	286.5
+family	RBG-16-60-22	3	no	yes	1	0.999	254.0
+family	RBG-16-68-12	2	no	yes	1	1	166.0
+family	RS24	2	yes	yes	1	1	326.0
+family	RVW-14	4	yes	yes	1	1	176.5
+family	Rhizobiaceae	170	yes	yes	1	1	326.0
+family	Rhodanobacteraceae	17	yes	yes	1	1	356.1
+family	Rhodobacteraceae	179	no	yes	1	0.999	359.4
+family	Rhodocyclaceae	24	no	yes	1	1	363.1
+family	Rhodospirillaceae	8	yes	yes	1	1	363.1
+family	Rickettsiaceae	29	yes	yes	1	1	205.6
+family	Rikenellaceae	13	no	yes	1	1	302.8
+family	Roseiflexaceae	3	yes	yes	1	1	350.0
+family	Rubidibacteraceae	3	yes	yes	1	1	348.0
+family	Rubrobacteraceae	3	yes	yes	1	1	334.3
+family	Ruminiclostridiaceae_A	4	yes	yes	1	1	319.3
+family	Ruminococcaceae	42	no	yes	1	1	312.9
+family	S15-B10	2	yes	yes	1	1	234.0
+family	SC72	10	no	yes	1	1	129.0
+family	SG8-24	3	yes	yes	1	1	163.3
+family	SG8-4	6	no	no	0.833	0.999	295.5
+family	SM-Chi-D1	2	yes	yes	1	1	300.0
+family	SM1-40	3	yes	yes	1	1	263.0
+family	SM23-35	2	no	yes	1	1	291.5
+family	SM23-39	6	yes	yes	1	1	248.2
+family	SM23-42	2	no	yes	1	1	266.0
+family	SM23-62	2	no	yes	1	1	317.5
+family	SPLOWO2-01-44-7	2	yes	yes	1	1	283.5
+family	Saccharimonadaceae	9	no	yes	1	1	161.3
+family	Saccharofermentanaceae	6	no	yes	1	1	298.0
+family	Saccharospirillaceae	8	yes	yes	1	1	360.0
+family	Salinibacteraceae	2	yes	yes	1	1	335.0
+family	Salinicoccaceae	12	yes	yes	1	1	339.9
+family	Salinisphaeraceae	2	yes	yes	1	1	361.5
+family	Salinispiraceae	2	yes	yes	1	1	331.5
+family	Salisediminibacteriaceae	10	yes	yes	1	1	378.4
+family	Saprospiraceae	10	yes	yes	1	1	333.1
+family	Savagellaceae	12	yes	yes	1	1	239.0
+family	Scalinduaceae	2	yes	yes	1	1	284.0
+family	Sedimenticolaceae	39	yes	yes	1	1	340.7
+family	Selenomonadaceae	25	yes	yes	1	1	342.7
+family	Shewanellaceae	28	yes	yes	1	1	364.3
+family	Smithellaceae	5	no	yes	1	1	295.4
+family	Solibacteraceae	3	yes	yes	1	1	361.7
+family	Solirubrobacteraceae	8	yes	yes	1	1	350.5
+family	Sphaerochaetaceae	9	no	yes	1	1	279.3
+family	Sphingobacteriaceae	67	yes	yes	1	1	350.4
+family	Sphingomonadaceae	114	yes	yes	1	1	347.4
+family	Spirochaetaceae_A	2	yes	yes	1	1	319.0
+family	Spirosomaceae	25	yes	yes	1	1	354.4
+family	Spirulinaceae	3	yes	yes	1	1	360.0
+family	Spongiibacteraceae	7	yes	yes	1	1	350.9
+family	Sporolactobacillaceae	5	yes	yes	1	1	353.4
+family	Staphylococcaceae	39	yes	yes	1	1	342.3
+family	Stappiaceae	14	yes	yes	1	1	359.9
+family	Staskawiczbacteraceae	23	no	yes	1	1	138.7
+family	Streptococcaceae	65	yes	yes	1	1	298.7
+family	Streptomycetaceae	129	yes	yes	1	1	355.8
+family	Streptosporangiaceae	38	no	yes	1	1	353.2
+family	Succinivibrionaceae	10	no	yes	1	1	319.3
+family	Sulfolobaceae	95	yes	yes	1	1	185.2
+family	Sulfurospirillaceae	9	yes	yes	1	1	339.1
+family	Sulfurovaceae	5	no	yes	1	1	327.4
+family	Synechococcaceae	3	yes	yes	1	1	342.3
+family	Synergistaceae	7	yes	yes	1	1	327.1
+family	Syntrophoarchaeaceae	2	yes	yes	1	1	169.0
+family	Syntrophobacteraceae	2	yes	yes	1	1	359.0
+family	Syntrophobotulaceae	4	yes	yes	1	1	334.5
+family	Syntrophomonadaceae	7	yes	yes	1	1	321.6
+family	TCS55	2	no	yes	1	1	252.5
+family	TCS61	3	no	yes	1	1	246.3
+family	TCS64	3	no	yes	1	1	133.3
+family	TTA-H9	2	yes	yes	1	1	269.0
+family	Tannerellaceae	7	yes	yes	1	1	332.9
+family	Taylorbacteraceae	36	no	yes	1	0.999	142.5
+family	Tepidanaerobacteraceae	4	yes	yes	1	1	308.8
+family	Tepidibacillaceae	2	yes	yes	1	1	345.0
+family	Tepidimicrobiaceae	3	yes	yes	1	1	309.7
+family	Terasakiellaceae	2	yes	yes	1	1	354.0
+family	Thalassobaculaceae	4	yes	yes	1	1	305.8
+family	Thalassospiraceae	4	yes	yes	1	1	365.0
+family	Thermaceae	17	yes	yes	1	1	345.2
+family	Thermacetogeniaceae	4	yes	yes	1	1	314.0
+family	Thermaerobacteraceae	2	yes	yes	1	1	345.5
+family	Thermicanaceae	2	no	no	0.5	0.799	362.5
+family	Thermoactinomycetaceae	17	yes	yes	1	1	355.9
+family	Thermoanaerobacteraceae	12	yes	yes	1	1	324.1
+family	Thermocladiaceae	16	no	yes	1	1	169.7
+family	Thermococcaceae	38	yes	yes	1	1	175.5
+family	Thermodesulfatatoraceae	2	yes	yes	1	1	315.0
+family	Thermodesulfobacteriaceae	8	yes	yes	1	1	300.9
+family	Thermodesulfovibrionaceae	2	yes	yes	1	1	313.0
+family	Thermofilaceae	4	yes	yes	1	1	136.5
+family	Thermomicrobiaceae	4	yes	yes	1	1	333.0
+family	Thermonemataceae	2	no	no	0.5	0.981	327.5
+family	Thermoplasmataceae	14	yes	yes	1	1	187.0
+family	Thermoproteaceae	13	yes	yes	1	1	175.6
+family	Thermosinaceae	2	yes	yes	1	1	345.0
+family	Thermosynechococcaceae	6	yes	yes	1	1	348.3
+family	Thermotaleaceae	3	yes	yes	1	1	339.7
+family	Thermotogaceae	18	yes	yes	1	1	303.6
+family	Thermovenabulaceae	4	yes	yes	1	1	310.5
+family	Thermovirgaceae	5	yes	yes	1	1	279.6
+family	Thioalkalivibrionaceae	8	yes	yes	1	1	349.8
+family	Thioglobaceae	5	no	yes	1	1	297.6
+family	Thiomicrospiraceae	17	yes	yes	1	1	336.6
+family	Thiotrichaceae	6	yes	yes	1	1	366.3
+family	Thiovulaceae	27	no	no	0.963	1	314.3
+family	Thorarchaeaceae	3	yes	yes	1	1	170.7
+family	Treponemataceae	22	no	yes	1	0.999	284.9
+family	Treponemataceae_B	4	no	yes	1	1	326.8
+family	Turicibacteraceae	4	yes	yes	1	1	296.8
+family	UBA10003	3	yes	yes	1	1	160.0
+family	UBA10009	6	yes	yes	1	1	159.3
+family	UBA10030	2	yes	yes	1	1	322.0
+family	UBA10092	13	no	yes	1	0.999	126.5
+family	UBA10110	3	yes	yes	1	1	128.0
+family	UBA10138	3	yes	yes	1	1	148.0
+family	UBA10151	17	no	yes	1	0.998	150.0
+family	UBA1018	7	yes	yes	1	1	297.4
+family	UBA10183	2	yes	yes	1	1	215.5
+family	UBA10185	46	no	yes	1	0.999	140.7
+family	UBA10190	9	yes	yes	1	1	153.2
+family	UBA10212	5	no	yes	1	1	142.6
+family	UBA10834	3	yes	yes	1	1	171.3
+family	UBA11654	2	yes	yes	1	1	230.0
+family	UBA11705	5	no	yes	1	1	160.4
+family	UBA11712	10	no	yes	1	1	167.1
+family	UBA11717	2	yes	yes	1	1	162.5
+family	UBA12028	5	no	yes	1	1	154.2
+family	UBA12049	21	no	yes	1	0.999	150.7
+family	UBA12075	9	yes	yes	1	1	179.2
+family	UBA12077	6	yes	yes	1	1	325.2
+family	UBA12090	6	no	yes	1	1	236.7
+family	UBA12108	6	yes	yes	1	1	133.5
+family	UBA12402	5	yes	yes	1	1	236.2
+family	UBA12405	5	no	yes	1	1	139.0
+family	UBA12409	4	yes	yes	1	1	165.8
+family	UBA12411	2	yes	yes	1	1	183.5
+family	UBA12420	3	yes	yes	1	1	242.3
+family	UBA12463	3	yes	yes	1	1	178.3
+family	UBA12465	3	yes	yes	1	1	142.3
+family	UBA12470	7	yes	yes	1	1	196.0
+family	UBA12473	2	yes	yes	1	1	195.5
+family	UBA1381	2	yes	yes	1	1	298.0
+family	UBA1406	7	yes	yes	1	1	148.6
+family	UBA1546	7	yes	yes	1	1	289.4
+family	UBA1568	4	no	yes	1	1	159.8
+family	UBA1997	5	yes	yes	1	1	286.8
+family	UBA2169	3	yes	yes	1	1	159.3
+family	UBA2206	8	yes	yes	1	1	149.9
+family	UBA4486	3	no	yes	1	0.999	288.7
+family	UBA4823	2	no	yes	1	1	275.5
+family	UBA5158	7	yes	yes	1	1	259.6
+family	UBA5619	5	no	yes	1	1	295.8
+family	UBA6249	2	yes	yes	1	1	181.0
+family	UBA6539	2	no	yes	1	0.999	159.0
+family	UBA660	10	yes	yes	1	1	180.1
+family	UBA7541	4	no	yes	1	0.999	319.8
+family	UBA8919	2	yes	yes	1	1	272.0
+family	UBA8932	2	yes	yes	1	1	304.5
+family	UBA9217	3	yes	yes	1	1	309.0
+family	UBA922	24	no	yes	1	0.999	175.0
+family	UBA927	3	no	yes	1	0.999	157.0
+family	UBA932	10	no	yes	1	1	275.1
+family	UBA9337	2	no	yes	1	1	157.5
+family	UBA9339	2	yes	yes	1	1	199.0
+family	UBA9579	4	yes	yes	1	1	300.8
+family	UBA9629	7	no	yes	1	1	189.9
+family	UBA9637	9	no	yes	1	1	288.2
+family	UBA9934	11	no	yes	1	1	145.3
+family	UBA9935	3	yes	yes	1	1	289.7
+family	UBA9942	7	no	yes	1	1	296.9
+family	UBA9959	8	no	yes	1	1	284.1
+family	UBA9983	4	yes	yes	1	1	138.8
+family	Ureaplasmataceae	4	yes	yes	1	1	177.3
+family	Veillonellaceae	8	yes	yes	1	1	325.1
+family	Vermiphilaceae	3	no	yes	1	1	156.7
+family	Vibrionaceae	66	yes	yes	1	1	359.3
+family	Vogelbacteraceae	2	no	yes	1	0.999	133.5
+family	Vogelbacteraceae_A	2	yes	yes	1	1	120.5
+family	WOR-SM1-SCG	2	yes	yes	1	1	158.5
+family	Waddliaceae	2	yes	yes	1	1	297.0
+family	Weeksellaceae	48	yes	yes	1	1	332.4
+family	Wildermuthbacteraceae	6	no	yes	1	1	137.2
+family	Woesebacteraceae	41	no	yes	1	0.994	142.5
+family	Wohlfahrtiimonadaceae	6	yes	yes	1	1	340.2
+family	Wolfebacteraceae	16	no	yes	1	1	146.6
+family	XYA12-FULL-58-9	2	yes	yes	1	1	337.5
+family	XYA2-FULL-47-53	8	yes	yes	1	1	285.8
+family	XYB2-FULL-48-7	8	yes	yes	1	1	288.5
+family	XYC2-FULL-37-10	6	no	yes	1	1	271.8
+family	XYC2-FULL-46-14	4	yes	yes	1	1	296.3
+family	XYC2-FULL-47-12	3	yes	yes	1	1	161.7
+family	XYD1-FULL-40-9	2	yes	yes	1	1	125.5
+family	Xanthobacteraceae	49	yes	yes	1	1	364.4
+family	Xanthomonadaceae	51	yes	yes	1	1	349.2
+family	Xenococcaceae	4	yes	yes	1	1	360.8
+family	YA12-FULL-60-10	3	yes	yes	1	1	277.3
+family	Yonathbacteraceae	10	no	yes	1	1	144.8
+family	Zambryskibacteraceae	31	no	yes	1	0.999	125.1
+family	envOPS12	6	no	yes	1	1	287.3
+family	kpj58rc	3	no	yes	1	1	284.3
+family	vadinHA17	5	no	yes	1	1	324.2
+genus	01-FULL-36-15b	3	no	yes	1	1	141.3
+genus	01-FULL-45-10b	2	yes	yes	1	1	301.0
+genus	01-FULL-45-34b	3	yes	yes	1	1	130.7
+genus	01-FULL-48-32b	2	yes	yes	1	1	137.5
+genus	01-FULL-54-110	6	yes	yes	1	1	152.8
+genus	12-FULL-44-12b	2	no	yes	1	1	121.0
+genus	14-2	3	yes	yes	1	1	333.0
+genus	2-01-FULL-37-20	4	no	yes	1	1	178.3
+genus	2-01-FULL-38-21	3	no	yes	1	1	143.7
+genus	2-01-FULL-39-21	8	yes	yes	1	1	145.0
+genus	2-01-FULL-39-24	3	yes	yes	1	1	148.3
+genus	2-01-FULL-39-28	7	no	yes	1	1	152.9
+genus	2-01-FULL-40-13	10	no	yes	1	1	163.5
+genus	2-01-FULL-40-24	2	no	yes	1	1	136.5
+genus	2-01-FULL-40-42	7	yes	yes	1	1	162.7
+genus	2-01-FULL-41-18	2	yes	yes	1	1	141.0
+genus	2-01-FULL-41-26	7	no	yes	1	1	132.0
+genus	2-01-FULL-42-15	2	yes	yes	1	1	143.5
+genus	2-01-FULL-43-14	2	no	yes	1	1	150.0
+genus	2-01-FULL-43-22	4	no	yes	1	1	134.3
+genus	2-01-FULL-43-38	2	no	yes	1	1	137.5
+genus	2-01-FULL-44-21	2	yes	yes	1	1	146.5
+genus	2-01-FULL-44-22	2	yes	yes	1	1	115.5
+genus	2-01-FULL-45-10	4	yes	yes	1	1	262.5
+genus	2-01-FULL-45-33	6	no	yes	1	1	148.7
+genus	2-01-FULL-46-13	12	yes	yes	1	1	135.5
+genus	2-01-FULL-46-14	3	yes	yes	1	1	170.7
+genus	2-01-FULL-48-14	2	yes	yes	1	1	159.5
+genus	2-01-FULL-48-16	2	yes	yes	1	1	125.0
+genus	2-01-FULL-49-10	2	yes	yes	1	1	129.5
+genus	2-01-FULL-49-22	2	yes	yes	1	1	132.5
+genus	2-01-FULL-50-13	3	yes	yes	1	1	156.7
+genus	2-01-FULL-50-28	2	yes	yes	1	1	163.0
+genus	2-01-FULL-51-34	2	yes	yes	1	1	170.5
+genus	2-01-FULL-52-15	2	yes	yes	1	1	141.0
+genus	2-01-FULL-53-15	2	yes	yes	1	1	280.5
+genus	2-01-FULL-64-13	2	yes	yes	1	1	280.5
+genus	2-02-FULL-35-15	2	yes	yes	1	1	313.0
+genus	2-02-FULL-38-14	4	yes	yes	1	1	142.5
+genus	2-02-FULL-38-14-A	4	yes	yes	1	1	324.3
+genus	2-02-FULL-38-15	2	yes	yes	1	1	154.5
+genus	2-02-FULL-38-15-A	4	yes	yes	1	1	284.3
+genus	2-02-FULL-40-10	5	yes	yes	1	1	186.2
+genus	2-02-FULL-40-12	3	yes	yes	1	1	113.7
+genus	2-02-FULL-42-43	8	yes	yes	1	1	280.8
+genus	2-02-FULL-43-11	4	yes	yes	1	1	143.5
+genus	2-02-FULL-43-16	3	yes	yes	1	1	140.7
+genus	2-02-FULL-44-16	2	yes	yes	1	1	280.0
+genus	2-02-FULL-45-10	2	yes	yes	1	1	150.5
+genus	2-02-FULL-45-18	5	yes	yes	1	1	137.4
+genus	2-02-FULL-45-21	4	yes	yes	1	1	231.5
+genus	2-02-FULL-45-22	5	yes	yes	1	1	252.4
+genus	2-02-FULL-46-13	2	yes	yes	1	1	158.5
+genus	2-02-FULL-46-19	3	yes	yes	1	1	118.7
+genus	2-02-FULL-47-50	2	yes	yes	1	1	288.0
+genus	2-02-FULL-48-14	2	yes	yes	1	1	148.5
+genus	2-02-FULL-48-16	5	yes	yes	1	1	126.8
+genus	2-02-FULL-49-12	7	yes	yes	1	1	203.1
+genus	2-02-FULL-49-16	2	yes	yes	1	1	161.5
+genus	2-02-FULL-50-16	4	yes	yes	1	1	286.3
+genus	2-02-FULL-50-9b	2	yes	yes	1	1	134.0
+genus	2-02-FULL-52-16	2	yes	yes	1	1	161.5
+genus	2-02-FULL-53-10	2	yes	yes	1	1	162.5
+genus	2-02-FULL-55-14	2	yes	yes	1	1	322.0
+genus	2-12-FULL-37-34	2	yes	yes	1	1	283.0
+genus	2-12-FULL-37-7b	6	yes	yes	1	1	160.3
+genus	2-12-FULL-39-13	4	yes	yes	1	1	255.8
+genus	2-12-FULL-40-10	2	yes	yes	1	1	131.0
+genus	2-12-FULL-41-16	3	no	yes	1	1	182.0
+genus	2-12-FULL-41-17	2	yes	yes	1	1	150.5
+genus	2-12-FULL-43-12	4	yes	yes	1	1	161.8
+genus	2-12-FULL-50-11	3	yes	yes	1	1	138.0
+genus	2-12-FULL-55-11	5	yes	yes	1	1	165.6
+genus	2-12-FULL-60-25	2	yes	yes	1	1	144.5
+genus	2011-GWC2-44-17	2	yes	yes	1	1	166.0
+genus	2013Ark19i	2	yes	yes	1	1	253.5
+genus	20CM-2-55-15	2	yes	yes	1	1	303.0
+genus	28L	2	yes	yes	1	1	304.0
+genus	32-111	2	yes	yes	1	1	273.5
+genus	40CM-2-53-6	7	yes	yes	1	1	140.7
+genus	46-32	2	yes	yes	1	1	348.5
+genus	46-47	2	yes	yes	1	1	277.0
+genus	58-81	2	yes	yes	1	1	276.5
+genus	AAA536-G10	2	yes	yes	1	1	294.5
+genus	AC2028	2	yes	yes	1	1	319.5
+genus	AZ1	2	yes	yes	1	1	182.0
+genus	Acaryochloris	2	yes	yes	1	1	359.5
+genus	Acetivibrio	2	yes	yes	1	1	344.5
+genus	Acetobacter	11	yes	yes	1	1	352.2
+genus	Acetobacterium	3	yes	yes	1	1	342.7
+genus	Acetomicrobium	4	yes	yes	1	1	319.5
+genus	Acholeplasma	5	yes	yes	1	1	230.8
+genus	Acholeplasma_A	2	yes	yes	1	1	218.5
+genus	Achromobacter	2	yes	yes	1	1	372.0
+genus	Acidaminococcus	6	yes	yes	1	1	320.5
+genus	Acidianus	2	yes	yes	1	1	180.0
+genus	Acidilobus	5	yes	yes	1	1	144.6
+genus	Acidiphilium	2	yes	yes	1	1	369.5
+genus	Acidiplasma	5	yes	yes	1	1	185.2
+genus	Acidipropionibacterium	3	yes	yes	1	1	330.0
+genus	Acidithiobacillus	19	yes	yes	1	1	346.7
+genus	Acidithrix	2	yes	yes	1	1	323.0
+genus	Acidocella	2	yes	yes	1	1	360.5
+genus	Acidovorax	3	yes	yes	1	1	366.3
+genus	Acidovorax_A	2	yes	yes	1	1	365.0
+genus	Aciduliprofundum	2	yes	yes	1	1	169.5
+genus	Acinetobacter	43	yes	yes	1	1	345.3
+genus	Acrophormium	2	yes	yes	1	1	364.0
+genus	Actibacterium	3	yes	yes	1	1	355.7
+genus	Actinobaculum	5	yes	yes	1	1	280.8
+genus	Actinokineospora_A	2	yes	yes	1	1	355.0
+genus	Actinomadura	2	yes	yes	1	1	358.0
+genus	Actinomadura_A	3	no	no	0.667	1	353.0
+genus	Actinomyces	12	yes	yes	1	1	315.9
+genus	Actinomyces_A	8	yes	yes	1	1	308.1
+genus	Actinomyces_B	16	yes	yes	1	1	293.1
+genus	Actinomyces_C	6	yes	yes	1	1	287.3
+genus	Actinomyces_H	2	yes	yes	1	1	275.0
+genus	Actinoplanes	5	yes	yes	1	1	362.4
+genus	Actinopolyspora	3	yes	yes	1	1	341.3
+genus	Actinotalea	4	yes	yes	1	1	343.8
+genus	Actinotignum	4	yes	yes	1	1	266.5
+genus	Aequorivita	2	yes	yes	1	1	317.5
+genus	Aerococcus	5	yes	yes	1	1	298.6
+genus	Aeromicrobium	6	yes	yes	1	1	329.7
+genus	Aeromonas	8	yes	yes	1	1	376.5
+genus	Aeropyrum	3	yes	yes	1	1	160.0
+genus	Afipia	6	yes	yes	1	1	357.5
+genus	Agarivorans	2	yes	yes	1	1	361.0
+genus	Agathobacter	4	yes	yes	1	1	324.8
+genus	Agathobaculum	3	yes	yes	1	1	312.7
+genus	Aggregatibacter	2	yes	yes	1	1	316.0
+genus	Agrobacterium	5	yes	yes	1	1	361.6
+genus	Agromyces	4	yes	yes	1	1	338.3
+genus	Ahrensia	3	yes	yes	1	1	350.0
+genus	Akkermansia	12	yes	yes	1	1	322.0
+genus	Alcanivorax	5	yes	yes	1	1	353.6
+genus	Algoriphagus	10	yes	yes	1	1	345.4
+genus	Alicyclobacillus	5	yes	yes	1	1	348.2
+genus	Alicyclobacillus_A	2	yes	yes	1	1	355.0
+genus	Aliivibrio	3	yes	yes	1	1	360.0
+genus	Alishewanella	2	yes	yes	1	1	367.5
+genus	Alistipes	7	yes	yes	1	1	302.7
+genus	Alistipes_A	2	yes	yes	1	1	318.0
+genus	Aliterella	2	yes	yes	1	1	349.0
+genus	Alkaliphilus	2	yes	yes	1	1	344.0
+genus	Alkalispirochaeta	2	yes	yes	1	1	325.0
+genus	Allofrancisella	2	yes	yes	1	1	291.5
+genus	Alloprevotella	2	yes	yes	1	1	280.0
+genus	Allorhizobium	5	yes	yes	1	1	365.2
+genus	Alloscardovia	2	yes	yes	1	1	271.0
+genus	Alteribacillus	2	yes	yes	1	1	374.5
+genus	Alteromonas	14	yes	yes	1	1	360.8
+genus	Aminobacter	2	yes	yes	1	1	365.0
+genus	Aminobacterium	3	yes	yes	1	1	309.7
+genus	Amphritea	2	yes	yes	1	1	359.0
+genus	Amycolatopsis	5	yes	yes	1	1	355.6
+genus	Amycolatopsis_A	2	yes	yes	1	1	352.5
+genus	Amylibacter	2	yes	yes	1	1	334.0
+genus	Anaerococcus	9	yes	yes	1	1	277.1
+genus	Anaerocolumna	3	yes	yes	1	1	348.7
+genus	Anaeroglobus	3	yes	yes	1	1	314.3
+genus	Anaeromassilibacillus	2	yes	yes	1	1	320.0
+genus	Anaeromusa	2	yes	yes	1	1	353.5
+genus	Anaeromyxobacter	2	yes	yes	1	1	369.5
+genus	Anaerophaga	2	yes	yes	1	1	344.5
+genus	Anaerosphaera	2	yes	yes	1	1	284.0
+genus	Anaerostipes	4	yes	yes	1	1	325.3
+genus	Anaerotignum	4	yes	yes	1	1	316.0
+genus	Anaerotruncus	2	yes	yes	1	1	321.5
+genus	Anaerovibrio	2	yes	yes	1	1	339.5
+genus	Anaplasma	25	yes	yes	1	1	225.0
+genus	Ancylobacter	2	yes	yes	1	1	365.5
+genus	Aneurinibacillus	9	yes	yes	1	1	381.3
+genus	Aquabacterium	2	yes	yes	1	1	360.5
+genus	Aquamicrobium	5	no	no	0.6	0.999	362.2
+genus	Aquamicrobium_A	2	yes	yes	1	1	358.0
+genus	Aquiluna	2	yes	yes	1	1	287.5
+genus	Aquimarina	6	yes	yes	1	1	343.3
+genus	Arcanobacterium	2	yes	yes	1	1	272.5
+genus	Archaeoglobus	5	yes	yes	1	1	179.8
+genus	Archaeoglobus_A	5	yes	yes	1	1	179.0
+genus	Arcobacter	8	yes	yes	1	1	332.4
+genus	Arctic96AD-7	10	no	yes	1	1	310.5
+genus	Arcticibacter	2	yes	yes	1	1	353.5
+genus	Arenibacter	6	yes	yes	1	1	342.2
+genus	Arenimonas	5	yes	yes	1	1	336.8
+genus	Arsenicicoccus	2	yes	yes	1	1	345.0
+genus	Arsenophonus	3	yes	yes	1	1	311.0
+genus	Arsukibacterium	3	yes	yes	1	1	368.7
+genus	Arthrobacter_A	2	yes	yes	1	1	341.0
+genus	Arthrobacter_C	2	yes	yes	1	1	339.5
+genus	Arthrobacter_D	5	yes	yes	1	1	334.6
+genus	Arthrospira	8	yes	yes	1	1	360.1
+genus	Asaia	2	yes	yes	1	1	349.5
+genus	Asticcacaulis	5	yes	yes	1	1	352.0
+genus	Atelocyanobacterium	2	yes	yes	1	1	257.5
+genus	Atopobium	6	yes	yes	1	1	252.7
+genus	Atopobium_A	5	yes	yes	1	1	254.8
+genus	Atopobium_B	8	yes	yes	1	1	253.0
+genus	Aureimonas	4	yes	yes	1	1	360.3
+genus	Avibacterium	4	yes	yes	1	1	321.8
+genus	Azoarcus_A	2	yes	yes	1	1	372.5
+genus	Azorhizobium	2	yes	yes	1	1	359.0
+genus	Azospirillum	4	yes	yes	1	1	377.8
+genus	B12	2	yes	yes	1	1	354.0
+genus	B26-1	2	yes	yes	1	1	155.5
+genus	BACL11	3	yes	yes	1	1	260.7
+genus	BACL14	3	yes	yes	1	1	301.0
+genus	BACL25	2	yes	yes	1	1	262.0
+genus	Bacillus	30	yes	yes	1	1	375.1
+genus	Bacillus_A	10	yes	yes	1	1	379.8
+genus	Bacillus_AA	3	yes	yes	1	1	387.0
+genus	Bacillus_AD	3	yes	yes	1	1	381.3
+genus	Bacillus_AR	2	yes	yes	1	1	380.0
+genus	Bacillus_AW	2	yes	yes	1	1	380.5
+genus	Bacillus_B	2	yes	yes	1	1	372.5
+genus	Bacillus_C	6	yes	yes	1	1	382.8
+genus	Bacillus_D	2	yes	yes	1	1	376.0
+genus	Bacillus_E	7	yes	yes	1	1	370.3
+genus	Bacillus_F	4	yes	yes	1	1	377.8
+genus	Bacillus_H	6	yes	yes	1	1	375.7
+genus	Bacillus_I	2	yes	yes	1	1	375.5
+genus	Bacillus_J	2	yes	yes	1	1	376.0
+genus	Bacillus_K	3	yes	yes	1	1	378.0
+genus	Bacillus_L	3	yes	yes	1	1	378.3
+genus	Bacillus_N	2	yes	yes	1	1	373.5
+genus	Bacillus_Q	2	yes	yes	1	1	382.0
+genus	Bacillus_T	2	yes	yes	1	1	357.5
+genus	Bacillus_W	9	yes	yes	1	1	384.6
+genus	Bacillus_X	4	yes	yes	1	1	382.3
+genus	Bacillus_Y	2	yes	yes	1	1	386.0
+genus	Bact-08	5	yes	yes	1	1	282.4
+genus	Bacteriovorax	4	yes	yes	1	1	300.5
+genus	Bacteroides	29	yes	yes	1	1	331.4
+genus	Bacteroides_A	8	yes	yes	1	1	320.9
+genus	Bacteroides_B	4	yes	yes	1	1	319.5
+genus	Bacteroides_E	2	yes	yes	1	1	318.0
+genus	Bacteroides_F	2	yes	yes	1	1	325.5
+genus	Balneola	2	yes	yes	1	1	334.0
+genus	Barnesiella	2	yes	yes	1	1	314.5
+genus	Bartonella	60	yes	yes	1	1	290.8
+genus	Basfia	4	yes	yes	1	1	326.8
+genus	Baumannia	3	yes	yes	1	1	216.3
+genus	Bdellovibrio	8	yes	yes	1	1	315.9
+genus	Bdellovibrio_A	3	yes	yes	1	1	316.0
+genus	Beggiatoa	2	yes	yes	1	1	351.0
+genus	Beijerinckia	2	yes	yes	1	1	352.0
+genus	Bellilinea	3	yes	yes	1	1	313.7
+genus	Bhargavaea	3	yes	yes	1	1	347.7
+genus	Bibersteinia	3	yes	yes	1	1	324.0
+genus	Bifidobacterium	37	yes	yes	1	1	276.9
+genus	Blastococcus	4	yes	yes	1	1	343.5
+genus	Blastomonas	2	yes	yes	1	1	351.0
+genus	Blattabacterium	8	yes	yes	1	1	224.8
+genus	Blautia	3	yes	yes	1	1	334.0
+genus	Blautia_A	9	yes	yes	1	1	330.9
+genus	Blochmannia	5	yes	yes	1	1	207.0
+genus	Bombella	2	yes	yes	1	1	308.0
+genus	Bordetella	6	yes	yes	1	1	362.3
+genus	Borrelia	18	yes	yes	1	1	182.0
+genus	Borreliella	25	yes	yes	1	1	176.7
+genus	Bosea	8	yes	yes	1	1	365.1
+genus	Brachybacterium	5	yes	yes	1	1	331.2
+genus	Brachyspira	4	yes	yes	1	1	308.5
+genus	Bradyrhizobium	19	yes	yes	1	1	370.1
+genus	Brevibacillus	20	yes	yes	1	1	379.8
+genus	Brevibacillus_B	5	yes	yes	1	1	367.2
+genus	Brevibacterium	7	yes	yes	1	1	326.0
+genus	Brevundimonas	10	yes	yes	1	1	336.8
+genus	Brochothrix	2	yes	yes	1	1	335.5
+genus	Buchnera	8	yes	yes	1	1	191.8
+genus	Burkholderia	5	yes	yes	1	1	372.8
+genus	Butyricimonas	4	yes	yes	1	1	318.5
+genus	Butyrivibrio	33	yes	yes	1	1	331.0
+genus	Butyrivibrio_A	3	yes	yes	1	1	316.7
+genus	C7867-001	10	no	yes	1	1	137.5
+genus	C7867-002	7	yes	yes	1	1	138.1
+genus	C7867-006	13	no	yes	1	1	128.0
+genus	CAG-1031	4	yes	yes	1	1	308.3
+genus	CAG-115	2	yes	yes	1	1	322.0
+genus	CAG-1427	4	yes	yes	1	1	299.0
+genus	CAG-145	2	yes	yes	1	1	283.5
+genus	CAG-177	2	yes	yes	1	1	281.0
+genus	CAG-196	2	yes	yes	1	1	271.5
+genus	CAG-207	2	yes	yes	1	1	319.5
+genus	CAG-245	3	yes	yes	1	1	213.0
+genus	CAG-267	2	yes	yes	1	1	226.5
+genus	CAG-306	3	yes	yes	1	1	283.3
+genus	CAG-307	2	yes	yes	1	1	262.5
+genus	CAG-313	2	yes	yes	1	1	245.0
+genus	CAG-349	2	yes	yes	1	1	226.0
+genus	CAG-41	2	yes	yes	1	1	298.0
+genus	CAG-485	2	yes	yes	1	1	287.0
+genus	CAG-488	2	yes	yes	1	1	282.0
+genus	CAG-495	4	yes	yes	1	1	238.3
+genus	CAG-605	2	yes	yes	1	1	174.5
+genus	CAG-65	2	yes	yes	1	1	298.0
+genus	CAG-724	2	yes	yes	1	1	251.0
+genus	CAG-791	3	yes	yes	1	1	317.0
+genus	CAG-81	2	yes	yes	1	1	320.5
+genus	CAG-83	2	no	yes	1	1	262.5
+genus	CAG-873	2	yes	yes	1	1	298.0
+genus	CDF	3	yes	yes	1	1	351.3
+genus	CG1-02-40-82	2	yes	yes	1	1	124.5
+genus	COE1	2	yes	yes	1	1	326.5
+genus	COMBO-56-21	2	yes	yes	1	1	172.5
+genus	COMBO-69-17	2	no	yes	1	1	166.0
+genus	Caballeronia	4	yes	yes	1	1	366.3
+genus	Caldanaerobacter	4	yes	yes	1	1	321.3
+genus	Caldanaerobius	2	yes	yes	1	1	330.0
+genus	Caldicellulosiruptor	10	yes	yes	1	1	328.8
+genus	Caldimonas	2	yes	yes	1	1	366.5
+genus	Caldivirga	3	yes	yes	1	1	165.3
+genus	Calescibacterium	3	no	yes	1	1	271.7
+genus	Caloramator	2	yes	yes	1	1	320.5
+genus	Caloranaerobacter	2	yes	yes	1	1	301.0
+genus	Calothrix	3	yes	yes	1	1	356.0
+genus	Campylobacter	11	yes	yes	1	1	299.6
+genus	Campylobacter_A	3	yes	yes	1	1	305.0
+genus	Campylobacter_B	4	yes	yes	1	1	300.8
+genus	Campylobacter_C	3	yes	yes	1	1	315.0
+genus	Candidimonas	2	yes	yes	1	1	368.0
+genus	Capnocytophaga	17	yes	yes	1	1	293.2
+genus	Carboxydothermus	2	yes	yes	1	1	334.0
+genus	Cardinium	2	yes	yes	1	1	181.5
+genus	Cardiobacterium	2	yes	yes	1	1	327.0
+genus	Carnobacterium	3	yes	yes	1	1	329.7
+genus	Carnobacterium_A	7	yes	yes	1	1	314.0
+genus	Catenibacterium	2	yes	yes	1	1	309.0
+genus	Catenovulum	2	yes	yes	1	1	357.0
+genus	Caulobacter	4	yes	yes	1	1	354.8
+genus	Celeribacter	2	yes	yes	1	1	368.5
+genus	Cellulomonas	10	yes	yes	1	1	337.9
+genus	Cellulophaga	4	no	no	0.75	0.998	342.0
+genus	Cellulosilyticum	2	yes	yes	1	1	351.0
+genus	Cellvibrio	4	yes	yes	1	1	352.3
+genus	Centipeda	6	yes	yes	1	1	333.7
+genus	Chelativorans	2	yes	yes	1	1	363.0
+genus	Chitinilyticum	2	yes	yes	1	1	366.0
+genus	Chitinophaga	12	yes	yes	1	1	363.6
+genus	Chlamydia	10	yes	yes	1	1	215.7
+genus	Chlamydophila	67	yes	yes	1	1	219.2
+genus	Chlorobaculum	2	yes	yes	1	1	332.0
+genus	Chlorobium	8	yes	yes	1	1	332.6
+genus	Chloroflexus	5	yes	yes	1	1	348.6
+genus	Chlorogloeopsis	3	yes	yes	1	1	359.7
+genus	Chondromyces	2	yes	yes	1	1	360.0
+genus	Chromobacterium	4	yes	yes	1	1	371.5
+genus	Chromohalobacter	2	yes	yes	1	1	363.5
+genus	Chroogloeocystis	2	yes	yes	1	1	364.0
+genus	Chryseobacterium	25	yes	yes	1	1	339.7
+genus	Chryseobacterium_A	7	yes	yes	1	1	323.4
+genus	Chryseobacterium_B	3	yes	yes	1	1	341.7
+genus	Chthonomonas	4	yes	yes	1	1	341.5
+genus	Citromicrobium	2	yes	yes	1	1	345.0
+genus	Cloacibacillus	3	yes	yes	1	1	336.7
+genus	Cloacimonas	2	yes	yes	1	1	266.5
+genus	Clostridioides	3	yes	yes	1	1	335.0
+genus	Clostridium	13	yes	yes	1	1	345.6
+genus	Clostridium_A	2	yes	yes	1	1	315.0
+genus	Clostridium_AA	2	yes	yes	1	1	329.0
+genus	Clostridium_AI	2	yes	yes	1	1	339.0
+genus	Clostridium_AJ	3	yes	yes	1	1	323.0
+genus	Clostridium_AM	3	yes	yes	1	1	361.7
+genus	Clostridium_B	3	yes	yes	1	1	354.0
+genus	Clostridium_F	3	yes	yes	1	1	321.0
+genus	Clostridium_H	5	yes	yes	1	1	318.6
+genus	Clostridium_I	4	yes	yes	1	1	355.5
+genus	Clostridium_J	7	yes	yes	1	1	324.1
+genus	Clostridium_L	2	yes	yes	1	1	324.0
+genus	Clostridium_M	11	yes	yes	1	1	346.0
+genus	Clostridium_P	3	yes	yes	1	1	324.0
+genus	Clostridium_Q	3	yes	yes	1	1	331.7
+genus	Clostridium_R	3	yes	yes	1	1	336.7
+genus	Clostridium_S	2	yes	yes	1	1	340.0
+genus	Coccinistipes	3	yes	yes	1	1	276.7
+genus	Cohnella	4	yes	yes	1	1	373.3
+genus	Collinsella	8	yes	yes	1	1	302.1
+genus	Colwellia	5	yes	yes	1	1	360.8
+genus	Comamonas	2	yes	yes	1	1	354.5
+genus	Commensalibacter	2	yes	yes	1	1	334.5
+genus	Conchiformibius	2	yes	yes	1	1	328.5
+genus	Conexibacter_A	2	yes	yes	1	1	351.5
+genus	Congregibacter	2	yes	yes	1	1	357.5
+genus	Coprobacter	2	yes	yes	1	1	325.0
+genus	Coprococcus	6	yes	yes	1	1	315.8
+genus	Coprothermobacter	2	no	yes	1	1	268.5
+genus	Corynebacterium	130	yes	yes	1	1	320.3
+genus	Coxiella	4	yes	yes	1	1	275.3
+genus	Crocinitomix	2	yes	yes	1	1	319.5
+genus	Crocosphaera	9	yes	yes	1	1	351.3
+genus	Cryptobacterium	2	yes	yes	1	1	293.0
+genus	Cuniculiplasma	2	yes	yes	1	1	184.0
+genus	Cupriavidus	4	yes	yes	1	1	372.8
+genus	Curtobacterium	4	yes	yes	1	1	328.8
+genus	Cutibacterium	8	yes	yes	1	1	319.8
+genus	Cyanobacterium	2	yes	yes	1	1	344.5
+genus	Cyanobium	6	yes	yes	1	1	332.5
+genus	Cyanothece_A	2	yes	yes	1	1	335.5
+genus	Cyanothece_B	2	yes	yes	1	1	362.0
+genus	Cyclobacterium	3	yes	yes	1	1	345.7
+genus	Cytophaga	2	yes	yes	1	1	348.5
+genus	D2472	7	yes	yes	1	1	265.9
+genus	DNF00809	2	yes	yes	1	1	289.5
+genus	DSM-45891	2	yes	yes	1	1	336.0
+genus	DTU008	2	yes	yes	1	1	204.0
+genus	DTU010	2	yes	yes	1	1	274.0
+genus	DTU067	2	yes	yes	1	1	245.0
+genus	DTU074	3	yes	yes	1	1	298.0
+genus	Dechloromonas	3	yes	yes	1	1	363.0
+genus	Defluviitoga	2	yes	yes	1	1	299.5
+genus	Dehalococcoides	27	yes	yes	1	1	259.2
+genus	Dehalogenimonas	4	yes	yes	1	1	274.0
+genus	Deinococcus	18	yes	yes	1	1	355.6
+genus	Deinococcus_A	2	yes	yes	1	1	352.5
+genus	Denitrobacterium	2	yes	yes	1	1	306.5
+genus	Dermacoccus	2	yes	yes	1	1	341.5
+genus	Desulfatibacillum	2	yes	yes	1	1	350.5
+genus	Desulfitibacter	2	yes	yes	1	1	361.5
+genus	Desulfitobacterium	5	yes	yes	1	1	368.2
+genus	Desulfobacter	3	yes	yes	1	1	350.7
+genus	Desulfobacula	4	no	yes	1	1	331.8
+genus	Desulfobulbus	2	yes	yes	1	1	356.0
+genus	Desulfobulbus_A	2	yes	yes	1	1	369.0
+genus	Desulfomicrobium	2	yes	yes	1	1	360.5
+genus	Desulfonatronovibrio	2	yes	yes	1	1	342.5
+genus	Desulfonatronum	3	yes	yes	1	1	352.7
+genus	Desulfonauticus	2	yes	yes	1	1	319.5
+genus	Desulfosporosinus	9	yes	yes	1	1	368.4
+genus	Desulfotomaculum_C	2	yes	yes	1	1	357.5
+genus	Desulfotomaculum_H	3	yes	yes	1	1	353.0
+genus	Desulfovibrio	5	yes	yes	1	1	342.0
+genus	Desulfovibrio_A	2	yes	yes	1	1	354.0
+genus	Desulfovibrio_C	2	yes	yes	1	1	353.5
+genus	Desulfovibrio_E	3	yes	yes	1	1	353.3
+genus	Desulfovibrio_F	5	yes	yes	1	1	353.6
+genus	Desulfovibrio_H	5	yes	yes	1	1	358.8
+genus	Desulfurobacterium_A	2	yes	yes	1	1	302.0
+genus	Desulfurococcus	5	yes	yes	1	1	126.4
+genus	Desulfuromonas	2	yes	yes	1	1	335.5
+genus	Devosia	11	yes	yes	1	1	352.4
+genus	Dialister	6	yes	yes	1	1	296.5
+genus	Diaphorobacter	2	yes	yes	1	1	362.5
+genus	Dickeya	3	yes	yes	1	1	372.7
+genus	Dictyoglomus	2	yes	yes	1	1	304.5
+genus	Didymococcus	2	yes	yes	1	1	353.0
+genus	Dielma	3	yes	yes	1	1	311.7
+genus	Dietzia	3	yes	yes	1	1	335.3
+genus	Dokdonia	2	yes	yes	1	1	329.5
+genus	Domibacillus	4	yes	yes	1	1	375.5
+genus	Dorea	9	yes	yes	1	1	328.8
+genus	Draconibacterium	3	yes	yes	1	1	350.7
+genus	Dubosiella	2	yes	yes	1	1	310.5
+genus	Duganella	2	yes	yes	1	1	371.0
+genus	Dyadobacter	4	yes	yes	1	1	357.3
+genus	Dyella	2	yes	yes	1	1	362.0
+genus	Dysgonomonas	6	yes	yes	1	1	333.3
+genus	Echinicola	2	yes	yes	1	1	350.5
+genus	Ectothiorhodospira	2	yes	yes	1	1	356.5
+genus	Edaphobacter	3	yes	yes	1	1	359.7
+genus	Ehrlichia	6	yes	yes	1	1	220.8
+genus	Eisenbergiella	3	yes	yes	1	1	354.0
+genus	Endobugula	2	yes	yes	1	1	339.5
+genus	Endolissoclinum	2	yes	yes	1	1	246.0
+genus	Endozoicomonas	4	yes	yes	1	1	370.5
+genus	Enhydrobacter	3	yes	yes	1	1	344.0
+genus	Enorma	2	yes	yes	1	1	311.5
+genus	Ensifer	2	yes	yes	1	1	370.5
+genus	Enterobacter	2	yes	yes	1	1	377.0
+genus	Enterococcus	6	yes	yes	1	1	312.2
+genus	Enterococcus_A	4	yes	yes	1	1	344.8
+genus	Enterococcus_B	5	yes	yes	1	1	305.2
+genus	Enterococcus_C	4	yes	yes	1	1	324.3
+genus	Enterococcus_D	3	yes	yes	1	1	335.0
+genus	Enterococcus_E	2	yes	yes	1	1	328.0
+genus	Enterococcus_G	2	yes	yes	1	1	327.0
+genus	Enterorhabdus	2	yes	yes	1	1	307.0
+genus	Enterovibrio	2	yes	yes	1	1	362.0
+genus	Entomoplasma	2	yes	yes	1	1	166.5
+genus	Epulopiscium_B	4	no	yes	1	1	289.8
+genus	Erwinia	12	yes	yes	1	1	370.8
+genus	Erysipelatoclostridium	4	yes	yes	1	1	328.3
+genus	Erysipelothrix	3	yes	yes	1	1	257.3
+genus	Erythrobacter	3	yes	yes	1	1	344.0
+genus	Erythrobacter_A	2	yes	yes	1	1	336.0
+genus	Erythrobacter_B	4	yes	yes	1	1	341.8
+genus	EsTjRp	2	yes	yes	1	1	344.5
+genus	Escherichia	8	yes	yes	1	1	341.6
+genus	Eubacterium_A	4	yes	yes	1	1	308.5
+genus	Eubacterium_D	12	yes	yes	1	1	328.6
+genus	Eubacterium_E	2	yes	yes	1	1	331.5
+genus	Eubacterium_F	5	yes	yes	1	1	325.0
+genus	Eubacterium_G	2	yes	yes	1	1	312.5
+genus	Eubacterium_H	2	yes	yes	1	1	332.0
+genus	Eubacterium_I	3	yes	yes	1	1	318.0
+genus	Eubacterium_Q	5	yes	yes	1	1	323.4
+genus	Eubacterium_R	3	yes	yes	1	1	293.7
+genus	Exiguobacterium	4	yes	yes	1	1	356.3
+genus	Exiguobacterium_A	5	yes	yes	1	1	353.8
+genus	Ezakiella	2	yes	yes	1	1	261.0
+genus	F0058	2	yes	yes	1	1	277.5
+genus	F0332	2	yes	yes	1	1	293.5
+genus	F082	2	yes	yes	1	1	213.0
+genus	F23-B02	2	yes	yes	1	1	262.0
+genus	FD2005	2	yes	yes	1	1	326.5
+genus	Fabibacter	4	yes	yes	1	1	344.8
+genus	Facklamia	2	yes	yes	1	1	271.0
+genus	Faecalibacterium	2	yes	yes	1	1	289.5
+genus	Faecalibaculum	2	yes	yes	1	1	309.5
+genus	Faecalitalea	3	yes	yes	1	1	286.7
+genus	Fermentimonas	3	yes	yes	1	1	331.3
+genus	Ferrimicrobium	2	yes	yes	1	1	324.0
+genus	Ferrimonas	4	yes	yes	1	1	369.3
+genus	Fervidobacterium	3	yes	yes	1	1	292.3
+genus	Fibro-01	2	yes	yes	1	1	305.0
+genus	Fibrobacter	15	yes	yes	1	1	315.5
+genus	Fibromonas	3	yes	yes	1	1	299.0
+genus	Fictibacillus_C	2	yes	yes	1	1	373.0
+genus	Fischerella	10	yes	yes	1	1	356.4
+genus	Flammeovirga	2	yes	yes	1	1	357.0
+genus	Flavihumibacter	4	yes	yes	1	1	356.5
+genus	Flavobacterium	36	yes	yes	1	1	330.7
+genus	Flexilinea	2	no	yes	1	1	246.5
+genus	Fluviicola	4	yes	yes	1	1	327.8
+genus	Formosa	2	yes	yes	1	1	343.0
+genus	Francisella	52	yes	yes	1	1	311.1
+genus	Frankia	7	yes	yes	1	1	340.7
+genus	Frateuria	2	no	no	0.5	0.998	359.0
+genus	Fructobacillus	8	yes	yes	1	1	258.9
+genus	Fuchsiella	3	yes	yes	1	1	347.3
+genus	Fusicatenibacter	3	yes	yes	1	1	317.0
+genus	Fusobacterium	5	yes	yes	1	1	301.8
+genus	Fusobacterium_A	2	yes	yes	1	1	326.5
+genus	Fusobacterium_C	10	yes	yes	1	1	313.7
+genus	GCF-000787395	27	yes	yes	1	1	335.6
+genus	GWA1-39-11	2	no	yes	1	1	138.0
+genus	GWA1-42-19	2	no	yes	1	0.999	122.5
+genus	GWA1-44-25	13	no	yes	1	1	147.5
+genus	GWA1-44-29	8	no	yes	1	1	133.9
+genus	GWA1-52-35	3	yes	yes	1	1	297.7
+genus	GWA1-54-10	3	no	yes	1	1	132.7
+genus	GWA2-33-14	2	yes	yes	1	1	137.0
+genus	GWA2-38-11	2	yes	yes	1	1	270.0
+genus	GWA2-38-27	3	no	yes	1	1	134.7
+genus	GWA2-42-14	3	yes	yes	1	1	169.0
+genus	GWA2-42-15	4	yes	yes	1	1	129.5
+genus	GWA2-43-13	4	yes	yes	1	1	158.8
+genus	GWA2-44-10	4	yes	yes	1	1	117.5
+genus	GWA2-44-9	4	yes	yes	1	1	152.5
+genus	GWA2-45-9	3	yes	yes	1	1	124.0
+genus	GWA2-46-10	2	yes	yes	1	1	124.5
+genus	GWA2-46-9	6	yes	yes	1	1	163.5
+genus	GWA2-47-10	5	yes	yes	1	1	160.6
+genus	GWA2-47-10b	3	no	yes	1	0.999	148.3
+genus	GWA2-47-26	7	no	yes	1	1	160.9
+genus	GWA2-58-10	2	yes	yes	1	1	293.5
+genus	GWB1-37-8	4	no	yes	1	1	148.3
+genus	GWB1-40-14	4	no	yes	1	1	156.0
+genus	GWB1-41-6	3	yes	yes	1	1	130.7
+genus	GWB1-42-6	2	yes	yes	1	1	136.5
+genus	GWB1-45-9	2	yes	yes	1	1	142.0
+genus	GWB1-50-10	2	yes	yes	1	1	129.5
+genus	GWB1-54-5	8	yes	yes	1	1	183.0
+genus	GWB2-47-37	3	yes	yes	1	1	289.7
+genus	GWB2-55-19	2	yes	yes	1	1	317.5
+genus	GWC1-37-12b	2	yes	yes	1	1	142.0
+genus	GWC1-40-35	2	yes	yes	1	1	142.0
+genus	GWC1-40-9	3	yes	yes	1	1	151.3
+genus	GWC1-47-15	2	no	yes	1	1	125.5
+genus	GWC1-49-16	9	yes	yes	1	1	165.7
+genus	GWC2-33-13	3	yes	yes	1	1	199.0
+genus	GWC2-36-17	5	yes	yes	1	1	139.8
+genus	GWC2-37-13	4	no	yes	1	1	160.5
+genus	GWC2-37-8	2	yes	yes	1	1	139.0
+genus	GWC2-39-10	3	yes	yes	1	1	160.7
+genus	GWC2-39-14	2	yes	yes	1	1	165.5
+genus	GWC2-40-17	2	yes	yes	1	1	165.5
+genus	GWC2-42-12	2	no	yes	1	1	166.5
+genus	GWC2-55-46	3	yes	yes	1	1	337.7
+genus	GWC2-57-9	2	yes	yes	1	1	324.5
+genus	GWE2-42-39	3	yes	yes	1	1	351.3
+genus	GWE2-51-13	2	yes	yes	1	1	301.5
+genus	GWF1-31-35	3	yes	yes	1	1	141.0
+genus	GWF1-51-8	2	yes	yes	1	1	296.0
+genus	GWF2-33-10	2	yes	yes	1	1	221.0
+genus	GWF2-33-38	3	yes	yes	1	1	282.0
+genus	GWF2-38-335	2	yes	yes	1	1	311.0
+genus	GWF2-43-63	2	yes	yes	1	1	294.0
+genus	Ga6A1	3	yes	yes	1	1	311.3
+genus	Gabonibacter	3	yes	yes	1	1	320.0
+genus	Gallibacterium	10	yes	yes	1	1	331.6
+genus	Gallionella	3	no	yes	1	1	326.0
+genus	Geitlerinema	2	yes	yes	1	1	355.5
+genus	Gemella	3	yes	yes	1	1	280.7
+genus	Geminocystis	2	yes	yes	1	1	343.5
+genus	Gemmatimonas	2	yes	yes	1	1	353.0
+genus	Geobacillus	7	yes	yes	1	1	376.0
+genus	Geobacter	3	yes	yes	1	1	363.7
+genus	Geobacter_B	2	yes	yes	1	1	360.5
+genus	Geodermatophilus_A	2	yes	yes	1	1	343.5
+genus	Geoglobus	2	yes	yes	1	1	183.5
+genus	Geomicrobium	4	yes	yes	1	1	367.5
+genus	Ghiorsea	2	yes	yes	1	1	348.0
+genus	Gilliamella	15	no	yes	1	1	324.9
+genus	Gillisia	3	yes	yes	1	1	329.7
+genus	Gilvimarinus	3	yes	yes	1	1	347.0
+genus	Glaciecola	6	yes	yes	1	1	357.0
+genus	Gloeobacter	2	yes	yes	1	1	349.5
+genus	Glomeribacter	2	yes	yes	1	1	295.0
+genus	Gluconobacter	3	yes	yes	1	1	345.3
+genus	Glutamicibacter	3	yes	yes	1	1	332.3
+genus	Glycomyces	3	yes	yes	1	1	340.7
+genus	Gordonia	18	yes	yes	1	1	344.4
+genus	Gorillibacterium	2	yes	yes	1	1	375.0
+genus	Gracilibacillus	5	yes	yes	1	1	366.2
+genus	Gramella	4	yes	yes	1	1	333.3
+genus	Granulicatella	2	yes	yes	1	1	264.0
+genus	Grimontia	2	yes	yes	1	1	363.0
+genus	HDB-SIOI813	4	yes	yes	1	1	265.3
+genus	HIMB11	2	no	no	0.5	0.999	346.5
+genus	HO2-43-120	6	yes	yes	1	1	152.7
+genus	HO2-43-30	2	yes	yes	1	1	162.0
+genus	HO2-45-11b	4	yes	yes	1	1	147.0
+genus	HO2-49-34	3	yes	yes	1	1	145.0
+genus	HO2-FULL-38-9	4	yes	yes	1	1	152.8
+genus	HTCC2207	5	yes	yes	1	1	328.0
+genus	Haemophilus	4	yes	yes	1	1	305.8
+genus	Haemophilus_C	11	no	yes	1	1	292.8
+genus	Haemophilus_D	4	yes	yes	1	1	322.5
+genus	Hafnia	2	yes	yes	1	1	378.5
+genus	Hahella	2	yes	yes	1	1	374.5
+genus	Haladaptatus	2	yes	yes	1	1	237.5
+genus	Halanaerobium	7	yes	yes	1	1	331.1
+genus	Halioglobus	2	yes	yes	1	1	353.5
+genus	Haloarcula	4	yes	yes	1	1	238.8
+genus	Halobacillus	6	yes	yes	1	1	375.0
+genus	Halobacterium	3	yes	yes	1	1	216.3
+genus	Halococcus	7	yes	yes	1	1	226.3
+genus	Halocynthiibacter	2	yes	yes	1	1	356.0
+genus	Halodesulfovibrio	5	yes	yes	1	1	354.8
+genus	Haloferax	5	yes	yes	1	1	241.4
+genus	Halogeometricum	2	yes	yes	1	1	241.5
+genus	Halohasta	2	yes	yes	1	1	223.0
+genus	Halolamina	3	yes	yes	1	1	220.7
+genus	Halomonas	16	yes	yes	1	1	367.4
+genus	Halomonas_A	2	yes	yes	1	1	373.0
+genus	Halomonas_C	3	yes	yes	1	1	373.3
+genus	Halonotius	2	yes	yes	1	1	202.0
+genus	Haloquadratum	5	yes	yes	1	1	216.2
+genus	Halorhabdus	2	yes	yes	1	1	223.5
+genus	Halorubrum	11	yes	yes	1	1	215.8
+genus	Halostagnicola	2	yes	yes	1	1	217.5
+genus	Halovenus	3	yes	yes	1	1	206.0
+genus	Helcococcus	2	yes	yes	1	1	260.0
+genus	Helicobacter	8	yes	yes	1	1	274.1
+genus	Helicobacter_A	2	yes	yes	1	1	302.5
+genus	Helicobacter_B	3	yes	yes	1	1	298.0
+genus	Helicobacter_C	6	yes	yes	1	1	301.0
+genus	Helicobacter_D	5	yes	yes	1	1	303.2
+genus	Helicobacter_E	5	yes	yes	1	1	275.0
+genus	Herbaspirillum	6	yes	yes	1	1	362.7
+genus	Herminiimonas	4	yes	yes	1	1	358.5
+genus	Herpetosiphon	2	yes	yes	1	1	359.5
+genus	Hippea	3	yes	yes	1	1	322.7
+genus	Hirschia	2	yes	yes	1	1	345.0
+genus	Hoeflea	3	yes	yes	1	1	363.3
+genus	Holdemania	3	yes	yes	1	1	302.3
+genus	Holospora	2	yes	yes	1	1	184.0
+genus	Hungatella	4	yes	yes	1	1	347.0
+genus	Hydrococcus	2	yes	yes	1	1	360.5
+genus	Hydrogenedens	3	yes	yes	1	1	257.0
+genus	Hydrogenobacter	2	yes	yes	1	1	310.0
+genus	Hydrogenophaga	2	yes	yes	1	1	367.0
+genus	Hydrogenovibrio	8	yes	yes	1	1	338.1
+genus	Hydrotalea	2	no	yes	1	0.999	295.5
+genus	Hylemonella	2	yes	yes	1	1	352.5
+genus	Hymenobacter	8	yes	yes	1	1	347.1
+genus	Hyphomicrobium	5	yes	yes	1	1	346.8
+genus	Hyphomonas	9	yes	yes	1	1	353.1
+genus	IMCC14465	2	yes	yes	1	1	326.0
+genus	Idiomarina	17	yes	yes	1	1	338.2
+genus	Ilumatobacter	2	yes	yes	1	1	343.0
+genus	Intestinimonas	2	yes	yes	1	1	332.5
+genus	J07HR59	2	yes	yes	1	1	182.0
+genus	Janibacter	2	yes	yes	1	1	341.0
+genus	Jannaschia	4	yes	yes	1	1	355.0
+genus	Janthinobacterium	2	yes	yes	1	1	371.5
+genus	JdFR-11	2	yes	yes	1	1	165.0
+genus	JdFR-21	2	yes	yes	1	1	164.5
+genus	JdFR-22	2	yes	yes	1	1	159.5
+genus	JdFR-72	2	yes	yes	1	1	273.0
+genus	JdFR-88	2	yes	yes	1	1	307.5
+genus	Jeotgalibacillus	3	yes	yes	1	1	377.0
+genus	Jeotgalicoccus	4	yes	yes	1	1	335.0
+genus	Jiangella	3	yes	yes	1	1	348.0
+genus	Jidaibacter	2	yes	yes	1	1	246.0
+genus	Jonesia	2	yes	yes	1	1	331.5
+genus	Jonquetella	2	yes	yes	1	1	283.5
+genus	Kaistia	2	yes	yes	1	1	362.5
+genus	Kallipyga	2	yes	yes	1	1	268.0
+genus	Kamptonema	3	yes	yes	1	1	352.0
+genus	Kandleria	5	yes	yes	1	1	318.4
+genus	Kangiella	2	yes	yes	1	1	333.0
+genus	Kazan-3B-28	5	yes	yes	1	1	124.0
+genus	Kiloniella	3	yes	yes	1	1	361.7
+genus	Kinetoplastibacterium	5	yes	yes	1	1	252.4
+genus	Kitasatospora	11	yes	yes	1	1	356.5
+genus	Kluyvera	2	yes	yes	1	1	374.0
+genus	Knoellia	6	yes	yes	1	1	338.7
+genus	Kocuria	8	yes	yes	1	1	329.3
+genus	Kocuria_A	2	yes	yes	1	1	315.5
+genus	Komagataeibacter	3	yes	yes	1	1	350.0
+genus	Kordia	3	yes	yes	1	1	333.7
+genus	Kribbella	2	yes	yes	1	1	359.0
+genus	Kroppenstedtia	2	yes	yes	1	1	364.5
+genus	Kryptobacter	3	yes	yes	1	1	251.0
+genus	Kryptonium	16	yes	yes	1	1	278.9
+genus	Kurthia	3	no	yes	1	1	362.0
+genus	Kutzneria	2	yes	yes	1	1	355.5
+genus	LD21	5	no	yes	1	1	324.2
+genus	LP2A	2	yes	yes	1	1	326.5
+genus	Labrenzia	5	yes	yes	1	1	360.4
+genus	Lachnoanaerobaculum	3	yes	yes	1	1	322.7
+genus	Lachnospira	4	yes	yes	1	1	325.5
+genus	Lacinutrix	4	yes	yes	1	1	335.0
+genus	Lactobacillus	46	yes	yes	1	1	244.9
+genus	Lactobacillus_B	18	yes	yes	1	1	287.8
+genus	Lactobacillus_C	37	yes	yes	1	1	298.0
+genus	Lactobacillus_D	16	yes	yes	1	1	264.4
+genus	Lactobacillus_E	3	yes	yes	1	1	314.0
+genus	Lactobacillus_F	7	yes	yes	1	1	316.6
+genus	Lactobacillus_G	39	yes	yes	1	1	282.7
+genus	Lactobacillus_H	39	yes	yes	1	1	283.5
+genus	Lactobacillus_I	2	yes	yes	1	1	264.0
+genus	Lactobacillus_J	6	yes	yes	1	1	287.5
+genus	Lactobacillus_K	14	yes	yes	1	1	290.9
+genus	Lactobacillus_L	2	yes	yes	1	1	262.0
+genus	Lactobacillus_O	12	yes	yes	1	1	320.3
+genus	Lactococcus	3	yes	yes	1	1	303.0
+genus	Lawsonella	2	yes	yes	1	1	301.0
+genus	Lawsonia	3	yes	yes	1	1	275.3
+genus	Leeuwenhoekiella	4	yes	yes	1	1	341.0
+genus	Legionella	59	yes	yes	1	1	337.9
+genus	Legionella_A	3	yes	yes	1	1	326.3
+genus	Legionella_C	5	yes	yes	1	1	338.8
+genus	Leifsonia	5	yes	yes	1	1	332.6
+genus	Leisingera	3	yes	yes	1	1	363.3
+genus	Lentibacillus	2	yes	yes	1	1	361.5
+genus	Lentimicrobium	2	yes	yes	1	1	311.5
+genus	Leptococcus	2	yes	yes	1	1	335.5
+genus	Leptolinea	2	yes	yes	1	1	324.0
+genus	Leptolyngbya	3	yes	yes	1	1	360.0
+genus	Leptonema	2	yes	yes	1	1	347.0
+genus	Leptospira	21	yes	yes	1	1	337.5
+genus	Leptospira_A	3	yes	yes	1	1	347.3
+genus	Leptospirillum_A	8	yes	yes	1	1	317.0
+genus	Leptotrichia	3	yes	yes	1	1	321.3
+genus	Leptotrichia_A	3	yes	yes	1	1	308.3
+genus	Leucobacter	8	yes	yes	1	1	325.3
+genus	Leuconostoc	16	yes	yes	1	1	292.3
+genus	Lewinella_A	3	yes	yes	1	1	339.3
+genus	Liberibacter	19	yes	yes	1	1	259.5
+genus	Limnohabitans	2	yes	yes	1	1	348.5
+genus	Limnothrix	2	yes	yes	1	1	346.0
+genus	Listeria	17	yes	yes	1	1	350.6
+genus	Listeria_A	4	yes	yes	1	1	350.5
+genus	Loktanella	6	yes	yes	1	1	355.8
+genus	Loktanella_A	2	yes	yes	1	1	362.0
+genus	Luminiphilus	3	yes	yes	1	1	343.3
+genus	Luteibacter	3	yes	yes	1	1	358.0
+genus	Luteimonas	6	yes	yes	1	1	351.7
+genus	Luteipulveratus	2	yes	yes	1	1	347.5
+genus	Lutimaribacter	2	yes	yes	1	1	353.5
+genus	Lysinibacillus	4	yes	yes	1	1	370.0
+genus	Lysinibacillus_A	2	yes	yes	1	1	362.5
+genus	Lysobacter	11	yes	yes	1	1	349.1
+genus	MAG-120531	4	yes	yes	1	1	288.3
+genus	MAG-120802	2	no	yes	1	0.999	266.5
+genus	Macromonas	2	yes	yes	1	1	346.0
+genus	Magnetospirillum_A	2	yes	yes	1	1	359.0
+genus	Mangrovimonas	2	yes	yes	1	1	328.0
+genus	Maribacter	8	yes	yes	1	1	342.0
+genus	Marinimicrobium	2	yes	yes	1	1	354.5
+genus	Marinisoma	2	yes	yes	1	1	200.0
+genus	Marinitoga	2	yes	yes	1	1	301.0
+genus	Marinobacter	16	yes	yes	1	1	367.3
+genus	Marinobacterium	3	yes	yes	1	1	361.7
+genus	Marinococcus	2	yes	yes	1	1	362.5
+genus	Marinomonas	7	yes	yes	1	1	362.1
+genus	Marinospirillum	3	yes	yes	1	1	349.0
+genus	Mariprofundus	2	no	yes	1	1	339.5
+genus	Marmoricola	3	yes	yes	1	1	343.7
+genus	Martelella	3	yes	yes	1	1	364.7
+genus	Massilia	7	yes	yes	1	1	374.4
+genus	Massilioclostridium	2	yes	yes	1	1	320.0
+genus	Megamonas	2	yes	yes	1	1	341.0
+genus	Megasphaera	3	yes	yes	1	1	339.7
+genus	Meiothermus	3	yes	yes	1	1	350.3
+genus	Meiothermus_A	2	yes	yes	1	1	360.5
+genus	Mesorhizobium	6	yes	yes	1	1	367.2
+genus	Metallosphaera	10	yes	yes	1	1	181.5
+genus	Methanobacterium	8	yes	yes	1	1	185.9
+genus	Methanobacterium_B	2	yes	yes	1	1	191.5
+genus	Methanobacterium_D	2	yes	yes	1	1	201.0
+genus	Methanobrevibacter_A	9	yes	yes	1	1	184.1
+genus	Methanobrevibacter_B	2	yes	yes	1	1	178.5
+genus	Methanocaldococcus	5	yes	yes	1	1	167.8
+genus	Methanocaldococcus_A	3	yes	yes	1	1	165.0
+genus	Methanocella	2	yes	yes	1	1	195.5
+genus	Methanococcoides	4	yes	yes	1	1	206.5
+genus	Methanococcus	5	yes	yes	1	1	179.8
+genus	Methanocorpusculum	3	no	yes	1	1	181.0
+genus	Methanoculleus	12	no	yes	1	1	195.6
+genus	Methanofastidiosum	8	yes	yes	1	1	172.6
+genus	Methanofollis	2	yes	yes	1	1	204.0
+genus	Methanohalophilus	7	yes	yes	1	1	196.9
+genus	Methanolacinia	2	yes	yes	1	1	205.0
+genus	Methanolobus	3	yes	yes	1	1	221.3
+genus	Methanolobus_A	2	yes	yes	1	1	213.5
+genus	Methanomethylicus	3	yes	yes	1	1	162.0
+genus	Methanomethylophilus	5	yes	yes	1	1	188.4
+genus	Methanomethylovorans	2	yes	yes	1	1	211.0
+genus	Methanoperedens	2	yes	yes	1	1	219.0
+genus	Methanoregula	2	yes	yes	1	1	207.0
+genus	Methanosarcina	50	yes	yes	1	1	225.1
+genus	Methanosphaera	2	yes	yes	1	1	170.5
+genus	Methanothermobacter	4	yes	yes	1	1	179.8
+genus	Methanothermococcus_A	2	yes	yes	1	1	173.5
+genus	Methanothrix_A	4	yes	yes	1	1	192.8
+genus	Methanotorris	2	yes	yes	1	1	171.0
+genus	Methermicoccus	3	yes	yes	1	1	167.7
+genus	Methylacidiphilum	3	yes	yes	1	1	324.0
+genus	Methylobacillus	2	yes	yes	1	1	350.0
+genus	Methylobacter	2	yes	yes	1	1	370.5
+genus	Methylobacterium	14	yes	yes	1	1	364.8
+genus	Methylocapsa	2	yes	yes	1	1	357.0
+genus	Methylocystis	3	yes	yes	1	1	352.3
+genus	Methylomicrobium_A	2	yes	yes	1	1	364.5
+genus	Methylomonas	3	yes	yes	1	1	362.0
+genus	Methylophaga	7	yes	yes	1	1	348.6
+genus	Methylophilus	5	yes	yes	1	1	339.4
+genus	Methylopila	2	yes	yes	1	1	360.0
+genus	Methylosinus	2	yes	yes	1	1	352.5
+genus	Methylotenera	2	yes	yes	1	1	344.0
+genus	Methyloversatilis	3	yes	yes	1	1	359.7
+genus	Methylovulum	2	yes	yes	1	1	352.0
+genus	Microbacterium	34	yes	yes	1	1	337.4
+genus	Microbispora	2	yes	yes	1	1	357.5
+genus	Microbulbifer	2	yes	yes	1	1	361.5
+genus	Micrococcus	2	yes	yes	1	1	329.5
+genus	Microcoleus	2	yes	yes	1	1	354.5
+genus	Microcystis	21	yes	yes	1	1	350.0
+genus	Micromonospora	7	yes	yes	1	1	354.4
+genus	Microscilla	2	yes	yes	1	1	352.5
+genus	Microterricola	3	yes	yes	1	1	341.7
+genus	Microvirga	5	yes	yes	1	1	365.4
+genus	Mitsuokella	2	yes	yes	1	1	338.5
+genus	Mobilicoccus	2	yes	yes	1	1	351.5
+genus	Mobiluncus	8	yes	yes	1	1	295.6
+genus	Modestobacter	2	yes	yes	1	1	349.0
+genus	Mogibacterium	3	yes	yes	1	1	273.0
+genus	Moorea	3	yes	yes	1	1	360.0
+genus	Moorella	2	yes	yes	1	1	343.5
+genus	Moraxella	50	yes	yes	1	1	320.1
+genus	Moraxella_A	2	yes	yes	1	1	321.0
+genus	Morganella	3	yes	yes	1	1	366.7
+genus	Moritella	2	yes	yes	1	1	366.0
+genus	Mucilaginibacter	13	yes	yes	1	1	353.2
+genus	Muricauda	5	yes	yes	1	1	336.8
+genus	Mycobacterium	61	yes	yes	1	1	340.9
+genus	Mycoplasma_B	2	yes	yes	1	1	183.5
+genus	Mycoplasma_C	2	yes	yes	1	1	171.0
+genus	Myroides	18	yes	yes	1	1	331.6
+genus	Myxococcus	3	yes	yes	1	1	370.7
+genus	NK4A136	3	yes	yes	1	1	320.3
+genus	NK4A144	6	yes	yes	1	1	333.3
+genus	Nanopelagicus	9	no	yes	1	1	252.6
+genus	Natrialba	3	yes	yes	1	1	233.7
+genus	Natrinema	5	yes	yes	1	1	232.4
+genus	Natronococcus	3	yes	yes	1	1	241.0
+genus	Natronomonas	2	yes	yes	1	1	220.5
+genus	Natronorubrum	3	yes	yes	1	1	237.3
+genus	Neglecta	2	yes	yes	1	1	305.5
+genus	Neisseria	5	no	no	0.833	1	323.6
+genus	Neisseria_B	2	yes	yes	1	1	338.0
+genus	Neisseria_D	2	yes	yes	1	1	327.0
+genus	Neochlamydia	2	yes	yes	1	1	267.5
+genus	Neorhizobium	3	yes	yes	1	1	367.7
+genus	Neorickettsia	4	yes	yes	1	1	208.8
+genus	Neptuniibacter	2	yes	yes	1	1	336.0
+genus	Neptunomonas	5	yes	yes	1	1	361.0
+genus	Nesiotobacter	2	yes	yes	1	1	360.0
+genus	Nesterenkonia	4	yes	yes	1	1	318.3
+genus	Nevskia	2	yes	yes	1	1	362.5
+genus	Niabella	5	no	yes	1	1	340.6
+genus	Niastella	3	yes	yes	1	1	357.7
+genus	Nitratireductor	3	yes	yes	1	1	356.0
+genus	Nitrincola	3	yes	yes	1	1	366.0
+genus	Nitrobacter	2	yes	yes	1	1	356.5
+genus	Nitrosoarchaeum	3	yes	yes	1	1	185.0
+genus	Nitrosococcus	3	yes	yes	1	1	357.7
+genus	Nitrosocosmicus	2	yes	yes	1	1	188.5
+genus	Nitrosomonas	19	no	yes	1	1	351.6
+genus	Nitrosopelagicus	8	no	yes	1	1	149.5
+genus	Nitrosopumilus	18	yes	yes	1	1	166.6
+genus	Nitrososphaera	4	no	yes	1	1	174.8
+genus	Nitrosospira	7	yes	yes	1	1	349.0
+genus	Nitrosotalea	4	yes	yes	1	1	141.3
+genus	Nitrosotenuis	3	yes	yes	1	1	181.3
+genus	Nitrospira	2	yes	yes	1	1	340.5
+genus	Niveispirillum	2	yes	yes	1	1	371.0
+genus	Nocardia	30	yes	yes	1	1	351.9
+genus	Nocardioides	19	yes	yes	1	1	343.7
+genus	Nocardiopsis	11	yes	yes	1	1	349.8
+genus	Nocardiopsis_A	3	yes	yes	1	1	353.7
+genus	Nodosilinea	2	yes	yes	1	1	363.5
+genus	Nonlabens	7	yes	yes	1	1	315.3
+genus	Nonomuraea	3	yes	yes	1	1	362.3
+genus	Nostoc	2	yes	yes	1	1	361.5
+genus	Noviherbaspirillum	3	yes	yes	1	1	368.0
+genus	Novosphingobium	16	yes	yes	1	1	356.6
+genus	Novosphingobium_A	2	yes	yes	1	1	346.0
+genus	O2-02-FULL-42-9	2	yes	yes	1	1	229.5
+genus	O2-02-FULL-48-8	3	yes	yes	1	1	149.7
+genus	O2-12-FULL-42-9	7	yes	yes	1	1	154.9
+genus	O2-12-FULL-45-9-A	3	yes	yes	1	1	271.0
+genus	OLB17	3	yes	yes	1	1	339.7
+genus	OLB19	5	no	yes	1	1	142.8
+genus	OXYB2-FULL-41-6	7	yes	yes	1	1	143.4
+genus	Oceanicaulis	3	yes	yes	1	1	343.7
+genus	Oceanobacillus	5	yes	yes	1	1	369.8
+genus	Oceanospirillum	3	yes	yes	1	1	359.3
+genus	Ochrobactrum_A	3	yes	yes	1	1	358.0
+genus	Octadecabacter	3	yes	yes	1	1	353.7
+genus	Odoribacter	7	yes	yes	1	1	328.7
+genus	Oenococcus	51	yes	yes	1	1	275.3
+genus	Oligella	4	yes	yes	1	1	344.3
+genus	Olsenella	9	yes	yes	1	1	290.6
+genus	Olsenella_B	2	yes	yes	1	1	303.0
+genus	Oribacterium	8	yes	yes	1	1	319.4
+genus	Orientia	9	yes	yes	1	1	181.2
+genus	Oscillibacter	5	yes	yes	1	1	308.0
+genus	Ottowia	2	yes	yes	1	1	352.0
+genus	Oxalobacter	2	yes	yes	1	1	330.0
+genus	PLOWO2-12-39-15	6	yes	yes	1	1	299.8
+genus	Paenibacillus	35	yes	yes	1	1	377.1
+genus	Paenibacillus_A	3	yes	yes	1	1	370.7
+genus	Paenibacillus_B	8	yes	yes	1	1	376.6
+genus	Paenibacillus_C	7	yes	yes	1	1	379.1
+genus	Paenibacillus_D	2	yes	yes	1	1	373.5
+genus	Paenibacillus_E	4	yes	yes	1	1	379.3
+genus	Paenibacillus_G	5	yes	yes	1	1	380.0
+genus	Paenibacillus_H	2	yes	yes	1	1	372.5
+genus	Paenibacillus_O	3	yes	yes	1	1	378.3
+genus	Paenibacillus_Q	2	yes	yes	1	1	368.5
+genus	Paenibacillus_S	2	yes	yes	1	1	375.5
+genus	Paenisporosarcina	4	yes	yes	1	1	362.3
+genus	Palaeococcus	2	no	no	0.5	0.993	173.0
+genus	Palleronia	2	yes	yes	1	1	360.5
+genus	Paludibacter	2	no	yes	1	1	332.0
+genus	Paludisphaera	2	yes	yes	1	1	353.5
+genus	Pantoea	6	yes	yes	1	1	371.2
+genus	Parabacteroides	5	yes	yes	1	1	339.4
+genus	Paraburkholderia	2	yes	yes	1	1	375.5
+genus	Paraburkholderia_B	3	yes	yes	1	1	375.7
+genus	Paracoccus	12	yes	yes	1	1	369.2
+genus	Parageobacillus	3	yes	yes	1	1	376.0
+genus	Parageobacillus_A	4	yes	yes	1	1	378.8
+genus	Paraglaciecola	11	yes	yes	1	1	369.3
+genus	Paraprevotella	2	yes	yes	1	1	317.0
+genus	Pararhizobium	4	yes	yes	1	1	368.5
+genus	Parasutterella	4	yes	yes	1	1	305.0
+genus	Parvularcula	2	yes	yes	1	1	336.0
+genus	Patulibacter	3	yes	yes	1	1	344.3
+genus	PeH17	2	yes	yes	1	1	264.5
+genus	Pediococcus	9	yes	yes	1	1	272.3
+genus	Pedobacter	25	yes	yes	1	1	352.4
+genus	Pedobacter_A	2	yes	yes	1	1	343.0
+genus	Pelagibacter	7	no	yes	1	1	276.7
+genus	Pelobacter_C	3	no	yes	1	1	306.3
+genus	Pelosinus	2	yes	yes	1	1	375.5
+genus	Peptoanaerobacter	2	yes	yes	1	1	310.0
+genus	Peptoniphilus	2	yes	yes	1	1	282.0
+genus	Peptoniphilus_A	6	yes	yes	1	1	278.3
+genus	Peptoniphilus_B	2	yes	yes	1	1	261.5
+genus	Peptostreptococcus	3	yes	yes	1	1	300.3
+genus	Peribacter	8	yes	yes	1	1	177.5
+genus	Persephonella	2	yes	yes	1	1	317.5
+genus	Petrotoga	2	yes	yes	1	1	316.5
+genus	Phascolarctobacterium	2	yes	yes	1	1	325.5
+genus	Phenylobacterium	3	yes	yes	1	1	355.3
+genus	Phil1	2	yes	yes	1	1	269.0
+genus	Phormidesmis	2	yes	yes	1	1	356.0
+genus	Phormidesmis_A	2	yes	yes	1	1	352.0
+genus	Photobacterium	13	yes	yes	1	1	365.3
+genus	Phycicoccus_A	3	yes	yes	1	1	342.3
+genus	Phyllobacterium	2	yes	yes	1	1	359.5
+genus	Phytoplasma	10	yes	yes	1	1	122.4
+genus	Pisciglobus	2	yes	yes	1	1	287.5
+genus	Piscirickettsia	25	yes	yes	1	1	322.4
+genus	Planctopirus	2	yes	yes	1	1	348.0
+genus	Planktomarina	2	yes	yes	1	1	346.0
+genus	Planktophila	4	no	yes	1	0.999	273.0
+genus	Planktotalea	2	yes	yes	1	1	355.5
+genus	Planktothrix	4	yes	yes	1	1	356.5
+genus	Planococcus_A	2	yes	yes	1	1	366.0
+genus	Pleomorphomonas	2	yes	yes	1	1	362.0
+genus	Polaribacter	5	yes	yes	1	1	327.8
+genus	Polaromonas	3	yes	yes	1	1	367.7
+genus	Polynucleobacter	4	yes	yes	1	1	323.8
+genus	Pontibacillus	4	yes	yes	1	1	371.8
+genus	Pontibacillus_A	2	yes	yes	1	1	365.5
+genus	Pontibacter	7	yes	yes	1	1	348.0
+genus	Porphyrobacter	4	yes	yes	1	1	344.0
+genus	Porphyrobacter_A	3	yes	yes	1	1	345.7
+genus	Porphyromonas	16	yes	yes	1	1	275.2
+genus	Pragia	2	yes	yes	1	1	371.0
+genus	Prevotella	80	yes	yes	1	1	302.3
+genus	Prevotellamassilia	3	yes	yes	1	1	298.3
+genus	Prochlorococcus	8	yes	yes	1	1	313.1
+genus	Prochlorococcus_A	24	no	yes	1	0.999	256.7
+genus	Prochlorococcus_B	4	yes	yes	1	1	304.8
+genus	Prochlorococcus_C	9	yes	yes	1	1	329.8
+genus	Prochloron	3	yes	yes	1	1	342.7
+genus	Propionimicrobium	2	yes	yes	1	1	314.5
+genus	Proteiniclasticum	2	yes	yes	1	1	317.0
+genus	Proteiniphilum	5	no	yes	1	1	334.2
+genus	Proteus	2	yes	yes	1	1	361.5
+genus	Protochlamydia	4	yes	yes	1	1	293.8
+genus	Providencia	3	yes	yes	1	1	364.0
+genus	Pseudaminobacter	2	no	no	0.5	0.998	364.0
+genus	Pseudanabaena	3	yes	yes	1	1	343.7
+genus	Pseudarthrobacter	4	yes	yes	1	1	344.8
+genus	Pseudoalteromonas	26	yes	yes	1	1	364.2
+genus	Pseudobacteroides	2	yes	yes	1	1	347.5
+genus	Pseudobutyrivibrio	9	yes	yes	1	1	332.3
+genus	Pseudodesulfovibrio	5	yes	yes	1	1	346.0
+genus	Pseudoduganella	2	yes	yes	1	1	371.5
+genus	Pseudomonas	2	yes	yes	1	1	378.0
+genus	Pseudomonas_A	5	yes	yes	1	1	372.0
+genus	Pseudomonas_B	2	yes	yes	1	1	366.5
+genus	Pseudomonas_D	2	yes	yes	1	1	370.5
+genus	Pseudomonas_E	23	no	no	0.957	1	378.1
+genus	Pseudomonas_F	3	yes	yes	1	1	377.3
+genus	Pseudonocardia	7	yes	yes	1	1	349.9
+genus	Pseudooceanicola	4	yes	yes	1	1	359.3
+genus	Pseudopedobacter	5	yes	yes	1	1	341.6
+genus	Pseudopelagicola	2	yes	yes	1	1	360.0
+genus	Pseudophaeobacter	3	yes	yes	1	1	361.7
+genus	Pseudorhizobium	2	yes	yes	1	1	366.5
+genus	Pseudorhodobacter	8	no	no	0.889	1	351.3
+genus	Pseudorhodoferax	2	yes	yes	1	1	370.5
+genus	Pseudosphingobacterium	2	yes	yes	1	1	357.0
+genus	Pseudothermotoga_A	3	yes	yes	1	1	290.3
+genus	Pseudothermotoga_B	3	yes	yes	1	1	296.0
+genus	Pseudovibrio	4	yes	yes	1	1	360.0
+genus	Pseudoxanthomonas	3	yes	yes	1	1	353.3
+genus	Pseudoxanthomonas_A	3	no	no	0.667	0.997	351.7
+genus	Psychrobacillus	2	yes	yes	1	1	367.5
+genus	Psychrobacter	9	yes	yes	1	1	348.3
+genus	Psychroflexus	4	yes	yes	1	1	330.8
+genus	Psychromonas	5	no	yes	1	1	357.0
+genus	Psychroserpens	5	yes	yes	1	1	330.8
+genus	Pyrobaculum	8	yes	yes	1	1	180.3
+genus	Pyrococcus	8	yes	yes	1	1	183.5
+genus	Pyrodictium	2	yes	yes	1	1	167.5
+genus	RBG-1	2	yes	yes	1	1	243.5
+genus	RBG-13-55-18	3	yes	yes	1	1	259.0
+genus	RBG-16-34-14	5	no	yes	1	1	325.2
+genus	RBG-16-57-9	2	yes	yes	1	1	123.5
+genus	RC9	5	no	yes	1	1	267.8
+genus	RCC307	2	yes	yes	1	1	318.5
+genus	REDSEA-S09-B13	6	no	yes	1	1	293.3
+genus	Ralstonia	4	yes	yes	1	1	369.3
+genus	Ramlibacter	3	yes	yes	1	1	355.7
+genus	Raphidiopsis	7	yes	yes	1	1	343.7
+genus	Rathayibacter	3	yes	yes	1	1	323.3
+genus	Renibacterium	2	yes	yes	1	1	333.0
+genus	Rheinheimera	4	yes	yes	1	1	367.5
+genus	Rheinheimera_A	3	yes	yes	1	1	355.7
+genus	Rhizobacter	4	yes	yes	1	1	367.8
+genus	Rhizobium	12	yes	yes	1	1	367.5
+genus	Rhizorhabdus	3	yes	yes	1	1	359.3
+genus	Rhodanobacter	4	no	no	0.8	1	355.3
+genus	Rhodobacter_A	2	yes	yes	1	1	369.5
+genus	Rhodococcus	13	yes	yes	1	1	350.6
+genus	Rhodoferax	2	no	yes	1	1	366.0
+genus	Rhodohalobacter	2	yes	yes	1	1	333.5
+genus	Rhodonellum	3	yes	yes	1	1	346.3
+genus	Rhodopirellula	9	yes	yes	1	1	342.3
+genus	Rhodopseudomonas	8	yes	yes	1	1	363.9
+genus	Richelia	2	no	yes	1	1	326.0
+genus	Rickettsia	19	yes	yes	1	1	216.4
+genus	Rickettsiella	3	yes	yes	1	1	266.7
+genus	Riemerella	2	yes	yes	1	1	306.5
+genus	Riesia	2	yes	yes	1	1	177.0
+genus	Robiginitalea	2	yes	yes	1	1	336.5
+genus	Romboutsia	2	yes	yes	1	1	327.5
+genus	Roseburia	3	yes	yes	1	1	332.0
+genus	Roseibacterium	2	yes	yes	1	1	357.0
+genus	Roseiflexus	2	yes	yes	1	1	348.0
+genus	Roseivirga	4	yes	yes	1	1	338.0
+genus	Roseivivax	3	yes	yes	1	1	365.3
+genus	Rosenbergiella	3	yes	yes	1	1	333.7
+genus	Roseobacter	2	yes	yes	1	1	369.5
+genus	Roseomonas	4	yes	yes	1	1	367.5
+genus	Roseovarius	6	yes	yes	1	1	358.8
+genus	Rothia	3	yes	yes	1	1	295.3
+genus	Rubellimicrobium	2	yes	yes	1	1	354.5
+genus	Rubidus	2	yes	yes	1	1	275.0
+genus	Rubritalea	2	yes	yes	1	1	343.5
+genus	Rubrivivax	3	yes	yes	1	1	369.0
+genus	Ruegeria	2	yes	yes	1	1	361.0
+genus	Rufibacter	3	yes	yes	1	1	346.3
+genus	Ruminiclostridium	3	yes	yes	1	1	336.7
+genus	Ruminiclostridium_A	6	yes	yes	1	1	346.2
+genus	Ruminiclostridium_B	3	yes	yes	1	1	321.7
+genus	Ruminiclostridium_E	2	yes	yes	1	1	301.5
+genus	Ruminobacter	3	yes	yes	1	1	321.7
+genus	Ruminococcus	7	yes	yes	1	1	320.3
+genus	Ruminococcus_B	10	yes	yes	1	1	330.6
+genus	Ruminococcus_C	4	yes	yes	1	1	316.3
+genus	Ruminococcus_D	5	yes	yes	1	1	315.2
+genus	Ruminococcus_E	3	yes	yes	1	1	296.0
+genus	Ruminococcus_F	2	yes	yes	1	1	309.5
+genus	Runella	3	yes	yes	1	1	355.3
+genus	S15-B10	2	yes	yes	1	1	234.0
+genus	SCADC1-2-3	3	yes	yes	1	1	259.0
+genus	SCGC-AAA076-P13	3	no	yes	1	1	256.3
+genus	SCGC-AAA471-B05	6	yes	yes	1	1	138.3
+genus	SDB	2	no	no	0.5	0.244	252.0
+genus	SM1-40	3	yes	yes	1	1	263.0
+genus	SM23-62	2	no	yes	1	1	317.5
+genus	SPLOWO2-01-44-7	2	yes	yes	1	1	283.5
+genus	Saccharibacillus	2	yes	yes	1	1	375.0
+genus	Saccharicrinis	2	yes	yes	1	1	351.5
+genus	Saccharofermentans	4	yes	yes	1	1	304.0
+genus	Saccharomonospora	8	yes	yes	1	1	346.4
+genus	Saccharopolyspora	3	yes	yes	1	1	349.7
+genus	Saccharothrix	3	yes	yes	1	1	353.7
+genus	Sagittula	2	yes	yes	1	1	367.0
+genus	Salibacterium	2	yes	yes	1	1	363.5
+genus	Salimicrobium	2	yes	yes	1	1	361.0
+genus	Salinibacterium	3	yes	yes	1	1	330.0
+genus	Salinicoccus	6	yes	yes	1	1	354.2
+genus	Salinicola	2	yes	yes	1	1	369.0
+genus	Salinimicrobium	3	yes	yes	1	1	336.0
+genus	Salinisphaera	2	yes	yes	1	1	361.5
+genus	Salinivibrio	10	yes	yes	1	1	358.2
+genus	Salipaludibacillus	2	yes	yes	1	1	378.5
+genus	Salisediminibacterium	3	yes	yes	1	1	375.3
+genus	Sandarakinorhabdus	3	yes	yes	1	1	343.3
+genus	Saprospira	2	yes	yes	1	1	304.5
+genus	Savagella	12	yes	yes	1	1	239.0
+genus	Scalindua	2	yes	yes	1	1	284.0
+genus	Scardovia	2	yes	yes	1	1	238.5
+genus	Sedimenticola	2	yes	yes	1	1	363.5
+genus	Sediminibacillus	2	yes	yes	1	1	369.0
+genus	Sediminibacterium	4	yes	yes	1	1	335.3
+genus	Segniliparus	2	yes	yes	1	1	324.0
+genus	Selenomonas_A	8	yes	yes	1	1	346.4
+genus	Sellimonas	2	yes	yes	1	1	331.0
+genus	Serinicoccus	2	yes	yes	1	1	339.0
+genus	Serratia	3	yes	yes	1	1	355.7
+genus	Serratia_B	2	yes	yes	1	1	376.0
+genus	Sharpea	4	yes	yes	1	1	312.8
+genus	Shewanella	24	yes	yes	1	1	363.4
+genus	Shimia	2	yes	yes	1	1	358.0
+genus	Simiduia	2	yes	yes	1	1	351.0
+genus	Sinorhizobium	5	yes	yes	1	1	373.0
+genus	Skermanella	2	yes	yes	1	1	379.5
+genus	Slackia	2	yes	yes	1	1	301.5
+genus	Smithella	4	no	yes	1	1	290.5
+genus	Solimonas	2	yes	yes	1	1	364.5
+genus	Solirubrobacter	2	yes	yes	1	1	358.5
+genus	Solobacterium	4	yes	yes	1	1	265.3
+genus	Sphaerochaeta	4	yes	yes	1	1	282.5
+genus	Sphingobacterium	15	yes	yes	1	1	348.3
+genus	Sphingobium	13	yes	yes	1	1	356.2
+genus	Sphingomonas	23	yes	yes	1	1	350.3
+genus	Sphingomonas_A	3	yes	yes	1	1	321.7
+genus	Sphingomonas_E	2	yes	yes	1	1	354.5
+genus	Sphingopyxis	8	yes	yes	1	1	349.8
+genus	Spiribacter	2	no	yes	1	1	336.0
+genus	Spirochaeta_A	2	yes	yes	1	1	319.0
+genus	Spiroplasma	7	yes	yes	1	1	178.3
+genus	Spiroplasma_A	6	yes	yes	1	1	179.0
+genus	Spirosoma	7	yes	yes	1	1	358.4
+genus	Spirulina	2	yes	yes	1	1	358.0
+genus	Spongiibacter	2	yes	yes	1	1	350.0
+genus	Sporolactobacillus	3	yes	yes	1	1	358.7
+genus	Sporosarcina	2	yes	yes	1	1	359.0
+genus	Sporosarcina_A	2	yes	yes	1	1	345.5
+genus	Staphylococcus	36	yes	yes	1	1	341.7
+genus	Staphylococcus_A	2	yes	yes	1	1	355.5
+genus	Staphylothermus	2	yes	yes	1	1	124.5
+genus	Stenotrophomonas	9	yes	yes	1	1	354.1
+genus	Streptacidiphilus	4	yes	yes	1	1	355.8
+genus	Streptobacillus	5	yes	yes	1	1	244.6
+genus	Streptococcus	61	yes	yes	1	1	298.2
+genus	Streptomyces	106	yes	yes	1	1	355.9
+genus	Streptomyces_B	3	yes	yes	1	1	354.7
+genus	Streptosporangium	2	yes	yes	1	1	361.5
+genus	Succinivibrio	4	no	yes	1	1	317.3
+genus	Sulfitobacter	10	yes	yes	1	1	358.4
+genus	Sulfolobus	49	yes	yes	1	1	183.2
+genus	Sulfolobus_A	28	yes	yes	1	1	192.0
+genus	Sulfolobus_B	2	yes	yes	1	1	173.0
+genus	Sulfuricurvum	9	no	yes	1	1	311.1
+genus	Sulfurihydrogenibium	3	yes	yes	1	1	305.7
+genus	Sulfurimonas	16	no	yes	1	1	317.5
+genus	Sulfurospirillum	8	yes	yes	1	1	338.4
+genus	Sulfurovum	3	yes	yes	1	1	329.7
+genus	Sutterella	4	yes	yes	1	1	304.3
+genus	Symphothece	9	yes	yes	1	1	345.1
+genus	Synechococcus	3	yes	yes	1	1	342.3
+genus	Synechococcus_B	7	no	yes	1	1	290.7
+genus	Synechococcus_C	17	yes	yes	1	1	332.6
+genus	Synechocystis	8	yes	yes	1	1	347.8
+genus	Syntrophomonas	2	yes	yes	1	1	319.5
+genus	TCS55	2	no	yes	1	1	252.5
+genus	TCS61	2	yes	yes	1	1	215.5
+genus	TF01-11	7	yes	yes	1	1	331.1
+genus	TMED111	2	yes	yes	1	1	297.5
+genus	TPBH4	2	yes	yes	1	1	342.0
+genus	TTA-H9	2	yes	yes	1	1	269.0
+genus	Tatlockia	12	yes	yes	1	1	338.8
+genus	Taylorella	2	yes	yes	1	1	308.0
+genus	Tenacibaculum	4	yes	yes	1	1	328.8
+genus	Tener-01	2	yes	yes	1	1	188.0
+genus	Tepidanaerobacter	3	yes	yes	1	1	313.0
+genus	Tepidiphilus	2	yes	yes	1	1	350.5
+genus	Terasakiella	2	yes	yes	1	1	354.0
+genus	Teredinibacter	8	yes	yes	1	1	351.3
+genus	Terracidiphilus	2	yes	yes	1	1	358.0
+genus	Terribacillus	2	yes	yes	1	1	359.0
+genus	Terriglobus	4	yes	yes	1	1	350.3
+genus	Terrimonas	3	yes	yes	1	1	339.0
+genus	Tessaracoccus	2	yes	yes	1	1	340.0
+genus	Tetragenococcus	2	yes	yes	1	1	301.0
+genus	Tetrasphaera_A	2	yes	yes	1	1	335.0
+genus	Thalassobius	2	yes	yes	1	1	355.5
+genus	Thalassospira	4	yes	yes	1	1	365.0
+genus	Thalassotalea_A	3	yes	yes	1	1	352.7
+genus	Thauera	4	yes	yes	1	1	368.0
+genus	Thermacetogenium	2	yes	yes	1	1	308.0
+genus	Thermaerobacter	2	yes	yes	1	1	345.5
+genus	Thermanaerovibrio	2	yes	yes	1	1	316.5
+genus	Thermoanaerobacter	6	yes	yes	1	1	321.7
+genus	Thermoanaerobacterium	2	yes	yes	1	1	337.0
+genus	Thermococcus	15	yes	yes	1	1	170.5
+genus	Thermococcus_A	8	yes	yes	1	1	177.0
+genus	Thermococcus_B	4	no	no	0.75	0.999	179.8
+genus	Thermocrinis	3	yes	yes	1	1	305.0
+genus	Thermocrispum	2	yes	yes	1	1	342.5
+genus	Thermodesulfatator	2	yes	yes	1	1	315.0
+genus	Thermodesulfobacterium	6	yes	yes	1	1	299.7
+genus	Thermodesulfovibrio	2	yes	yes	1	1	313.0
+genus	Thermofilum	3	yes	yes	1	1	136.7
+genus	Thermogemmatispora	2	yes	yes	1	1	344.0
+genus	Thermoplasma	2	yes	yes	1	1	180.5
+genus	Thermoproteus	5	yes	yes	1	1	168.2
+genus	Thermosipho	2	yes	yes	1	1	297.0
+genus	Thermosynechococcus	2	yes	yes	1	1	336.0
+genus	Thermotoga	11	yes	yes	1	1	308.2
+genus	Thermovirga	2	yes	yes	1	1	275.5
+genus	Thermus	10	yes	yes	1	1	340.3
+genus	Thioalkalivibrio	6	yes	yes	1	1	345.3
+genus	Thioalkalivibrio_A	2	yes	yes	1	1	351.5
+genus	Thioalkalivibrio_B	2	yes	yes	1	1	363.0
+genus	Thiobacillus	3	yes	yes	1	1	358.3
+genus	Thioclava	4	yes	yes	1	1	368.3
+genus	Thiodiazotropha	5	yes	yes	1	1	355.8
+genus	Thioglobus	2	yes	yes	1	1	314.0
+genus	Thiohalocapsa	2	yes	yes	1	1	364.0
+genus	Thiomicrorhabdus	4	yes	yes	1	1	339.5
+genus	Thiomicrospira	5	yes	yes	1	1	331.8
+genus	Thiomonas	4	yes	yes	1	1	366.3
+genus	Thiothrix	3	yes	yes	1	1	365.7
+genus	Thiothrix_A	2	yes	yes	1	1	364.5
+genus	Tidjanibacter	2	yes	yes	1	1	288.5
+genus	Treponema	2	yes	yes	1	1	235.0
+genus	Treponema_A	2	yes	yes	1	1	261.5
+genus	Treponema_B	3	yes	yes	1	1	279.7
+genus	Treponema_C	2	yes	yes	1	1	280.0
+genus	Treponema_D	9	yes	yes	1	1	299.3
+genus	Treponema_E	3	yes	yes	1	1	325.3
+genus	Treponema_F	2	yes	yes	1	1	305.0
+genus	Trichococcus	5	yes	yes	1	1	346.6
+genus	Trichormus	4	no	yes	1	1	357.5
+genus	Tsukamurella	2	yes	yes	1	1	344.5
+genus	Turicibacter	4	yes	yes	1	1	296.8
+genus	Tyzzerella	4	yes	yes	1	1	312.8
+genus	UBA10002	8	no	yes	1	1	148.1
+genus	UBA10009	5	yes	yes	1	1	166.4
+genus	UBA10092	6	no	yes	1	1	118.8
+genus	UBA10102	3	yes	yes	1	1	148.7
+genus	UBA10103	14	no	yes	1	0.999	159.0
+genus	UBA10119	4	yes	yes	1	1	147.0
+genus	UBA10122	2	yes	yes	1	1	119.5
+genus	UBA10133	18	no	yes	1	1	144.1
+genus	UBA10138	3	yes	yes	1	1	148.0
+genus	UBA1014	2	no	yes	1	1	327.0
+genus	UBA10151	2	yes	yes	1	1	148.5
+genus	UBA10165	3	yes	yes	1	1	133.3
+genus	UBA10181	3	yes	yes	1	1	183.0
+genus	UBA10183	2	yes	yes	1	1	215.5
+genus	UBA10190	5	yes	yes	1	1	158.2
+genus	UBA10212	2	no	yes	1	1	162.5
+genus	UBA11361	2	no	yes	1	1	226.5
+genus	UBA11426	2	yes	yes	1	1	287.5
+genus	UBA11654	2	yes	yes	1	1	230.0
+genus	UBA11703	12	yes	yes	1	1	139.2
+genus	UBA11712	10	no	yes	1	1	167.1
+genus	UBA11713	4	yes	yes	1	1	137.0
+genus	UBA12026	10	no	yes	1	1	138.2
+genus	UBA12028	2	yes	yes	1	1	152.5
+genus	UBA12042	7	no	yes	1	0.999	134.1
+genus	UBA12044	9	yes	yes	1	1	127.3
+genus	UBA12049	5	no	yes	1	1	143.2
+genus	UBA12053	4	yes	yes	1	1	142.0
+genus	UBA12068	7	no	yes	1	1	147.1
+genus	UBA12075	6	yes	yes	1	1	171.0
+genus	UBA12077	6	yes	yes	1	1	325.2
+genus	UBA12086	5	yes	yes	1	1	184.4
+genus	UBA12087	3	yes	yes	1	1	326.3
+genus	UBA12108	6	yes	yes	1	1	133.5
+genus	UBA12158	3	yes	yes	1	1	142.3
+genus	UBA12393	2	yes	yes	1	1	160.5
+genus	UBA12395	2	yes	yes	1	1	142.5
+genus	UBA12402	2	yes	yes	1	1	210.0
+genus	UBA12403	2	yes	yes	1	1	145.0
+genus	UBA12405	2	no	yes	1	1	134.0
+genus	UBA12409	3	yes	yes	1	1	169.7
+genus	UBA12411	2	yes	yes	1	1	183.5
+genus	UBA12420	3	yes	yes	1	1	242.3
+genus	UBA12463	3	yes	yes	1	1	178.3
+genus	UBA12465	2	yes	yes	1	1	152.0
+genus	UBA12470	2	yes	yes	1	1	194.5
+genus	UBA12472	3	yes	yes	1	1	155.3
+genus	UBA12473	2	yes	yes	1	1	195.5
+genus	UBA1364	3	yes	yes	1	1	156.3
+genus	UBA1406	7	yes	yes	1	1	148.6
+genus	UBA1450	2	no	yes	1	1	193.5
+genus	UBA1546	7	yes	yes	1	1	289.4
+genus	UBA1547	3	yes	yes	1	1	158.3
+genus	UBA1550	9	no	yes	1	1	145.1
+genus	UBA1557	2	yes	yes	1	1	159.5
+genus	UBA1561	2	yes	yes	1	1	162.5
+genus	UBA1568	4	no	yes	1	1	159.8
+genus	UBA2206	6	yes	yes	1	1	158.2
+genus	UBA2256	2	yes	yes	1	1	304.5
+genus	UBA2262	2	yes	yes	1	1	319.5
+genus	UBA2277	3	no	yes	1	1	132.3
+genus	UBA2284	13	no	yes	1	1	260.0
+genus	UBA2645	5	yes	yes	1	1	286.8
+genus	UBA2775	3	yes	yes	1	1	325.7
+genus	UBA3571	5	yes	yes	1	1	253.6
+genus	UBA5004	9	no	yes	1	1	120.4
+genus	UBA557	9	no	yes	1	1	141.1
+genus	UBA5619	5	no	yes	1	1	295.8
+genus	UBA6899	6	no	yes	1	0.999	172.2
+genus	UBA7541	4	no	yes	1	0.999	319.8
+genus	UBA8498	30	no	yes	1	1	141.3
+genus	UBA8515	15	no	yes	1	1	152.5
+genus	UBA8517	4	no	yes	1	0.998	130.8
+genus	UBA918	2	yes	yes	1	1	135.0
+genus	UBA9337	2	no	yes	1	1	157.5
+genus	UBA9579	2	yes	yes	1	1	304.5
+genus	UBA9627	2	yes	yes	1	1	272.0
+genus	UBA9631	2	yes	yes	1	1	173.5
+genus	UBA9634	3	yes	yes	1	1	273.0
+genus	UBA9637	8	no	yes	1	1	291.9
+genus	UBA9644	4	yes	yes	1	1	164.8
+genus	UBA9645	6	yes	yes	1	1	190.3
+genus	UBA9933	13	no	yes	1	1	152.3
+genus	UBA9934	11	no	yes	1	1	145.3
+genus	UBA9973	36	no	yes	1	0.999	141.6
+genus	UBA9978	4	yes	yes	1	1	174.3
+genus	UBA9983	4	yes	yes	1	1	138.8
+genus	UBA9988	2	yes	yes	1	1	120.5
+genus	Urinacoccus	2	yes	yes	1	1	278.5
+genus	Varibaculum	4	yes	yes	1	1	301.5
+genus	Variovorax	2	yes	yes	1	1	371.0
+genus	Veillonella	4	yes	yes	1	1	320.5
+genus	Veillonella_A	3	yes	yes	1	1	335.7
+genus	Verminephrobacter	2	yes	yes	1	1	359.0
+genus	Vibrio	35	yes	yes	1	1	356.7
+genus	Virgibacillus	5	yes	yes	1	1	366.0
+genus	Vitreoscilla	2	yes	yes	1	1	349.0
+genus	Vogesella	2	yes	yes	1	1	368.0
+genus	Vulcanisaeta	11	no	yes	1	1	171.0
+genus	WO2-35-19	6	no	yes	1	1	127.0
+genus	WO2-43-9	4	yes	yes	1	1	172.0
+genus	WO2-44-18	2	yes	yes	1	1	129.0
+genus	WO2-46-25	3	yes	yes	1	1	159.0
+genus	WO2-47-17b	2	yes	yes	1	1	126.0
+genus	WO2-48-25	2	yes	yes	1	1	141.0
+genus	WO2-54-10	4	yes	yes	1	1	147.8
+genus	WO2-FULL-39-10	4	yes	yes	1	1	148.0
+genus	WO2-FULL-40-11	2	no	yes	1	1	169.0
+genus	WOR-SM1-SCG	2	yes	yes	1	1	158.5
+genus	Waddlia	2	yes	yes	1	1	297.0
+genus	Weissella	17	yes	yes	1	1	257.2
+genus	Wigglesworthia	2	yes	yes	1	1	208.5
+genus	Williamsia	2	yes	yes	1	1	348.5
+genus	Winogradskyella	3	yes	yes	1	1	334.7
+genus	Wohlfahrtiimonas	5	yes	yes	1	1	340.4
+genus	Wolbachia	10	yes	yes	1	1	222.4
+genus	XYA12-FULL-58-9	2	yes	yes	1	1	337.5
+genus	XYA2-FULL-35-8	3	no	yes	1	1	157.0
+genus	XYA2-FULL-47-19	3	yes	yes	1	1	195.7
+genus	XYA2-FULL-47-53	6	yes	yes	1	1	286.0
+genus	XYB1-36-10	3	yes	yes	1	1	124.0
+genus	XYB1-40-15	6	no	yes	1	1	174.8
+genus	XYB12-FULL-38-5	8	yes	yes	1	1	337.3
+genus	XYB2-FULL-36-35	3	yes	yes	1	1	283.0
+genus	XYB2-FULL-45-11	7	yes	yes	1	1	167.4
+genus	XYB2-FULL-45-9	5	yes	yes	1	1	298.6
+genus	XYB2-FULL-50-12	2	yes	yes	1	1	285.0
+genus	XYC1-FULL-37-79	5	no	yes	1	1	269.0
+genus	XYC2-FULL-37-10	3	yes	yes	1	1	260.7
+genus	XYC2-FULL-41-22	4	yes	yes	1	1	196.8
+genus	XYC2-FULL-46-14	4	yes	yes	1	1	296.3
+genus	XYC2-FULL-47-12	2	yes	yes	1	1	177.5
+genus	XYD1-37-29	2	yes	yes	1	1	171.5
+genus	XYD1-FULL-39-28	3	yes	yes	1	1	138.3
+genus	XYD1-FULL-40-9	2	yes	yes	1	1	125.5
+genus	XYD1-FULL-55-31	2	yes	yes	1	1	296.5
+genus	XYD2-FULL-39-9	2	yes	yes	1	1	170.0
+genus	XYD2-FULL-41-8	4	yes	yes	1	1	287.0
+genus	Xanthobacter	2	yes	yes	1	1	361.5
+genus	Xanthomonas	5	yes	yes	1	1	356.4
+genus	Xanthomonas_A	2	yes	yes	1	1	358.0
+genus	Xenorhabdus	4	yes	yes	1	1	362.5
+genus	Xylella	2	yes	yes	1	1	325.0
+genus	YA12-FULL-51-18	4	yes	yes	1	1	287.8
+genus	YA12-FULL-60-10	3	yes	yes	1	1	277.3
+genus	YC12-FULL-57-11	3	yes	yes	1	1	179.0
+genus	YC2-FULL-38-9	7	yes	yes	1	1	172.3
+genus	YD12-FULL-39-22	4	yes	yes	1	1	312.8
+genus	Yersinia	33	yes	yes	1	1	370.5
+genus	Zag1	8	yes	yes	1	1	268.8
+genus	Zhongshania	2	yes	yes	1	1	352.5
+genus	Zhouia	2	yes	yes	1	1	345.0
+genus	Zobellia	2	yes	yes	1	1	341.0
+genus	Zymomonas	8	yes	yes	1	1	320.6
+species	01-FULL-36-15b sp1	2	yes	yes	1	1	141.5
+species	01-FULL-45-34b sp1	3	yes	yes	1	1	130.7
+species	12-FULL-44-12b sp1	2	no	yes	1	1	121.0
+species	2-01-FULL-37-20 sp1	4	no	yes	1	1	178.3
+species	2-01-FULL-38-21 sp1	2	no	yes	1	1	143.5
+species	2-01-FULL-39-21 sp1	2	yes	yes	1	1	126.0
+species	2-01-FULL-39-21 sp2	6	yes	yes	1	1	151.3
+species	2-01-FULL-39-28 sp1	2	yes	yes	1	1	138.0
+species	2-01-FULL-39-28 sp2	5	yes	yes	1	1	158.8
+species	2-01-FULL-40-13 sp2	2	yes	yes	1	1	166.5
+species	2-01-FULL-40-13 sp3	2	yes	yes	1	1	176.0
+species	2-01-FULL-40-13 sp5	4	yes	yes	1	1	165.8
+species	2-01-FULL-41-26 sp1	6	yes	yes	1	1	131.5
+species	2-01-FULL-42-15 sp1	2	yes	yes	1	1	143.5
+species	2-01-FULL-43-22 sp1	2	yes	yes	1	1	136.5
+species	2-01-FULL-43-38 sp1	2	no	yes	1	1	137.5
+species	2-01-FULL-44-22 sp1	2	yes	yes	1	1	115.5
+species	2-01-FULL-45-10 sp1	4	yes	yes	1	1	262.5
+species	2-01-FULL-45-33 sp1	4	yes	yes	1	1	147.3
+species	2-01-FULL-45-33 sp2	2	no	yes	1	1	151.5
+species	2-01-FULL-46-13 sp1	4	yes	yes	1	1	134.8
+species	2-01-FULL-46-13 sp2	2	yes	yes	1	1	119.5
+species	2-01-FULL-46-13 sp3	6	yes	yes	1	1	141.3
+species	2-01-FULL-46-14 sp1	2	yes	yes	1	1	165.5
+species	2-01-FULL-48-14 sp1	2	yes	yes	1	1	159.5
+species	2-01-FULL-48-16 sp1	2	yes	yes	1	1	125.0
+species	2-01-FULL-49-10 sp1	2	yes	yes	1	1	129.5
+species	2-01-FULL-49-22 sp1	2	yes	yes	1	1	132.5
+species	2-01-FULL-50-13 sp1	3	yes	yes	1	1	156.7
+species	2-01-FULL-50-28 sp1	2	yes	yes	1	1	163.0
+species	2-01-FULL-51-34 sp1	2	yes	yes	1	1	170.5
+species	2-01-FULL-53-15 sp1	2	yes	yes	1	1	280.5
+species	2-01-FULL-64-13 sp1	2	yes	yes	1	1	280.5
+species	2-02-FULL-38-14 sp1	4	yes	yes	1	1	142.5
+species	2-02-FULL-40-10 sp1	5	yes	yes	1	1	186.2
+species	2-02-FULL-43-11 sp1	4	yes	yes	1	1	143.5
+species	2-02-FULL-43-16 sp1	3	yes	yes	1	1	140.7
+species	2-02-FULL-45-10 sp1	2	yes	yes	1	1	150.5
+species	2-02-FULL-45-18 sp1	5	yes	yes	1	1	137.4
+species	2-02-FULL-45-21 sp1	3	yes	yes	1	1	218.0
+species	2-02-FULL-46-19 sp1	3	yes	yes	1	1	118.7
+species	2-02-FULL-47-50 sp1	2	yes	yes	1	1	288.0
+species	2-02-FULL-48-16 sp1	5	yes	yes	1	1	126.8
+species	2-02-FULL-49-16 sp2	2	yes	yes	1	1	161.5
+species	2-02-FULL-50-16 sp1	4	yes	yes	1	1	286.3
+species	2-02-FULL-53-10 sp1	2	yes	yes	1	1	162.5
+species	2-12-FULL-39-13 sp1	4	yes	yes	1	1	255.8
+species	2-12-FULL-40-10 sp1	2	yes	yes	1	1	131.0
+species	2-12-FULL-41-16 sp1	3	no	yes	1	1	182.0
+species	2-12-FULL-43-12 sp1	4	yes	yes	1	1	161.8
+species	2-12-FULL-50-11 sp1	3	yes	yes	1	1	138.0
+species	2-12-FULL-55-11 sp1	2	yes	yes	1	1	172.5
+species	2-12-FULL-55-11 sp2	3	yes	yes	1	1	161.0
+species	2-12-FULL-60-25 sp1	2	yes	yes	1	1	144.5
+species	2011-GWC2-44-17 sp1	2	yes	yes	1	1	166.0
+species	20CM-2-55-15 sp1	2	yes	yes	1	1	303.0
+species	40CM-2-53-6 sp	3	yes	yes	1	1	134.0
+species	46-47 sp1	2	yes	yes	1	1	277.0
+species	58-81 sp1	2	yes	yes	1	1	276.5
+species	Acidaminococcus fermentans	3	yes	yes	1	1	323.3
+species	Acidaminococcus intestini	2	yes	yes	1	1	315.5
+species	Acidilobus sp1	3	yes	yes	1	1	143.7
+species	Acidithiobacillus albertensis	2	no	no	0.5	0.998	348.0
+species	Acidithiobacillus ferrivorans	2	yes	yes	1	1	341.0
+species	Acidithiobacillus ferrooxidans	5	yes	yes	1	1	345.6
+species	Acidithiobacillus thiooxidans	9	no	no	0.889	1	348.9
+species	Acidithrix ferrooxidans	2	yes	yes	1	1	323.0
+species	Acinetobacter bohemicus	2	yes	yes	1	1	348.0
+species	Acinetobacter indicus	2	yes	yes	1	1	352.0
+species	Acinetobacter johnsonii	4	yes	yes	1	1	344.3
+species	Acinetobacter lwoffii_A	2	yes	yes	1	1	351.5
+species	Acinetobacter sp11	3	yes	yes	1	1	301.7
+species	Acinetobacter venetianus	6	yes	yes	1	1	346.3
+species	Actinobaculum suis	4	yes	yes	1	1	284.0
+species	Actinomyces_A neuii	5	yes	yes	1	1	309.6
+species	Actinomyces_A neuii_A	3	yes	yes	1	1	305.7
+species	Actinomyces_B ihumii	2	yes	yes	1	1	305.0
+species	Actinotignum schaalii	2	yes	yes	1	1	267.0
+species	Aerococcus urinae	2	yes	yes	1	1	295.0
+species	Aeropyrum camini	2	yes	yes	1	1	159.0
+species	Ahrensia kielensis	2	yes	yes	1	1	350.0
+species	Akkermansia glycaniphila	2	yes	yes	1	1	318.5
+species	Akkermansia muciniphila	6	yes	yes	1	1	320.5
+species	Akkermansia sp1	3	yes	yes	1	1	325.3
+species	Alicyclobacillus hesperidum	2	yes	yes	1	1	342.5
+species	Alteromonas macleodii	2	yes	yes	1	1	369.0
+species	Alteromonas mediterranea	4	yes	yes	1	1	367.8
+species	Alteromonas stellipolaris	3	yes	yes	1	1	364.0
+species	Aminobacterium colombiense	2	yes	yes	1	1	308.5
+species	Anaerococcus pacaensis	2	yes	yes	1	1	274.0
+species	Anaeromusa acidaminophila	2	yes	yes	1	1	353.5
+species	Anaerostipes caccae	2	yes	yes	1	1	343.5
+species	Anaplasma marginale	12	yes	yes	1	1	234.3
+species	Anaplasma phagocytophilum	12	yes	yes	1	1	214.8
+species	Aneurinibacillus migulanus	7	yes	yes	1	1	383.0
+species	Aquamicrobium sp1	2	yes	yes	1	1	364.0
+species	Aquiluna sp1	2	yes	yes	1	1	287.5
+species	Archaeoglobus fulgidus	4	yes	yes	1	1	178.8
+species	Arctic96AD-7 sp3	9	yes	yes	1	1	318.4
+species	Arenibacter algicola	2	yes	yes	1	1	346.0
+species	Arthrospira maxima	5	yes	yes	1	1	360.2
+species	Arthrospira platensis	3	yes	yes	1	1	360.0
+species	Atopobium minutum	4	yes	yes	1	1	254.3
+species	Atopobium_A vaginae	4	yes	yes	1	1	256.3
+species	Atopobium_B rimae	3	yes	yes	1	1	254.7
+species	Avibacterium paragallinarum	4	yes	yes	1	1	321.8
+species	BACL11 sp1	3	yes	yes	1	1	260.7
+species	Bacillus cellulasensis	3	no	no	0.75	1	373.7
+species	Bacillus subtilis	3	yes	yes	1	1	377.7
+species	Bacillus velezensis	12	yes	yes	1	1	375.3
+species	Bacillus_A anthracis	2	yes	yes	1	1	381.0
+species	Bacillus_AW luciferensis	2	yes	yes	1	1	380.5
+species	Bacillus_C megaterium	5	yes	yes	1	1	383.6
+species	Bacillus_E coagulans	4	yes	yes	1	1	368.3
+species	Bacillus_F enclensis	2	yes	yes	1	1	376.0
+species	Bacillus_H clausii	3	yes	yes	1	1	375.0
+species	Bacillus_N badius_A	2	yes	yes	1	1	373.5
+species	Bacillus_T coahuilensis	2	yes	yes	1	1	357.5
+species	Bacteroides caccae	2	yes	yes	1	1	333.5
+species	Bacteroides fragilis	5	yes	yes	1	1	342.4
+species	Bacteroides ovatus	2	no	yes	1	1	341.0
+species	Bacteroides thetaiotaomicron	3	yes	yes	1	1	340.3
+species	Bacteroides_A barnesiae	2	yes	yes	1	1	327.0
+species	Bacteroides_B vulgatus	2	yes	yes	1	1	338.5
+species	Bacteroides_F pectinophilus	2	yes	yes	1	1	325.5
+species	Bartonella apis	3	yes	yes	1	1	343.3
+species	Bartonella apis_A	2	yes	yes	1	1	344.0
+species	Bartonella bacilliformis	16	yes	yes	1	1	275.1
+species	Bartonella bovis	2	yes	yes	1	1	285.0
+species	Bartonella clarridgeiae	2	yes	yes	1	1	280.5
+species	Bartonella henselae	7	yes	yes	1	1	285.6
+species	Bartonella rattimassiliensis	2	yes	yes	1	1	285.5
+species	Bartonella tamiae	2	yes	yes	1	1	337.0
+species	Bartonella tribocorum	2	yes	yes	1	1	288.5
+species	Bartonella vinsonii_A	3	yes	yes	1	1	289.7
+species	Bartonella washoensis	2	yes	yes	1	1	292.5
+species	Basfia succiniciproducens	2	yes	yes	1	1	327.0
+species	Bdellovibrio bacteriovorus	3	yes	yes	1	1	319.3
+species	Bellilinea caldifistulae	2	yes	yes	1	1	320.0
+species	Bibersteinia trehalosi	3	yes	yes	1	1	324.0
+species	Bifidobacterium vaginale	2	yes	yes	1	1	241.5
+species	Bifidobacterium vaginale_D	2	yes	yes	1	1	236.5
+species	Blattabacterium sp1	2	yes	yes	1	1	227.5
+species	Blautia_A hydrogenotrophica	2	yes	yes	1	1	338.0
+species	Blautia_A obeum	2	yes	yes	1	1	325.5
+species	Borrelia duttonii	3	yes	yes	1	1	183.3
+species	Borrelia hermsii	5	yes	yes	1	1	181.8
+species	Borrelia hermsii_A	2	yes	yes	1	1	181.0
+species	Borreliella burgdorferi	2	yes	yes	1	1	176.0
+species	Borreliella garinii	17	yes	yes	1	1	177.3
+species	Borreliella garinii_B	2	yes	yes	1	1	174.5
+species	Brevibacillus borstelensis	3	yes	yes	1	1	377.7
+species	Brevibacillus brevis	4	yes	yes	1	1	380.5
+species	Brevibacillus brevis_A	2	yes	yes	1	1	382.0
+species	Brevibacillus brevis_B	2	yes	yes	1	1	381.0
+species	Brevibacillus thermoruber	2	yes	yes	1	1	376.0
+species	Brevibacillus_B laterosporus	2	yes	yes	1	1	367.0
+species	Brevibacillus_B laterosporus_A	2	yes	yes	1	1	367.0
+species	Burkholderia mallei	2	yes	yes	1	1	374.0
+species	Butyricimonas synergistica	2	yes	yes	1	1	324.0
+species	Butyrivibrio hungatei_A	3	yes	yes	1	1	329.7
+species	Butyrivibrio proteoclasticus	2	yes	yes	1	1	329.0
+species	Butyrivibrio sp1	2	yes	yes	1	1	328.0
+species	Butyrivibrio sp5	4	yes	yes	1	1	333.0
+species	Butyrivibrio_A crossotus	3	yes	yes	1	1	316.7
+species	C7867-001 sp3	2	yes	yes	1	1	135.5
+species	C7867-001 sp5	3	yes	yes	1	1	133.7
+species	C7867-002 sp1	6	yes	yes	1	1	139.2
+species	C7867-006 sp1	7	yes	yes	1	1	133.0
+species	C7867-006 sp2	4	no	yes	1	1	123.8
+species	C7867-006 sp3	2	yes	yes	1	1	119.0
+species	CAG-1031 sp2	2	yes	yes	1	1	306.0
+species	CAG-245 sp1	2	yes	yes	1	1	217.5
+species	CAG-306 sp1	3	yes	yes	1	1	283.3
+species	CDF sp1	3	yes	yes	1	1	351.3
+species	Caldanaerobacter subterraneus	4	yes	yes	1	1	321.3
+species	Calescibacterium nevades	3	no	yes	1	1	271.7
+species	Campylobacter coli	3	yes	yes	1	1	309.7
+species	Capnocytophaga granulosa	3	yes	yes	1	1	292.3
+species	Capnocytophaga haemolytica	2	yes	yes	1	1	295.5
+species	Capnocytophaga ochracea	3	yes	yes	1	1	292.3
+species	Centipeda artemidis	3	yes	yes	1	1	334.7
+species	Chlamydia muridarum	7	yes	yes	1	1	216.7
+species	Chlamydia trachomatis	2	yes	yes	1	1	215.0
+species	Chlamydophila gallinacea	2	yes	yes	1	1	214.0
+species	Chlamydophila ibidis	2	yes	yes	1	1	215.5
+species	Chlamydophila pecorum	11	yes	yes	1	1	222.1
+species	Chlamydophila pneumoniae	13	yes	yes	1	1	218.5
+species	Chlamydophila psittaci	36	yes	yes	1	1	219.0
+species	Chlorobium ferrooxidans	2	yes	yes	1	1	335.0
+species	Chloroflexus aurantiacus	2	yes	yes	1	1	348.0
+species	Chlorogloeopsis fritschii	2	yes	yes	1	1	360.5
+species	Chryseobacterium formosense	3	yes	yes	1	1	331.7
+species	Chthonomonas calidirosea	4	yes	yes	1	1	341.5
+species	Cloacibacillus evryensis	2	yes	yes	1	1	339.0
+species	Clostridioides difficile	2	yes	yes	1	1	340.0
+species	Clostridium_A leptum	2	yes	yes	1	1	315.0
+species	Clostridium_AM magnum	2	yes	yes	1	1	363.5
+species	Clostridium_F botulinum	2	yes	yes	1	1	328.0
+species	Clostridium_H sp3	2	yes	yes	1	1	296.5
+species	Clostridium_M bolteae	2	yes	yes	1	1	346.5
+species	Clostridium_M citroniae	2	yes	yes	1	1	355.0
+species	Clostridium_M clostridioformis	5	yes	yes	1	1	340.0
+species	Clostridium_R aminophilum	2	yes	yes	1	1	336.0
+species	Collinsella aerofaciens	3	no	no	0.75	1	305.3
+species	Coprobacter secundus	2	yes	yes	1	1	325.0
+species	Coprococcus eutactus	2	yes	yes	1	1	326.5
+species	Coprococcus eutactus_A	2	yes	yes	1	1	293.5
+species	Corynebacterium callunae	2	yes	yes	1	1	327.5
+species	Corynebacterium diphtheriae	13	yes	yes	1	1	318.2
+species	Corynebacterium pseudodiphtheriticum	5	yes	yes	1	1	313.6
+species	Corynebacterium pseudotuberculosis	44	yes	yes	1	1	317.4
+species	Coxiella burnetii	2	yes	yes	1	1	307.0
+species	Crocosphaera sp1	2	yes	yes	1	1	356.5
+species	Crocosphaera watsonii	6	yes	yes	1	1	348.5
+species	Cuniculiplasma divulgatum	2	yes	yes	1	1	184.0
+species	Cutibacterium acnes	4	yes	yes	1	1	320.0
+species	D2472 sp1	7	yes	yes	1	1	265.9
+species	Defluviitoga tunisiensis	2	yes	yes	1	1	299.5
+species	Dehalococcoides mccartyi	6	yes	yes	1	1	258.8
+species	Dehalococcoides mccartyi_A	5	yes	yes	1	1	258.6
+species	Dehalococcoides mccartyi_B	16	yes	yes	1	1	259.6
+species	Denitrobacterium detoxificans	2	yes	yes	1	1	306.5
+species	Desulfitobacterium hafniense	3	yes	yes	1	1	370.7
+species	Desulfonauticus sp1	2	yes	yes	1	1	319.5
+species	Desulfovibrio desulfuricans_A	2	yes	yes	1	1	340.0
+species	Desulfovibrio_C alaskensis	2	yes	yes	1	1	353.5
+species	Desulfurococcus amylolyticus	3	yes	yes	1	1	129.0
+species	Desulfurococcus mucosus	2	yes	yes	1	1	122.5
+species	Dialister invisus	2	yes	yes	1	1	291.5
+species	Diaphorobacter polyhydroxybutyrativorans	2	yes	yes	1	1	362.5
+species	Dokdonia donghaensis	2	yes	yes	1	1	329.5
+species	Draconibacterium orientale	2	yes	yes	1	1	350.0
+species	Eisenbergiella tayi	2	yes	yes	1	1	354.0
+species	Endozoicomonas elysicola	2	yes	yes	1	1	372.0
+species	Enhydrobacter aerosaccus	3	yes	yes	1	1	344.0
+species	Enterococcus faecalis	5	yes	yes	1	1	306.2
+species	Enterococcus_A avium	2	yes	yes	1	1	344.5
+species	Enterococcus_C asini	2	yes	yes	1	1	328.0
+species	EsTjRp sp1	2	yes	yes	1	1	344.5
+species	Escherichia coli	8	yes	yes	1	1	341.6
+species	Eubacterium_A pyruvativorans	2	yes	yes	1	1	321.0
+species	Eubacterium_D dolichum	2	yes	yes	1	1	286.0
+species	Eubacterium_D innocuum	8	yes	yes	1	1	340.6
+species	Eubacterium_D sp1	2	yes	yes	1	1	323.0
+species	Exiguobacterium sp1	2	yes	yes	1	1	355.0
+species	Exiguobacterium_A indicum_A	3	yes	yes	1	1	354.3
+species	F082 sp1	2	yes	yes	1	1	213.0
+species	FD2005 sp1	2	yes	yes	1	1	326.5
+species	Faecalibaculum rodentium	2	yes	yes	1	1	309.5
+species	Faecalitalea cylindroides	3	yes	yes	1	1	286.7
+species	Fermentimonas caenicola	3	yes	yes	1	1	331.3
+species	Ferrimicrobium acidiphilum	2	yes	yes	1	1	324.0
+species	Fibrobacter succinogenes	2	yes	yes	1	1	319.0
+species	Fischerella sp1	2	yes	yes	1	1	360.5
+species	Fischerella thermalis	3	yes	yes	1	1	357.0
+species	Flavobacterium akiainvivens	2	yes	yes	1	1	332.5
+species	Flavobacterium lindanitolerans	2	yes	yes	1	1	324.0
+species	Flavobacterium rivuli	2	yes	yes	1	1	337.5
+species	Flavobacterium subsaxonicum	2	yes	yes	1	1	346.0
+species	Francisella noatunensis	4	yes	yes	1	1	320.3
+species	Francisella tularensis	43	yes	yes	1	1	310.1
+species	Frankia elaeagni	2	yes	yes	1	1	342.5
+species	Fructobacillus fructosus	3	yes	yes	1	1	246.3
+species	Fructobacillus pseudoficulneus	2	yes	yes	1	1	266.0
+species	Fuchsiella alkaliacetigena	3	yes	yes	1	1	347.3
+species	Fusicatenibacter saccharivorans	3	yes	yes	1	1	317.0
+species	Fusobacterium_C necrophorum	10	yes	yes	1	1	313.7
+species	GWA1-39-11 sp2	2	no	yes	1	1	138.0
+species	GWA1-44-25 sp1	11	yes	yes	1	1	146.6
+species	GWA1-44-25 sp2	2	no	yes	1	1	152.0
+species	GWA1-44-29 sp1	3	yes	yes	1	1	136.0
+species	GWA1-44-29 sp2	5	no	yes	1	1	132.6
+species	GWA2-33-14 sp1	2	yes	yes	1	1	137.0
+species	GWA2-38-11 sp1	2	yes	yes	1	1	270.0
+species	GWA2-38-27 sp1	3	no	yes	1	1	134.7
+species	GWA2-42-14 sp1	3	yes	yes	1	1	169.0
+species	GWA2-42-15 sp1	4	yes	yes	1	1	129.5
+species	GWA2-43-13 sp1	4	yes	yes	1	1	158.8
+species	GWA2-44-10 sp1	4	yes	yes	1	1	117.5
+species	GWA2-44-9 sp1	4	yes	yes	1	1	152.5
+species	GWA2-45-9 sp1	3	yes	yes	1	1	124.0
+species	GWA2-46-10 sp1	2	yes	yes	1	1	124.5
+species	GWA2-46-9 sp1	5	yes	yes	1	1	165.6
+species	GWA2-47-10 sp1	5	yes	yes	1	1	160.6
+species	GWA2-47-10b sp1	3	no	yes	1	0.999	148.3
+species	GWA2-47-26 sp1	6	yes	yes	1	1	163.7
+species	GWA2-58-10 sp1	2	yes	yes	1	1	293.5
+species	GWB1-37-8 sp1	2	no	yes	1	1	140.0
+species	GWB1-37-8 sp2	2	yes	yes	1	1	156.5
+species	GWB1-40-14 sp1	2	no	yes	1	1	155.5
+species	GWB1-40-14 sp2	2	yes	yes	1	1	156.5
+species	GWB1-41-6 sp1	3	yes	yes	1	1	130.7
+species	GWB1-42-6 sp1	2	yes	yes	1	1	136.5
+species	GWB1-45-9 sp1	2	yes	yes	1	1	142.0
+species	GWB1-50-10 sp1	2	yes	yes	1	1	129.5
+species	GWB1-54-5 sp1	8	yes	yes	1	1	183.0
+species	GWC1-37-12b sp1	2	yes	yes	1	1	142.0
+species	GWC1-40-35 sp1	2	yes	yes	1	1	142.0
+species	GWC1-40-9 sp1	3	yes	yes	1	1	151.3
+species	GWC1-47-15 sp1	2	no	yes	1	1	125.5
+species	GWC1-49-16 sp1	3	no	yes	1	1	166.7
+species	GWC2-33-13 sp1	2	yes	yes	1	1	205.5
+species	GWC2-36-17 sp1	5	yes	yes	1	1	139.8
+species	GWC2-37-13 sp1	2	yes	yes	1	1	170.0
+species	GWC2-37-8 sp1	2	yes	yes	1	1	139.0
+species	GWC2-39-10 sp1	2	yes	yes	1	1	167.0
+species	GWC2-39-14 sp1	2	yes	yes	1	1	165.5
+species	GWC2-40-17 sp1	2	yes	yes	1	1	165.5
+species	GWC2-57-9 sp1	2	yes	yes	1	1	324.5
+species	GWF1-31-35 sp2	3	yes	yes	1	1	141.0
+species	Ga6A1 sp1	3	yes	yes	1	1	311.3
+species	Gabonibacter massiliensis	3	yes	yes	1	1	320.0
+species	Gallibacterium anatis	10	yes	yes	1	1	331.6
+species	Geobacillus subterraneus_B	2	yes	yes	1	1	376.0
+species	Geobacillus thermodenitrificans	2	yes	yes	1	1	376.0
+species	Geomicrobium sp1	2	yes	yes	1	1	369.0
+species	Geomicrobium sp2	2	yes	yes	1	1	366.0
+species	Gilliamella apicola_A	3	yes	yes	1	1	321.0
+species	Gilliamella apicola_C	2	yes	yes	1	1	317.0
+species	Gilliamella apicola_E	2	yes	yes	1	1	331.5
+species	Gilliamella apicola_G	2	yes	yes	1	1	324.5
+species	Glaciecola pallidula	2	yes	yes	1	1	366.5
+species	Glaciecola punicea	2	yes	yes	1	1	358.0
+species	HO2-43-120 sp1	6	yes	yes	1	1	152.7
+species	HO2-43-30 sp1	2	yes	yes	1	1	162.0
+species	HO2-45-11b sp1	3	yes	yes	1	1	145.3
+species	HO2-49-34 sp1	2	yes	yes	1	1	143.0
+species	HO2-FULL-38-9 sp1	4	yes	yes	1	1	152.8
+species	Haemophilus influenzae_A	3	yes	yes	1	1	305.7
+species	Haemophilus_C parasuis	11	no	yes	1	1	292.8
+species	Haemophilus_D parainfluenzae	3	yes	yes	1	1	323.7
+species	Halanaerobium congolense	2	yes	yes	1	1	300.0
+species	Halodesulfovibrio aestuarii	3	yes	yes	1	1	354.3
+species	Halomonas sp4	2	yes	yes	1	1	361.0
+species	Haloquadratum walsbyi	2	yes	yes	1	1	222.0
+species	Herbaspirillum chlorophenolicum	2	yes	yes	1	1	360.5
+species	Hydrogenedens terephthalicus	3	yes	yes	1	1	257.0
+species	Hydrogenobacter thermophilus	2	yes	yes	1	1	310.0
+species	Hydrogenovibrio marinus	2	yes	yes	1	1	339.5
+species	Hydrotalea flava	2	no	yes	1	0.999	295.5
+species	Idiomarina abyssalis	2	yes	yes	1	1	341.0
+species	Idiomarina baltica	2	yes	yes	1	1	340.5
+species	Idiomarina loihiensis	3	yes	yes	1	1	344.3
+species	J07HR59 sp1	2	yes	yes	1	1	182.0
+species	Jonquetella anthropi	2	yes	yes	1	1	283.5
+species	Kamptonema formosum	2	yes	yes	1	1	356.5
+species	Kandleria vitulina	5	yes	yes	1	1	318.4
+species	Kazan-3B-28 sp1	2	yes	yes	1	1	117.0
+species	Kroppenstedtia eburnea	2	yes	yes	1	1	364.5
+species	Kryptobacter tengchongensis	3	yes	yes	1	1	251.0
+species	Kryptonium thompsoni	16	yes	yes	1	1	278.9
+species	Lactobacillus acetotolerans	3	yes	yes	1	1	244.7
+species	Lactobacillus acidophilus	2	yes	yes	1	1	222.5
+species	Lactobacillus apis	2	yes	yes	1	1	235.5
+species	Lactobacillus gigeriorum	2	yes	yes	1	1	241.5
+species	Lactobacillus hominis	2	yes	yes	1	1	241.5
+species	Lactobacillus jensenii	5	yes	yes	1	1	239.2
+species	Lactobacillus jensenii_A	8	yes	yes	1	1	238.9
+species	Lactobacillus pasteurii	2	yes	yes	1	1	247.5
+species	Lactobacillus psittaci	2	yes	yes	1	1	237.5
+species	Lactobacillus_B ruminis	7	yes	yes	1	1	305.1
+species	Lactobacillus_C nasuensis	2	yes	yes	1	1	275.5
+species	Lactobacillus_C pantheris	3	yes	yes	1	1	285.0
+species	Lactobacillus_C paracasei	22	yes	yes	1	1	307.0
+species	Lactobacillus_C rhamnosus	2	yes	yes	1	1	301.0
+species	Lactobacillus_C thailandensis	2	yes	yes	1	1	273.5
+species	Lactobacillus_D curvatus	8	yes	yes	1	1	261.3
+species	Lactobacillus_D fuchuensis	2	yes	yes	1	1	272.5
+species	Lactobacillus_D sakei	5	yes	yes	1	1	269.4
+species	Lactobacillus_F pentosus	2	yes	yes	1	1	324.5
+species	Lactobacillus_F plantarum	2	yes	yes	1	1	323.5
+species	Lactobacillus_G florum	4	yes	yes	1	1	239.5
+species	Lactobacillus_G kimchicus	2	yes	yes	1	1	314.0
+species	Lactobacillus_G lindneri	2	yes	yes	1	1	263.0
+species	Lactobacillus_G odoratitofui	2	yes	yes	1	1	309.0
+species	Lactobacillus_G parafarraginis	2	yes	yes	1	1	315.0
+species	Lactobacillus_G similis	2	yes	yes	1	1	322.5
+species	Lactobacillus_H antri	2	yes	yes	1	1	283.0
+species	Lactobacillus_H fermentum	19	yes	yes	1	1	286.4
+species	Lactobacillus_H ingluviei	2	yes	yes	1	1	288.5
+species	Lactobacillus_J harbinensis	4	yes	yes	1	1	289.3
+species	Lactobacillus_K versmoldensis	2	yes	yes	1	1	319.0
+species	Lactobacillus_O sucicola	2	yes	yes	1	1	325.0
+species	Lawsonella clevelandensis	2	yes	yes	1	1	301.0
+species	Lawsonia intracellularis	3	yes	yes	1	1	275.3
+species	Legionella dumoffii	2	yes	yes	1	1	334.5
+species	Legionella longbeachae	2	yes	yes	1	1	341.0
+species	Legionella pneumophila	42	yes	yes	1	1	338.4
+species	Leptolinea tardivitalis	2	yes	yes	1	1	324.0
+species	Leptonema illini	2	yes	yes	1	1	347.0
+species	Leptospira interrogans	4	yes	yes	1	1	338.5
+species	Leptospira kirschneri	3	yes	yes	1	1	336.0
+species	Leptospira noguchii	3	yes	yes	1	1	335.7
+species	Leptospira santarosai	2	yes	yes	1	1	333.0
+species	Leptospira weilii	2	yes	yes	1	1	336.0
+species	Leptospirillum_A ferriphilum_A	7	yes	yes	1	1	317.1
+species	Leptotrichia_A goodfellowii	2	yes	yes	1	1	306.5
+species	Leucobacter chromiiresistens	2	yes	yes	1	1	322.0
+species	Leuconostoc kimchii	2	yes	yes	1	1	294.0
+species	Leuconostoc mesenteroides	8	yes	yes	1	1	296.4
+species	Liberibacter asiaticus	9	yes	yes	1	1	256.7
+species	Liberibacter solanacearum	7	yes	yes	1	1	259.3
+species	Listeria innocua	2	yes	yes	1	1	349.5
+species	Listeria monocytogenes	9	yes	yes	1	1	353.4
+species	MAG-120802 sp1	2	no	yes	1	0.999	266.5
+species	Maribacter dokdonensis	4	yes	yes	1	1	344.3
+species	Metallosphaera sedula	7	yes	yes	1	1	182.0
+species	Methanobacterium formicicum	5	yes	yes	1	1	185.2
+species	Methanobrevibacter_A smithii	3	yes	yes	1	1	183.3
+species	Methanobrevibacter_A smithii_A	3	yes	yes	1	1	182.7
+species	Methanocaldococcus_A villosus	2	yes	yes	1	1	167.0
+species	Methanoculleus bourgensis	2	yes	yes	1	1	201.0
+species	Methanoculleus marisnigri	2	yes	yes	1	1	170.0
+species	Methanoculleus thermophilus	2	yes	yes	1	1	200.0
+species	Methanofastidiosum sp1	3	yes	yes	1	1	174.0
+species	Methanohalophilus euhalobius	3	yes	yes	1	1	194.0
+species	Methanohalophilus halophilus	2	yes	yes	1	1	200.0
+species	Methanomethylicus mesodigestum	2	yes	yes	1	1	165.5
+species	Methanomethylophilus alvus	2	yes	yes	1	1	187.0
+species	Methanosarcina barkeri	7	yes	yes	1	1	232.3
+species	Methanosarcina mazei	25	yes	yes	1	1	222.5
+species	Methanosarcina siciliae	3	yes	yes	1	1	229.3
+species	Methanosarcina sp2	2	yes	yes	1	1	227.0
+species	Methanosarcina thermophila	4	yes	yes	1	1	220.8
+species	Methanosarcina vacuolata	2	yes	yes	1	1	232.0
+species	Methanosphaera stadtmanae	2	yes	yes	1	1	170.5
+species	Methanothermococcus_A thermolithotrophicus	2	yes	yes	1	1	173.5
+species	Methanothrix_A harundinacea	2	yes	yes	1	1	192.5
+species	Methermicoccus shengliensis	3	yes	yes	1	1	167.7
+species	Methylobacterium populi	2	yes	yes	1	1	365.5
+species	Methylobacterium radiotolerans	2	yes	yes	1	1	366.5
+species	Methylophaga thiooxydans	2	yes	yes	1	1	342.0
+species	Microcystis aeruginosa	5	yes	yes	1	1	350.2
+species	Microcystis aeruginosa_A	9	yes	yes	1	1	349.1
+species	Microcystis aeruginosa_B	6	no	no	0.667	0.998	351.0
+species	Mobiluncus curtisii	4	yes	yes	1	1	297.8
+species	Mobiluncus mulieris	4	yes	yes	1	1	293.5
+species	Moraxella catarrhalis	42	yes	yes	1	1	319.1
+species	Moraxella catarrhalis_B	3	yes	yes	1	1	328.7
+species	Moraxella nonliquefaciens	2	yes	yes	1	1	319.0
+species	Muricauda antarctica	2	yes	yes	1	1	336.0
+species	Myroides odoratimimus	11	yes	yes	1	1	335.6
+species	Myroides odoratus	3	yes	yes	1	1	319.7
+species	Myroides profundi	2	yes	yes	1	1	337.5
+species	Nanopelagicus sp1	5	yes	yes	1	1	265.2
+species	Nanopelagicus sp2	2	yes	yes	1	1	243.0
+species	Neptunomonas antarctica	2	yes	yes	1	1	363.5
+species	Neptunomonas phycophila	2	yes	yes	1	1	356.5
+species	Nesiotobacter exalbescens	2	yes	yes	1	1	360.0
+species	Nitrosoarchaeum limnia	2	yes	yes	1	1	188.0
+species	Nitrosomonas communis	2	yes	yes	1	1	356.0
+species	Nitrosomonas ureae	3	yes	yes	1	1	347.3
+species	Nitrosopelagicus sp2	4	yes	yes	1	1	150.8
+species	Nitrosopumilus sp1	2	yes	yes	1	1	155.0
+species	Nitrosotalea sp1	2	yes	yes	1	1	154.5
+species	Nocardia asteroides	2	yes	yes	1	1	355.5
+species	Nonlabens ulvanivorans	2	yes	yes	1	1	311.0
+species	O2-02-FULL-42-9 sp1	2	yes	yes	1	1	229.5
+species	O2-12-FULL-45-9-A sp1	3	yes	yes	1	1	271.0
+species	OLB19 sp2	3	yes	yes	1	1	148.0
+species	OXYB2-FULL-41-6 sp1	7	yes	yes	1	1	143.4
+species	Ochrobactrum_A pseudogrignonense_A	2	no	no	0.667	1	357.0
+species	Octadecabacter temperatus	2	yes	yes	1	1	350.0
+species	Odoribacter laneus	2	yes	yes	1	1	329.0
+species	Odoribacter massiliensis	2	yes	yes	1	1	333.0
+species	Odoribacter splanchnicus	3	yes	yes	1	1	325.7
+species	Oenococcus oeni	50	yes	yes	1	1	275.3
+species	Oligella urethralis	3	yes	yes	1	1	342.7
+species	Olsenella uli	3	yes	yes	1	1	286.0
+species	Olsenella umbonata_A	2	yes	yes	1	1	291.5
+species	Orientia tsutsugamushi	8	yes	yes	1	1	181.8
+species	Paenibacillus pabuli_A	2	yes	yes	1	1	379.5
+species	Paenibacillus polymyxa	2	yes	yes	1	1	375.0
+species	Paenibacillus polymyxa_A	3	yes	yes	1	1	377.0
+species	Paenibacillus sp4	2	yes	yes	1	1	376.5
+species	Paenibacillus_H larvae	2	yes	yes	1	1	372.5
+species	Parageobacillus_A caldoxylosilyticus	3	yes	yes	1	1	379.7
+species	Paraglaciecola agarilytica	3	yes	yes	1	1	366.7
+species	Paraglaciecola mesophila	2	yes	yes	1	1	368.0
+species	Paraglaciecola psychrophila	2	yes	yes	1	1	374.5
+species	Parasutterella excrementihominis	2	yes	yes	1	1	304.5
+species	Pedobacter antarcticus	3	yes	yes	1	1	349.3
+species	Pedobacter heparinus	2	yes	yes	1	1	348.5
+species	Pelobacter_C sp1	2	yes	yes	1	1	276.0
+species	Peptostreptococcus anaerobius	2	yes	yes	1	1	301.0
+species	Peribacter riflensis	7	yes	yes	1	1	176.3
+species	Phascolarctobacterium succinatutens	2	yes	yes	1	1	325.5
+species	Phytoplasma sp2	2	yes	yes	1	1	124.0
+species	Pisciglobus halotolerans	2	yes	yes	1	1	287.5
+species	Piscirickettsia salmonis	24	yes	yes	1	1	321.8
+species	Planktophila sp1	2	yes	yes	1	1	277.5
+species	Pontibacillus_A halophilus	2	yes	yes	1	1	365.5
+species	Pontibacter akesuensis	2	yes	yes	1	1	347.0
+species	Pontibacter lucknowensis	2	yes	yes	1	1	342.5
+species	Porphyromonas somerae	2	yes	yes	1	1	275.0
+species	Pragia fontium	2	yes	yes	1	1	371.0
+species	Prevotella bryantii	3	yes	yes	1	1	320.3
+species	Prevotella buccae	2	yes	yes	1	1	315.5
+species	Prevotella intermedia	3	yes	yes	1	1	286.0
+species	Prevotella ruminicola	6	yes	yes	1	1	318.2
+species	Prevotella sp33	2	yes	yes	1	1	317.5
+species	Prevotella stercorea	2	yes	yes	1	1	284.5
+species	Prevotellamassilia timonensis	2	yes	yes	1	1	303.0
+species	Prochlorococcus marinus	6	yes	yes	1	1	313.2
+species	Prochlorococcus_A marinus_N	3	yes	yes	1	1	302.0
+species	Prochlorococcus_A sp1	6	yes	yes	1	1	217.7
+species	Prochlorococcus_B marinus	3	yes	yes	1	1	304.0
+species	Prochlorococcus_C marinus_A	3	yes	yes	1	1	329.3
+species	Prochlorococcus_C marinus_B	6	yes	yes	1	1	330.0
+species	Prochloron didemni	3	yes	yes	1	1	342.7
+species	Proteiniphilum acetatigenes	2	yes	yes	1	1	337.0
+species	Proteiniphilum saccharofermentans	2	yes	yes	1	1	333.0
+species	Protochlamydia naegleriophila	2	yes	yes	1	1	299.0
+species	Pseudanabaena biceps	2	yes	yes	1	1	344.5
+species	Pseudoalteromonas amylolytica	2	yes	yes	1	1	364.0
+species	Pseudoalteromonas ruthenica	3	yes	yes	1	1	359.7
+species	Pseudoalteromonas shioyasakiensis	4	yes	yes	1	1	365.3
+species	Pseudoalteromonas undina	2	yes	yes	1	1	363.0
+species	Pseudobacteroides cellulosolvens	2	yes	yes	1	1	347.5
+species	Pseudobutyrivibrio ruminis	2	yes	yes	1	1	328.0
+species	Pseudorhodobacter sp1	3	yes	yes	1	1	334.7
+species	Pseudothermotoga_B lettingae	2	yes	yes	1	1	297.0
+species	Pyrococcus furiosus	2	yes	yes	1	1	194.0
+species	RBG-16-57-9 sp1	2	yes	yes	1	1	123.5
+species	REDSEA-S09-B13 sp1	6	no	yes	1	1	293.3
+species	Ralstonia mannitolilytica	2	yes	yes	1	1	366.5
+species	Raphidiopsis raciborskii	4	yes	yes	1	1	343.3
+species	Raphidiopsis raciborskii_A	2	yes	yes	1	1	343.5
+species	Rhodonellum psychrophilum	3	yes	yes	1	1	346.3
+species	Rhodopirellula baltica	4	yes	yes	1	1	341.0
+species	Rhodopirellula europaea	2	yes	yes	1	1	342.0
+species	Rickettsia bellii	3	yes	yes	1	1	218.7
+species	Rickettsia canadensis	2	yes	yes	1	1	211.0
+species	Rickettsiella grylli	2	yes	yes	1	1	263.0
+species	Roseivirga seohaensis	2	no	no	0.667	1	337.5
+species	Rubidus massiliensis	2	yes	yes	1	1	275.0
+species	Ruminiclostridium_E siraeum	2	yes	yes	1	1	301.5
+species	Ruminobacter amylophilus	2	yes	yes	1	1	322.5
+species	Ruminococcus flavefaciens_F	2	yes	yes	1	1	324.0
+species	Ruminococcus_B torques	2	yes	yes	1	1	318.0
+species	Ruminococcus_D bicirculans	2	yes	yes	1	1	314.5
+species	Ruminococcus_F champanellensis	2	yes	yes	1	1	309.5
+species	S15-B10 sp1	2	yes	yes	1	1	234.0
+species	SCADC1-2-3 sp1	3	yes	yes	1	1	259.0
+species	SCGC-AAA076-P13 sp1	2	yes	yes	1	1	250.5
+species	SCGC-AAA471-B05 sp1	6	yes	yes	1	1	138.3
+species	SM1-40 sp1	3	yes	yes	1	1	263.0
+species	Saccharicrinis fermentans	2	yes	yes	1	1	351.5
+species	Salinivibrio costicola	7	yes	yes	1	1	358.6
+species	Salinivibrio socompensis	3	yes	yes	1	1	357.3
+species	Savagella sp1	11	yes	yes	1	1	237.7
+species	Sediminibacillus halophilus	2	yes	yes	1	1	369.0
+species	Selenomonas_A ruminantium_B	2	yes	yes	1	1	345.0
+species	Sellimonas intestinalis	2	yes	yes	1	1	331.0
+species	Sharpea azabuensis	4	yes	yes	1	1	312.8
+species	Shewanella baltica	2	yes	yes	1	1	366.0
+species	Shewanella japonica	2	yes	yes	1	1	368.0
+species	Simiduia agarivorans	2	yes	yes	1	1	351.0
+species	Solobacterium moorei	2	yes	yes	1	1	263.5
+species	Sphingobium herbicidovorans	2	yes	yes	1	1	353.0
+species	Spirochaeta_A thermophila	2	yes	yes	1	1	319.0
+species	Staphylococcus capitis	2	yes	yes	1	1	345.5
+species	Staphylococcus epidermidis	11	yes	yes	1	1	331.8
+species	Streptobacillus notomytis	3	yes	yes	1	1	250.0
+species	Streptococcus downei	3	yes	yes	1	1	308.0
+species	Streptococcus mutans	10	yes	yes	1	1	306.3
+species	Streptococcus pyogenes	2	yes	yes	1	1	264.5
+species	Streptococcus ratti	2	yes	yes	1	1	315.5
+species	Streptococcus sobrinus	2	yes	yes	1	1	306.5
+species	Streptococcus suis_L	2	yes	yes	1	1	300.0
+species	Streptococcus thermophilus	2	yes	yes	1	1	302.5
+species	Streptomyces avermitilis	2	yes	yes	1	1	357.5
+species	Streptomyces clavuligerus	2	yes	yes	1	1	356.0
+species	Streptomyces lividans	2	yes	yes	1	1	360.0
+species	Streptomyces sp37	2	yes	yes	1	1	352.0
+species	Sulfitobacter donghicola	2	yes	yes	1	1	354.0
+species	Sulfolobus acidocaldarius	49	yes	yes	1	1	183.2
+species	Sulfolobus_A islandicus	20	yes	yes	1	1	191.7
+species	Sulfolobus_A solfataricus	7	yes	yes	1	1	193.6
+species	Sulfuricurvum sp1	3	yes	yes	1	1	307.0
+species	Sulfurospirillum cavolei	3	yes	yes	1	1	337.7
+species	Sutterella wadsworthensis	2	yes	yes	1	1	311.0
+species	Symphothece euryhalinus	5	yes	yes	1	1	344.2
+species	Synechococcus elongatus	3	yes	yes	1	1	342.3
+species	Synechococcus_B spongiarum	3	yes	yes	1	1	280.0
+species	Synechocystis sp1	7	yes	yes	1	1	347.6
+species	TCS61 sp1	2	yes	yes	1	1	215.5
+species	TMED111 sp1	2	yes	yes	1	1	297.5
+species	Tatlockia jordanis	2	yes	yes	1	1	331.5
+species	Tepidanaerobacter syntrophicus	2	yes	yes	1	1	309.5
+species	Teredinibacter turnerae	5	yes	yes	1	1	351.8
+species	Terribacillus saccharophilus	2	yes	yes	1	1	359.0
+species	Terrimonas ferruginea	3	yes	yes	1	1	339.0
+species	Thalassotalea_A crassostreae	2	yes	yes	1	1	347.5
+species	Thermacetogenium phaeum	2	yes	yes	1	1	308.0
+species	Thermoanaerobacter thermocopriae_A	2	yes	yes	1	1	290.5
+species	Thermococcus thioreducens	2	yes	yes	1	1	170.0
+species	Thermococcus_A sibiricus	3	yes	yes	1	1	170.7
+species	Thermococcus_B barophilus	2	yes	yes	1	1	174.0
+species	Thermodesulfobacterium commune	2	yes	yes	1	1	301.0
+species	Thermofilum carboxyditrophus	2	yes	yes	1	1	138.0
+species	Thermotoga maritima	4	yes	yes	1	1	312.3
+species	Thermotoga neapolitana	3	yes	yes	1	1	317.0
+species	Thermovirga lienii	2	yes	yes	1	1	275.5
+species	Thiodiazotropha endoloripes	4	yes	yes	1	1	355.0
+species	Tidjanibacter massiliensis	2	yes	yes	1	1	288.5
+species	Treponema_D socranskii	2	yes	yes	1	1	297.5
+species	Treponema_F brennaborense	2	yes	yes	1	1	305.0
+species	Trichococcus flocculiformis	2	yes	yes	1	1	343.5
+species	Turicibacter sanguinis_A	3	yes	yes	1	1	295.3
+species	Tyzzerella nexilis	2	yes	yes	1	1	327.0
+species	UBA10002 sp2	5	no	yes	1	1	143.2
+species	UBA10009 sp1	5	yes	yes	1	1	166.4
+species	UBA10092 sp1	6	no	yes	1	1	118.8
+species	UBA10102 sp1	3	yes	yes	1	1	148.7
+species	UBA10103 sp2	4	yes	yes	1	1	154.0
+species	UBA10103 sp3	2	yes	yes	1	1	146.5
+species	UBA10103 sp4	2	yes	yes	1	1	174.0
+species	UBA10103 sp5	2	yes	yes	1	1	153.0
+species	UBA10119 sp2	4	yes	yes	1	1	147.0
+species	UBA10133 sp1	6	yes	yes	1	1	145.0
+species	UBA10133 sp3	7	yes	yes	1	1	151.7
+species	UBA10133 sp4	4	yes	yes	1	1	133.3
+species	UBA1014 sp2	2	no	yes	1	1	327.0
+species	UBA10151 sp2	2	yes	yes	1	1	148.5
+species	UBA10165 sp1	3	yes	yes	1	1	133.3
+species	UBA10181 sp1	3	yes	yes	1	1	183.0
+species	UBA10190 sp1	5	yes	yes	1	1	158.2
+species	UBA11361 sp3	2	no	yes	1	1	226.5
+species	UBA11703 sp1	12	yes	yes	1	1	139.2
+species	UBA11712 sp1	5	no	yes	1	1	169.8
+species	UBA11712 sp2	4	yes	yes	1	1	161.8
+species	UBA11713 sp1	4	yes	yes	1	1	137.0
+species	UBA12026 sp1	6	yes	yes	1	1	139.0
+species	UBA12026 sp2	4	yes	yes	1	1	137.0
+species	UBA12028 sp1	2	yes	yes	1	1	152.5
+species	UBA12042 sp1	4	yes	yes	1	1	136.5
+species	UBA12042 sp2	3	no	yes	1	0.999	131.0
+species	UBA12044 sp1	9	yes	yes	1	1	127.3
+species	UBA12049 sp1	5	no	yes	1	1	143.2
+species	UBA12053 sp1	2	yes	yes	1	1	141.0
+species	UBA12053 sp2	2	yes	yes	1	1	143.0
+species	UBA12068 sp1	4	yes	yes	1	1	145.0
+species	UBA12068 sp3	2	yes	yes	1	1	152.0
+species	UBA12075 sp1	6	yes	yes	1	1	171.0
+species	UBA12086 sp1	4	yes	yes	1	1	184.0
+species	UBA12087 sp1	3	yes	yes	1	1	326.3
+species	UBA12108 sp1	6	yes	yes	1	1	133.5
+species	UBA12158 sp1	3	yes	yes	1	1	142.3
+species	UBA12393 sp1	2	yes	yes	1	1	160.5
+species	UBA12403 sp1	2	yes	yes	1	1	145.0
+species	UBA12405 sp1	2	no	yes	1	1	134.0
+species	UBA12409 sp1	3	yes	yes	1	1	169.7
+species	UBA12411 sp1	2	yes	yes	1	1	183.5
+species	UBA12463 sp2	2	yes	yes	1	1	168.5
+species	UBA12470 sp1	2	yes	yes	1	1	194.5
+species	UBA12472 sp1	3	yes	yes	1	1	155.3
+species	UBA1406 sp1	7	yes	yes	1	1	148.6
+species	UBA1450 sp1	2	no	yes	1	1	193.5
+species	UBA1550 sp2	2	no	yes	1	1	140.5
+species	UBA1550 sp3	3	yes	yes	1	1	148.0
+species	UBA2206 sp1	2	yes	yes	1	1	175.5
+species	UBA2206 sp2	4	yes	yes	1	1	149.5
+species	UBA2277 sp1	3	no	yes	1	1	132.3
+species	UBA2284 sp1	2	no	yes	1	1	209.5
+species	UBA2775 sp1	3	yes	yes	1	1	325.7
+species	UBA5004 sp2	4	yes	yes	1	1	117.5
+species	UBA5004 sp4	3	yes	yes	1	1	126.7
+species	UBA5004 sp5	2	yes	yes	1	1	117.0
+species	UBA557 sp5	2	yes	yes	1	1	138.5
+species	UBA5619 sp1	3	yes	yes	1	1	299.7
+species	UBA6899 sp1	2	no	yes	1	1	179.0
+species	UBA6899 sp2	2	yes	yes	1	1	156.5
+species	UBA6899 sp3	2	yes	yes	1	1	181.0
+species	UBA8498 sp2	4	yes	yes	1	1	139.0
+species	UBA8498 sp3	2	no	yes	1	1	133.5
+species	UBA8498 sp4	11	no	yes	1	1	137.9
+species	UBA8515 sp1	11	yes	yes	1	1	153.3
+species	UBA8515 sp2	4	yes	yes	1	1	150.5
+species	UBA8517 sp2	2	no	yes	1	0.999	130.5
+species	UBA9337 sp1	2	no	yes	1	1	157.5
+species	UBA9579 sp1	2	yes	yes	1	1	304.5
+species	UBA9627 sp1	2	yes	yes	1	1	272.0
+species	UBA9631 sp1	2	yes	yes	1	1	173.5
+species	UBA9637 sp1	8	no	yes	1	1	291.9
+species	UBA9644 sp1	4	yes	yes	1	1	164.8
+species	UBA9645 sp1	6	yes	yes	1	1	190.3
+species	UBA9933 sp2	2	yes	yes	1	1	158.0
+species	UBA9934 sp1	11	no	yes	1	1	145.3
+species	UBA9973 sp1	5	yes	yes	1	1	147.4
+species	UBA9973 sp11	3	no	yes	1	1	137.0
+species	UBA9973 sp13	2	yes	yes	1	1	139.0
+species	UBA9973 sp14	3	yes	yes	1	1	142.7
+species	UBA9973 sp15	2	yes	yes	1	1	135.0
+species	UBA9973 sp2	8	yes	yes	1	1	151.4
+species	UBA9973 sp5	2	yes	yes	1	1	125.0
+species	UBA9978 sp1	4	yes	yes	1	1	174.3
+species	UBA9983 sp1	4	yes	yes	1	1	138.8
+species	UBA9988 sp1	2	yes	yes	1	1	120.5
+species	Varibaculum cambriense	2	yes	yes	1	1	300.0
+species	Veillonella parvula	2	yes	yes	1	1	326.5
+species	Vibrio alginolyticus	2	yes	yes	1	1	371.5
+species	Vibrio antiquarius	2	yes	yes	1	1	365.0
+species	Vibrio parahaemolyticus	2	yes	yes	1	1	366.0
+species	Vulcanisaeta distributa	2	yes	yes	1	1	174.5
+species	Vulcanisaeta distributa_A	2	yes	yes	1	1	168.0
+species	WO2-35-19 sp1	2	yes	yes	1	1	136.0
+species	WO2-35-19 sp2	2	yes	yes	1	1	128.5
+species	WO2-43-9 sp1	4	yes	yes	1	1	172.0
+species	WO2-44-18 sp1	2	yes	yes	1	1	129.0
+species	WO2-46-25 sp1	3	yes	yes	1	1	159.0
+species	WO2-47-17b sp1	2	yes	yes	1	1	126.0
+species	WO2-48-25 sp1	2	yes	yes	1	1	141.0
+species	WO2-54-10 sp1	4	yes	yes	1	1	147.8
+species	WO2-FULL-39-10 sp1	4	yes	yes	1	1	148.0
+species	WO2-FULL-40-11 sp1	2	no	yes	1	1	169.0
+species	Waddlia chondrophila	2	yes	yes	1	1	297.0
+species	Weissella ceti	4	yes	yes	1	1	245.8
+species	Weissella confusa	3	yes	yes	1	1	269.7
+species	Weissella halotolerans	2	yes	yes	1	1	256.5
+species	Wohlfahrtiimonas chitiniclastica	4	yes	yes	1	1	337.3
+species	XYA12-FULL-58-9 sp1	2	yes	yes	1	1	337.5
+species	XYA2-FULL-35-8 sp1	2	no	yes	1	1	160.0
+species	XYA2-FULL-47-19 sp1	3	yes	yes	1	1	195.7
+species	XYB1-36-10 sp1	3	yes	yes	1	1	124.0
+species	XYB1-40-15 sp1	4	yes	yes	1	1	184.8
+species	XYB1-40-15 sp2	2	yes	yes	1	1	155.0
+species	XYB2-FULL-36-35 sp1	3	yes	yes	1	1	283.0
+species	XYB2-FULL-45-11 sp1	6	yes	yes	1	1	169.7
+species	XYB2-FULL-45-9 sp1	5	yes	yes	1	1	298.6
+species	XYB2-FULL-50-12 sp1	2	yes	yes	1	1	285.0
+species	XYC2-FULL-37-10 sp1	3	yes	yes	1	1	260.7
+species	XYC2-FULL-46-14 sp1	4	yes	yes	1	1	296.3
+species	XYC2-FULL-47-12 sp1	2	yes	yes	1	1	177.5
+species	XYD1-37-29 sp1	2	yes	yes	1	1	171.5
+species	XYD1-FULL-39-28 sp1	2	yes	yes	1	1	139.0
+species	XYD1-FULL-40-9 sp1	2	yes	yes	1	1	125.5
+species	XYD1-FULL-55-31 sp1	2	yes	yes	1	1	296.5
+species	XYD2-FULL-39-9 sp1	2	yes	yes	1	1	170.0
+species	XYD2-FULL-41-8 sp1	4	yes	yes	1	1	287.0
+species	YA12-FULL-60-10 sp1	3	yes	yes	1	1	277.3
+species	YC12-FULL-57-11 sp1	3	yes	yes	1	1	179.0
+species	YC2-FULL-38-9 sp1	7	yes	yes	1	1	172.3
+species	Yersinia pestis	29	yes	yes	1	1	370.3
+species	Zag1 sp3	2	yes	yes	1	1	261.5
+species	Zhongshania aliphaticivorans	2	yes	yes	1	1	352.5
+species	Zhouia amylolytica	2	yes	yes	1	1	345.0
+species	Zymomonas mobilis	7	yes	yes	1	1	320.6

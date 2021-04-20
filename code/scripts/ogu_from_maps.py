@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate gOTU tables from read-to-reference maps.
+"""Generate OGU tables from read-to-reference maps.
 """
 
 from os import listdir
@@ -11,13 +11,13 @@ import argparse
 
 
 description = """example:
-  gOTU_from_maps.py bowtie2_result_dir output_name \\
+  ogu_from_maps.py bowtie2_result_dir output_name \\
     -m bowtie2 -e .sam.xz \\
     -s sample_ids_to_include.txt \\
     -t sequence_id_to_genome_id.txt
 """
 
-epilog = """output gOTU tables:
+epilog = """output OGU tables:
   - all: sum of all hits per genome.
   - norm: sum of hits per genome; if one hit is shared by k genomes, each
     genome receives 1/k hits.
@@ -35,7 +35,7 @@ def main():
     parser.add_argument('input_dir',
                         help='input directory hosting maps')
     parser.add_argument('output_name',
-                        help='stem filename for output gOTU tables')
+                        help='stem filename for output OGU tables')
     parser.add_argument('-m', dest='method',
                         help=('method that generated the maps, options: '
                               'Bowtie2, Centrifuge or leave empty, the last '
@@ -90,7 +90,7 @@ def main():
         with open(args.translation, 'r') as f:
             sbj2g = dict(x.split('\t') for x in f.read().splitlines())
 
-    # parse maps and generate gOTU tables
+    # parse maps and generate OGU tables
     data = {}
     for sample in samples:
         f = read(join(args.input_dir, sample2fname[sample]))
