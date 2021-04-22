@@ -28,11 +28,13 @@ For comparative purpose, we also generated multiple trees using the conventional
 
 ## How to get it
 
-We recommend using this [**tree**](data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk) as the reference phylogeny for observations and downstream applications, together with the genome [**metadata**](data/genomes/metadata.tsv.xz).
+We recommend using this [**tree**](data/trees/tree.nwk) as the reference phylogeny for observations and downstream applications, together with the genome [**metadata**](data/genomes/metadata.tsv.xz).
 
 Multiple trees, built using different input data and methodology, together with the corresponding metadata, curated taxonomy and other information, are provided in this repository. Please browse the [**data**](data) directory for details.
 
 The genome and protein sequences, multiple sequence alignments and other large data files are available at [Globus](https://www.globus.org/), with endpoint name [**WebOfLife**](https://app.globus.org/file-manager/collections/31acbeb8-c62f-11ea-bef9-0e716405a293) (owner: jdereus@globusid.org). For instruction on how to transfer files via Globus, please read this [guide](https://docs.globus.org/how-to/get-started/).
+
+Basic data files needed for running microbiome data analyses using WoL are hosted at our FTP site: ftp://ftp.microbio.me/pub/wol-20April2021 (total size: 7.8 GB).
 
 
 ## How to view it
