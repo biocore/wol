@@ -1,15 +1,15 @@
 Download
 ========
 
-Data release of the WoL project is hosted at two locations:
+Data release of the WoL project is hosted at three locations:
 
 1. This website provides trees, taxonomy, metadata, code, protocols and renderings.
-2. Sequences and pre-built databases are hosted at our Globus endpoint [**WebOfLife**](https://app.globus.org/file-manager/collections/31acbeb8-c62f-11ea-bef9-0e716405a293) (see [instruction](#download-via-globus) below).
-
+2. Large sequence files and pre-built databases are hosted at our Globus endpoint [**WebOfLife**](https://app.globus.org/file-manager/collections/31acbeb8-c62f-11ea-bef9-0e716405a293) (see [instruction](#download-via-globus) below).
+3. Data files needed for running microbiome data analyses using WoL are hosted at our FTP site: ftp://ftp.microbio.me/pub/wol-20April2021 (total size: 7.8 GB).
 
 ## Quickest start
 
-Click to download the [**tree**](data/trees/astral/branch_length/cons/collapsed/astral.cons.nid.e5p50.nwk) and the [**metadata**](data/genomes/metadata.tsv.xz) and it is good to go!
+Click to download the [**tree**](data/trees/tree.nwk) and the [**metadata**](data/genomes/metadata.tsv.xz) and it is good to go!
 
 [QIIME 2](https://qiime2.org/) users may download the pre-compiled [**tree.qza**](data/trees/tree.qza) and [**taxonomy.qza**](data/taxonomy/ncbi/taxonomy.qza).
 
