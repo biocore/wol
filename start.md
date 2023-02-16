@@ -32,9 +32,9 @@ We recommend using this [**tree**](data/trees/tree.nwk) as the reference phyloge
 
 Multiple trees, built using different input data and methodology, together with the corresponding metadata, curated taxonomy and other information, are provided in this repository. Please browse the [**data**](data) directory for details.
 
-The genome and protein sequences, multiple sequence alignments and other large data files are available at [Globus](https://www.globus.org/), with endpoint name [**WebOfLife**](https://app.globus.org/file-manager/collections/31acbeb8-c62f-11ea-bef9-0e716405a293) (owner: jdereus@globusid.org). For instruction on how to transfer files via Globus, please read this [guide](https://docs.globus.org/how-to/get-started/).
+The genome and protein sequences, multiple sequence alignments and other large data files are available at [Globus](https://www.globus.org/), with endpoint name [**WebOfLife**](https://app.globus.org/file-manager?origin_id=5055eb43-d82b-43f6-8bcb-6be9dfd32748) (owner: jdereus@globusid.org). For instruction on how to transfer files via Globus, please read this [guide](https://docs.globus.org/how-to/get-started/).
 
-Basic data files needed for running microbiome data analyses using WoL are hosted at our FTP site: ftp://ftp.microbio.me/pub/wol-20April2021 (total size: 7.8 GB).
+Basic data files needed for running microbiome data analyses using WoL are hosted at our FTP site: [ftp.microbio.me/pub/wol-20April2021](http://ftp.microbio.me/pub/wol-20April2021/) (total size: 7.8 GB).
 
 
 ## How to view it

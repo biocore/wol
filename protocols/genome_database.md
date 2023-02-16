@@ -18,7 +18,7 @@ We provide NCBI or GTDB, original or curated taxonomy in multiple formats. See [
 
 #### NCBI taxdump
 
-For programs (e.g., Kraken, Centrifuge) that prefer taxonomy in the format of [NCBI taxdump](ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/). We provide a mini taxdump which only contains genomes in the phylogeny, and their higher-level ancestors. We also provide the original full taxdump at Globus. See [details](../data/taxonomy/ncbi/taxdump).
+For programs (e.g., Kraken, Centrifuge) that prefer taxonomy in the format of [NCBI taxdump](https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/). We provide a mini taxdump which only contains genomes in the phylogeny, and their higher-level ancestors. We also provide the original full taxdump at Globus. See [details](../data/taxonomy/ncbi/taxdump).
 
 - Note: taxdump is only available for NCBI, but not GTDB.
 

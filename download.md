@@ -4,8 +4,9 @@ Download
 Data release of the WoL project is hosted at three locations:
 
 1. This website provides trees, taxonomy, metadata, code, protocols and renderings.
-2. Large sequence files and pre-built databases are hosted at our Globus endpoint [**WebOfLife**](https://app.globus.org/file-manager/collections/31acbeb8-c62f-11ea-bef9-0e716405a293) (see [instruction](#download-via-globus) below).
-3. Data files needed for running microbiome data analyses using WoL are hosted at our FTP site: ftp://ftp.microbio.me/pub/wol-20April2021 (total size: 7.8 GB).
+2. Large sequence files and pre-built databases are hosted at our Globus endpoint [**WebOfLife**](https://app.globus.org/file-manager?origin_id=5055eb43-d82b-43f6-8bcb-6be9dfd32748) (see [instruction](#download-via-globus) below).
+3. Data files needed for running microbiome data analyses using WoL are hosted at our FTP site: [ftp.microbio.me/pub/wol-20April2021](http://ftp.microbio.me/pub/wol-20April2021/) (total size: 7.8 GB).
+
 
 ## Quickest start
 
@@ -37,7 +38,7 @@ Our [interactive tree viewer](empress) allows you to select a node and download 
 
 We use the [Globus](https://www.globus.org/) service to share very large data files. Please navigate to our Globus endpoint:
 
- - [**WebOfLife**](https://app.globus.org/file-manager/collections/31acbeb8-c62f-11ea-bef9-0e716405a293)
+ - [**WebOfLife**](https://app.globus.org/file-manager?origin_id=5055eb43-d82b-43f6-8bcb-6be9dfd32748)
 
 If you work with centralized supercomputing facilities, you may consult your IT staff. It is possible that there is an institute account for Globus which allows you to directly transfer the data files to the supercomputer.
 
